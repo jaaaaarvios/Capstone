@@ -1,0 +1,36 @@
+
+<div class="container">
+    
+    <mat-card class="frontcard">
+        <img class="logo" mat-card-image src="../../assets/Techlean.png">
+        <div class="menu">
+        <button class="menuButton" mat-button [matMenuTriggerFor]="aboveMenu">Our Services</button>
+        <mat-menu #aboveMenu="matMenu" yPosition="above">
+          <button mat-menu-item>Home Appliances Repair</button>
+          <button mat-menu-item>Electronic Devices Repair</button>
+          <button mat-menu-item>House Cleaning</button>
+          
+        </mat-menu>
+        
+        <button class="menuButton" mat-button>Pricing</button>
+        <button class="menuButton" mat-button>About Us</button>
+        
+    </div>
+        <div class="content">
+            <p class="title"><b>We provide the service</b></p>
+            <p class="title1"><b>you need in your</b></p>
+            <p class="title2"><b>own home.</b></p>
+            <nav>
+            <button mat-raised-button class='serviceBtn'><a class="booklink" routerLink="/loginform">Book a Service</a></button></nav>
+        </div>
+    
+    <div>
+        <img class="vector" mat-card-image src="../../assets/vector.png">
+
+    </div>
+
+
+    </mat-card>
+
+   
+  </div>

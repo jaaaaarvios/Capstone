@@ -1,0 +1,256 @@
+.example-container {
+    max-width: 95%;
+    min-height: 910px;
+    margin-top: 10px;
+    margin-left: 50px;
+    border: 1px solid #E5E5E5;
+    border-radius: 30px;
+  }
+  
+  .mat-drawer
+  {
+  width: 280px;
+  background-color: #14213D;
+  }
+  
+  .mat-drawer-content
+  {
+  height: 910px;
+  background-color: white;
+  }
+  
+  .paymentcard
+  {
+      width: 900px;
+      height: 500px;
+    margin-left: 100px;
+    margin-top: 150px;
+  }
+
+  .logo
+  {
+    width: 170px;
+    height: 90px;
+    margin-top: 80px;
+    margin-left: 50px;
+  }
+  
+  .dashboardside
+  {
+  margin-left: 40px;
+  
+  }
+  .dashBtn
+  {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 120px;
+  }
+  
+  .homeicon
+  {
+    color: white;
+    font-size: 25px;
+  }
+  
+  .mat-tab-group
+  {
+      width: 1000px;
+      margin-top: 50px;
+      margin-left: 70px;
+  }
+  
+  .bookingside
+  {
+  margin-left: 40px;
+  
+  }
+  
+  .bookingicon
+  {
+    color: white;
+    font-size: 25px;
+  }
+  
+  .bookingBtn
+  {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 30px;
+  }
+  
+  .profileside
+  {
+  margin-left: 40px;
+  
+  }
+  
+  .profileicon
+  {
+    color: white;
+    font-size: 25px;
+  }
+  
+  .profileBtn
+  {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 30px;
+  }
+  
+  .paymentside
+  {
+  margin-left: 40px;
+  
+  }
+  
+  .paymenticon
+  {
+    color: white;
+    font-size: 25px;
+  }
+  
+  .paymentBtn
+  {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 25px;
+  
+  }
+  .paymentlink
+  {
+    text-decoration: none;
+    color: white;
+  }
+
+  .dashlink
+  {
+    text-decoration: none;
+    color: white;
+  }
+
+  .bookinglink
+  {
+    text-decoration: none;
+    color: white;
+  }
+
+  .profilelink
+  {
+    text-decoration: none;
+    color: white;
+  }
+  
+  
+  .welcome
+  {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  color: #14213D;
+  float: right;
+  margin-top: -40px;
+  margin-right: 350px;
+  }
+  .services
+  {
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  color: #14213D;
+  margin-top: 40px;
+  margin-left: 50px;
+  }
+  
+  .inboxicon
+  {
+    font-size: 30px;
+    color: #14213D;
+    float: right;
+    margin-right: -250px;
+    margin-top: -40px;
+  }
+  
+  .logouticon
+  {
+    font-size: 30px;
+    color: #14213D;
+    float: right;
+    margin-right: -300px;
+    margin-top: -40px;
+  }
+  
+  .logoutBtn
+  {
+    font-size: 18px;
+    color: #14213D;
+    float: right;
+    margin-right: -390px;
+    margin-top: -45px;
+  }
+  
+  .payment
+  {
+      font-size: 25px;
+      margin-top: 80px;
+      font-family: 'Trebuchet MS';
+  }
+
+  .option
+  {
+    font-size: 18px;
+    margin-top: 10px;
+    color: grey;
+    font-family: 'Trebuchet MS';
+  }
+  .gcashBtn
+  {
+      margin-top: 50px;
+      border-color: #FCA311;
+      width: 250px;
+      height: 80px;
+  }
+
+  .gcashicon
+  {
+      margin-right: 30px;
+      height: 30px;
+      width: 35px;
+  }
+
+  .paymayaBtn
+  {
+      margin-top: 30px;
+      border-color: #FCA311;
+      width: 250px;
+      height: 80px;
+  }
+
+  .paymayaicon
+  {
+      margin-right: 30px;
+      height: 30px;
+      width: 35px;
+  }
+
+  .cashBtn
+  {
+      margin-top: 30px;
+      border-color: #FCA311;
+      width: 250px;
+      height: 80px;
+  }
+
+  .cashicon
+  {
+      margin-right: 30px;
+      height: 35px;
+      width: 35px;
+  }

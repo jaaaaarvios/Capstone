@@ -1,0 +1,116 @@
+.container
+{
+background-image: url('../../assets/webbackground.png');
+height: 100%;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+body, html
+{
+  height: 100%;
+}
+
+.logo
+{
+height: 30%;
+width: 20%;
+margin: 20px;
+
+
+}
+
+.frontcard
+{
+background-image: url('../../assets/webbackground.png');
+background-repeat: no-repeat;
+border-radius: 40px;
+margin: 175px;
+margin-top: 50px;
+padding-top: 50px;
+min-height: 700px;
+min-width: 1500px;
+background-color: #E5E5E5;
+opacity: 100%;
+position:absolute;
+}
+
+.menu
+{
+    float: right;
+    margin-right: 250px;
+    margin-top: 30px;
+}
+
+.menuButton
+{
+    margin-right: 30px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    color: #14213D;
+}
+
+
+.serviceBtn
+{
+    background-color: #FCA311;
+    color: #14213D;
+    height: 45px;
+    width: 140px;
+    margin-left: 300px;
+    margin-top: -10px;
+    margin-left: 3px;
+}
+
+.booklink
+{
+    color: white;
+    text-decoration: none;
+}
+    
+.booklink:hover 
+{
+    background-color: #FCA311;
+    color: #14213D;
+   
+}
+
+.title
+{
+    color: #14213D;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;  
+}
+
+.title1
+{
+    color: #14213D;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif; 
+    margin-top: -40px; 
+}
+
+.title2
+{
+    color: #14213D;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;  
+    margin-top: -40px; 
+}
+
+.content
+{
+    margin-left: 850px;
+    margin-top: 120px;;
+}
+
+.vector
+{
+height: 550px;
+width: 700px;
+position: absolute;
+bottom: 150px;
+margin-left: 50px;
+
+}

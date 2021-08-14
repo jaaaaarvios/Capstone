@@ -1,0 +1,75 @@
+<div class="dashboard">
+
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+      <img class="logo" mat-card-image src="../../assets/techleanlogoyellow.png">
+      
+    <div class="dashboardside">
+      <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
+      <button class="dashBtn" mat-button><a class="dashlink" routerLink="/dashboard">Dashboard</a></button>
+    </div>
+
+    <div class="bookingside">
+      <mat-icon class="bookingicon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+      <button class="bookingBtn" mat-button><a class="bookinglink" routerLink="/bookingform">Book a Service</a></button>
+    </div>
+
+    <div class="profileside">
+      <mat-icon class="profileicon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+      <button class="profileBtn" mat-button><a class="profilelink" routerLink="/dashboard">Profile</a></button>
+    </div>
+
+    <div class="paymentside">
+      <mat-icon class="paymenticon" aria-hidden="false" aria-label="">credit_card</mat-icon>
+      <button class="paymentBtn" mat-button><a class="paymentlink" routerLink="/paymentform">Payment</a></button>
+    </div>
+
+  </mat-drawer>
+
+<!--Notification and Logout-->
+  <mat-drawer-content>
+      <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
+      <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
+        <button class="logoutBtn" mat-button>Logout</button>
+
+<!--1st Stepper-->
+      
+
+    
+            
+            <!--Appliances Repair--> 
+            <div>
+              <h1 class="h1serviceneed">What service do you need?</h1>
+            </div>
+          <div class="allservices">
+            <mat-card class="appliancescard">
+                  <img class="applianceimg" mat-card-image src="../../assets/appliancesicon.png">
+              <mat-card-content>
+                  <button class="h1appliances" mat-button (click)="openDialog()">Appliances Repair</button>
+              </mat-card-content>
+              </mat-card>
+            </div>
+      
+            <!--Electrical Repair-->  
+              <mat-card class="electricalcard">
+                  <img class="electricalimg" mat-card-image src="../../assets/electricalicon.png">
+              <mat-card-content>
+                <button class="h1electrical" mat-button (click)="openDialog()">Electrical Wiring Repair</button>
+              </mat-card-content>
+              </mat-card>
+
+            <!--House Cleaning-->  
+              <div>
+              <mat-card class="cleaningcard">
+                  <img class="cleaningimg" mat-card-image src="../../assets/cleaningicon.png">
+                      <mat-card-content>
+                          <h1 class="h1cleaning">House Cleaning</h1>
+                      </mat-card-content>
+              </mat-card>
+          </div>
+            
+        
+    </mat-drawer-content>
+  </mat-drawer-container>
+  
+</div>

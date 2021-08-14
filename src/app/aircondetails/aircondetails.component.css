@@ -1,0 +1,83 @@
+.h1title
+{
+    font-size: 30px;
+    font-family: 'Trebuchet MS';
+    margin-left: 18px;
+}
+
+.servicetype
+{
+    margin-left: 40px;
+    margin-top: 10px;
+    font-family: 'Trebuchet MS';
+}
+
+.zipcode
+{
+    margin-left: 40px;
+    margin-top: 10px;
+    font-family: 'Trebuchet MS';
+}
+
+.airconselect
+{
+    margin-left: 40px;
+    margin-top: 10px;
+    font-family: 'Trebuchet MS';
+}
+
+.h2title
+{
+    font-size: 30px;
+    font-family: 'Trebuchet MS';
+    margin-left: 18px; 
+}
+
+.airconbrand
+{
+    margin-left: 40px;
+    margin-top: 10px;
+    font-family: 'Trebuchet MS';
+}
+
+.unittype
+{
+    margin-left: 40px;
+    margin-top: 10px;
+    font-family: 'Trebuchet MS';
+}
+
+.airconprob
+{
+    width: 690px;
+    margin-left: 40px;
+    margin-top: 10px;
+    font-family: 'Trebuchet MS';
+}
+
+.mat-icon
+{
+    margin-right: 20px;
+}
+.mat-stroked-button
+{
+    font-family: 'Trebuchet MS';
+    border-color: #FCA311;
+    color: #14213D;
+    font-size: 18px;
+    margin-left: 140px;
+    height: 50px;
+    width: 500px;
+}
+
+.mat-raised-button
+{
+    font-family: 'Trebuchet MS';
+    background-color: #FCA311;
+    color: #14213D;
+    font-size: 18px;
+    margin-left: 620px;
+    margin-top: 50px;
+    height: 50px;
+    width: 100px;
+}

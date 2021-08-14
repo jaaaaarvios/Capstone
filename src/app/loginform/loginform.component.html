@@ -1,0 +1,65 @@
+<div class="loginform">
+
+    <mat-card class="logincard">
+      <mat-icon class="close" aria-hidden="false" aria-label="">close</mat-icon>
+        <img class="logo" mat-card-image src="../../assets/techleanlogo.png">
+        
+      <div class="loginTabs">
+        <mat-tab-group>
+          <mat-tab class="loginTab" label="Login">
+          <p>
+            <mat-form-field class="login-emailfield" appearance="outline">
+              <mat-label>Email Address</mat-label>
+              <input matInput placeholder="Enter email address">
+            </mat-form-field>
+  
+            <mat-form-field class="login-passfield" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="Enter password" [type]="hide ? 'password' : 'text'">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+             </mat-form-field>
+          </p>
+            <button mat-raised-button class="loginBtn"><a class="loginlink" routerLink="/dashboard">Login</a></button>
+            <button mat-raised-button class="fbBtn"><a class="fblink" routerLink="/dashboard">Login with Facebook</a></button>
+            <button mat-raised-button class="googleBtn"><a class="googlelink" routerLink="/dashboard">Login with Google Account</a></button>
+          
+          </mat-tab>
+         
+
+          <mat-tab class="signupTab" label="Signup">
+            <p>
+              <mat-form-field class="signup-namefield" appearance="outline">
+                <mat-label>Full Name</mat-label>
+                <input matInput placeholder="Enter full name">
+              </mat-form-field>
+            </p>
+      
+            <p>
+              <mat-form-field class="signup-emailfield" appearance="outline">
+                  <mat-label>Email Address</mat-label>
+                  <input matInput placeholder="yourname@example.com">
+              </mat-form-field>
+      
+              <mat-form-field class="signup-passfield" appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input matInput placeholder="Enter password" [type]="hide ? 'password' : 'text'">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+              </mat-form-field>
+            </p>
+           
+            <button mat-raised-button class="signupBtn"><a class="signuplink" routerLink="/loginform">Signup</a></button>
+           
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+       
+      
+
+        
+        
+    </mat-card>
+</div>

@@ -1,0 +1,40 @@
+.h1title
+{
+    font-size: 25px;
+    font-family: 'Trebuchet MS';
+    margin-left: 10px;
+}
+
+
+.lightscard
+{
+    margin-top: 50px;
+    margin-left: 20px;
+    width: 200px;
+    height: 200px;
+}
+
+
+.outletcard
+{
+    margin-top: -232px;
+    margin-left: 290px;
+    width: 200px;
+    height: 200px;
+}
+
+
+.h1lights
+{
+font-family: 'Trebuchet MS';
+font-size: 16px;
+margin-left: 80px;
+}
+
+.h1outlet
+{
+    font-family: 'Trebuchet MS';
+    font-size: 16px;
+    margin-left: 55px;
+}
+

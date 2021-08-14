@@ -1,0 +1,262 @@
+.example-container {
+    max-width: 95%;
+    min-height: 910px;
+    margin-top: 10px;
+    margin-left: 50px;
+    border: 1px solid #E5E5E5;
+    border-radius: 30px;
+  }
+  
+  .mat-drawer
+  {
+  width: 280px;
+  background-color: #14213D;
+  }
+  
+  .mat-drawer-content
+  {
+  height: 910px;
+  background-color: white;
+  }
+  
+  .logo
+  {
+    width: 170px;
+    height: 90px;
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+  
+  .dashboardside
+  {
+  margin-left: 40px;
+  
+  }
+  .dashBtn
+  {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 120px;
+  }
+ 
+  .homeicon
+  {
+    color: white;
+    font-size: 25px;
+  }
+  
+  .mat-tab-group
+  {
+      width: 1000px;
+      margin-top: 50px;
+      margin-left: 70px;
+  }
+  
+  .bookingside
+  {
+  margin-left: 40px;
+  
+  }
+  
+  .bookingicon
+  {
+    color: white;
+    font-size: 25px;
+  }
+  
+  .bookingBtn
+  {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 30px;
+  }
+  
+  .profileside
+  {
+  margin-left: 40px;
+  
+  }
+  
+  .profileicon
+  {
+    color: white;
+    font-size: 25px;
+  }
+  
+  .profileBtn
+  {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 30px;
+  }
+  
+  .services
+  {
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  color: #14213D;
+  margin-top: 40px;
+  margin-left: 50px;
+  }
+  
+  .inboxicon
+  {
+    font-size: 30px;
+    color: #14213D;
+    float: right;
+    margin-right: 200px;
+    margin-top: -53px;
+  }
+  
+  .logouticon
+  {
+    font-size: 30px;
+    color: #14213D;
+    float: right;
+    margin-right: 140px;
+    margin-top: -53px;
+  }
+  
+  .logoutBtn
+  {
+    font-size: 18px;
+    color: #14213D;
+    float: right;
+    margin-right: 50px;
+    margin-top: -55px;
+  }
+
+.h1services
+{
+    font-family: 'Trebuchet MS';
+}
+.appliancescard
+{
+    margin-top: 80px;
+    margin-left: 320px;
+    width: 200px;
+    height: 200px;
+}
+  
+
+.h1appliances
+{
+    font-family: 'Trebuchet MS';
+    font-size: 18px;
+    margin-top: -5px;
+    margin-left: 15px;
+}
+
+.electricalcard
+{
+    margin-top: -235px;
+    margin-left: 615px;
+    width: 200px;
+    height: 200px;
+}
+
+.h1electrical
+{
+    font-family: 'Trebuchet MS';
+    font-size: 18px;
+    margin-left: -10px;
+}
+
+.cleaningcard
+{
+    margin-top: -230px;
+    margin-left: 900px;
+    width: 200px;
+    height: 200px;
+}
+
+.h1cleaning
+{
+    font-family: 'Trebuchet MS';
+    font-size: 18px;
+    margin-left: 32px;
+}
+
+.h1serviceneed
+{
+    font-family: 'Trebuchet MS';
+    font-size: 28px;
+    color: #14213D;
+    margin-top: 200px;
+    margin-left: 320px;
+}
+
+.dashlink
+{
+    color: white;
+    text-decoration: none;
+    
+}
+
+
+.bookinglink
+{
+color: white;
+text-decoration: none;
+}
+
+.profilelink
+{
+    color: white;
+    text-decoration: none;
+}
+    
+.dashlink:hover 
+{
+    background-color: #FCA311;
+    color: #14213D;
+   
+}
+
+.bookinglink:hover 
+{
+    background-color: #FCA311;
+    color: #14213D;
+   
+}
+
+.profilelink:hover 
+{
+    background-color: #FCA311;
+    color: #14213D;
+   
+}
+
+.paymentside
+{
+margin-left: 40px;
+
+}
+
+.paymenticon
+{
+  color: white;
+  font-size: 25px;
+}
+
+.paymentBtn
+{
+color: white;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: 18px;
+margin-left: 10px;
+margin-top: 25px;
+
+}
+.paymentlink
+{
+  text-decoration: none;
+  color: white;
+}

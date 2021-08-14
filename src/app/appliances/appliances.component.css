@@ -1,0 +1,70 @@
+.h1title
+{
+    font-size: 30px;
+    font-family: 'Trebuchet MS';
+    margin-left: 30px;
+}
+
+
+.airconcard
+{
+    margin-top: 50px;
+    margin-left: 10px;
+    width: 200px;
+    height: 200px;
+}
+
+.refcard
+{
+    margin-top: -235px;
+    margin-left: 270px;
+    width: 200px;
+    height: 200px;
+}
+
+.efancard
+{
+    margin-top: -232px;
+    margin-left: 530px;
+    width: 200px;
+    height: 200px;
+}
+
+.washingcard
+{
+    margin-top: -230px;
+    margin-left: 800px;
+    width: 200px;
+    height: 200px;
+}
+
+.h1appliances
+{
+font-family: 'Trebuchet MS';
+font-size: 16px;
+margin-top: -10px;
+margin-left: 60px;
+
+}
+
+.h1ref
+{
+    font-family: 'Trebuchet MS';
+    font-size: 16px;
+    margin-left: 55px;
+}
+
+.h1efan
+{
+    font-family: 'Trebuchet MS';
+    font-size: 16px;
+    margin-left: 52px;
+}
+
+.h1washing
+{
+    font-family: 'Trebuchet MS';
+    font-size: 16px;
+    margin-left: 35px;
+}
+

@@ -1,0 +1,23 @@
+<div class="reschedule">
+<div>
+    <h1 class="resched">Reschedule Service</h1>
+
+    <button class="cancelBtn" mat-raised-button (click)="openDialog()">Cancel Request</button>
+    <mat-form-field class="datepicker" appearance="outline">
+            <mat-label>Date of Service</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button class="dateBtn" (click)="picker.open()">Pick a date</button>
+    
+  </div>
+  
+  <!--Time Slots--> 
+  <div class="timeslots">
+      <h1 class="timeslot">Select a time slot</h1>
+        <button mat-stroked-button class="tech1Btn">7:00am-10:00am<h1 class="h1technicians">10 Technicians</h1></button>
+        <button mat-stroked-button class="tech2Btn">10:00am-1:00pm<h1 class="h1technicians">10 Technicians</h1></button>
+        <button mat-stroked-button class="tech3Btn">1:00pm-3:00pm<h1 class="h1technicians">10 Technicians</h1></button>
+        <button mat-stroked-button class="tech4Btn">3:00pm-6:00pm<h1 class="h1technicians">10 Technicians</h1></button>
+  </div>
+</div>

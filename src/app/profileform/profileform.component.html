@@ -1,0 +1,45 @@
+<div class="dashboard">
+
+    <mat-drawer-container class="example-container">
+      <mat-drawer mode="side" opened>
+        <img class="logo" mat-card-image src="../../assets/techleanlogoyellow.png">
+        
+      <div class="dashboardside">
+        <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
+        <button class="dashBtn" mat-button><a class="dashlink" routerLink="/dashboard">Dashboard</a></button>
+      </div>
+  
+      <div class="bookingside">
+        <mat-icon class="bookingicon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+        <button class="bookingBtn" mat-button><a class="bookinglink" routerLink="/bookingform">Book a Service</a></button>
+      </div>
+  
+      <div class="profileside">
+        <mat-icon class="profileicon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+        <button class="profileBtn" mat-button><a class="profilelink" routerLink="/bookingform">Profile</a></button>
+      </div>
+  
+  
+  
+  
+      </mat-drawer>
+  
+      <mat-drawer-content>
+  
+        <h1 class="profileLbl">Profile</h1>
+    <div>
+        <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
+        <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
+    
+        <button class="logoutBtn" mat-button><a routerLink="/homepage">Logout</a></button>
+    </div>
+    
+    <div>
+        <mat-icon class="profileicon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+    </div>
+      
+          
+      </mat-drawer-content>
+    </mat-drawer-container>
+    
+  </div>

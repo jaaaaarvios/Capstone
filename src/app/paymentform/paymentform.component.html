@@ -1,0 +1,60 @@
+<div class="dashboard">
+
+    <mat-drawer-container class="example-container">
+      <mat-drawer mode="side" opened>
+        <img class="logo" mat-card-image src="../../assets/techleanlogoyellow.png">
+        
+      <div class="dashboardside">
+        <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
+        <button class="dashBtn" mat-button><a class="dashlink" routerLink="/dashboard">Dashboard</a></button>
+      </div>
+  
+      <div class="bookingside">
+        <mat-icon class="bookingicon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+        <button class="bookingBtn" mat-button><a class="bookinglink" routerLink="/bookingform">Book a Service</a></button>
+      </div>
+  
+      <div class="profileside">
+        <mat-icon class="profileicon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+        <button class="profileBtn" mat-button><a class="profilelink" routerLink="/bookingform">Profile</a></button>
+      </div>
+  
+      <div class="paymentside">
+        <mat-icon class="paymenticon" aria-hidden="false" aria-label="">credit_card</mat-icon>
+        <button class="paymentBtn" mat-button><a class="paymentlink" routerLink="/paymentform">Payment</a></button>
+      </div>
+  
+  
+  
+  
+      </mat-drawer>
+  
+      <mat-drawer-content>
+  
+        
+        <div>
+        <h2 class="welcome">Welcome, Client!</h2>
+        <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
+        <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
+      </div>
+        <button class="logoutBtn" mat-button><a routerLink="/homepage">Logout</a></button>
+  
+
+     <mat-card class="paymentcard">
+       
+            <h1 class="payment">Payment Method</h1>
+            <h1 class="option">Choose your preferred payment option</h1>
+            <div>
+            <button mat-stroked-button class="gcashBtn"><img class="gcashicon" src="../../assets/gcashicon.png">Pay with Gcash</button>
+        </div>
+        <div>
+            <button mat-stroked-button class="paymayaBtn"><img class="paymayaicon" src="../../assets/paymayaicon.png">Pay with Paymaya</button>
+        </div>
+        <div>
+            <button mat-stroked-button class="cashBtn"><img class="cashicon" src="../../assets/cashicon.jpg">Pay with Cash</button>
+        </div>
+     </mat-card>
+      </mat-drawer-content>
+    </mat-drawer-container>
+    
+  </div>

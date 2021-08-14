@@ -1,0 +1,112 @@
+<div>
+    <h1 class="h1title">Select a service</h1>
+  </div>  
+
+<!--Select City-->  
+<div>
+    <mat-form-field class="servicetype" appearance="outline">
+        <mat-label>Service Type</mat-label>
+      <mat-select>
+        <mat-option value="one">Cleaning</mat-option>
+        <mat-option value="two">Repair</mat-option>
+        <mat-option value="three">Installation</mat-option>
+        <mat-option value="four">Dismantling</mat-option>
+        
+      </mat-select>
+    </mat-form-field>
+</div> 
+<!--Property Type-->    
+<div>
+    <h1 class="h2title">Unit Details</h1>
+</div> 
+
+<div>
+    <mat-form-field class="airconselect" appearance="outline">
+        <mat-label>Aircon Type</mat-label>
+      <mat-select>
+        <mat-option value="one">Split Type</mat-option>
+        <mat-option value="two">Window Type</mat-option>
+        <mat-option value="three">Tower</mat-option>
+        <mat-option value="four">Cassette</mat-option>
+        <mat-option value="five">Suspended</mat-option>
+        <mat-option value="six">Concealed</mat-option>
+       </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="airconbrand" appearance="outline">
+        <mat-label>Aircon Brand</mat-label>
+      <mat-select>
+        <mat-option value="one">Aiwa</mat-option>
+        <mat-option value="two">American Home</mat-option>
+        <mat-option value="three">Asahi</mat-option>
+        <mat-option value="four">Camel</mat-option>
+        <mat-option value="five">Carrier</mat-option>
+        <mat-option value="six">Coldfront</mat-option>
+        <mat-option value="one">Condura</mat-option>
+        <mat-option value="two">Daikin</mat-option>
+        <mat-option value="three">Everest</mat-option>
+        <mat-option value="four">Fujidenzo</mat-option>
+        <mat-option value="five">GE</mat-option>
+        <mat-option value="six">Concealed</mat-option>
+        <mat-option value="one">Gree</mat-option>
+        <mat-option value="two">Haeir</mat-option>
+        <mat-option value="three">Hanabishi</mat-option>
+        <mat-option value="four">Hisense</mat-option>
+        <mat-option value="five">Hitachi</mat-option>
+        <mat-option value="six">Kelvinator</mat-option>
+        <mat-option value="one">Kolin</mat-option>
+        <mat-option value="two">Koppel</mat-option>
+        <mat-option value="three">LG</mat-option>
+        <mat-option value="four">Lex</mat-option>
+        <mat-option value="five">Mabe</mat-option>
+        <mat-option value="six">Midea</mat-option>
+        <mat-option value="one">Mitsubishi</mat-option>
+        <mat-option value="two">National</mat-option>
+        <mat-option value="three">Panasonic</mat-option>
+        <mat-option value="four">Samsung</mat-option>
+        <mat-option value="five">Sanyo</mat-option>
+        <mat-option value="six">Sharp</mat-option>
+        <mat-option value="one">TCLSSSS</mat-option>
+        <mat-option value="two">Union</mat-option>
+        <mat-option value="three">Xtreme</mat-option>
+        <mat-option value="four">York</mat-option>
+        <mat-option value="five">Other</mat-option>
+    
+       </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="unittype" appearance="outline">
+        <mat-label>Unit Type</mat-label>
+      <mat-select>
+        <mat-option value="one">Inverter</mat-option>
+        <mat-option value="two">Non-Inverter</mat-option>
+        <mat-option value="three">I don't know</mat-option>
+       
+       </mat-select>
+    </mat-form-field>
+
+    <div>
+        <mat-form-field class="airconprob" appearance="outline">
+            <mat-label>Aircon Problem</mat-label>
+            <mat-select>
+                <mat-option value="one">Does not start or stop</mat-option>
+                <mat-option value="two">Not cooling | Fan blowing warm air</mat-option>
+                <mat-option value="three">Fan does not blow air at all</mat-option>
+                <mat-option value="two">Making noise</mat-option>
+                <mat-option value="three">Water Leaking</mat-option>
+                <mat-option value="two">Error on display panel</mat-option>
+                <mat-option value="three">Other</mat-option>
+                <mat-option value="three">I don't know</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    
+    <div>
+        <button class="addunit" mat-stroked-button><mat-icon>add_box</mat-icon>Add unit</button>
+    </div>
+
+    <div>
+        <button class="done" mat-raised-button><a routerLink="/servicedetails">Done</a></button>
+    </div>
+</div> 
+ 

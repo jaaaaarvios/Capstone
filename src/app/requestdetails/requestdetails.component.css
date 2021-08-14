@@ -1,0 +1,190 @@
+.details
+{
+    width: 750px;
+}
+.title
+{
+    color: #14213D;
+    font-size: 25px;
+    font-family: 'Trebuchet MS';
+}
+
+.titletech
+{
+    color: #FCA311;
+    margin-top: 60px;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+}
+
+
+
+.reschedBtn
+{
+    background-color: #14213D;
+    color: white; 
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+    float: right;
+    margin-right: 20px;
+    margin-top: -120px;
+}
+
+.mat-icon
+{
+ margin-top: 10px;
+  font-size: 100px;
+}
+
+.techname
+{
+    color: #14213D;
+    font-size: 20px;
+    margin-top: -70px;
+    margin-left: 170px;
+    font-family: 'Trebuchet MS';
+}
+
+.ratings
+{
+    color: #14213D;
+    font-size: 15px;
+    margin-top: -10px;
+    margin-left: 170px;
+    font-family: 'Trebuchet MS';
+}
+
+.servicedets
+{
+    color: #14213D;
+    font-size: 18px;
+    margin-top: 60px;
+   
+    font-family: 'Trebuchet MS';
+}
+
+.serviceid
+{
+    color: grey;
+    font-size: 15px;
+    margin-top: 10px;
+    
+    font-family: 'Trebuchet MS';
+}
+
+.servicetype
+{
+    color: grey;
+    font-size: 15px;
+    margin-top: -25px;
+    margin-left: 200px;
+    font-family: 'Trebuchet MS';
+}
+
+.date
+{
+    color: grey;
+    font-size: 15px;
+    margin-top: -25px;
+    margin-left: 400px;
+    font-family: 'Trebuchet MS';
+}
+
+.sched
+{
+    color: grey;
+    font-size: 15px;
+    margin-top: -25px;
+    margin-left: 600px;
+    font-family: 'Trebuchet MS';
+}
+
+.serviceidr
+{
+    color: grey;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 20px;
+    font-family: 'Trebuchet MS';
+}
+
+.servicetyper
+{
+    color: grey;
+    font-size: 12px;
+    margin-top: -25px;
+    margin-left: 200px;
+    font-family: 'Trebuchet MS';
+}
+
+.dater
+{
+    color: grey;
+    font-size: 12px;
+    margin-top: -20px;
+    margin-left: 420px;
+    font-family: 'Trebuchet MS';
+}
+
+.schedr
+{
+    color: grey;
+    font-size: 10px;
+    margin-top: -18px;
+    margin-left: 600px;
+    font-family: 'Trebuchet MS';
+}
+
+.serviceadd
+{
+    color: #14213D;
+    font-size: 18px;
+    margin-top: 38px;
+    font-family: 'Trebuchet MS';
+}
+
+.serviceidr
+{
+    color: grey;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 20px;
+    font-family: 'Trebuchet MS';
+}
+
+.servicect
+{
+    color: grey;
+    font-size: 12px;
+    margin-top: 15px;
+    margin-left: 12px;
+    font-family: 'Trebuchet MS';
+}
+
+.zipcode
+{
+    color: grey;
+    font-size: 12px;
+    margin-top: -20px;
+    margin-left: 200px;
+    font-family: 'Trebuchet MS';
+}
+
+.add
+{
+    color: grey;
+    font-size: 10px;
+    margin-top: -18px;
+    margin-left: 405px;
+    font-family: 'Trebuchet MS';
+}
+
+.ins
+{
+    color: grey;
+    font-size: 10px;
+    margin-top: -18px;
+    margin-left: 600px;
+    font-family: 'Trebuchet MS';
+}
+

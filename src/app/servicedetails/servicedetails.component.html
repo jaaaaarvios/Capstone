@@ -1,0 +1,232 @@
+<div class="dashboard">
+
+    <mat-drawer-container class="example-container">
+      <mat-drawer mode="side" opened>
+        <img class="logo" mat-card-image src="../../assets/techleanlogoyellow.png">
+        
+      <div class="dashboardside">
+        <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
+        <button class="dashBtn" mat-button><a class="dashlink" routerLink="/dashboard">Dashboard</a></button>
+      </div>
+  
+      <div class="bookingside">
+        <mat-icon class="bookingicon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+        <button class="bookingBtn" mat-button><a class="bookinglink" routerLink="/bookingform">Book A Service</a></button>
+      </div>
+  
+      <div class="profileside">
+        <mat-icon class="profileicon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+        <button class="profileBtn" mat-button><a class="profilelink" routerLink="/dashboard">Profile</a></button>
+      </div>
+
+      <div class="paymentside">
+        <mat-icon class="paymenticon" aria-hidden="false" aria-label="">credit_card</mat-icon>
+        <button class="paymentBtn" mat-button><a class="paymentlink" routerLink="/paymentform">Payment</a></button>
+      </div>
+    </mat-drawer>
+  
+  <!--Notification and Logout-->
+    <mat-drawer-content>
+        <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
+        <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
+          <button class="logoutBtn" mat-button>Logout</button>
+  
+      
+  
+<!--2nd Stepper-->        
+  <mat-horizontal-stepper class="stepper" #stepper>
+          <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+                <form [formGroup]="secondFormGroup">
+                  <ng-template matStepLabel>Service Location</ng-template>
+  
+              <!--Service Location-->    
+              <mat-card class="locationcard">
+                <div>
+                  <mat-icon class="locationicon">place</mat-icon>
+                  <h1 class="servicelocation">Service Location</h1>
+                </div>  
+  
+              <!--Select City-->   
+                  <mat-form-field class="cityselect" appearance="outline">
+                      <mat-label>Select a City</mat-label>
+                    <mat-select>
+                      <mat-option value="one">Manila City</mat-option>
+                      <mat-option value="two">Quezon City</mat-option>
+                      <mat-option value="three">Caloocan City</mat-option>
+                      <mat-option value="fifteen">Las Piñas City</mat-option>
+                      <mat-option value="sixteen">Valenzuela City</mat-option>
+                      <mat-option value="one">Makati City</mat-option>
+                      <mat-option value="two">Malabon City</mat-option>
+                      <mat-option value="three">Mandaluyong City</mat-option>
+                      <mat-option value="fifteen">Marikina City</mat-option>
+                      <mat-option value="sixteen">Muntinlupa City</mat-option>
+                      <mat-option value="one">Navotas City</mat-option>
+                      <mat-option value="two">Parañaque City</mat-option>
+                      <mat-option value="three">Pasay City</mat-option>
+                      <mat-option value="fifteen">Pasig City</mat-option>
+                      <mat-option value="sixteen">San Juan City</mat-option>
+                      <mat-option value="sixteen">Taguig City</mat-option>
+                      <mat-option value="sixteen">Valenzuela City</mat-option>
+                   
+                    </mat-select>
+                  </mat-form-field>
+              
+              <!--Property Type-->     
+                  <mat-form-field class="propertyselect" appearance="outline">
+                      <mat-label>Property Type</mat-label>
+                    <mat-select>
+                      <mat-option value="one">Condo</mat-option>
+                      <mat-option value="two">Apartment</mat-option>
+                      <mat-option value="three">House</mat-option>
+                      <mat-option value="four">Store</mat-option>
+                      <mat-option value="five">Office Building</mat-option>
+                      <mat-option value="six">Warehouse or Storage</mat-option>
+                     </mat-select>
+                  </mat-form-field>
+           
+              <!--Zipcode-->     
+                  <mat-form-field class="zipcode" appearance="outline">
+                      <mat-label>Zipcode</mat-label>
+                        <input matInput>
+                  </mat-form-field>
+  
+              </mat-card> 
+   <!--Back and Next Button-->  
+                
+                <button class="nextBtn" mat-button matStepperNext>Next</button>
+            </form>
+          </mat-step>
+          
+  <!--3rd Stepper--> 
+          <mat-step>
+              <ng-template matStepLabel>Service Schedule</ng-template>
+  
+              <mat-card class="schedcard">
+                <div>
+                  <mat-icon class="schedicon">today</mat-icon>
+                  <h1 class="servicesched">Service Schedule</h1>
+  
+                <!--Date Picker--> 
+                  <div>
+                  <mat-form-field class="datepicker" appearance="outline">
+                    <mat-label>Date of Service</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                  <button mat-raised-button class="dateBtn" (click)="picker.open()">Pick a date</button>
+                </div>
+                
+                <!--Time Slots--> 
+                <div class="timeslots">
+                    <h1 class="timeslot">Select a time slot</h1>
+                      <button mat-stroked-button class="tech1Btn">7:00am-10:00am<h1 class="h1technicians">10 Technicians</h1></button>
+                      <button mat-stroked-button class="tech2Btn">10:00am-1:00pm<h1 class="h1technicians">10 Technicians</h1></button>
+                      <button mat-stroked-button class="tech3Btn">1:00pm-3:00pm<h1 class="h1technicians">10 Technicians</h1></button>
+                      <button mat-stroked-button class="tech4Btn">3:00pm-6:00pm<h1 class="h1technicians">10 Technicians</h1></button>
+                </div>
+                </div>  
+              </mat-card>
+  <!--Back and Next Button--> 
+              <button class="backBtn"mat-button matStepperPrevious>Back</button>
+              <button class="nextBtn" mat-button matStepperNext>Next</button>
+          </mat-step>
+  
+  
+  <!--4th Stepper--> 
+          <mat-step>
+            <ng-template matStepLabel>Contact Details</ng-template>
+            <mat-card class="contactcard">
+              <div>
+                <mat-icon class="phoneicon"> local_phone</mat-icon>
+                <h1 class="contactdetails">Contact Details</h1>
+              </div>  
+  
+            <!--Geolocation--> 
+              <div id="mapid"></div>
+                <div>
+                  <h1 class="h1address">Move map to exact location under the red pin.</h1>
+                  <mat-form-field class="address" appearance="outline">
+                    <mat-label>Service Address</mat-label>
+                    <input matInput>
+                </mat-form-field>
+              </div>
+  
+            <!--Booking checkboxes--> 
+              <div class="checkbox">
+                <h1 class="h1cb">Booking for yourself?</h1>
+              
+              <section class="example-section">
+                  <mat-checkbox class="cbYes" [(ngModel)]="checked">Yes</mat-checkbox>
+                  <mat-checkbox class="cbNo" [(ngModel)]="indeterminate">No</mat-checkbox>
+              </section>
+            <!--Client's Name--> 
+              <p class="name">
+                <mat-form-field class="fname" appearance="outline">
+                  <mat-label>First Name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+  
+                <mat-form-field class=" lname" appearance="outline">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+              </p>
+            <!--Phone Number--> 
+              <p>
+                  <mat-form-field class="phonenumber" appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                      <input matInput #input maxlength="10" placeholder="09XXXXXXXXX">
+                    <mat-hint>{{input.value?.length || 0}}/11</mat-hint>
+                  </mat-form-field>
+              </p>
+            <!--Address Details--> 
+              <p>
+                  <mat-form-field class="addressdetails" appearance="outline">
+                    <mat-label>Service Address Details</mat-label>
+                      <input matInput>
+                      <mat-hint>unit no., floor no., building name, block no.</mat-hint>
+                  </mat-form-field>
+              </p>
+            <!--Instructions-->  
+              <p>
+                <mat-form-field class="instructions" appearance="outline">
+                  <mat-label>Instructions</mat-label>
+                  <textarea matInput></textarea>
+                </mat-form-field>
+              </p>
+            </div>
+          </mat-card>  
+  
+  <!--Back and Next Button--> 
+            <button class="CDbackBtn"mat-button matStepperPrevious>Back</button>
+            <button class="CDnextBtn" mat-button matStepperNext>Next</button>
+          </mat-step>
+  
+  <!--4th Stepper--> 
+          <mat-step>
+            <ng-template matStepLabel>Confirm Service Details</ng-template>
+              <mat-card class="schedcard">
+                <div>
+                    <mat-icon class="listicon">description</mat-icon>
+                       <h1 class="detailssummary">Details Summary</h1>
+                </div> 
+              
+              <!--Edit Button--> 
+                <div class="editBtn">
+                  <button mat-mini-fab>
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                </div>
+            </mat-card>
+  
+  <!--Done Button--> 
+            <button class="doneBtn" mat-button matStepperNext><a routerLink="/dashboard">Done</a></button>
+        </mat-step>
+  
+  
+        </mat-horizontal-stepper>
+      </mat-drawer-content>
+    </mat-drawer-container>
+    
+  </div>
+  

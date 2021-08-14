@@ -1,0 +1,91 @@
+.reschedule
+{
+width: 750px;
+height: 380px;
+}
+
+.reschedule
+{
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+}
+.datepicker
+{
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+.dateBtn
+{
+    
+    margin-left: 20px;
+    background-color: #FCA311;
+    color: #14213D;
+    height: 52px;
+    font-size: 18px;
+    font-family: 'Trebuchet MS';
+}
+
+.timeslots
+{
+    margin-top: 55px;
+}
+.timeslot
+{
+    margin-top: 30px;
+    margin-right: 75px;
+    font-size: 18px;
+    font-family: 'Trebuchet MS';
+}
+
+.mat-stroked-button
+{
+    border-color: #FCA311;
+    width: 180px;
+    height: 60px;
+}
+.tech1Btn
+ {
+margin-top: -100px;
+ }
+
+ .tech2Btn
+ {
+margin-top: 10px;
+ }
+
+ .tech3Btn
+ {
+margin-top: 10px;
+ }
+
+ .tech4Btn
+ {
+margin-top: 10px;
+ }
+
+ .h1technicians
+ {
+   font-size: 10px;
+   margin-top: -15px;
+   font-family: 'Trebuchet MS';
+ }
+
+ .cancelBtn
+{
+    background-color: red;
+    color: white; 
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+    float: right;
+    margin-right: 30px;
+    margin-top: -50px;
+}
+
+ .cancellink
+ {
+     color: white;
+     text-decoration: none;
+ }
+ 
+ 
