@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-loginform', 
@@ -10,10 +11,15 @@ import { Component, OnInit } from '@angular/core';
 export class LoginformComponent implements OnInit {
   value = '';
   hide = true;
-  constructor() { }
-
-  ngOnInit(): void {
+  
+  constructor() { 
+    
   }
 
+  ngOnInit(): void {
+    
+  }
 }
+
+
 

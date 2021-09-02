@@ -10,6 +10,8 @@ import {ProfileformComponent} from '../app/profileform/profileform.component';
 import{ConfirmcancelComponent} from '../app/confirmcancel/confirmcancel.component';
 import {RequestdetailsComponent} from '../app/requestdetails/requestdetails.component';
 import {PaymentformComponent} from '../app/paymentform/paymentform.component';
+
+
 const routes: Routes = [
   { path: 'homepage', component: HomepageComponent },
   { path: 'loginform', component: LoginformComponent },
@@ -20,6 +22,7 @@ const routes: Routes = [
   { path: 'confirmcancel', component: ConfirmcancelComponent },
   { path: 'requestdetails', component: RequestdetailsComponent },
   { path: 'paymentform', component: PaymentformComponent }
+
 ];
 
 

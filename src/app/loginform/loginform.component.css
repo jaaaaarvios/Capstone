@@ -167,10 +167,8 @@ border-radius: 5px;
     width: 320px;
     margin-left: 100px;
 }
-.close
-{
-    margin-left: 450px;
-    margin-bottom: 1px;
-}
-
-
+.close{
+    float: right;
+    top:-24px;
+    right:-15px;
+  }

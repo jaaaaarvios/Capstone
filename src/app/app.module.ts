@@ -38,6 +38,7 @@ import { CancelreasonsComponent } from './cancelreasons/cancelreasons.component'
 import { PaymentformComponent } from './paymentform/paymentform.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +80,7 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
     MatNativeDateModule,
     MatDialogModule,
     MatTableModule
+    
    
   ],
   providers: [],
