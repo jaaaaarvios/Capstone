@@ -1,0 +1,319 @@
+.example-container {
+    max-width: 95%;
+    min-height: 910px;
+    margin-top: 10px;
+    margin-left: 50px;
+    border: 1px solid #E5E5E5;
+    border-radius: 30px;
+  }
+  
+  .mat-drawer
+  {
+  width: 280px;
+  background-color: #14213D;
+  }
+  
+  .mat-drawer-content
+  {
+  height: 910px;
+  background-color: white;
+  }
+  
+  .logo
+  {
+    width: 170px;
+    height: 90px;
+    margin-top: 80px;
+    margin-left: 50px;
+  }
+  
+  .dashboardside
+  {
+  margin-left: 40px;
+  
+  }
+  .dashBtn
+  {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 120px;
+  }
+  
+  .homeicon
+  {
+    color: white;
+    font-size: 25px;
+  }
+  
+  .mat-tab-group
+  {
+      width: 1000px;
+      margin-top: 50px;
+      margin-left: 70px;
+  }
+  
+  .bookingside
+  {
+  margin-left: 40px;
+  
+  }
+  
+  .bookingicon
+  {
+    color: white;
+    font-size: 25px;
+  }
+  
+  .bookingBtn
+  {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 30px;
+  }
+  
+  .profileside
+  {
+  margin-left: 40px;
+  
+  }
+  
+  .profileicon
+  {
+    color: white;
+    font-size: 25px;
+  }
+  
+  .profileBtn
+  {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 30px;
+  }
+  
+  .paymentside
+  {
+  margin-left: 40px;
+  
+  }
+  
+  .paymenticon
+  {
+    color: white;
+    font-size: 25px;
+  }
+  
+  .paymentBtn
+  {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 25px;
+  
+  }
+  .paymentlink
+  {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .welcome
+  {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  color: #14213D;
+  float: right;
+  margin-top: -40px;
+  margin-right: 350px;
+  }
+  .dashboardtxt
+  {
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  color: #14213D;
+  margin-top: 40px;
+  margin-left: 50px;
+  }
+  
+  .inboxicon
+  {
+    font-size: 30px;
+    color: #14213D;
+    float: right;
+    margin-right: -250px;
+    margin-top: -40px;
+  }
+  
+  .logouticon
+  {
+    font-size: 30px;
+    color: #14213D;
+    float: right;
+    margin-right: -300px;
+    margin-top: -40px;
+  }
+  
+  .logoutBtn
+  {
+    font-size: 18px;
+    color: #14213D;
+    float: right;
+    margin-right: -390px;
+    margin-top: -45px;
+  }
+  
+  
+  .dashlink
+  {
+      color: white;
+      text-decoration: none;
+      
+  }
+  
+  .bookinglink
+  {
+  color: white;
+  text-decoration: none;
+  }
+  
+  .profilelink
+  {
+      color: white;
+      text-decoration: none;
+  }
+      
+  .dashlink:hover 
+  {
+      background-color: #FCA311;
+      color: #14213D;
+     
+  }
+  
+  .bookinglink:hover 
+  {
+      background-color: #FCA311;
+      color: #14213D;
+     
+  }
+  
+  .profilelink:hover 
+  {
+      background-color: #FCA311;
+      color: #14213D;
+     
+  }
+  
+  .reqstatus
+  {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: #14213D;
+    margin-left: 50px;
+    margin-top: 50px;
+  }
+ .pendingcard
+ {
+     width: 250px;
+     height: 95px;
+     margin-left: 50px;
+     margin-top: 20px;
+    
+ }
+
+ .pendingtxt
+ {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    color: #14213D;
+    margin-top: -105px;
+ }
+
+ .pendingcount
+ {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    color: #14213D;
+    margin-top: -10px;
+ }
+
+.pendingbg
+{
+    width: 283px;
+    height: 130px;
+}
+
+
+ .completedcard
+ {
+    width: 250px;
+    height: 95px;
+    margin-left: 350px;
+    margin-top: -128px;
+ }
+
+ .completedtxt
+ {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    color: #14213D;
+    margin-top: -105px;
+ }
+
+ .completedcount
+ {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    color: #14213D;
+    margin-top: -10px; 
+ }
+
+ .completedbg
+ {
+    width: 283px;
+    height: 130px;
+ }
+
+ .cancelledcard
+ {
+    width: 250px;
+    height: 95px;
+    margin-left: 650px;
+    margin-top: -128px;
+ }
+
+ .cancelledtxt
+ {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    color: #14213D;
+    margin-top: -105px;
+ }
+
+ .cancelledcount
+ {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    color: #14213D;
+    margin-top: -10px; 
+ }
+
+ .cancelledbg
+ {
+    width: 283px;
+    height: 130px;
+ }
+ 
+ .pendingcard2
+ {
+     margin-left: 50px;
+     margin-top: 50px;
+     width: 850px;
+     height: 400px;
+ }

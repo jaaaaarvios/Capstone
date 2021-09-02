@@ -36,6 +36,7 @@ import { RescheduleComponent } from './reschedule/reschedule.component';
 import { ConfirmcancelComponent } from './confirmcancel/confirmcancel.component';
 import { CancelreasonsComponent } from './cancelreasons/cancelreasons.component';
 import { PaymentformComponent } from './paymentform/paymentform.component';
+import { AdminpageComponent } from './adminpage/adminpage.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { PaymentformComponent } from './paymentform/paymentform.component';
     RescheduleComponent,
     ConfirmcancelComponent,
     CancelreasonsComponent,
-    PaymentformComponent
+    PaymentformComponent,
+    AdminpageComponent
   ],
   imports: [
     BrowserModule,
