@@ -1,6 +1,11 @@
 <div>
+  <div fxLayoutAlign="end">
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+      <mat-icon class="close-icon" color="warn">close</mat-icon>
+    </button>
+  </div>
     <h1 class="h1title">Select a service</h1>
-  </div>  
+</div>  
 
 <!--Select City-->  
 <div>
@@ -34,7 +39,7 @@
     </mat-form-field>
 
     <mat-form-field class="airconbrand" appearance="outline">
-        <mat-label>Aircon Brand</mat-label>
+        <mat-label>Brand</mat-label>
       <mat-select>
         <mat-option value="one">Aiwa</mat-option>
         <mat-option value="two">American Home</mat-option>
@@ -87,7 +92,7 @@
 
     <div>
         <mat-form-field class="airconprob" appearance="outline">
-            <mat-label>Aircon Problem</mat-label>
+            <mat-label>Unit Problem</mat-label>
             <mat-select>
                 <mat-option value="one">Does not start or stop</mat-option>
                 <mat-option value="two">Not cooling | Fan blowing warm air</mat-option>

@@ -2,10 +2,10 @@
 
     <mat-card class="logincard">
       <div fxLayoutAlign="end">
-        <button mat-button class="close">
-          <mat-icon>close</mat-icon>
-      </button>
-    </div>
+        <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+          <mat-icon class="close-icon" color="warn">close</mat-icon>
+        </button>
+      </div>
         <img class="logo" mat-card-image src="../../assets/techleanlogo.png">
         
       <div class="loginTabs">
@@ -28,7 +28,6 @@
             <button mat-raised-button class="loginBtn"><a class="loginlink" routerLink="/dashboard">Login</a></button>
             <button mat-raised-button class="fbBtn"><a class="fblink" routerLink="/dashboard">Login with Facebook</a></button>
             <button mat-raised-button class="googleBtn"><a class="googlelink" routerLink="/dashboard">Login with Google Account</a></button>
-          
           </mat-tab>
          
 

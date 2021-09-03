@@ -1,0 +1,85 @@
+<div>
+  <div fxLayoutAlign="end">
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+      <mat-icon class="close-icon" color="warn">close</mat-icon>
+    </button>
+  </div>
+    <h1 class="h1title">Select a service</h1>
+</div>  
+
+<!--Select City-->  
+<div>
+    <mat-form-field class="servicetype" appearance="outline">
+        <mat-label>Service Type</mat-label>
+      <mat-select>
+        <mat-option value="one">Repair</mat-option>
+        
+      </mat-select>
+    </mat-form-field>
+</div> 
+<!--Property Type-->    
+<div>
+    <h1 class="h2title">Unit Details</h1>
+</div> 
+
+<div>
+    <mat-form-field class="refrigeratorselect" appearance="outline">
+        <mat-label>Refrigerator Type</mat-label>
+      <mat-select>
+        <mat-option value="one">Single Door</mat-option>
+        <mat-option value="two">Two Door Top Freezer</mat-option>
+        <mat-option value="three">Two Door Bottom Freezer</mat-option>
+        <mat-option value="four">Multi Door-Shelves</mat-option>
+        <mat-option value="five">Chest Freezer</mat-option>
+        <mat-option value="six">Single Door Commercial</mat-option>
+       </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="refregieratorbrand" appearance="outline">
+        <mat-label>Brand</mat-label>
+      <mat-select>
+        <mat-option value="one">Aiwa</mat-option>
+        <mat-option value="two">American Home</mat-option>
+        <mat-option value="three">Asahi</mat-option>
+        <mat-option value="four">Camel</mat-option>
+        <mat-option value="five">Carrier</mat-option>
+        <mat-option value="five">Other</mat-option>
+    
+       </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="unittype" appearance="outline">
+        <mat-label>Unit Type</mat-label>
+      <mat-select>
+        <mat-option value="one">Inverter</mat-option>
+        <mat-option value="two">Non-Inverter</mat-option>
+        <mat-option value="three">I don't know</mat-option>
+       </mat-select>
+    </mat-form-field>
+
+    <div>
+        <mat-form-field class="refrigeratorprob" appearance="outline">
+            <mat-label>Unit Problem</mat-label>
+            <mat-select>
+                <mat-option value="one">Freezer is cold but refrigerator warm</mat-option>
+                <mat-option value="two">Refrigerator is freezing food</mat-option>
+                <mat-option value="three">Making noise</mat-option>
+                <mat-option value="Four">Ice and or Water dispenser is not working</mat-option>
+                <mat-option value="Five">Temperature control not working</mat-option>
+                <mat-option value="Six">Refrigerator light is not working</mat-option>
+                <mat-option value="Seven">Other</mat-option>
+                <mat-option value="Eight">I don't know</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    
+    <div>
+        <button class="addunit" mat-stroked-button><mat-icon>add_box</mat-icon>Add unit</button>
+    </div>
+
+    <div>
+        <button class="done" mat-raised-button><a routerLink="/servicedetails">Done</a></button>
+        
+    </div>
+</div> 
+ 

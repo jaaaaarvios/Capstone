@@ -19,7 +19,7 @@
     font-family: 'Trebuchet MS';
 }
 
-.airconselect
+.electricfanselect
 {
     margin-left: 40px;
     margin-top: 10px;
@@ -33,7 +33,7 @@
     margin-left: 18px; 
 }
 
-.airconbrand
+.electricfanbrand
 {
     margin-left: 40px;
     margin-top: 10px;
@@ -47,7 +47,7 @@
     font-family: 'Trebuchet MS';
 }
 
-.airconprob
+.electricfanprob
 {
     width: 690px;
     margin-left: 40px;

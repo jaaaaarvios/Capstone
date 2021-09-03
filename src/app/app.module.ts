@@ -37,6 +37,10 @@ import { ConfirmcancelComponent } from './confirmcancel/confirmcancel.component'
 import { CancelreasonsComponent } from './cancelreasons/cancelreasons.component';
 import { PaymentformComponent } from './paymentform/paymentform.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
+import { RefrigeratordetailsComponent } from './refrigeratordetails/refrigeratordetails.component';
+import { ElectricfandetailsComponent } from './electricfandetails/electricfandetails.component';
+import { WashingmachinedetailsComponent } from './washingmachinedetails/washingmachinedetails.component';
+import { HousecleaningComponent } from './housecleaning/housecleaning.component';
 
 
 @NgModule({
@@ -56,7 +60,11 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
     ConfirmcancelComponent,
     CancelreasonsComponent,
     PaymentformComponent,
-    AdminpageComponent
+    AdminpageComponent,
+    RefrigeratordetailsComponent,
+    ElectricfandetailsComponent,
+    WashingmachinedetailsComponent,
+    HousecleaningComponent,
   ],
   imports: [
     BrowserModule,

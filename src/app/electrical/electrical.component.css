@@ -4,8 +4,6 @@
     font-family: 'Trebuchet MS';
     margin-left: 10px;
 }
-
-
 .lightscard
 {
     margin-top: 50px;
@@ -13,8 +11,6 @@
     width: 200px;
     height: 200px;
 }
-
-
 .outletcard
 {
     margin-top: -232px;
@@ -22,19 +18,29 @@
     width: 200px;
     height: 200px;
 }
-
-
 .h1lights
 {
-font-family: 'Trebuchet MS';
-font-size: 16px;
-margin-left: 80px;
+    font-family: 'Trebuchet MS';
+    font-size: 20px;
+    justify-content: center;
+    display: flex;
+    margin: auto;
 }
-
 .h1outlet
 {
     font-family: 'Trebuchet MS';
-    font-size: 16px;
-    margin-left: 55px;
+    font-size: 20px;
+    justify-content: center;
+    display: flex;
+    margin: auto;
 }
-
+.close-button{
+    float: right;
+    top:-24px;
+    margin: auto;
+}
+.close-icon{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AppliancesComponent } from '../appliances/appliances.component';
 import { ElectricalComponent } from '../electrical/electrical.component';
+import { HousecleaningComponent } from '../housecleaning/housecleaning.component';
 
 declare const L: any;
 
@@ -17,10 +18,23 @@ export class BookingformComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder, public dialog: MatDialog) {}
 
-  openDialog() {
+  ApplianceOpenDialog() {
     const dialogRef = this.dialog.open(AppliancesComponent);
     
-
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  ElectricalOpenDialog() {
+    const dialogRef = this.dialog.open(ElectricalComponent);
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  HousecleaningOpenDialog() {
+    const dialogRef = this.dialog.open(HousecleaningComponent);
+    
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

@@ -1,0 +1,87 @@
+<div>
+  <div fxLayoutAlign="end">
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+      <mat-icon class="close-icon" color="warn">close</mat-icon>
+    </button>
+  </div>
+    <h1 class="h1title">Select a service</h1>
+</div>  
+
+<!--Select City-->  
+<div>
+    <mat-form-field class="servicetype" appearance="outline">
+        <mat-label>Service Type</mat-label>
+      <mat-select>
+        <mat-option value="one">Repair</mat-option>
+        
+      </mat-select>
+    </mat-form-field>
+</div> 
+<!--Property Type-->    
+<div>
+    <h1 class="h2title">Unit Details</h1>
+</div> 
+
+<div>
+    <mat-form-field class="electricfanselect" appearance="outline">
+        <mat-label>Electric Fan Type</mat-label>
+      <mat-select>
+        <mat-option value="one">Ceiling Fan</mat-option>
+        <mat-option value="two">Table Fan</mat-option>
+        <mat-option value="three">Tower Fan</mat-option>
+        <mat-option value="four">Pedestal Fan</mat-option>
+        <mat-option value="five">Exhaust Fan</mat-option>
+        <mat-option value="six">Wall Mounted Fan</mat-option>
+        <mat-option value="seven">Misting Fan</mat-option>
+        <mat-option value="eight">Floor Fan</mat-option>
+       </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="electricfanbrand" appearance="outline">
+        <mat-label>Brand</mat-label>
+      <mat-select>
+        <mat-option value="one">Aiwa</mat-option>
+        <mat-option value="two">American Home</mat-option>
+        <mat-option value="three">Asahi</mat-option>
+        <mat-option value="four">Camel</mat-option>
+        <mat-option value="five">Carrier</mat-option>
+        <mat-option value="six">Other</mat-option>
+       </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="unittype" appearance="outline">
+        <mat-label>Unit Type</mat-label>
+      <mat-select>
+        <mat-option value="one">Axial</mat-option>
+        <mat-option value="two">Forward Curved</mat-option>
+        <mat-option value="three">Centrifugal</mat-option>
+        <mat-option value="four">Backward-Inclined</mat-option>
+        <mat-option value="five">I don't know</mat-option>
+       </mat-select>
+    </mat-form-field>
+
+    <div>
+        <mat-form-field class="electricfanprob" appearance="outline">
+            <mat-label>Unit Problem</mat-label>
+            <mat-select>
+                <mat-option value="one">Flickering light</mat-option>
+                <mat-option value="two">Wobbly fan</mat-option>
+                <mat-option value="three">Making noise</mat-option>
+                <mat-option value="Four">Stuck on one speed</mat-option>
+                <mat-option value="Five">Fan doesn’t turn on</mat-option>
+                <mat-option value="Seven">Other</mat-option>
+                <mat-option value="Eight">I don't know</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    
+    <div>
+        <button class="addunit" mat-stroked-button><mat-icon>add_box</mat-icon>Add unit</button>
+    </div>
+
+    <div>
+        <button class="done" mat-raised-button><a routerLink="/servicedetails">Done</a></button>
+        
+    </div>
+</div> 
+ 

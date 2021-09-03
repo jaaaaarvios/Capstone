@@ -9,8 +9,7 @@
     background-color: white;
     opacity: 100%;
     position: absolute;
-  
-    }
+}
     
 .logo
 {
@@ -26,9 +25,7 @@ margin-left: 140px;
     margin-top: 40px;
     margin-left: 10px;
     border-color: #FCA311, 3px;
-    
 }
-
 .login-passfield 
 {
     padding: 0;
@@ -36,7 +33,6 @@ margin-left: 140px;
     margin-top: 1px;
     margin-left: 10px;
     border: #FCA311;
-  
 }
 .signup-namefield
 {
@@ -44,7 +40,6 @@ margin-left: 140px;
     width: 300px;
     margin-top: 40px;
     margin-left: 10px;
-    
 }
 .signup-emailfield
 {
@@ -53,9 +48,7 @@ margin-left: 140px;
     margin-top: -50px;
     margin-left: 10px;
     border: #FCA311, 3px;
-    
 }
-
 .signup-passfield 
 {
     min-height: 40px;
@@ -72,7 +65,6 @@ width: 295px;
 margin-left: 13px;
 border-radius: 5px;
 }
-
 .fbBtn
 {
 background-color: #0077b6;
@@ -82,7 +74,6 @@ margin-top: 10px;
 margin-left: 13px;
 border-radius: 5px;
 }
-
 .googleBtn
 {
 background-color: white;
@@ -92,7 +83,6 @@ margin-top: 10px;
 margin-left: 13px;
 border-radius: 5px;
 }
-
 .signupBtn
 {
 background-color: #FCA311;
@@ -100,22 +90,17 @@ width: 295px;
 margin-left: 13px;
 border-radius: 5px;
 }
-
 .signuplink
 {
     color: white;
     text-decoration: none;
 }
-
 .signuplink:hover 
 {
- 
     color: #14213D;
-       
 }
   
 .loginlink
-
 {
     color: white;
     text-decoration: none;
@@ -167,8 +152,13 @@ border-radius: 5px;
     width: 320px;
     margin-left: 100px;
 }
-.close{
+.close-button{
     float: right;
     top:-24px;
-    right:-15px;
-  }
+    margin-right:auto;
+}
+.close-icon{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
