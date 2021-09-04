@@ -5,7 +5,6 @@ import { MatDialogConfig } from '@angular/material/dialog';
   selector: 'app-loginform', 
   templateUrl: './loginform.component.html',
   styleUrls: ['./loginform.component.css'],
-  
 
 })
 export class LoginformComponent implements OnInit {

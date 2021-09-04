@@ -34,11 +34,18 @@ margin-left: 140px;
     margin-left: 10px;
     border: #FCA311;
 }
-.signup-namefield
+.signup-fnamefield
 {
     min-height: 40px;
     width: 300px;
-    margin-top: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.signup-lnamefield
+{
+    min-height: 40px;
+    width: 300px;
+    margin-top: -30px;
     margin-left: 10px;
 }
 .signup-emailfield
