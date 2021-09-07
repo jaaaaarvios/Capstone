@@ -10,6 +10,10 @@ import {ProfileformComponent} from '../app/profileform/profileform.component';
 import{ConfirmcancelComponent} from '../app/confirmcancel/confirmcancel.component';
 import {RequestdetailsComponent} from '../app/requestdetails/requestdetails.component';
 import {PaymentformComponent} from '../app/paymentform/paymentform.component';
+import {EmployeesComponent} from '../app/employees/employees.component';
+import {AdminpageComponent} from '../app/adminpage/adminpage.component';
+
+
 const routes: Routes = [
   { path: 'homepage', component: HomepageComponent },
   { path: 'loginform', component: LoginformComponent },
@@ -19,7 +23,9 @@ const routes: Routes = [
   { path: 'profileform', component: ProfileformComponent },
   { path: 'confirmcancel', component: ConfirmcancelComponent },
   { path: 'requestdetails', component: RequestdetailsComponent },
-  { path: 'paymentform', component: PaymentformComponent }
+  { path: 'paymentform', component: PaymentformComponent },
+  { path: 'adminpage', component: RequestdetailsComponent },
+  { path: 'employees', component: PaymentformComponent }
 ];
 
 

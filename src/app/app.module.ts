@@ -37,6 +37,8 @@ import { ConfirmcancelComponent } from './confirmcancel/confirmcancel.component'
 import { CancelreasonsComponent } from './cancelreasons/cancelreasons.component';
 import { PaymentformComponent } from './paymentform/paymentform.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
+import { EmployeesComponent } from './employees/employees.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
     ConfirmcancelComponent,
     CancelreasonsComponent,
     PaymentformComponent,
-    AdminpageComponent
+    AdminpageComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,8 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
     MatCheckboxModule,
     MatNativeDateModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatToolbarModule
    
   ],
   providers: [],

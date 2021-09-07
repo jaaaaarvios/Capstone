@@ -1,0 +1,107 @@
+<div class="dashboard">
+
+    <mat-drawer-container class="example-container">
+      <mat-drawer mode="side" opened>
+        <img class="logo" mat-card-image src="../../assets/techleanlogoyellow.png">
+        
+      <div class="dashboardside">
+        <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
+        <button class="dashBtn" mat-button><a class="dashlink" routerLink="/dashboard">Dashboard</a></button>
+      </div>
+  
+      <div class="workersside">
+        <mat-icon class="workericon" aria-hidden="false" aria-label="">face</mat-icon>
+        <button class="workerBtn" mat-button><a class="workerlink" routerLink="/bookingform">Workers</a></button>
+      </div>
+    </mat-drawer>
+  
+      
+        <p>
+          <mat-toolbar class="toolbar">
+            <img class="techleantxt" mat-card-image src="../../assets/techleantxt.png">
+            <div>
+              <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
+                <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
+             </div>
+          </mat-toolbar>
+        </p>
+
+
+  <div>
+    <img class="workericon" mat-card-image src="../../assets/workericon.png">
+  </div>
+  
+  <div>
+    <mat-tab-group>
+      <mat-tab label="Appliances Repair">
+        <mat-card class="newreq">
+          <h1 class="h1new">Appliances Repair</h1>
+            <mat-form-field class="searchfield" appearance="outline">
+              <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
+                <input matInput>
+            </mat-form-field>
+  
+            <div>
+              <h1 class="serviceid">Employee ID</h1>
+             </div>
+      
+            <div>
+              <h1 class="name">Name</h1>
+            </div>
+      
+            <div>
+              <h1 class="appdate">Occupation</h1>
+            </div>
+        </mat-card>
+      </mat-tab>
+  
+  
+      <mat-tab label="Electrical Wiring Repair">  
+        <mat-card class="pendingreq">
+          <h1 class="h1pending">Electrical Wiring Repair</h1>
+            <mat-form-field class="searchfield" appearance="outline">
+              <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
+                <input matInput>
+            </mat-form-field>
+  
+            <div>
+              <h1 class="serviceid">Employee ID</h1>
+             </div>
+      
+            <div>
+              <h1 class="name">Name</h1>
+            </div>
+      
+            <div>
+              <h1 class="appdate">Occupation</h1>
+            </div>
+      
+            
+       </mat-card>
+    </mat-tab>
+  
+    <mat-tab label="Cleaning Services"> 
+      <mat-card class="completedreq">
+        <h1 class="h1completed">Cleaning Services</h1>
+          <mat-form-field class="searchfield" appearance="outline">
+            <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
+              <input matInput>
+          </mat-form-field>
+  
+          <div>
+            <h1 class="serviceid">Employee ID</h1>
+           </div>
+    
+          <div>
+            <h1 class="name">Name</h1>
+          </div>
+    
+          <div>
+            <h1 class="appdate">Occupation</h1>
+          </div>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+
+
+ 
