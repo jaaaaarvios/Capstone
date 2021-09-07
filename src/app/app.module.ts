@@ -37,17 +37,14 @@ import { ConfirmcancelComponent } from './confirmcancel/confirmcancel.component'
 import { CancelreasonsComponent } from './cancelreasons/cancelreasons.component';
 import { PaymentformComponent } from './paymentform/paymentform.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
-<<<<<<< HEAD
 import { EmployeesComponent } from './employees/employees.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
-=======
 import { RefrigeratordetailsComponent } from './refrigeratordetails/refrigeratordetails.component';
 import { ElectricfandetailsComponent } from './electricfandetails/electricfandetails.component';
 import { WashingmachinedetailsComponent } from './washingmachinedetails/washingmachinedetails.component';
 import { HousecleaningComponent } from './housecleaning/housecleaning.component';
 import { GencleaningdetailsComponent } from './gencleaningdetails/gencleaningdetails.component';
 
->>>>>>> 58599e0ef378498dfd8e1f7350b292cff5ef41d9
 
 @NgModule({
   declarations: [
@@ -67,18 +64,13 @@ import { GencleaningdetailsComponent } from './gencleaningdetails/gencleaningdet
     CancelreasonsComponent,
     PaymentformComponent,
     AdminpageComponent,
-<<<<<<< HEAD
-    EmployeesComponent
-=======
+    EmployeesComponent,
     RefrigeratordetailsComponent,
     ElectricfandetailsComponent,
     WashingmachinedetailsComponent,
     HousecleaningComponent,
-<<<<<<< HEAD
-    GencleaningdetailsComponent,
-=======
->>>>>>> 58599e0ef378498dfd8e1f7350b292cff5ef41d9
->>>>>>> 92081a7d0467d28f9e8a2ed8d196712264a5e29e
+    GencleaningdetailsComponent
+
   ],
   imports: [
     BrowserModule,
@@ -101,13 +93,13 @@ import { GencleaningdetailsComponent } from './gencleaningdetails/gencleaningdet
     MatCheckboxModule,
     MatNativeDateModule,
     MatDialogModule,
-<<<<<<< HEAD
+
     MatTableModule,
-    MatToolbarModule
-=======
+    MatToolbarModule,
+
     MatTableModule
     
->>>>>>> 58599e0ef378498dfd8e1f7350b292cff5ef41d9
+
    
   ],
   providers: [],
