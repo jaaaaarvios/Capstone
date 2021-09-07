@@ -1,0 +1,77 @@
+<div>
+  <div fxLayoutAlign="end">
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+      <mat-icon class="close-icon" color="warn">close</mat-icon>
+    </button>
+  </div>
+    <h1 class="h1title">Select a service</h1>
+</div>  
+
+<!--Select City-->  
+<div>
+    <mat-form-field class="servicetype" appearance="outline">
+        <mat-label>Service Type</mat-label>
+      <mat-select>
+        <mat-option value="one">Repair</mat-option>
+        <mat-option value="two">Installation</mat-option>
+      </mat-select>
+    </mat-form-field>
+</div> 
+<!--Property Type-->    
+<div>
+    <h1 class="h2title">Unit Details</h1>
+</div> 
+
+<div>
+    <mat-form-field class="washingmachineselect" appearance="outline">
+        <mat-label>Washing Machine Type</mat-label>
+      <mat-select>
+        <mat-option value="one">Top Load</mat-option>
+        <mat-option value="two">Front Load</mat-option>
+        <mat-option value="three">Twin Tub</mat-option>
+       </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="washingmachinebrand" appearance="outline">
+        <mat-label>Brand</mat-label>
+      <mat-select>
+        <mat-option value="one">Aiwa</mat-option>
+        <mat-option value="two">American Home</mat-option>
+        <mat-option value="three">Asahi</mat-option>
+        <mat-option value="four">Camel</mat-option>
+        <mat-option value="five">Carrier</mat-option>
+        <mat-option value="five">Other</mat-option>
+       </mat-select>
+    </mat-form-field>
+
+    <div>
+        <mat-form-field class="washingmachineprob" appearance="outline">
+            <mat-label>Unit Problem</mat-label>
+            <mat-select>
+                <mat-option value="one">Does not start or stop</mat-option>
+                <mat-option value="two">Leaking water</mat-option>
+                <mat-option value="three">Not draining water</mat-option>
+                <mat-option value="Four">Continuously Spinning</mat-option>
+                <mat-option value="five">Does not spin or agitate</mat-option>
+                <mat-option value="six">Vibrating or shaking</mat-option>
+                <mat-option value="seven">Fills water slowly</mat-option>
+                <mat-option value="eight">Making noise</mat-option>
+                <mat-option value="nine">Washer is overflowing</mat-option>
+                <mat-option value="ten">Door or lid does not lock</mat-option>
+                <mat-option value="eleven">Stops mid-cycle</mat-option>
+                <mat-option value="twelve">Other</mat-option>
+                <mat-option value="thirteen">I don't know</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    
+    <div>
+        <button class="addunit" mat-stroked-button><mat-icon>add_box</mat-icon>Add unit</button>
+    </div>
+
+    <div>
+        <button class="done" mat-raised-button routerLink="/servicedetails" mat-dialog-close>Done</button>
+        
+    </div>
+</div> 
+ 

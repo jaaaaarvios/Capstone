@@ -37,8 +37,16 @@ import { ConfirmcancelComponent } from './confirmcancel/confirmcancel.component'
 import { CancelreasonsComponent } from './cancelreasons/cancelreasons.component';
 import { PaymentformComponent } from './paymentform/paymentform.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
+<<<<<<< HEAD
 import { EmployeesComponent } from './employees/employees.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+=======
+import { RefrigeratordetailsComponent } from './refrigeratordetails/refrigeratordetails.component';
+import { ElectricfandetailsComponent } from './electricfandetails/electricfandetails.component';
+import { WashingmachinedetailsComponent } from './washingmachinedetails/washingmachinedetails.component';
+import { HousecleaningComponent } from './housecleaning/housecleaning.component';
+
+>>>>>>> 58599e0ef378498dfd8e1f7350b292cff5ef41d9
 
 @NgModule({
   declarations: [
@@ -58,7 +66,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     CancelreasonsComponent,
     PaymentformComponent,
     AdminpageComponent,
+<<<<<<< HEAD
     EmployeesComponent
+=======
+    RefrigeratordetailsComponent,
+    ElectricfandetailsComponent,
+    WashingmachinedetailsComponent,
+    HousecleaningComponent,
+>>>>>>> 58599e0ef378498dfd8e1f7350b292cff5ef41d9
   ],
   imports: [
     BrowserModule,
@@ -81,8 +96,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatCheckboxModule,
     MatNativeDateModule,
     MatDialogModule,
+<<<<<<< HEAD
     MatTableModule,
     MatToolbarModule
+=======
+    MatTableModule
+    
+>>>>>>> 58599e0ef378498dfd8e1f7350b292cff5ef41d9
    
   ],
   providers: [],

@@ -1,7 +1,11 @@
 <div class="loginform">
 
     <mat-card class="logincard">
-      <mat-icon class="close" aria-hidden="false" aria-label="">close</mat-icon>
+      <div fxLayoutAlign="end">
+        <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+          <mat-icon class="close-icon" color="warn">close</mat-icon>
+        </button>
+      </div>
         <img class="logo" mat-card-image src="../../assets/techleanlogo.png">
         
       <div class="loginTabs">
@@ -10,12 +14,12 @@
           <p>
             <mat-form-field class="login-emailfield" appearance="outline">
               <mat-label>Email Address</mat-label>
-              <input matInput placeholder="Enter email address">
+              <input matInput type= "email" name="email" ngModel email="true" placeholder="Enter email address" required>
             </mat-form-field>
   
             <mat-form-field class="login-passfield" appearance="outline">
               <mat-label>Password</mat-label>
-              <input matInput placeholder="Enter password" [type]="hide ? 'password' : 'text'">
+              <input matInput type= "password" name="password" ngModel password="true" placeholder="Enter password" [type]="hide ? 'password' : 'text'" required>
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>
@@ -24,27 +28,32 @@
             <button mat-raised-button class="loginBtn"><a class="loginlink" routerLink="/dashboard">Login</a></button>
             <button mat-raised-button class="fbBtn"><a class="fblink" routerLink="/dashboard">Login with Facebook</a></button>
             <button mat-raised-button class="googleBtn"><a class="googlelink" routerLink="/dashboard">Login with Google Account</a></button>
-          
           </mat-tab>
          
 
           <mat-tab class="signupTab" label="Signup">
             <p>
-              <mat-form-field class="signup-namefield" appearance="outline">
-                <mat-label>Full Name</mat-label>
-                <input matInput placeholder="Enter full name">
+              <mat-form-field class="signup-fnamefield" appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput type="firstname" name="firstname" ngModel firstname="true" placeholder="Enter first name" required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field class="signup-lnamefield" appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput type="lastname" name="lastname" ngModel lastname="true" placeholder="Enter last name" required>
               </mat-form-field>
             </p>
       
             <p>
               <mat-form-field class="signup-emailfield" appearance="outline">
                   <mat-label>Email Address</mat-label>
-                  <input matInput placeholder="yourname@example.com">
+                  <input matInput type="signup_email" name="signup_email" ngModel signup_email="true" placeholder="yourname@example.com" required>
               </mat-form-field>
       
               <mat-form-field class="signup-passfield" appearance="outline">
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Enter password" [type]="hide ? 'password' : 'text'">
+                  <input matInput type="signup_password" name="signup_password" ngModel signup_password="true" placeholder="Enter password" [type]="hide ? 'password' : 'text'" required>
                   <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
@@ -56,10 +65,5 @@
           </mat-tab>
         </mat-tab-group>
       </div>
-       
-      
-
-        
-        
     </mat-card>
 </div>

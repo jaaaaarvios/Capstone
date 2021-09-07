@@ -34,41 +34,37 @@
 
 <!--1st Stepper-->
       
-
-    
-            
             <!--Appliances Repair--> 
             <div>
               <h1 class="h1serviceneed">What service do you need?</h1>
             </div>
           <div class="allservices">
             <mat-card class="appliancescard">
-                  <img class="applianceimg" mat-card-image src="../../assets/appliancesicon.png">
+                  <img class="applianceimg" mat-button (click)="ApplianceOpenDialog()" mat-card-image src="../../assets/appliancesicon.png">
               <mat-card-content>
-                  <button class="h1appliances" mat-button (click)="openDialog()">Appliances Repair</button>
+                  <button class="h1appliances" mat-button (click)="ApplianceOpenDialog()">Appliances Services</button>
               </mat-card-content>
               </mat-card>
             </div>
       
             <!--Electrical Repair-->  
               <mat-card class="electricalcard">
-                  <img class="electricalimg" mat-card-image src="../../assets/electricalicon.png">
+                  <img class="electricalimg" mat-button (click)="ElectricalOpenDialog()" mat-card-image src="../../assets/electricalicon.png">
               <mat-card-content>
-                <button class="h1electrical" mat-button (click)="openDialog()">Electrical Wiring Repair</button>
+                <button class="h1electrical" mat-button (click)="ElectricalOpenDialog()">Electrical Wiring Services</button>
               </mat-card-content>
               </mat-card>
 
             <!--House Cleaning-->  
               <div>
               <mat-card class="cleaningcard">
-                  <img class="cleaningimg" mat-card-image src="../../assets/cleaningicon.png">
+                  <img class="cleaningimg" mat-button (click)="HousecleaningOpenDialog()" mat-card-image src="../../assets/cleaningicon.png">
                       <mat-card-content>
-                          <h1 class="h1cleaning">House Cleaning</h1>
+                          <button class="h1cleaning" mat-button (click)="HousecleaningOpenDialog()">House Cleaning Services</button>
                       </mat-card-content>
               </mat-card>
           </div>
             
-        
     </mat-drawer-content>
   </mat-drawer-container>
   

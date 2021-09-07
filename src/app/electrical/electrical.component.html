@@ -1,23 +1,24 @@
-
 <div>
-    <h1 class="h1title">Select an electrical wiring to be repaired</h1>
+    <div fxLayoutAlign="end">
+        <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+          <mat-icon class="close-icon" color="warn">close</mat-icon>
+        </button>
+    </div>
+    <h1 class="h1title">Select an electrical wiring needs servicing</h1>
 </div>
 
 <div>
-
-<mat-card class="lightscard">
-    <img class="lightsimg" mat-card-image src="../../assets/electricalicon.png">
-        <mat-card-content>
-            <h1 class="h1lights">Lights</h1>
-        </mat-card-content>
-</mat-card>
-
-
-<mat-card class="outletcard">
-<img class="outletimg" mat-card-image src="../../assets/poweroutlet.png">
-  <mat-card-content>
-      <h1 class="h1outlet">Power Outlet</h1>
-  </mat-card-content>
-</mat-card>
-
+    <mat-card class="lightscard">
+        <!-- mat-button (click)="" -->
+        <img class="lightsimg"  mat-card-image src="../../assets/electricalicon.png">
+            <mat-card-content>
+                <button class="h1lights" mat-button >Lights</button>
+            </mat-card-content>
+    </mat-card>
+    <mat-card class="outletcard">
+        <img class="outletimg" mat-card-image src="../../assets/poweroutlet.png">
+            <mat-card-content>
+                <button class="h1outlet" mat-button >Power Outlet</button>
+            </mat-card-content>
+    </mat-card>
 </div>

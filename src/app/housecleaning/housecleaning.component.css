@@ -67,6 +67,11 @@
 .close-button{
     float: right;
     top:-24px;
-    right:-15px;
+    margin: auto;
+}
+.close-icon{
+    margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
