@@ -1,73 +1,199 @@
 <div class="dashboard">
 
-    <mat-drawer-container class="example-container">
-      <mat-drawer mode="side" opened>
-        <img class="logo" mat-card-image src="../../assets/techleanlogoyellow.png">
-        
-      <div class="dashboardside">
-        <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
-        <button class="dashBtn" mat-button><a class="dashlink" routerLink="/dashboard">Dashboard</a></button>
-      </div>
-  
-      <div class="bookingside">
-        <mat-icon class="bookingicon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-        <button class="bookingBtn" mat-button><a class="bookinglink" routerLink="/bookingform">Book a Service</a></button>
-      </div>
-  
-      <div class="profileside">
-        <mat-icon class="profileicon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-        <button class="profileBtn" mat-button><a class="profilelink" routerLink="/bookingform">Profile</a></button>
-      </div>
-  
-      <div class="paymentside">
-        <mat-icon class="paymenticon" aria-hidden="false" aria-label="">credit_card</mat-icon>
-        <button class="paymentBtn" mat-button><a class="paymentlink" routerLink="/paymentform">Payment</a></button>
-      </div>
-  
-  
-  
-  
-      </mat-drawer>
-  
-      <mat-drawer-content>
-  
-        <h1 class="dashboardtxt">Dashboard</h1>
-        
-    <div>
-        <h2 class="welcome">Welcome, Admin!</h2>
-            <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
-                <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+      <img class="logo" mat-card-image src="../../assets/techleanlogoyellow.png">
+      
+    <div class="dashboardside">
+      <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
+      <button class="dashBtn" mat-button><a class="dashlink" routerLink="/dashboard">Dashboard</a></button>
     </div>
-        <button class="logoutBtn" mat-button><a routerLink="/homepage">Logout</a></button>
-        
-        <h2 class="reqstatus">Request Status</h2>
-    <div>
-        <mat-card class="pendingcard">
-            <img class="pendingbg" mat-card-image src="../../assets/pendingbg.jpg"> 
-               <h1 class="pendingtxt">Pending Requests</h1>
-               <h2 class="pendingcount">10</h2>
-        </mat-card>
+
+    <div class="workersside">
+      <mat-icon class="workericon" aria-hidden="false" aria-label="">face</mat-icon>
+      <button class="workerBtn" mat-button><a class="workerlink" routerLink="/bookingform">Workers</a></button>
+    </div>
+
+   </mat-drawer>
+
+    <p>
+      <mat-toolbar class="toolbar">
+        <img class="techleantxt" mat-card-image src="../../assets/techleantxt.png">
+        <div>
+          <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
+            <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
+         </div>
+      </mat-toolbar>
+    </p>
+
+
+<div>
+<img class="adminicon" mat-card-image src="../../assets/adminicon.png">
+</div>
+
+<div>
+  <mat-card class="workercard">
+    <img class="workerbg" mat-card-image src="../../assets/workerbg.jpg"> 
+      <h1 class="workertxt">New Requests</h1>
+        <h2 class="workercount">10</h2>
+  </mat-card>
+
+  <mat-card class="registeredcard">
+    <img class="registeredbg" mat-card-image src="../../assets/reguserbg.jpg"> 
+      <h1 class="registeredtxt">Registered Users</h1>
+       <h2 class="registeredcount">10</h2>
+  </mat-card>
     
-        <mat-card class="completedcard">
-            <img class="completedbg" mat-card-image src="../../assets/completedbg.jpg"> 
-                <h1 class="completedtxt">Completed Requests</h1>
-                <h2 class="completedcount">5</h2>
-        </mat-card>
-        
-        <mat-card class="cancelledcard">
-            <img class="cancelledbg" mat-card-image src="../../assets/cancelledbg.jpg"> 
-                <h1 class="cancelledtxt">Cancelled Requests</h1>
-                <h2 class="cancelledcount">5</h2>
-        </mat-card>
-   </div>
-       
-   <div>
+ 
+</div>
+   
+<div>
+  <mat-tab-group>
+    <mat-tab label="New Requests">
+      <mat-card class="newreq">
+        <h1 class="h1new">New Requests</h1>
+          <mat-form-field class="searchfield" appearance="outline">
+            <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
+              <input matInput>
+          </mat-form-field>
 
-    <mat-card class="pendingcard2">
-       
+          <div>
+            <h1 class="serviceid">Service ID</h1>
+           </div>
+    
+          <div>
+            <h1 class="name">Name</h1>
+          </div>
+    
+          <div>
+            <h1 class="appdate">Appointed Date</h1>
+          </div>
+    
+          <div>
+            <h1 class="time">Time</h1>
+          </div>
+
+          <div>
+            <h1 class="address">Address</h1>
+          </div>
+    
+          <div>
+            <h1 class="dateapp">Date Appointed</h1>
+          </div>
+      </mat-card>
+    </mat-tab>
+
+
+    <mat-tab label="Pending Requests">  
+      <mat-card class="pendingreq">
+        <h1 class="h1pending">Pending Requests</h1>
+          <mat-form-field class="searchfield" appearance="outline">
+            <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
+              <input matInput>
+          </mat-form-field>
+
+          <div>
+            <h1 class="serviceid">Service ID</h1>
+           </div>
+    
+          <div>
+            <h1 class="name">Name</h1>
+          </div>
+    
+          <div>
+            <h1 class="appdate">Appointed Date</h1>
+          </div>
+    
+          <div>
+            <h1 class="time">Time</h1>
+          </div>
+
+          <div>
+            <h1 class="address">Address</h1>
+          </div>
+    
+          <div>
+            <h1 class="dateapp">Date Appointed</h1>
+          </div>
+     </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Completed Requests"> 
+    <mat-card class="completedreq">
+      <h1 class="h1completed">Completed Requests</h1>
+        <mat-form-field class="searchfield" appearance="outline">
+          <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <div>
+          <h1 class="serviceid">Service ID</h1>
+         </div>
+  
+        <div>
+          <h1 class="name">Name</h1>
+        </div>
+  
+        <div>
+          <h1 class="appdate">Appointed Date</h1>
+        </div>
+  
+        <div>
+          <h1 class="time">Time</h1>
+        </div>
+
+        <div>
+          <h1 class="address">Address</h1>
+        </div>
+  
+        <div>
+          <h1 class="dateapp">Date Appointed</h1>
+        </div>
     </mat-card>
+  </mat-tab>
 
-   </div>
-       
+  <mat-tab label="Cancelled Requests">
+    <mat-card class="cancelledreq">
+      <h1 class="h1cancelled">Cancelled Requests</h1>
+        <mat-form-field class="searchfield" appearance="outline">
+          <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <div>
+          <h1 class="serviceid">Service ID</h1>
+         </div>
+  
+        <div>
+          <h1 class="name">Name</h1>
+        </div>
+  
+        <div>
+          <h1 class="appdate">Appointed Date</h1>
+        </div>
+  
+        <div>
+          <h1 class="time">Time</h1>
+        </div>
+
+        <div>
+          <h1 class="address">Address</h1>
+        </div>
+  
+        <div>
+          <h1 class="dateapp">Date Appointed</h1>
+        </div>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
+
+</div>
+
+
+
+
+
+
+
     
   
