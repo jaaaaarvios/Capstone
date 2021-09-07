@@ -41,6 +41,7 @@ import { RefrigeratordetailsComponent } from './refrigeratordetails/refrigerator
 import { ElectricfandetailsComponent } from './electricfandetails/electricfandetails.component';
 import { WashingmachinedetailsComponent } from './washingmachinedetails/washingmachinedetails.component';
 import { HousecleaningComponent } from './housecleaning/housecleaning.component';
+import { GencleaningdetailsComponent } from './gencleaningdetails/gencleaningdetails.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { HousecleaningComponent } from './housecleaning/housecleaning.component'
     ElectricfandetailsComponent,
     WashingmachinedetailsComponent,
     HousecleaningComponent,
+    GencleaningdetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ import {PaymentformComponent} from '../app/paymentform/paymentform.component';
 
 
 const routes: Routes = [
+  { path: '', component: HomepageComponent },
   { path: 'homepage', component: HomepageComponent },
   { path: 'loginform', component: LoginformComponent },
   { path: 'dashboard', component: DashboardComponent },

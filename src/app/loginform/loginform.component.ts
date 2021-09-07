@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogConfig } from '@angular/material/dialog';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-loginform', 
@@ -10,13 +11,13 @@ import { MatDialogConfig } from '@angular/material/dialog';
 export class LoginformComponent implements OnInit {
   value = '';
   hide = true;
-  
+
+ 
   constructor() { 
     
   }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void { 
   }
 }
 
