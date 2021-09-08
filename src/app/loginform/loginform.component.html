@@ -10,27 +10,30 @@
         
       <div class="loginTabs">
         <mat-tab-group>
+          <!-- ------------------------------------------------------------ -->
             <mat-tab class="loginTab" label="Login">
-              <p>
+              <form #userLogin = "ngForm" (ngSubmit)="onClickSubmit(userLogin.value)">
                 <mat-form-field class="login-emailfield" appearance="outline">
                   <mat-label>Email Address</mat-label>
-                  <input matInput type= "email" ngModel login_email="true" placeholder="Enter email address" required>
+                  <input matInput  type= "email" name="login_email" placeholder="user@example.com" ngModel required>
+                  <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                 </mat-form-field>
       
                 <mat-form-field class="login-passfield" appearance="outline">
                   <mat-label>Password</mat-label>
-                  <input matInput type= "password" ngModel login_password="true" placeholder="Enter password" [type]="hide ? 'password' : 'text'" required>
+                  <input matInput type= "password" name="login_password" placeholder="Enter password" [type]="hide ? 'password' : 'text'" ngModel required>
 
                   <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
                 </mat-form-field>
-              </p>
-                <button mat-raised-button class="loginBtn" type="submit" ><a class="loginlink" routerLink="/dashboard">Login</a></button>
+              
+                <button mat-raised-button class="loginBtn" type="submit">Login</button>
                 <button mat-raised-button class="fbBtn"><a class="fblink" routerLink="/dashboard">Login with Facebook</a></button>
                 <button mat-raised-button class="googleBtn"><a class="googlelink" routerLink="/dashboard">Login with Google Account</a></button>
+              </form>
             </mat-tab>
-          
+          <!-- ------------------------------------------------------------------------- -->
             <mat-tab class="signupTab" label="Signup">
               <p>
                 <mat-form-field class="signup-fnamefield" appearance="outline">

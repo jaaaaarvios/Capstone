@@ -10,6 +10,7 @@ import {ProfileformComponent} from '../app/profileform/profileform.component';
 import{ConfirmcancelComponent} from '../app/confirmcancel/confirmcancel.component';
 import {RequestdetailsComponent} from '../app/requestdetails/requestdetails.component';
 import {PaymentformComponent} from '../app/paymentform/paymentform.component';
+import { AdminpageComponent } from '../app/adminpage/adminpage.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'profileform', component: ProfileformComponent },
   { path: 'confirmcancel', component: ConfirmcancelComponent },
   { path: 'requestdetails', component: RequestdetailsComponent },
-  { path: 'paymentform', component: PaymentformComponent }
+  { path: 'paymentform', component: PaymentformComponent },
+  { path: 'admin', component: AdminpageComponent }
 
 ];
 
