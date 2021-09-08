@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {AircondetailsComponent} from '../../app/aircondetails/aircondetails.component';
+import {GencleaningdetailsComponent} from '../../app/gencleaningdetails/gencleaningdetails.component';
 import {RefrigeratordetailsComponent} from '../../app/refrigeratordetails/refrigeratordetails.component';
 import {ElectricfandetailsComponent} from '../../app/electricfandetails/electricfandetails.component';
 import {WashingmachinedetailsComponent} from '../../app/washingmachinedetails/washingmachinedetails.component';
@@ -13,8 +13,8 @@ import {WashingmachinedetailsComponent} from '../../app/washingmachinedetails/wa
 export class HousecleaningComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
-    AirconOpenDialog() {
-      const dialogRef = this.dialog.open(AircondetailsComponent);
+    GencleanOpenDialog() {
+      const dialogRef = this.dialog.open(GencleaningdetailsComponent);
       
       dialogRef.afterClosed().subscribe(result => {
         console.log(`Dialog result: ${result}`);

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import {MatButtonModule} from '@angular/material/button';
@@ -43,7 +42,6 @@ import { RefrigeratordetailsComponent } from './refrigeratordetails/refrigerator
 import { ElectricfandetailsComponent } from './electricfandetails/electricfandetails.component';
 import { WashingmachinedetailsComponent } from './washingmachinedetails/washingmachinedetails.component';
 import { HousecleaningComponent } from './housecleaning/housecleaning.component';
-
 
 @NgModule({
   declarations: [
@@ -95,8 +93,6 @@ import { HousecleaningComponent } from './housecleaning/housecleaning.component'
     MatToolbarModule,
     MatTableModule
     
-
-   
   ],
   providers: [],
   bootstrap: [AppComponent]
