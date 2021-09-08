@@ -10,11 +10,10 @@ import {ProfileformComponent} from '../app/profileform/profileform.component';
 import{ConfirmcancelComponent} from '../app/confirmcancel/confirmcancel.component';
 import {RequestdetailsComponent} from '../app/requestdetails/requestdetails.component';
 import {PaymentformComponent} from '../app/paymentform/paymentform.component';
-<<<<<<< HEAD
 import {EmployeesComponent} from '../app/employees/employees.component';
 import {AdminpageComponent} from '../app/adminpage/adminpage.component';
-=======
->>>>>>> 58599e0ef378498dfd8e1f7350b292cff5ef41d9
+
+
 
 
 const routes: Routes = [
@@ -26,14 +25,10 @@ const routes: Routes = [
   { path: 'profileform', component: ProfileformComponent },
   { path: 'confirmcancel', component: ConfirmcancelComponent },
   { path: 'requestdetails', component: RequestdetailsComponent },
-<<<<<<< HEAD
   { path: 'paymentform', component: PaymentformComponent },
   { path: 'adminpage', component: RequestdetailsComponent },
-  { path: 'employees', component: PaymentformComponent }
-=======
-  { path: 'paymentform', component: PaymentformComponent }
-
->>>>>>> 58599e0ef378498dfd8e1f7350b292cff5ef41d9
+  { path: 'employees', component: PaymentformComponent },
+  { path: 'paymentform', component: PaymentformComponent },
 ];
 
 
