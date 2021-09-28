@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router'; 
-
 
 @Component({
   selector: 'app-loginform', 
@@ -13,10 +12,29 @@ import { Router } from '@angular/router';
 export class LoginformComponent implements OnInit {
   value = '';
   hide = true;
+  guser: any;
+  metaservice: any;
   
   // email = new FormControl('', [Validators.required, Validators.email]);
  
-  constructor(private router: Router, ) {} 
+  constructor(private router: Router, 
+    ngZone: NgZone
+    ) {
+
+      window ['onSignIn'] = user => ngZone.run(
+        () => {
+          this.afterSignUp(user);
+          console.log("success")
+        }
+      );
+    }
+     
+      afterSignUp(googleUser) {
+        this.router.navigate(['/dashboard'])  
+        console.log(googleUser)
+        this.guser = googleUser;
+      }
+
 
     onSubmit() {  
         this.router.navigate(['/dashboard'])  
@@ -26,6 +44,7 @@ export class LoginformComponent implements OnInit {
   }  
 
   ngOnInit(): void { 
+    
   }
   
   onClickSubmit(data){

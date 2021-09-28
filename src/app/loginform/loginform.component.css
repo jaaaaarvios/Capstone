@@ -65,35 +65,31 @@ margin-left: 140px;
 }
 .loginBtn
 {
-background-color: #FCA311;
+background-color: #D62828;
+color: #FFFFFF;
 height: 40px;
-width: 295px;
-margin-left: 13px;
-border-radius: 5px;
-}
-.fbBtn
-{
-background-color: #0077b6;
-height: 40px;
-width: 295px;
+width: 180px;
+margin-left: 70px;
 margin-top: 10px;
-margin-left: 13px;
 border-radius: 5px;
 }
-.googleBtn
+
+.g-signin2
 {
-background-color: white;
-height: 40px;
-width: 295px;
-margin-top: 10px;
-margin-left: 13px;
-border-radius: 5px;
+    width: 180px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 70px;
 }
+
+
 .signupBtn
 {
-background-color: #FCA311;
-width: 295px;
-margin-left: 13px;
+background-color: #D62828;
+height: 40px;
+width: 180px;
+margin-left: 70px;
+margin-top: -10px;
 border-radius: 5px;
 }
 .signuplink

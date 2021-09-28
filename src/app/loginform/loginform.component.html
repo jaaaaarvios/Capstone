@@ -11,7 +11,7 @@
       <div class="loginTabs">
         <mat-tab-group>
           <!-- ------------------------------------------------------------ -->
-            <mat-tab class="loginTab" label="Login">
+            <mat-tab class="loginTab" label="Sign In">
               <form #userLogin = "ngForm" (ngSubmit)="onClickSubmit(userLogin.value)">
                 <mat-form-field class="login-emailfield" appearance="outline">
                   <mat-label>Email Address</mat-label>
@@ -27,10 +27,11 @@
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
                 </mat-form-field>
-              
-                <button mat-raised-button class="loginBtn" type="submit">Login</button>
-                <button mat-raised-button class="fbBtn"><a class="fblink" routerLink="/dashboard">Login with Facebook</a></button>
-                <button mat-raised-button class="googleBtn"><a class="googlelink" routerLink="/dashboard">Login with Google Account</a></button>
+
+               
+                <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true"></div>
+                <button mat-raised-button class="loginBtn" type="submit">Sign In</button>
+               
               </form>
             </mat-tab>
           <!-- ------------------------------------------------------------------------- -->
@@ -61,7 +62,10 @@
                     </button>
                 </mat-form-field>
               </p>
+              
+              <div>
               <button mat-raised-button class="signupBtn"><a class="signuplink">Signup</a></button>
+              </div>
             </mat-tab>
         </mat-tab-group>
       </div>
