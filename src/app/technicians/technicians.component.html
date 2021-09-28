@@ -1,0 +1,97 @@
+<html>
+  <body>
+    <div class="dashboard">
+      <mat-drawer-container class="example-container">
+        <mat-drawer mode="side" opened>
+          <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+      
+        <div class="dashboardside">
+          <div>
+            <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
+          </div>
+
+          <div class="dashlink">
+            <a class="dashlink" routerLink="/dashboard">Dashboard</a>
+          </div>
+       </div>  
+
+        <div class="workerside">
+          <div>
+            <mat-icon class="workericon" aria-hidden="false" aria-label="">face</mat-icon>
+          </div>
+
+          <div class="workerlink">
+            <a class="workerlink" routerLink="/bookingform">Technicians</a>
+          </div>
+        </div> 
+
+        <div class="scheduleside">
+          <div>
+            <mat-icon class="scheduleicon" aria-hidden="false" aria-label="">schedule</mat-icon>
+          </div>
+
+          <div class="schedulelink">
+            <a class="schedulelink" routerLink="/bookingform">Schedules</a>
+          </div>
+        </div>
+      </mat-drawer>
+
+    <mat-drawer-content>
+      <p>
+        <mat-toolbar class="toolbar">
+          <h1 class="logotxt"><b>Ayosgamit</b></h1>
+          <div>
+            <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
+              <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
+           </div>
+        </mat-toolbar>
+      </p>
+
+    <div>
+        <h1 class="titletxt">Technicians</h1>
+        <img class="techicon" mat-card-image src="../../assets/techicon.png">
+
+        <button mat-icon-button class="addtech" (click)="AddtechOpenDialog()" aria-label="Example icon button with a home icon">
+            <mat-icon>add</mat-icon>
+          </button>
+
+            <mat-form-field class="searchfield" appearance="outline">
+                <mat-label><mat-icon>find_in_page</mat-icon> Search..</mat-label>
+                    <input matInput>
+            </mat-form-field>
+        
+        <mat-card class="technician1">
+            <div>
+
+                <button mat-stroked-button class="statusBtn1" [matMenuTriggerFor]="statusmenu">Status</button>
+                    <mat-menu #statusmenu="matMenu">
+                        <button mat-menu-item>Active</button>
+                        <button mat-menu-item>Inactive</button>
+                    </mat-menu>
+                <button mat-flat-button class="profileBtn1" (click)="TechprofileOpenDialog()">Profile</button>
+
+                <button mat-icon-button class="editBtn1" [matMenuTriggerFor]="editmenu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+
+                <mat-menu #editmenu="matMenu">
+                    <button mat-menu-item>
+                      <mat-icon>edit</mat-icon>
+                      <span>Edit</span>
+                    </button>
+
+                    <button mat-menu-item>
+                      <mat-icon>delete</mat-icon>
+                      <span>Delete</span>
+                    </button>
+                    
+                </mat-menu>
+            </div>
+            
+            <div>
+            <h1 class="name1">Juan Dela Cruz</h1>
+                <h2 class="position1">Appliances Repair</h2>
+            </div>
+
+        </mat-card>
+    </div>

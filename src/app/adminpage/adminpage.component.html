@@ -1,34 +1,52 @@
-<div class="dashboard">
-
-  <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>
-      <img class="logo" mat-card-image src="../../assets/techleanlogoyellow.png">
+<html>
+  <body>
+    <div class="dashboard">
+      <mat-drawer-container class="example-container">
+        <mat-drawer mode="side" opened>
+          <img class="logo" mat-card-image src="../../assets/mainlogo.png">
       
-    <div class="dashboardside">
-      <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
-      <button class="dashBtn" mat-button><a class="dashlink">Dashboard</a></button>
-    </div>
+        <div class="dashboardside">
+          <div>
+            <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
+          </div>
 
-    <div class="workersside">
-      <mat-icon class="workericon" aria-hidden="false" aria-label="">face</mat-icon>
-      <button class="workerBtn" mat-button><a class="workerlink" routerLink="/bookingform">Workers</a></button>
-    </div>
+          <div class="dashlink">
+            <a class="dashlink" routerLink="/dashboard">Dashboard</a>
+          </div>
+       </div>  
 
-   </mat-drawer>
+        <div class="workerside">
+          <div>
+            <mat-icon class="workericon" aria-hidden="false" aria-label="">face</mat-icon>
+          </div>
 
-    <p>
-      <mat-toolbar class="toolbar">
-        <img class="techleantxt" mat-card-image src="../../assets/techleantxt.png">
-        <div>
-          <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
-            <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
-         </div>
-      </mat-toolbar>
-    </p>
+          <div class="workerlink">
+            <a class="workerlink" routerLink="/bookingform">Technicians</a>
+          </div>
+        </div> 
 
-<div>
-  <h1 class="dashboardtxt">Dashboard</h1>
-</div>
+        <div class="scheduleside">
+          <div>
+            <mat-icon class="scheduleicon" aria-hidden="false" aria-label="">schedule</mat-icon>
+          </div>
+
+          <div class="schedulelink">
+            <a class="schedulelink" routerLink="/bookingform">Schedules</a>
+          </div>
+        </div>
+      </mat-drawer>
+
+    <mat-drawer-content>
+      <p>
+        <mat-toolbar class="toolbar">
+          <h1 class="logotxt"><b>Ayosgamit</b></h1>
+          <div>
+            <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
+              <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
+           </div>
+        </mat-toolbar>
+      </p>
+ 
 
 <div>
   
@@ -57,16 +75,16 @@
        <h2 class="cancelledcount">10</h2>
   </mat-card>
 
-  <mat-card class="workercard">
-    <img class="workerbg" mat-card-image src="../../assets/workerbg.jpg"> 
-      <h1 class="workertxt">Pending Requests</h1>
-       <h2 class="workercount">10</h2>
+  <mat-card class="reschedcard">
+    <img class="reschedbg" mat-card-image src="../../assets/reschedbg.jpg"> 
+      <h1 class="reschedtxt">Rescheduled Requests</h1>
+       <h2 class="reschedcount">10</h2>
   </mat-card>
     
-  <mat-card class="regusercard">
-    <img class="reguserbg" mat-card-image src="../../assets/reguserbg.jpg"> 
-      <h1 class="regusertxt">Registered Users</h1>
-       <h2 class="regusercount">10</h2>
+  <mat-card class="workercard">
+    <img class="workerbg" mat-card-image src="../../assets/workerbg.jpg"> 
+      <h1 class="workertxt">Active Technicians</h1>
+       <h2 class="workercount">10</h2>
   </mat-card>
 
 </div>
@@ -179,6 +197,40 @@
   <mat-tab label="Cancelled Requests">
     <mat-card class="cancelledreq">
       <h1 class="h1cancelled">Cancelled Requests</h1>
+        <mat-form-field class="searchfield" appearance="outline">
+          <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <div>
+          <h1 class="serviceid">Service ID</h1>
+         </div>
+  
+        <div>
+          <h1 class="name">Name</h1>
+        </div>
+  
+        <div>
+          <h1 class="appdate">Appointed Date</h1>
+        </div>
+  
+        <div>
+          <h1 class="time">Time</h1>
+        </div>
+
+        <div>
+          <h1 class="address">Address</h1>
+        </div>
+  
+        <div>
+          <h1 class="dateapp">Date Appointed</h1>
+        </div>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Rescheduled Requests">
+    <mat-card class="reschedreq">
+      <h1 class="h1resched">Rescheduled Requests</h1>
         <mat-form-field class="searchfield" appearance="outline">
           <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
             <input matInput>

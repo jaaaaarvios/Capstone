@@ -1,42 +1,50 @@
+<html>
+    <body>
+      <div>
+        <div fxLayoutAlign="end">
+          <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+            <mat-icon class="close-icon" color="warn">close</mat-icon>
+          </button>
+        </div>
+          <h1 class="h1title">Appliance to repair</h1>
+      </div> 
 
-<div>
-  <div fxLayoutAlign="end">
-    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
-      <mat-icon class="close-icon" color="warn">close</mat-icon>
-    </button>
-  </div>
-  
-    <h1 class="h1title">Select an appliance needs servicing</h1>
-</div>
+      <div class= mat-dialog-content>
+        <mat-card class="airconcard">
+          <img class="airconimg" mat-button (click)="AirconOpenDialog()" mat-card-image src="../../assets/airconicon.png"mat-dialog-close>
+            <mat-card-content>
+              <button class="h1aircon" mat-button (click)="AirconOpenDialog()" mat-dialog-close>Aircon</button>
+             </mat-card-content>
+        </mat-card>
 
-<div>
+        <mat-card class="refcard">
+          <img class="refimg" mat-button (click)="RefrigeratorOpenDialog()" mat-card-image src="../../assets/reficon.png"mat-dialog-close>
+            <mat-card-content>
+              <button class="h1ref" mat-button (click)="RefrigeratorOpenDialog()" mat-dialog-close>Refrigerator</button>
+            </mat-card-content>
+        </mat-card>
 
-<mat-card class="airconcard">
-    <img class="airconimg" mat-button (click)="AirconOpenDialog()" mat-card-image src="../../assets/airconicon.png"mat-dialog-close>
-        <mat-card-content>
-            <button class="h1aircon" mat-button (click)="AirconOpenDialog()" mat-dialog-close>Aircon</button>
-        </mat-card-content>
-</mat-card>
+        <mat-card class="efancard">
+          <img class="efanimg" mat-button (click)="ElectricfanOpenDialog()" mat-card-image src="../../assets/efanicon.png"mat-dialog-close>
+            <mat-card-content>
+              <button class="h1efan" mat-button (click)="ElectricfanOpenDialog()" mat-dialog-close>Electric Fan</button>
+            </mat-card-content>
+        </mat-card>
 
+        <mat-card class="washingcard">
+          <img class="washingimg" mat-button (click)="WashingmachineOpenDialog()" mat-card-image src="../../assets/washingicon.png"mat-dialog-close>
+            <mat-card-content>
+              <button class="h1washing" mat-button (click)="WashingmachineOpenDialog()" mat-dialog-close>Washing Machine</button>
+            </mat-card-content>
+        </mat-card>
 
-<mat-card class="refcard">
-<img class="refimg" mat-button (click)="RefrigeratorOpenDialog()" mat-card-image src="../../assets/reficon.png"mat-dialog-close>
-  <mat-card-content>
-      <button class="h1ref" mat-button (click)="RefrigeratorOpenDialog()" mat-dialog-close>Refrigerator</button>
-  </mat-card-content>
-</mat-card>
+        <mat-card class="tvcard">
+          <img class="tvimg" mat-button (click)="WashingmachineOpenDialog()" mat-card-image src="../../assets/tvicon.png"mat-dialog-close>
+            <mat-card-content>
+              <button class="h1tv" mat-button (click)="WashingmachineOpenDialog()" mat-dialog-close>Television</button>
+            </mat-card-content>
+        </mat-card>
 
-<mat-card class="efancard">
-<img class="efanimg" mat-button (click)="ElectricfanOpenDialog()" mat-card-image src="../../assets/appliancesicon.png"mat-dialog-close>
-  <mat-card-content>
-      <button class="h1efan" mat-button (click)="ElectricfanOpenDialog()" mat-dialog-close>Electric Fan</button>
-  </mat-card-content>
-</mat-card>
-
-<mat-card class="washingcard">
-<img class="washingimg" mat-button (click)="WashingmachineOpenDialog()" mat-card-image src="../../assets/washingicon.png"mat-dialog-close>
-  <mat-card-content>
-      <button class="h1washing" mat-button (click)="WashingmachineOpenDialog()" mat-dialog-close>Washing Machine</button>
-  </mat-card-content>
-</mat-card>
-</div>
+        </div>
+    </body>
+</html>

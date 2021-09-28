@@ -25,14 +25,14 @@ export class BookingformComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  ElectricalOpenDialog() {
+  CleaningOpenDialog() {
     const dialogRef = this.dialog.open(ElectricalComponent);
     
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
-  HousecleaningOpenDialog() {
+  InstallationOpenDialog() {
     const dialogRef = this.dialog.open(HousecleaningComponent);
     
     dialogRef.afterClosed().subscribe(result => {

@@ -1,0 +1,61 @@
+<html>
+    <body>
+        <div class="mat-dialog-content">
+            
+            <h1 class="title">Add Technician</h1>
+          
+            
+        <div>
+            <mat-form-field class="name" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput [formControl]="name" required>
+                <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="specialization" appearance="outline">
+                <mat-label>Specialization</mat-label>
+                    <mat-select>
+                        <mat-option value="one">Appliances Repair</mat-option>
+                        <mat-option value="two">Appliances cleaning</mat-option>
+                        <mat-option value="two">Installation and Dismantling</mat-option>
+                    </mat-select>
+            </mat-form-field>
+        </div>
+        
+        <div>
+            <mat-form-field class="contact" appearance="outline">
+                <mat-label>Contact Number</mat-label>
+                <input matInput #input maxlength="11">
+                <mat-hint>{{input.value?.length || 0}}/11</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="address" appearance="outline">
+                <mat-label>Home Address</mat-label>
+                <input matInput>
+              </mat-form-field>
+        </div>
+
+
+        <div>
+            <button mat-raised-button class="addBtn">Add</button>
+        </div>
+
+
+
+
+
+
+
+
+
+
+               
+            </div>
+       
+    </body>
+</html>
+

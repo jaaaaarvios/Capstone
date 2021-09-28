@@ -45,6 +45,11 @@ import { ElectricfandetailsComponent } from './electricfandetails/electricfandet
 import { WashingmachinedetailsComponent } from './washingmachinedetails/washingmachinedetails.component';
 import { HousecleaningComponent } from './housecleaning/housecleaning.component';
 import { GencleaningdetailsComponent } from './gencleaningdetails/gencleaningdetails.component';
+import { TelevisiondetailsComponent } from './televisiondetails/televisiondetails.component';
+import { TechniciansComponent } from './technicians/technicians.component';
+import { TechprofileComponent } from './techprofile/techprofile.component';
+import { SchedulepageComponent } from './schedulepage/schedulepage.component';
+import { AddtechComponent } from './addtech/addtech.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +74,12 @@ import { GencleaningdetailsComponent } from './gencleaningdetails/gencleaningdet
     ElectricfandetailsComponent,
     WashingmachinedetailsComponent,
     HousecleaningComponent,
-    GencleaningdetailsComponent
+    GencleaningdetailsComponent,
+    TelevisiondetailsComponent,
+    TechniciansComponent,
+    TechprofileComponent,
+    SchedulepageComponent,
+    AddtechComponent
 
   ],
   imports: [

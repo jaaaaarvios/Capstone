@@ -1,27 +1,37 @@
-<div class="dashboard">
 
+  <div class="dashboard">
     <mat-drawer-container class="example-container">
       <mat-drawer mode="side" opened>
-        <img class="logo" mat-card-image src="../../assets/techleanlogoyellow.png">
-        
+        <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+    
       <div class="dashboardside">
-        <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
-        <button class="dashBtn" mat-button><a class="dashlink" routerLink="/dashboard">Dashboard</a></button>
-      </div>
-  
-      <div class="bookingside">
-        <mat-icon class="bookingicon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-        <button class="bookingBtn" mat-button><a class="bookinglink" routerLink="/bookingform">Book A Service</a></button>
-      </div>
-  
-      <div class="profileside">
-        <mat-icon class="profileicon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-        <button class="profileBtn" mat-button><a class="profilelink" routerLink="/dashboard">Profile</a></button>
-      </div>
+        <div>
+          <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
+        </div>
 
-      <div class="paymentside">
-        <mat-icon class="paymenticon" aria-hidden="false" aria-label="">credit_card</mat-icon>
-        <button class="paymentBtn" mat-button><a class="paymentlink" routerLink="/paymentform">Payment</a></button>
+        <div class="dashlink">
+          <a class="dashlink" routerLink="/dashboard">Dashboard</a>
+        </div>
+     </div>  
+
+      <div class="bookingside">
+        <div>
+          <mat-icon class="bookingicon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+        </div>
+
+        <div class="bookinglink">
+          <a class="bookinglink" routerLink="/bookingform">Book a service</a>
+        </div>
+      </div> 
+
+      <div class="profileside">
+        <div>
+          <mat-icon class="profileicon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+        </div>
+
+        <div class="profilelink">
+          <a class="profilelink" routerLink="/bookingform">Profile</a>
+        </div>
       </div>
     </mat-drawer>
   

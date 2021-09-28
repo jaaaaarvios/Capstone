@@ -1,70 +1,108 @@
+.mat-dialog-content
+{
+    width: 1020px;
+    height: 250px;
+    
+}
+
 .h1title
 {
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Trebuchet MS';
-    margin-left: 30px;
+    margin-left: 25px;
 }
 .airconcard
 {
-    margin-top: 50px;
-    margin-left: 10px;
-    width: 200px;
-    height: 200px;
+    margin-top: 30px;
+    margin-left: 20px;
+    width: 150px;
+    height: 150px;
 }
-.refcard
-{
-    margin-top: -235px;
-    margin-left: 270px;
-    width: 200px;
-    height: 200px;
-}
-.efancard
-{
-    margin-top: -232px;
-    margin-left: 530px;
-    width: 200px;
-    height: 200px;
-}
-.washingcard
-{
-    margin-top: -230px;
-    margin-left: 800px;
-    width: 200px;
-    height: 200px;
-}
+
 .h1aircon
 {
     font-family: 'Trebuchet MS';
-    font-size: 20px;
+    font-size: 18px;
     justify-content: center;
     display: flex;
-    margin: auto;
+    margin-top: -10px;
+    margin-left: 32px;
 }
+
+.refcard
+{
+    margin-top:-182px;
+    margin-left: 215px;
+    width: 160px;
+    height: 150px;
+}
+
 .h1ref
 {
     font-family: 'Trebuchet MS';
-    font-size: 20px;
+    font-size: 18px;
     justify-content: center;
     display: flex;
-    margin: auto;
+    margin-top: -20px;
+    margin-left: 15px;
 }
+
+.efancard
+{
+    margin-top: -182px;
+    margin-left: 420px;
+    width: 150px;
+    height: 150px;
+}
+
 .h1efan
 {
     font-family: 'Trebuchet MS';
-    font-size: 20px;
+    font-size: 18px;
     justify-content: center;
     display: flex;
-    margin: auto;
+    margin-top: -10px;
+    margin-left: 15px;
 }
+
+.washingcard
+{
+    margin-top: -182px;
+    margin-left: 615px;
+    width: 150px;
+    height: 150px;
+}
+
 .h1washing
 {
     font-family: 'Trebuchet MS';
-    font-size: 20px;
+    font-size: 18px;
     justify-content: center;
     display: flex;
-    margin: auto;
+    margin-top: -10px;
+    margin-left: -8px;
 }
-.close-button{
+
+.tvcard
+{
+    margin-top: -182px;
+    margin-left: 812px;
+    width: 150px;
+    height: 150px;
+}
+
+.h1tv
+{
+    font-family: 'Trebuchet MS';
+    font-size: 18px;
+    justify-content: center;
+    display: flex;
+    margin-top: -10px;
+    margin-left: 18px;
+}
+
+.close-button
+{
     float: right;
     top:-24px;
     right:-15px;

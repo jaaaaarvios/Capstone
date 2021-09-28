@@ -11,7 +11,8 @@ import{ConfirmcancelComponent} from '../app/confirmcancel/confirmcancel.componen
 import {RequestdetailsComponent} from '../app/requestdetails/requestdetails.component';
 import {PaymentformComponent} from '../app/paymentform/paymentform.component';
 import {AdminpageComponent} from '../app/adminpage/adminpage.component';
-
+import {TechniciansComponent} from '../app/technicians/technicians.component';
+import {TechprofileComponent} from '../app/techprofile/techprofile.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,8 @@ const routes: Routes = [
   { path: 'employees', component: PaymentformComponent },
   { path: 'paymentform', component: PaymentformComponent },
   { path: 'admin', component: AdminpageComponent },
+  { path: 'technicians', component: TechniciansComponent },
+  { path: 'techprofile', component: TechprofileComponent },
 ];
 
 @NgModule({

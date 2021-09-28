@@ -1,0 +1,46 @@
+.mat-dialog-content
+{
+    width: 500px;
+    height: 500px;
+}
+
+.title
+{
+    color: #003049;
+    font-family: 'Trebuchet MS';
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.name
+{
+    margin-top: 40px;
+}
+
+.specialization
+{
+    margin-top: -5px;
+}
+
+.contact
+{
+    margin-top: -15px;
+}
+
+.address
+{
+    margin-top: 5px;
+}
+
+.addBtn
+{
+    width: 85px;
+    height: 40px;
+    background-color: #FCBF49;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+}

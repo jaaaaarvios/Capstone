@@ -1,3 +1,8 @@
+.mat-dialog-content
+{
+    width: 750px;
+    height: 65px;
+}
 .h1title
 {
     font-size: 30px;
@@ -73,8 +78,8 @@
 .mat-raised-button
 {
     font-family: 'Trebuchet MS';
-    background-color: #FCA311;
-    color: #14213D;
+    background-color: #D62828;
+    color: #FFFFFF;
     font-size: 18px;
     margin-left: 620px;
     margin-top: 50px;
@@ -83,7 +88,7 @@
 }
 .close-button{
     float: right;
-    top:-24px;
+    top: 14px;
     right:-15px;
 }
 .close-icon{

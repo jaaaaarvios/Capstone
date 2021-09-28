@@ -1,37 +1,29 @@
-.container
+.homebg2
 {
-background-image: url('../../assets/webbackground.png');
-height: 100%;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-}
-
-body, html
-{
-  height: 100%;
+   
+    margin-top: -510px;
+    width: 1180px;
+    height: 883px;
+    border-radius: 40px;
 }
 
 .logo
 {
-height: 30%;
-width: 20%;
-margin: 20px;
-
-
+height: 130px;;
+width: 150px;
+margin-left: 180px;
+padding-top: 30px;
 }
 
 .frontcard
 {
-background-image: url('../../assets/webbackground.png');
-background-repeat: no-repeat;
+
 border-radius: 40px;
-margin: 175px;
-margin-top: 50px;
-padding-top: 50px;
-min-height: 700px;
-min-width: 1500px;
-background-color: #E5E5E5;
+margin-top: 20px;
+margin-left: 40px;
+height: 850px;
+width: 1790px;
+background-color: #EAE2B7;
 opacity: 100%;
 position:absolute;
 }
@@ -39,8 +31,8 @@ position:absolute;
 .menu
 {
     float: right;
-    margin-right: 250px;
-    margin-top: 30px;
+    margin-right: 290px;
+    margin-top: 60px;
 }
 
 .menuButton
@@ -54,7 +46,7 @@ position:absolute;
 
 .serviceBtn
 {
-    background-color: #FCA311;
+    background-color: #D62828;
     color: #14213D;
     height: 45px;
     width: 140px;
@@ -71,9 +63,9 @@ position:absolute;
     
 .booklink:hover 
 {
-    background-color: #FCA311;
-    color: #14213D;
-   
+
+    color: #EAE2B7;
+
 }
 
 .title
@@ -101,16 +93,16 @@ position:absolute;
 
 .content
 {
-    margin-left: 850px;
+    margin-left: 1095px;
     margin-top: 120px;;
 }
 
 .vector
 {
 height: 550px;
-width: 700px;
+width: 750px;
 position: absolute;
 bottom: 150px;
-margin-left: 50px;
+margin-left: 125px;
 
 }
