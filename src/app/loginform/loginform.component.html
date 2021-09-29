@@ -1,73 +1,88 @@
-<div class="col-md-6 offset-md-3 mt-5">
-<div class="loginform">
-    <mat-card class="logincard">
-      <div fxLayoutAlign="end">
-        <button mat-icon-button class="close-button">
-          <mat-icon class="close-icon" color="warn" >close</mat-icon>
-        </button>
-      </div>
-        <img class="logo" mat-card-image src="../../assets/mainlogo.png">
-        
-      <div class="loginTabs">
-        <mat-tab-group>
-          <!-- ------------------------------------------------------------ -->
-            <mat-tab class="loginTab" label="Sign In">
-              <form #userLogin = "ngForm" (ngSubmit)="onClickSubmit(userLogin.value)">
-                <mat-form-field class="login-emailfield" appearance="outline">
-                  <mat-label>Email Address</mat-label>
-                  <input matInput  type= "email" name="login_email" placeholder="user@example.com" ngModel required>
-                  <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-                </mat-form-field>
-      
-                <mat-form-field class="login-passfield" appearance="outline">
-                  <mat-label>Password</mat-label>
-                  <input matInput type= "password" name="login_password" placeholder="Enter password" [type]="hide ? 'password' : 'text'" ngModel required>
+<div class="container">
+  <mat-card class="logincard">
+    <div fxLayoutAlign="end">
+      <button mat-icon-button class="close-button">
+        <mat-icon routerLink="/home"class="close-icon" color="warn">close</mat-icon>
+      </button>
+    </div>
+    <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+    <div class="loginTabs">
+      <mat-tab-group>
+        <!-- ------------------------------------------------------------ -->
+        <mat-tab class="loginTab" label="Sign In">
 
-                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  </button>
-                </mat-form-field>
+          <form [formGroup]="userForm" (ngSubmit)="onClickSubmit()">
 
-               
-                <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true"></div>
-                <button mat-raised-button class="loginBtn" type="submit">Sign In</button>
-               
-              </form>
-            </mat-tab>
-          <!-- ------------------------------------------------------------------------- -->
-            <mat-tab class="signupTab" label="Signup">
-              <p>
-                <mat-form-field class="signup-fnamefield" appearance="outline">
-                  <mat-label>First Name</mat-label>
-                  <input matInput id="fname" type="text" ngModel firstName="true" placeholder="Enter first name" required>
-                </mat-form-field>
-              </p>
-              <p>
-                <mat-form-field class="signup-lnamefield" appearance="outline">
-                  <mat-label>Last Name</mat-label>
-                  <input matInput id="lname" type="text" ngModel lastName="true" placeholder="Enter last name" required>
-                </mat-form-field>
-              </p>
-              <p>
-                <mat-form-field class="signup-emailfield" appearance="outline">
-                    <mat-label>Email Address</mat-label>
-                    <input matInput id="signup_email" type="email" ngModel signup_email="true" placeholder="yourname@example.com" required>
-                </mat-form-field>
-        
-                <mat-form-field class="signup-passfield" appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input matInput id="signup_password" type="password" ngModel signup_password="true" placeholder="Enter password" [type]="hide ? 'password' : 'text'" required>
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                </mat-form-field>
-              </p>
-              
-              <div>
-              <button mat-raised-button class="signupBtn"><a class="signuplink">Signup</a></button>
-              </div>
-            </mat-tab>
-        </mat-tab-group>
-      </div>
-    </mat-card>
+            <mat-form-field class="login-emailfield" appearance="outline">
+              <mat-label>Email Address</mat-label>
+              <input matInput formControlName="user_email" ngModel [email]="true" type="email"
+                placeholder="user@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$">
+              <mat-error *ngIf="userForm.get('user_email').hasError('required')"> Email is required </mat-error>
+              <mat-error *ngIf="userForm.get('user_email').hasError('pattern')"> Please enter a valid email address </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="login-passfield" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="user_password" placeholder="Enter password" [type]="hide ? 'password' : 'text'">
+                <mat-icon mat-icon-button matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error *ngIf="userForm.get('user_password').hasError('required')">Password is required</mat-error>
+              <mat-error *ngIf="userForm.get('user_password').hasError('minlength')">Password must have at least
+                {{minPw}} characters</mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button class="loginBtn" type="submit">Login</button>
+            <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true"></div>
+          </form>
+        </mat-tab>
+
+        <!-- ------------------------------------------------------------------------- -->
+
+        <mat-tab class="signupTab" label="Sign Up">
+          <form [formGroup]="signupForm" (ngSubmit)="SignUpSubmit()">
+
+            <mat-form-field class="signup-fnamefield" appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName="user_fname" type="text" ngModel
+                placeholder="Enter first name" required>
+                <mat-error *ngIf="signupForm.get('user_fname').hasError('required')"> First name is required
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('user_fname').hasError('pattern')"> Invalid Name
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="signup-lnamefield" appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="user_lname" type="text" ngModel
+                placeholder="Enter last name" required>
+              <mat-error *ngIf="signupForm.get('user_lname').hasError('required')"> Last name is required </mat-error>
+              <mat-error *ngIf="signupForm.get('user_lname').hasError('pattern')"> Invalid Name </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="signup-emailfield" appearance="outline">
+              <mat-label>Email Address</mat-label>
+              <input matInput formControlName="user_semail" [email]="true" type="email" ngModel
+                placeholder="yourname@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$" autocomplete="off">
+              <mat-error *ngIf="signupForm.get('user_semail').hasError('required')"> Email is required </mat-error>
+              <mat-error *ngIf="signupForm.get('user_semail').hasError('pattern')"> Please enter a valid email address </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="signup-passfield" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="user_spassword" type="password" ngModel
+                placeholder="Enter password" [type]="hide ? 'password' : 'text'" required autocomplete="off">
+                <mat-icon mat-icon-button matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error *ngIf="signupForm.get('user_spassword').hasError('required')">Password is required</mat-error>
+              <mat-error *ngIf="signupForm.get('user_spassword').hasError('minlength')">Password must have at least
+                {{minPw}} characters</mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button type="submit" class="signupBtn">Signup</button>
+           
+          </form>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </mat-card>
 </div>
+
+

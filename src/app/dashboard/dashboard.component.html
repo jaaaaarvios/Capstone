@@ -1,134 +1,127 @@
-<html>
-  <body>
-    <div class="dashboard">
-      <mat-drawer-container class="example-container">
-        <mat-drawer mode="side" opened>
-          <img class="logo" mat-card-image src="../../assets/mainlogo.png">
-      
-        <div class="dashboardside">
-          <div>
-            <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
-          </div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <br>
+    <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+    <mat-nav-list class="nav-list">
+      <div class="dashboardside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
+          <a class="nav-btn" routerLink="/dashboard">Dashboard</a>
+        </mat-list-item>
+      </div>
+      <div class="dashboardside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+          <a class="nav-btn" routerLink="/booking">Book a Service</a>
+        </mat-list-item>
+      </div>
+      <div class="dashboardside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+          <a class="nav-btn" routerLink="/profile">Profile</a>
+        </mat-list-item>
+      </div>
+      <!-- <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
+          <a class="nav-btn" routerLink="/payment">Payment</a>
+        </mat-list-item> -->
 
-          <div class="dashlink">
-            <a class="dashlink" routerLink="/dashboard">Dashboard</a>
-          </div>
-       </div>  
+    </mat-nav-list>
 
-        <div class="bookingside">
-          <div>
-            <mat-icon class="bookingicon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-          </div>
+  </mat-sidenav>
 
-          <div class="bookinglink">
-            <a class="bookinglink" routerLink="/bookingform">Book a service</a>
-          </div>
-        </div> 
-
-        <div class="profileside">
-          <div>
-            <mat-icon class="profileicon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-          </div>
-
-          <div class="profilelink">
-            <a class="profilelink" routerLink="/bookingform">Profile</a>
-          </div>
-        </div>
-      </mat-drawer>
-
-    <mat-drawer-content>
-      <p>
-        <mat-toolbar class="toolbar">
-          <h1 class="logotxt"><b>Ayosgamit</b></h1>
-          <div>
-            <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
-              <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
-           </div>
-        </mat-toolbar>
-      </p>
-
-    <mat-card class="servicescard">
-      <div>
+  <mat-sidenav-content>
+    <mat-toolbar>
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+      <h2 class="welcome">Welcome, {{user_fname}} {{user_lname}}!</h2>
+      <span class="spacer"></span>
+      <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
+      <button class="logoutBtn" (click)="signOut()" mat-button>
+        <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
+        Logout
+      </button>
+  </mat-toolbar>
+  <mat-card class="servicescard">
+    <div>
         <img class="applianceimg" mat-card-image src="../../assets/appliance.jpg">
+
         <img class="electricalimg" mat-card-image src="../../assets/electrical.jpg">
+    
         <img class="cleaningimg" mat-card-image src="../../assets/cleaning.jpg">
-      </div>
-        
-      <div>
-        <h1 class="servappliances">Appliances Repair</h1>
-        <h1 class="servelectrical">Electrical Wiring Repair</h1>
-        <h1 class="servcleaning">House Cleaning</h1>
-      </div>
-    </mat-card>
-
-    <mat-tab-group>
-        <mat-tab label="Pending Requests">  
-          <mat-card class="pendingcard">
-              <h1 class="h1pending">Pending Requests</h1>
-              <mat-form-field class="searchfield" appearance="outline">
-                <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
-                <input matInput>
-              </mat-form-field>
-              <div>
-                <h1 class="h1serviceid">Service ID</h1>
-              </div>
- 
-              <div>
-                <h1 class="h1servicetype">Service Type</h1>
-              </div>
- 
-              <div>
-                <h1 class="h1date">Date Requested</h1>
-              </div>
- 
-              <div>
-               <h1 class="hserviceid">1234</h1>
-              </div>
- 
-              <div>
-               <h1 class="hservicetype">Appliance Repair</h1>
-              </div>
- 
-              <div>
-               <h1 class="hdate">May 07, 2021</h1>
-              </div>
- 
-             <button class="detailsBtn" mat-button (click)="openDialog()">Details</button>
- 
-              <div>
-               <h1 class="hserviceid">1234</h1>
-              </div>
- 
-              <div>
-               <h1 class="hservicetype">Appliance Repair</h1>
-              </div>
- 
-              <div>
-               <h1 class="hdate">May 07, 2021</h1>
-              </div>
- 
-             <button class="detailsBtn" mat-button (click)="openDialog()">Details</button>
-
-            
-          </mat-card>
-        </mat-tab>
-
-        <mat-tab label="Completed Requests"> 
-          <mat-card class="completedcard">
-            <h1 class="h1completed">Completed Requests</h1>
-          </mat-card>
-        </mat-tab>
-
-        <mat-tab label="Cancelled Requests">
-          <mat-card class="cancelledcard">
-            <h1 class="h1cancelled">Cancelled Requests</h1>
-          </mat-card>
-        </mat-tab>
-
-      </mat-tab-group>
-    </mat-drawer-content>
-  </mat-drawer-container>
-  
     </div>
-  </body>
-</html>
+    
+
+    <h1 class="servappliances">Appliances Repair</h1>
+    <h1 class="servelectrical">Electrical Wiring Repair</h1>
+    <h1 class="servcleaning">House Cleaning</h1>
+  </mat-card>
+
+  <mat-tab-group class="tab">
+
+    <mat-tab label="Pending Requests">  
+      <mat-card class="pendingcard">
+          <h2 class="request">Pending Requests</h2>
+          <mat-form-field class="searchfield" appearance="outline">
+            <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
+            <input matInput>
+          </mat-form-field>
+         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef>Service ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Service Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Date Requested </th>
+            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef>  </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label="Completed Requests"> 
+      <mat-card class="completedcard">
+          <h2 class="request">Completed Requests</h2>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label="Cancelled Requests">
+      <mat-card class="cancelledcard">
+        <h2 class="request">Cancelled Requests</h2>
+      </mat-card>
+    </mat-tab>
+
+  </mat-tab-group>
+ 
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

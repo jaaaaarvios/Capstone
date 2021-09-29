@@ -1,72 +1,41 @@
-.example-container {
-    max-width: 100%;
-    min-height: 910px;
-    margin-top: 10px;
-    margin-left: 0;
-    border: 1px solid #E5E5E5;
-    border-radius: 30px;
-  }
-  
-  .mat-drawer
-  {
+.sidenav-container {
+  height: 100%;
+}
+.sidenav{
+  width: fit-content;
   width: 280px;
   background-color: #EAE2B7;
-  }
-  
-  .toolbar
-    {
-      background-color: #D62828;
-      margin-top: -20px;
-    }
-  
-    .mat-drawer-content
-    {
-    height: 910px;
-    background-color: white;
-    }
-  
-  .logotxt
-  {
-    font-family: Candara;
-    font-style: bold;
-    font-size: 30px;
-    color: #FFFFFF;
-    padding-top: 5px;
-    margin-left: 5px;
-  }
-  
-  .logo
-  {
-    width: 170px;
-    height: 150px;
-    padding-top: 40px;
-    margin-left: 60px;
-  }
-  
-  .inboxicon
-  {
-    font-size: 30px;
-    color: white;
-    float: right;
-    margin-right: 160px;
-    margin-top: 10px;
-  }
-  
-  .logouticon
-  {
-    font-size: 30px;
-    color: #FFFFFF;
-    margin-left: 1200px;
-    margin-top: 10px;
-  }
-  
-.dashboardside
-  {
+}
+.mat-sidenav-content{
+   height: 910px;
+   background-color: white;
+}
+.mat-toolbar{
+  background-color: #D62828;
+  width: 100%;
+}
+.logo{
+  width: 200px;
+  height: 180px;
+  padding-top: 40px;
+  margin-left: 40px;
+}
+.nav-icon{
+  color: #003049;
+  font-size: 35px;
+  margin-left: 25px;
+}
+.nav-btn{
+  color: #003049;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  margin-left: 25px;
+}
+.dashboardside{
   margin-left: 0px;
-  margin-top: 50px;
+  margin-top: 30px;
   text-align: justify;
-  }
-  
+}
 .dashboardside:hover
 {
     background-color: #c8c19c;
@@ -74,537 +43,377 @@
     width: 100%;
     height: 70px;
     margin-left: 0;
-    margin-top: 50px;
-    text-align: justify;
-      
-  }
-  
-.dashlink
-{
-color: #003049;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-font-size: 18px;
-margin-left: 55px;
-text-decoration: none;
-margin-top: -33px;
-}
-  
-  .homeicon
-  {
-    color: #003049;
-    font-size: 35px;
-    padding-top: 20px;
-    margin-left: 55px;
-  }
-  
-  .bookingside
-  {
-    margin-left: 0px;
     margin-top: 20px;
     text-align: justify;
-  }
-  
-  .bookingside:hover
-  {
-      background-color: #c8c19c;
-      width: 100%;
-      height: 70px;
-      margin-left: 0;
-      margin-top: 20px;
-      
-  }
-  
-  .bookinglink
-  {
-    color: #003049;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 18px;
-    margin-left: 55px;
-    text-decoration: none;
-    margin-top: -34px;
-  }
-  
-  .bookingicon
-  {
-    color: #003049;
-    font-size: 35px;
-    margin-top: 20px;
-    margin-left: 55px;
-  }
-  
-     
-  .profileside
-  {
-    margin-left: 0px;
-    margin-top: 20px;
-    text-align: justify;
-  
-  }
-  
-  .profileside:hover
-  {
-      background-color: #c8c19c;
-      width: 100%;
-      height: 70px;
-      margin-left: 0;
-      margin-top: 20px;
-      
-  }
-  .profileicon
-  {
-    color: #003049;
-    font-size: 35px;
-    margin-top: 20px;
-    margin-left: 55px;
-  }
-  
-  .profilelink
-  {
-    color: #003049;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 18px;
-    margin-left: 55px;
-    text-decoration: none;
-    margin-top: -34px;
-  }
-  .mat-tab-group
-  {
-      width: 1000px;
-      margin-top: 50px;
-      margin-left: 70px;
-  }
-  
-   .services
-  {
-  
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 30px;
-  color: #14213D;
-  margin-top: 40px;
-  margin-left: 50px;
-  }
-  
-  .inboxicon
-  {
-    font-size: 30px;
-    color: #14213D;
-    float: right;
-    margin-right: 200px;
-    margin-top: -53px;
-  }
-  
-  .logouticon
-  {
-    font-size: 30px;
-    color: #14213D;
-    float: right;
-    margin-right: 140px;
-    margin-top: -53px;
-  }
-  
-  .logoutBtn
-  {
-    font-size: 18px;
-    color: #14213D;
-    float: right;
-    margin-right: 50px;
-    margin-top: -55px;
-  }
-
-.h1services
-{
-    font-family: 'Trebuchet MS';
 }
-.appliancescard
-{
-    margin-top: 100px;
-    margin-left: 320px;
-    width: 200px;
-    height: 200px;
-}
-  
 .stepper
 {
-    margin-top: 150px;
-    font-family: 'Trebuchet MS';
-    
+  margin-top: 50px;
+  font-family: 'Trebuchet MS';
+  width: fit-content;
 }
-
-
 .nextBtn
 {
-    font-size: 18px;
-    font-family: 'Trebuchet MS';
-    background-color: #D62828;
+  font-size: 18px;
+  font-family: 'Trebuchet MS';
+  background-color: #D62828;
     color: #FFFFFF;
-    width: 100px;
-    height: 50px;
-    margin-top: 150px;
-    margin-right: 400px;
-    float: right;
+  width: 100px;
+  height: 50px;
+  margin-top: 25px;
+  margin-right: 200px;
+  float: right;
 }
-
 .backBtn
 {
-    font-size: 18px;
-    font-family: 'Trebuchet MS';
-    background-color: #D62828;
-    color: #FFFFFF;
-    width: 100px;
-    height: 50px;
-    margin-top: 150px;
-    margin-left: 330px;
-    float: left;
+  font-size: 18px;
+  font-family: 'Trebuchet MS';
+  background-color: #D62828;
+  color: #FFFFFF;
+  width: 100px;
+  height: 50px;
+  margin-top: 25px;
+  margin-left: 310px;
+  float: left;
 }
 .locationcard
 {
-    margin-left: 300px;
-    margin-top: 40px;
-    width: 800px;
-    height: 200px;
+  margin: auto;
+  margin-top: 40px;
+  width: 800px;
+  height: 200px;
 }
 
 
 .cityselect
 {
-    margin-left: 40px;
-    margin-top: 30px;
-    font-family: 'Trebuchet MS';
+  margin-left: 40px;
+  margin-top: 30px;
+  font-family: 'Trebuchet MS';
 }
 
 .zipcode
 {
-    margin-left: 40px;
-    margin-top: 10px;
-    font-family: 'Trebuchet MS';
+  margin-left: 40px;
+  margin-top: 10px;
+  font-family: 'Trebuchet MS';
 }
 
 .locationicon
 {
-    margin-top: 10px;
-    color: #14213D;
-    font-size: 35px;
+  margin-top: 10px;
+  color: #14213D;
+  font-size: 35px;
 }
 .servicelocation
 {
-    color: #14213D;
-    margin-top: -33px;
-    margin-left: 50px;
-    font-size: 25px;
-    font-family: 'Trebuchet MS';
+  color: #14213D;
+  margin-top: -33px;
+  margin-left: 50px;
+  font-size: 25px;
+  font-family: 'Trebuchet MS';
 }
 .propertyselect
 {
-    margin-left: 40px;
-    margin-top: 10px;
-    font-family: 'Trebuchet MS';
+  margin-left: 40px;
+  margin-top: 10px;
+  font-family: 'Trebuchet MS';
 }
 .routerLink
 {
-    color: white;
+  color: white;
 }
 
 #mapid 
 { 
-    height: 270px;
-    width: 420px;
-    margin-left: 50px;
-    margin-top: 40px;
- }
- .contactcard
- {
-    margin-left: 170px;
-    margin-top: 20px;
-    width: 1100px;
-    height: 480px;
- }
- 
- .phoneicon
- {
-    margin-top: 10px;
-    color: #14213D;
-    font-size: 35px;
- }
+  height: 270px;
+  width: 420px;
+  margin-left: 50px;
+  margin-top: 40px;
+}
+.contactcard
+{
+  margin:0px;
+  margin-top: 20px;
+  width: 1100px;
+  height: 480px;
+}
 
- .contactdetails
- {
-    color: #14213D;
-    margin-top: -33px;
-    margin-left: 50px;
-    font-size: 25px;
-    font-family: 'Trebuchet MS';
- }
+.phoneicon
+{
+  color: #14213D;
+  font-size: 35px;
+}
 
- .h1address
- {
-    font-family: 'Trebuchet MS';
-    color: grey;
-    font-size: 13px;
-    margin-left: 50px;
- }
+.contactdetails
+{
+  color: #14213D;
+  margin-top: -33px;
+  margin-left: 50px;
+  font-size: 25px;
+  font-family: 'Trebuchet MS';
+}
 
- .address
- {
-     margin-left: 50px;
-     margin-top: 10px;
-     width: 420px;
-     font-family: 'Trebuchet MS';
-     
- }
+.h1address
+{
+  font-family: 'Trebuchet MS';
+  color: grey;
+  font-size: 13px;
+  margin-left: 50px;
+}
 
- .checkbox
- {
-     margin-top: -470px;
-     margin-left: 570px;
- }
+.address
+{
+   margin-left: 50px;
+   margin-top: 10px;
+   width: 420px;
+   font-family: 'Trebuchet MS';
+   
+}
 
- .h1cb
- {
-     font-size: 15px;
-     font-family: 'Trebuchet MS';
-     color: grey;
-     margin-top: -40px;
+.checkbox
+{
+   margin-top: -470px;
+   margin-left: 570px;
+}
 
- }
-
- .cbYes
- {
-     margin-top: 20px;
-    font-size: 15px;
-    font-family: 'Trebuchet MS';
+.h1cb
+{
+   font-size: 15px;
+   font-family: 'Trebuchet MS';
    color: grey;
- }
+   margin-top: -40px;
 
- .cbNo
- {
-    font-size: 15px;
-    font-family: 'Trebuchet MS';
-    color: grey;
-    margin-left: 150px;
- }
-
- .phonenumber
- 
-{
-    margin-top: -25px;
-    font-family: 'Trebuchet MS';
 }
 
-.name 
+.cbYes
 {
-    margin-top: 40px;
+   margin-top: 20px;
+  font-size: 15px;
+  font-family: 'Trebuchet MS';
+ color: grey;
 }
+
+.cbNo
+{
+  font-size: 15px;
+  font-family: 'Trebuchet MS';
+  color: grey;
+  margin-left: 150px;
+}
+.phonenumber{
+  font-family: 'Trebuchet MS';
+}
+
 .fname
 {
-    font-family: 'Trebuchet MS';
-    
+  font-family: 'Trebuchet MS';
+  
 }
- 
 .lname
 {
-    font-family: 'Trebuchet MS';
-    margin-left: 20px;
+  font-family: 'Trebuchet MS';
+  margin-left: 20px;
 }
 
 .addressdetails
 {
-    margin-top: -15px;
-    width: 430px;
-    font-family: 'Trebuchet MS';
+  width: 430px;
+  font-family: 'Trebuchet MS';
 }
 
 .instructions
 {
-    margin-top: -15px;
-    width: 430px;
-    font-family: 'Trebuchet MS';
+  width: 430px;
+  font-family: 'Trebuchet MS';
 }
 
 .CDbackBtn
 {
-    margin-top: 30px;
-    font-size: 18px;
-    font-family: 'Trebuchet MS';
-    background-color: #D62828;
-    color: #FFFFFF;
-    width: 100px;
-    height: 50px;
-    margin-left: 180px;
-    float: left;
+  margin-top: 30px;
+  font-size: 18px;
+  font-family: 'Trebuchet MS';
+  background-color: #D62828;
+  color: #FFFFFF;
+  width: 100px;
+  height: 50px;
+  margin-left: 180px;
+  float: left;
 }
 
 .CDnextBtn
 {
-    margin-top: 30px;
-    font-size: 18px;
-    font-family: 'Trebuchet MS';
-    background-color: #D62828;
-    color: #FFFFFF;
-    width: 100px;
-    height: 50px;
-    margin-right: 250px;
-    float: right;
+  margin-top: 30px;
+  font-size: 18px;
+  font-family: 'Trebuchet MS';
+  background-color: #D62828;
+  color: #FFFFFF;
+  width: 100px;
+  height: 50px;
+  margin-right: 180px;
+  float: right;
 }
 
 .schedcard
 {
-    margin-left: 320px;
-    margin-top: 40px;
-    width: 800px;
-    height: 350px;
+  margin: auto;
+  margin-top: 40px;
+  width: 800px;
+  height: 350px;
 }
 
 .schedicon
- {
-    margin-top: 10px;
-    color: #14213D;
-    font-size: 35px;
- }
-
- .servicesched
- {
-    color: #14213D;
-    margin-top: -33px;
-    margin-left: 50px;
-    font-size: 25px;
-    font-family: 'Trebuchet MS';
- }
-
- .mat-stroked-button
- {
-    margin-top: -10px;
-    margin-left: 550px;
-    border-color: #FCA311;
-    height: 50px;
-    width: 200px;
-    font-family: 'Trebuchet MS';
- }
-
- .tech1Btn
- {
-margin-top: -100px;
- }
-
- .tech2Btn
- {
-margin-top: 10px;
- }
-
- .tech3Btn
- {
-margin-top: 10px;
- }
-
- .tech4Btn
- {
-margin-top: 10px;
- }
-
-
-
- .h1technicians
- {
-   font-size: 10px;
-   margin-top: -15px;
-   font-family: 'Trebuchet MS';
- }
-
- .listicon
- {
-    margin-top: 10px;
-    color: #14213D;
-    font-size: 35px;
- }
-
- .detailssummary
- {
-    color: #14213D;
-    margin-top: -33px;
-    margin-left: 50px;
-    font-size: 25px;
-    font-family: 'Trebuchet MS';
- }
-
- .editBtn
- {
-     float: right;
-     margin-right: 40px;
-     margin-top: -45px;
- }
-
- .doneBtn
 {
-    margin-top: 30px;
-    font-size: 18px;
-    font-family: 'Trebuchet MS';
-    background-color: #D62828;
-    color: #FFFFFF;
-    text-decoration: none;
-    width: 100px;
-    height: 50px;
-    margin-right: 405px;
-    float: right;
+  margin-top: 10px;
+  color: #14213D;
+  font-size: 35px;
+}
+
+.servicesched
+{
+  color: #14213D;
+  margin-top: -33px;
+  margin-left: 50px;
+  font-size: 25px;
+  font-family: 'Trebuchet MS';
+}
+
+.mat-stroked-button
+{
+  margin-top: -10px;
+  margin-left: 550px;
+  border-color: #FCA311;
+  height: 50px;
+  width: 200px;
+  font-family: 'Trebuchet MS';
+}
+
+.tech1Btn
+{
+margin-top: -100px;
+}
+
+.tech2Btn
+{
+margin-top: 10px;
+}
+
+.tech3Btn
+{
+margin-top: 10px;
+}
+
+.tech4Btn
+{
+margin-top: 10px;
+}
+
+.h1technicians
+{
+ font-size: 10px;
+ margin-top: -15px;
+ font-family: 'Trebuchet MS';
+}
+
+.listicon
+{
+  margin-top: 10px;
+  color: #14213D;
+  font-size: 35px;
+}
+
+.detailssummary
+{
+  color: #14213D;
+  margin-top: -33px;
+  margin-left: 50px;
+  font-size: 25px;
+  font-family: 'Trebuchet MS';
+}
+
+.editBtn
+{
+   float: right;
+   margin-right: 40px;
+   margin-top: -45px;
+}
+
+.doneBtn
+{
+  margin-top: 30px;
+  font-size: 18px;
+  font-family: 'Trebuchet MS';
+  background-color: #FCA311;
+  color: #14213D;
+  width: 100px;
+  height: 50px;
+  margin-right: 345px;
+  float: right;
 }
 
 .datepicker
 {
-    margin-top: 70px;
-    margin-left: 50px;
+  margin-top: 70px;
+  margin-left: 50px;
 }
 
 .dateBtn
 {
-    
-    margin-left: 20px;
-    background-color: #D62828;
+  
+  margin-left: 20px;
+  background-color: #D62828;
     color: #FFFFFF;
-    height: 52px;
-    font-size: 18px;
-    font-family: 'Trebuchet MS';
+  height: 52px;
+  font-size: 18px;
+  font-family: 'Trebuchet MS';
 }
 
 .airconcard
 {
-    margin-top: 100px;
-    margin-left: 250px;
-    width: 200px;
-    height: 200px;
+  margin-top: 100px;
+  margin-left: 250px;
+  width: 200px;
+  height: 200px;
 }
 
 .refcard
 {
-    margin-top: -235px;
-    margin-left: 500px;
-    width: 200px;
-    height: 200px;
+  margin-top: -235px;
+  margin-left: 500px;
+  width: 200px;
+  height: 200px;
 }
 
 .efancard
 {
-    margin-top: -235px;
-    margin-left: 760px;
-    width: 200px;
-    height: 200px;
+  margin-top: -235px;
+  margin-left: 760px;
+  width: 200px;
+  height: 200px;
 }
 
 .washingcard
 {
-    margin-top: -230px;
-    margin-left: 1015px;
-    width: 200px;
-    height: 200px;
+  margin-top: -230px;
+  margin-left: 1015px;
+  width: 200px;
+  height: 200px;
 }
 
 .timeslots
 {
-    margin-top: -135px;
+  margin-top: -135px;
 }
 .timeslot
 {
-    margin-top:-50px;
-    float: right;
-    margin-right: 75px;
-    font-size: 18px;
-    font-family: 'Trebuchet MS';
+  margin-top:-50px;
+  float: right;
+  margin-right: 75px;
+  font-size: 18px;
+  font-family: 'Trebuchet MS';
 }
+.summary{
+  margin-top: 10px;
+}
+
 

@@ -1,45 +1,58 @@
-<div class="dashboard">
 
-    <mat-drawer-container class="example-container">
-      <mat-drawer mode="side" opened>
-        <img class="logo" mat-card-image src="../../assets/techleanlogoyellow.png">
-        
-      <div class="dashboardside">
-        <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
-        <button class="dashBtn" mat-button><a class="dashlink" routerLink="/dashboard">Dashboard</a></button>
-      </div>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <br>
+      <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+      <mat-nav-list class="nav-list">
+        <div class="dashboardside">
+          <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
+            <a class="nav-btn" routerLink="/dashboard">Dashboard</a>
+          </mat-list-item>
+        </div>
+        <div class="dashboardside">
+          <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+            <a class="nav-btn" routerLink="/booking">Book a Service</a>
+          </mat-list-item>
+        </div>
+        <div class="dashboardside">
+          <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+            <a class="nav-btn" routerLink="/profile">Profile</a>
+          </mat-list-item>
+        </div>
+        <!-- <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
+            <a class="nav-btn" routerLink="/payment">Payment</a>
+          </mat-list-item> -->
   
-      <div class="bookingside">
-        <mat-icon class="bookingicon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-        <button class="bookingBtn" mat-button><a class="bookinglink" routerLink="/bookingform">Book a Service</a></button>
-      </div>
+      </mat-nav-list>
   
-      <div class="profileside">
-        <mat-icon class="profileicon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-        <button class="profileBtn" mat-button><a class="profilelink" routerLink="/bookingform">Profile</a></button>
-      </div>
+    </mat-sidenav>
   
-  
-  
-  
-      </mat-drawer>
-  
-      <mat-drawer-content>
-  
-        <h1 class="profileLbl">Profile</h1>
-    <div>
+    <mat-sidenav-content>
+      <mat-toolbar>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <h2>Profile</h2>
+        <span class="spacer"></span>
         <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
-        <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
-    
-        <button class="logoutBtn" mat-button><a routerLink="/homepage">Logout</a></button>
-    </div>
-    
-    <div>
-        <mat-icon class="profileicon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-    </div>
-      
-          
-      </mat-drawer-content>
-    </mat-drawer-container>
-    
-  </div>
+        <button class="logoutBtn" (click)="signOut()" mat-button>
+          <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
+          Logout
+        </button>
+    </mat-toolbar>
+    <!-- put the content below -->
+    <p>
+      Profile Works!
+    </p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
