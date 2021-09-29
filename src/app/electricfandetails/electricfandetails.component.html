@@ -18,37 +18,27 @@
     <mat-form-field class="electricfanselect" appearance="outline">
         <mat-label>Electric Fan Type</mat-label>
       <mat-select>
-        <mat-option value="one">Ceiling Fan</mat-option>
-        <mat-option value="two">Table Fan</mat-option>
-        <mat-option value="three">Tower Fan</mat-option>
-        <mat-option value="four">Pedestal Fan</mat-option>
-        <mat-option value="five">Exhaust Fan</mat-option>
-        <mat-option value="six">Wall Mounted Fan</mat-option>
-        <mat-option value="seven">Misting Fan</mat-option>
-        <mat-option value="eight">Floor Fan</mat-option>
+        <mat-option *ngFor="let eft of efan_type" [value]="eft">
+          {{eft}}
+        </mat-option>
        </mat-select>
     </mat-form-field>
 
     <mat-form-field class="electricfanbrand" appearance="outline">
         <mat-label>Brand</mat-label>
       <mat-select>
-        <mat-option value="one">Aiwa</mat-option>
-        <mat-option value="two">American Home</mat-option>
-        <mat-option value="three">Asahi</mat-option>
-        <mat-option value="four">Camel</mat-option>
-        <mat-option value="five">Carrier</mat-option>
-        <mat-option value="six">Other</mat-option>
+        <mat-option *ngFor="let efb of efan_brand" [value]="efb">
+          {{efb}}
+        </mat-option>
        </mat-select>
     </mat-form-field>
 
     <mat-form-field class="unittype" appearance="outline">
         <mat-label>Unit Type</mat-label>
       <mat-select>
-        <mat-option value="one">Axial</mat-option>
-        <mat-option value="two">Forward Curved</mat-option>
-        <mat-option value="three">Centrifugal</mat-option>
-        <mat-option value="four">Backward-Inclined</mat-option>
-        <mat-option value="five">I don't know</mat-option>
+        <mat-option *ngFor="let efut of efan_unitType" [value]="efut">
+          {{efut}}
+        </mat-option>
        </mat-select>
     </mat-form-field>
 
@@ -56,13 +46,9 @@
         <mat-form-field class="electricfanprob" appearance="outline">
             <mat-label>Unit Problem</mat-label>
             <mat-select>
-                <mat-option value="one">Flickering light</mat-option>
-                <mat-option value="two">Wobbly fan</mat-option>
-                <mat-option value="three">Making noise</mat-option>
-                <mat-option value="Four">Stuck on one speed</mat-option>
-                <mat-option value="Five">Fan doesn’t turn on</mat-option>
-                <mat-option value="Seven">Other</mat-option>
-                <mat-option value="Eight">I don't know</mat-option>
+              <mat-option *ngFor="let efup of efan_unitProblem" [value]="efup">
+                {{efup}}
+              </mat-option>
             </mat-select>
         </mat-form-field>
     </div>

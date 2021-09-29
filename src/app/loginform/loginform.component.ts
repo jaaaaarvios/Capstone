@@ -71,8 +71,8 @@ export class LoginformComponent implements OnInit {
     });
 
     this.signupForm = new FormGroup({
-      user_fname: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z_ ]{1,15}")]),
-      user_lname: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z_ ]{1,15}")]),
+      user_fname: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z_ ]{3,15}")]),
+      user_lname: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z_ ]{2,15}")]),
       user_semail: new FormControl('', [Validators.required]),
       user_spassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw)]),
     });
@@ -89,11 +89,11 @@ export class LoginformComponent implements OnInit {
       this.onSubmit1();
     }
     else if(this.userForm.value.user_email == "" && this.userForm.value.user_password == ""){
-      alert("Invalid Information");
+      alert("Invalid Information. Please try again.");
       this.userForm.reset();
     }
     else{
-      alert("Invalid Information");
+      alert("Invalid Information. Please try again.");
       this.userForm.reset();
       Object.keys(this.userForm.controls).forEach(key => {
         this.userForm.get(key).setErrors(null) ;
@@ -113,6 +113,9 @@ export class LoginformComponent implements OnInit {
         Object.keys(this.signupForm.controls).forEach(key => {
           this.signupForm.get(key).setErrors(null) ;
         });
+      }
+      else{
+        alert("Fill the requirements");
       }
   }
 

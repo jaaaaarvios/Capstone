@@ -31,7 +31,7 @@
             </mat-form-field>
 
             <button mat-raised-button class="loginBtn" type="submit">Login</button>
-            <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true"></div>
+            <!-- <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true"></div> -->
           </form>
         </mat-tab>
 
@@ -46,8 +46,7 @@
                 placeholder="Enter first name" required>
                 <mat-error *ngIf="signupForm.get('user_fname').hasError('required')"> First name is required
                 </mat-error>
-                <mat-error *ngIf="signupForm.get('user_fname').hasError('pattern')"> Invalid Name
-                </mat-error>
+                <mat-error *ngIf="signupForm.get('user_fname').hasError('pattern')"> Invalid Name</mat-error>
             </mat-form-field>
 
             <mat-form-field class="signup-lnamefield" appearance="outline">

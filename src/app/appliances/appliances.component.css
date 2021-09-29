@@ -105,6 +105,13 @@
 {
     float: right;
     top:-24px;
-    right:-15px;
+}
+.close-button:hover{
+    background-color: #cccccc;
+}
+.close-icon{
+    margin: auto;
+    display: flex;
+    justify-content: center;
 }
 

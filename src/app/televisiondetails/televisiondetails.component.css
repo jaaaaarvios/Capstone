@@ -1,0 +1,89 @@
+.mat-dialog-content
+{
+    width: 750px;
+    height: 445px;
+}
+
+.h1title
+{
+    font-size: 30px;
+    font-family: 'Trebuchet MS';
+    margin-top: 40px;
+    margin-left: 18px;
+}
+
+
+.airconselect
+{
+    margin-left: 40px;
+    margin-top: 10px;
+    font-family: 'Trebuchet MS';
+}
+
+.h2title
+{
+    font-size: 30px;
+    font-family: 'Trebuchet MS';
+    margin-left: 18px; 
+}
+
+.airconbrand
+{
+    margin-left: 40px;
+    margin-top: 10px;
+    font-family: 'Trebuchet MS';
+}
+
+.unittype
+{
+    margin-left: 40px;
+    margin-top: 10px;
+    font-family: 'Trebuchet MS';
+}
+
+.airconprob
+{
+    width: 690px;
+    margin-left: 40px;
+    margin-top: 10px;
+    font-family: 'Trebuchet MS';
+}
+
+.mat-icon
+{
+    margin-right: 20px;
+}
+.mat-stroked-button
+{
+    font-family: 'Trebuchet MS';
+    border-color: #FCA311;
+    color: #14213D;
+    font-size: 18px;
+    margin-left: 140px;
+    height: 50px;
+    width: 500px;
+}
+
+.mat-raised-button
+{
+    font-family: 'Trebuchet MS';
+    background-color: #D62828;
+    color: #FFFFFF;
+    font-size: 18px;
+    margin-left: 630px;
+    margin-top: 50px;
+    height: 50px;
+    width: 100px;
+}
+.close-button{
+    float: right;
+    top: 5px;
+}
+.close-button:hover{
+    background-color: #cccccc;
+}
+.close-icon{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}

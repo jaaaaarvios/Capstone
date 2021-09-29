@@ -213,6 +213,9 @@
                 <mat-error *ngIf="contactDetialsForm.get('service_firstname').hasError('required')">
                   Input your first name
                 </mat-error>
+                <mat-error *ngIf="contactDetialsForm.get('service_firstname').hasError('pattern')">
+                  Invalid Information
+                </mat-error>
               </mat-form-field>
 
               <mat-form-field class="lname" appearance="outline">
@@ -221,6 +224,9 @@
                   placeholder="Dela Cruz" [errorStateMatcher]="matcher">
                 <mat-error *ngIf="contactDetialsForm.get('service_lastname').hasError('required')">
                   Input your last name
+                </mat-error>
+                <mat-error *ngIf="contactDetialsForm.get('service_lastname').hasError('pattern')">
+                  Invalid Information
                 </mat-error>
               </mat-form-field>
               <!--Phone Number-->
@@ -252,7 +258,7 @@
                 <mat-label>Instructions</mat-label>
                 <input matInput formControlName="service_instruction" [errorStateMatcher]="matcher" autocomplete="off">
                 <mat-error *ngIf="contactDetialsForm.get('service_instruction').hasError('required')">
-                  Input instruction
+                  Landmark, 
                 </mat-error>
               </mat-form-field>
             </div>
