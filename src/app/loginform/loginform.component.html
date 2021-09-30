@@ -2,7 +2,7 @@
   <mat-card class="logincard">
     <div fxLayoutAlign="end">
       <button mat-icon-button class="close-button">
-        <mat-icon routerLink="/home"class="close-icon" color="warn">close</mat-icon>
+        <mat-icon routerLink="/home" class="close-icon" color="warn">close</mat-icon>
       </button>
     </div>
     <img class="logo" mat-card-image src="../../assets/mainlogo.png">
@@ -18,13 +18,16 @@
               <input matInput formControlName="user_email" ngModel [email]="true" type="email"
                 placeholder="user@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$">
               <mat-error *ngIf="userForm.get('user_email').hasError('required')"> Email is required </mat-error>
-              <mat-error *ngIf="userForm.get('user_email').hasError('pattern')"> Please enter a valid email address </mat-error>
+              <mat-error *ngIf="userForm.get('user_email').hasError('pattern')"> Please enter a valid email address
+              </mat-error>
             </mat-form-field>
 
             <mat-form-field class="login-passfield" appearance="outline">
               <mat-label>Password</mat-label>
-              <input matInput formControlName="user_password" placeholder="Enter password" [type]="hide ? 'password' : 'text'">
-                <mat-icon mat-icon-button matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <input matInput formControlName="user_password" placeholder="Enter password"
+                [type]="hide ? 'password' : 'text'">
+              <mat-icon mat-icon-button matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+              </mat-icon>
               <mat-error *ngIf="userForm.get('user_password').hasError('required')">Password is required</mat-error>
               <mat-error *ngIf="userForm.get('user_password').hasError('minlength')">Password must have at least
                 {{minPw}} characters</mat-error>
@@ -42,19 +45,21 @@
 
             <mat-form-field class="signup-fnamefield" appearance="outline">
               <mat-label>First Name</mat-label>
-              <input matInput formControlName="user_fname" type="text" ngModel
-                placeholder="Enter first name" required>
-                <mat-error *ngIf="signupForm.get('user_fname').hasError('required')"> First name is required
-                </mat-error>
-                <mat-error *ngIf="signupForm.get('user_fname').hasError('pattern')"> Invalid Name</mat-error>
+              <input matInput formControlName="user_fname" type="text" ngModel placeholder="Enter first name" required>
+              <mat-error *ngIf="signupForm.get('user_fname').hasError('required')"> First name is required
+              </mat-error>
+              <mat-error *ngIf="signupForm.get('user_fname').hasError('pattern')"> Invalid Name</mat-error>
+              <mat-error *ngIf="signupForm.get('user_fname').hasError('maxlength')">Name contains maximum of 15
+                characters</mat-error>
             </mat-form-field>
 
             <mat-form-field class="signup-lnamefield" appearance="outline">
               <mat-label>Last Name</mat-label>
-              <input matInput formControlName="user_lname" type="text" ngModel
-                placeholder="Enter last name" required>
+              <input matInput formControlName="user_lname" type="text" ngModel placeholder="Enter last name" required>
               <mat-error *ngIf="signupForm.get('user_lname').hasError('required')"> Last name is required </mat-error>
               <mat-error *ngIf="signupForm.get('user_lname').hasError('pattern')"> Invalid Name </mat-error>
+              <mat-error *ngIf="signupForm.get('user_lname').hasError('maxlength')">Name contains maximum of 15
+                characters</mat-error>
             </mat-form-field>
 
             <mat-form-field class="signup-emailfield" appearance="outline">
@@ -62,26 +67,28 @@
               <input matInput formControlName="user_semail" [email]="true" type="email" ngModel
                 placeholder="yourname@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$" autocomplete="off">
               <mat-error *ngIf="signupForm.get('user_semail').hasError('required')"> Email is required </mat-error>
-              <mat-error *ngIf="signupForm.get('user_semail').hasError('pattern')"> Please enter a valid email address </mat-error>
+              <mat-error *ngIf="signupForm.get('user_semail').hasError('pattern')"> Please enter a valid email address
+              </mat-error>
             </mat-form-field>
 
             <mat-form-field class="signup-passfield" appearance="outline">
               <mat-label>Password</mat-label>
-              <input matInput formControlName="user_spassword" type="password" ngModel
-                placeholder="Enter password" [type]="hide ? 'password' : 'text'" required autocomplete="off">
-                <mat-icon mat-icon-button matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <input matInput formControlName="user_spassword" type="password" ngModel placeholder="Enter password"
+                [type]="hide ? 'password' : 'text'" required autocomplete="off">
+              <mat-icon mat-icon-button matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+              </mat-icon>
               <mat-error *ngIf="signupForm.get('user_spassword').hasError('required')">Password is required</mat-error>
               <mat-error *ngIf="signupForm.get('user_spassword').hasError('minlength')">Password must have at least
                 {{minPw}} characters</mat-error>
+              <mat-error *ngIf="signupForm.get('user_spassword').hasError('maxlength')">Password contains maximum of
+                {{maxPw}} characters</mat-error>
             </mat-form-field>
 
             <button mat-raised-button type="submit" class="signupBtn">Signup</button>
-           
+
           </form>
         </mat-tab>
       </mat-tab-group>
     </div>
   </mat-card>
 </div>
-
-

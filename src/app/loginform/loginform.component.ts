@@ -15,6 +15,7 @@ export class LoginformComponent implements OnInit {
   value = '';
   hide = true;
   minPw = 8;
+  maxPw = 15;
   guser: any;
   metaservice: any;
 
@@ -71,12 +72,11 @@ export class LoginformComponent implements OnInit {
     });
 
     this.signupForm = new FormGroup({
-      user_fname: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z_ ]{3,15}")]),
-      user_lname: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z_ ]{2,15}")]),
+      user_fname: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z_ ]{3,40}"), Validators.maxLength(15)]),
+      user_lname: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z_ ]{2,40}"), Validators.maxLength(15)]),
       user_semail: new FormControl('', [Validators.required]),
-      user_spassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw)]),
+      user_spassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw), Validators.maxLength(this.maxPw)]),
     });
-    
   }
   
   onClickSubmit() {
@@ -115,7 +115,7 @@ export class LoginformComponent implements OnInit {
         });
       }
       else{
-        alert("Fill the requirements");
+        alert("Fill up the textfields with valid information");
       }
   }
 

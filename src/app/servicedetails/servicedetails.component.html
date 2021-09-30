@@ -92,17 +92,27 @@
 
           </mat-card>
           <!--Back and Next Button-->
-          <button class="nextBtn" type="submit" [disabled]="!locationForm.valid" mat-button matStepperNext>Next</button>
-
-          <div class="summary">
-            <h1 class="text_summary">Summary</h1>
-            <h3>Appliance: </h3>
-            <h3>Brand: </h3>
-            <h3>Type: </h3>
-            <h3>Unit Type: </h3>
-            <h3>Unit Problem: </h3>
-          </div>
+          <button class="nextBtn" type="submit" [disabled]="!locationForm.valid" mat-button
+            matStepperNext>Next</button><br><br><br><br>
+          <br><br>
         </form>
+        <mat-card class="details">
+          <div>
+            <mat-icon class="listicon">description</mat-icon>
+            <h1 class="detailssummary">Details Summary</h1>
+          </div>
+          <div class="row">
+            <div class="column">
+              <h3>Appliance: </h3> None
+              <h3>Brand: </h3> None
+              <h3>Unit Problem: </h3> None
+            </div>
+            <div class="column">
+              <h3>Type: </h3> None
+              <h3>Unit Type: </h3> None
+            </div>
+          </div>
+        </mat-card>
       </mat-step>
 
       <!--2nd Stepper-->
@@ -154,25 +164,37 @@
             </div>
           </mat-card>
 
-
           <!--Back and Next Button-->
           <button class="backBtn" mat-button matStepperPrevious>Back</button>
           <button class="nextBtn" type="submit" [disabled]="!scheduleForm.valid" mat-button matStepperNext>Next</button>
         </form>
-
-        <div class="summary">
-          <h1 class="text_summary">Summary</h1>
-          <h3>Appliance: </h3>
-          <h3>Brand: </h3>
-          <h3>Type: </h3>
-          <h3>Unit Type: </h3>
-          <h3>Unit Problem: </h3>
-          <h3>City: {{service_city}}</h3>
-          <h3>Property Type: {{service_property_type}} </h3>
-          <h3>Zip Code: {{service_zipcode}} </h3>
-        </div>
+        <br><br><br><br><br><br>
+        <mat-card class="details">
+          <div>
+            <mat-icon class="listicon">description</mat-icon>
+            <h1 class="detailssummary">Details Summary</h1>
+          </div>
+          <div class="summary">
+            <div class="row">
+              <div class="column">
+                <h3>Appliance: </h3> None
+                <h3>Brand: </h3> None
+                <h3>Unit Problem: </h3> None
+              </div>
+              <div class="column">
+                <h3>Type: </h3> None
+                <h3>Unit Type: </h3> None
+              </div>
+              <hr>
+              <div class="column">
+                <h3>City: </h3>{{service_city}}
+                <h3>Property Type: </h3>{{service_property_type}}
+                <h3>Zip Code: </h3>{{service_zipcode}}
+              </div>
+            </div>
+          </div>
+        </mat-card>
       </mat-step>
-
 
       <!--3rd Stepper-->
       <mat-step state="third" [completed]="contactDetialsForm.valid" [editable]="true">
@@ -214,7 +236,7 @@
                   Input your first name
                 </mat-error>
                 <mat-error *ngIf="contactDetialsForm.get('service_firstname').hasError('pattern')">
-                  Invalid Information
+                  Invalid Name (Max of 15 Characters)
                 </mat-error>
               </mat-form-field>
 
@@ -226,7 +248,7 @@
                   Input your last name
                 </mat-error>
                 <mat-error *ngIf="contactDetialsForm.get('service_lastname').hasError('pattern')">
-                  Invalid Information
+                  Invalid Name (Max of 15 Characters)
                 </mat-error>
               </mat-form-field>
               <!--Phone Number-->
@@ -258,7 +280,7 @@
                 <mat-label>Instructions</mat-label>
                 <input matInput formControlName="service_instruction" [errorStateMatcher]="matcher" autocomplete="off">
                 <mat-error *ngIf="contactDetialsForm.get('service_instruction').hasError('required')">
-                  Landmark, 
+                  Landmark,
                 </mat-error>
               </mat-form-field>
             </div>
@@ -271,96 +293,83 @@
 
         </form>
 
-        <br><br><br><br>
-        <div class="summaryy">
-          <h1>Summary</h1>
-          <h3>Appliance: </h3>
-          <h3>Brand: </h3>
-          <h3>Type: </h3>
-          <h3>Unit Type: </h3>
-          <h3>Unit Problem: </h3>
-          <h3>City: {{service_city}}</h3>
-          <h3>Property Type: {{service_property_type}} </h3>
-          <h3>Zip Code: {{service_zipcode}} </h3>
-          <h3>Date: {{service_date | date:"MM/dd/YYYY" }} </h3>
-          <h3>Time: {{service_timeslot}}</h3>
-        </div>
+        <br><br><br><br><br><br>
+        <mat-card class="details">
+          <h1 class="text_summary">Summary</h1>
+          <div class="summary">
+            <div class="row">
+              <div class="column">
+                <h3>Appliance: </h3> None
+                <h3>Brand: </h3> None
+                <h3>Unit Problem: </h3> None
+              </div>
+              <div class="column">
+                <h3>Type: </h3> None
+                <h3>Unit Type: </h3> None
+              </div>
+              <hr>
+              <div class="column">
+                <h3>City: </h3>{{service_city}}
+                <h3>Property Type: </h3>{{service_property_type}}
+                <h3>Zip Code: </h3>{{service_zipcode}}
+              </div>
+              <hr>
+              <div class="column">
+                <h3>Date: </h3>{{service_date | date:"MM/dd/YYYY" }}
+                <h3>Time: </h3>{{service_timeslot}}
+              </div>
+            </div>
+          </div>
+        </mat-card>
       </mat-step>
 
       <!--4th Stepper-->
       <mat-step state="final">
         <ng-template matStepLabel>Confirm Service Details</ng-template>
-        <mat-card class="schedcard">
+        <mat-card class="details">
           <div>
             <mat-icon class="listicon">description</mat-icon>
             <h1 class="detailssummary">Details Summary</h1>
           </div>
 
-          <!--Edit Button-->
-          <div class="editBtn">
-            <button mat-mini-fab>
-              <mat-icon>edit</mat-icon>
-            </button>
-          </div>
-
-          <mat-grid-list cols="3" rowHeight="5:1">
-            <div class="summaryy">
-              <mat-grid-tile>
-                <h4>Appliance: </h4>
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>Brand: </h4>
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>Type: </h4>
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>Unit Type: </h4>
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>Unit Problem: </h4>
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>City:</h4> &nbsp;&nbsp; {{service_city}}
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>Property Type:</h4> &nbsp;&nbsp; {{service_property_type}}
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>Zip Code:</h4> &nbsp;&nbsp; {{service_zipcode}}
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>Date:</h4> &nbsp;&nbsp; {{service_date | date:"MM/dd/YYYY" }}
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>Time:</h4> &nbsp;&nbsp; {{service_timeslot}}
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>Address:</h4>&nbsp;&nbsp; {{service_address}}
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>First Name:</h4> &nbsp;&nbsp; {{service_firstname}}
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>Last Name:</h4>&nbsp;&nbsp; {{service_lastname}}
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>Phone Number:</h4>&nbsp;&nbsp; {{service_phoneNumber }}
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>Address Details:</h4>&nbsp;&nbsp; {{service_addressDetails}}
-              </mat-grid-tile>
-              <mat-grid-tile>
-                <h4>Instructions:</h4>&nbsp;&nbsp; {{service_instruction}}
-              </mat-grid-tile>
+          <div class="summary">
+            <div class="row">
+              <div class="column">
+                <h3>Appliance: </h3> None
+                <h3>Brand: </h3> None
+                <h3>Unit Problem: </h3> None
+              </div>
+              <div class="column">
+                <h3>Type: </h3> None
+                <h3>Unit Type: </h3> None
+              </div>
+              <hr>
+              <div class="column">
+                <h3>City: </h3>{{service_city}}
+                <h3>Property Type: </h3>{{service_property_type}}
+                <h3>Zip Code: </h3>{{service_zipcode}}
+              </div>
+              <hr>
+              <div class="column">
+                <h3>Date: </h3>{{service_date | date:"MM/dd/YYYY" }}
+                <h3>Time: </h3>{{service_timeslot}}
+              </div>
+              <hr>
+              <div class="column">
+                <h4>Address:</h4>{{service_address}}
+                <h4>First Name:</h4>{{service_firstname}}
+                <h4>Last Name:</h4> {{service_lastname}}
+              </div>
+              <div class="column">
+                <h4>Phone Number:</h4>{{service_phoneNumber }}
+                <h4>Address Details:</h4>{{service_addressDetails}}
+                <h4>Instructions:</h4> {{service_instruction}}
+              </div>
             </div>
-          </mat-grid-list>
-          <br>
-
+          </div>
         </mat-card>
         <button class="doneBtn" (click)="servicedetailsSubmit()" mat-button>Done</button>
       </mat-step>
     </mat-horizontal-stepper>
-
   </mat-sidenav-content>
 </mat-sidenav-container>

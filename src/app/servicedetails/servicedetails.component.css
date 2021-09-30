@@ -412,8 +412,26 @@ margin-top: 10px;
   font-size: 18px;
   font-family: 'Trebuchet MS';
 }
+.text_summary{
+  text-align: center;
+}
 .summary{
   margin-top: 10px;
+  text-align: center;
+}
+.details{
+  width: fit-content;
+  height: 100%;
+  background-color: cornsilk;
+  margin: auto;
+}
+.row {
+  display: flex;
 }
 
-
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
