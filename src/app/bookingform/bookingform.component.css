@@ -64,6 +64,11 @@
 .logoutBtn:hover{
   background-color: black;
 }
+.allservices{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   .services
   {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -79,10 +84,9 @@
 }
 .appliancescard
 {
-    margin-top: 80px;
-    margin-left: 230px;
     width: 250px;
     height: 250px;
+    margin: 10px;
 }
 .h1appliances
 {
@@ -101,10 +105,9 @@
 
 .cleaningcard
 {
-    margin-top: -289px;
-    margin-left: 560px;
     width: 250px;
     height: 250px;
+    margin: 10px;
 }
 .h1cleaning
 {
@@ -116,10 +119,9 @@
 }
 .installcard
 {
-    margin-top: -282px;
-    margin-left: 890px;
     width: 250px;
     height: 250px;
+    margin: 10px;
 }
 .h1install
 {
@@ -128,7 +130,7 @@
     justify-content: center;
     display: flex;
     margin: auto;
-    margin-left: -19px;
+    margin-left: -24px;
 }
 .h1serviceneed
 {
@@ -136,7 +138,7 @@
     font-size: 25px;
     color: #14213D;
     margin-top: 70px;
-    margin-left: 550px;
+    text-align: center;
 }
 
 .h1bookservice

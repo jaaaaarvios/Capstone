@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { AppliancesComponent } from '../appliances/appliances.component';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
 import { SharedService } from '../shared/shared.service';
+import { AircondetailsComponent } from '../aircondetails/aircondetails.component';
 
 declare const L: any;
 
@@ -22,6 +22,7 @@ export class ServicedetailsComponent implements OnInit {
   contactDetialsForm: FormGroup;
   subscription: Subscription;
 
+  service_appliance ="";
   service_city = "";
   service_property_type = "";
   service_zipcode = null;
@@ -35,6 +36,7 @@ export class ServicedetailsComponent implements OnInit {
   service_instruction = "";
 
   matcher = new MyErrorStateMatcher();
+  
 
   city: any[] = ["Manila City", "Quezon City", "Caloocan City", "Las Piñas City", "Valenzuela City", "Makati City",
     "Malabon City", "Mandaluyong City", "Marikina City", "Muntinlupa City", "Navotas City", "Parañaque City", "Pasay City",
@@ -48,19 +50,13 @@ export class ServicedetailsComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog, private shared: SharedService, private breakpointObserver: BreakpointObserver) { }
+  constructor(private router: Router, private _formBuilder: FormBuilder, 
+    public dialog: MatDialog, private shared: SharedService, private breakpointObserver: BreakpointObserver) { }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(AppliancesComponent);
-
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
 
   ngOnInit() {
     //Sending data to the service
+    this.subscription = this.shared.currentAppliance.subscribe(service_appliance => this.service_appliance = service_appliance);
     this.subscription = this.shared.currentCity.subscribe(service_city => this.service_city = service_city);
     this.subscription = this.shared.currentPropertyType.subscribe(service_property_type => this.service_property_type = service_property_type);
     this.subscription = this.shared.currentZipcode.subscribe(service_zipcode => this.service_zipcode = service_zipcode);

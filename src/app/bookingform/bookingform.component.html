@@ -37,48 +37,52 @@
 
   <mat-sidenav-content>
     <mat-toolbar>
-    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-      *ngIf="isHandset$ | async">
-      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-    </button>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
       <span class="spacer"></span>
       <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
       <button class="logoutBtn" (click)="signOut()" mat-button>
         <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
         Logout
       </button>
-  </mat-toolbar>
-  <!--Appliances Repair--> 
-          <div>
-            <h1 class="h1bookservice">Book a service</h1>
-            <h1 class="h1serviceneed">What service do you need?</h1>
-          </div>
-        <div class="allservices">
-          <mat-card class="appliancescard">
-                <img class="applianceimg" mat-button (click)="ApplianceOpenDialog()" mat-card-image src="../../assets/appliancesrepair.png">
-            <mat-card-content>
-                <button class="h1appliances" mat-button (click)="ApplianceOpenDialog()">Appliances Repair</button>
-            </mat-card-content>
-            </mat-card>
-          </div>
-    
-          <!--Electrical Repair-->  
-            <mat-card class="cleaningcard">
-                <img class="cleaningimg" mat-button (click)="CleaningOpenDialog()" mat-card-image src="../../assets/cleaning.png">
-            <mat-card-content>
-              <button class="h1cleaning" mat-button (click)="CleaningOpenDialog()">Appliances Cleaning</button>
-            </mat-card-content>
-            </mat-card>
+    </mat-toolbar>
+    <!--Appliances Repair-->
+    <div>
+      <h1 class="h1bookservice">Book a service</h1>
+      <h1 class="h1serviceneed">What service do you need?</h1>
+    </div>
+    <div class="allservices">
+      <mat-card class="appliancescard">
+        <img class="applianceimg" mat-button (click)="ApplianceOpen()" mat-card-image
+          src="../../assets/appliancesrepair.png">
+        <mat-card-content>
+          <button class="h1appliances" mat-button (click)="ApplianceOpen()">Appliances Repair</button>
+        </mat-card-content>
+      </mat-card>
 
-          <!--House Cleaning-->  
-            <div>
-            <mat-card class="installcard">
-                <img class="installimg" mat-button (click)="InstallationOpenDialog()" mat-card-image src="../../assets/installation.png">
-                    <mat-card-content>
-                        <button class="h1install" mat-button (click)="InstallationOpenDialog()">Aircon Installation and Dismantling</button>
-                    </mat-card-content>
-            </mat-card>
-        </div>
+      <!--Electrical Repair-->
+      <mat-card class="cleaningcard">
+        <img class="cleaningimg" mat-button (click)="CleaningOpenDialog()" mat-card-image
+          src="../../assets/cleaning.png">
+        <mat-card-content>
+          <button class="h1cleaning" mat-button (click)="CleaningOpenDialog()">Appliances Cleaning</button>
+        </mat-card-content>
+      </mat-card>
+
+      <!--House Cleaning-->
+      <mat-card class="installcard">
+        <img class="installimg" mat-button (click)="InstallationOpenDialog()" mat-card-image
+          src="../../assets/installation.png">
+        <mat-card-content>
+          <button class="h1install" mat-button (click)="InstallationOpenDialog()">Aircon Installation and
+            Dismantling</button>
+        </mat-card-content>
+      </mat-card>
+
+      
+    </div>
 
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -13,6 +13,12 @@ import {PaymentformComponent} from '../app/paymentform/paymentform.component';
 import {AdminpageComponent} from '../app/adminpage/adminpage.component';
 import {TechniciansComponent} from '../app/technicians/technicians.component';
 import {TechprofileComponent} from '../app/techprofile/techprofile.component';
+import { AppliancesComponent } from './appliances/appliances.component';
+import { AircondetailsComponent } from './aircondetails/aircondetails.component';
+import { RefrigeratordetailsComponent } from './refrigeratordetails/refrigeratordetails.component';
+import { ElectricfandetailsComponent } from './electricfandetails/electricfandetails.component';
+import { WashingmachinedetailsComponent } from './washingmachinedetails/washingmachinedetails.component';
+import { TelevisiondetailsComponent } from './televisiondetails/televisiondetails.component';
 
 
 const routes: Routes = [
@@ -31,6 +37,12 @@ const routes: Routes = [
   { path: 'admin', component: AdminpageComponent },
   { path: 'technicians', component: TechniciansComponent },
   { path: 'techprofile', component: TechprofileComponent },
+  { path: 'appliance', component: AppliancesComponent },
+  { path: 'aircon', component: AircondetailsComponent },
+  { path: 'refrigerator', component: RefrigeratordetailsComponent },
+  { path: 'electricfan', component: ElectricfandetailsComponent },
+  { path: 'washingmachine', component: WashingmachinedetailsComponent },
+  { path: 'television', component: TelevisiondetailsComponent },
 ];
 
 @NgModule({

@@ -48,6 +48,10 @@ export class BookingformComponent implements OnInit {
     });
   }
 
+  ApplianceOpen(){
+    this.router.navigate(['/appliance'])
+  }
+
   signOut() {
     this.router.navigate(['/home'])
   }

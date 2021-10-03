@@ -1,117 +1,92 @@
-.mat-dialog-content
-{
-    width: 1020px;
-    height: 250px;
-    
-}
-
+.sidenav-container {
+    height: 100%;
+  }
+  .sidenav{
+    width: fit-content;
+    width: 280px;
+    background-color: #EAE2B7;
+  }
+  .mat-sidenav-content{
+     height: 910px;
+     background-color: white;
+  }
+  .mat-toolbar{
+    background-color: #D62828;
+    width: 100%;
+  }
+  .logo{
+    width: 200px;
+    height: 180px;
+    padding-top: 40px;
+    margin-left: 40px;
+  }
+  .nav-icon{
+    color: #003049;
+    font-size: 35px;
+    margin-left: 25px;
+  }
+  .nav-btn{
+    color: #003049;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    margin-left: 25px;
+  }
+  .dashboardside{
+    margin-left: 0px;
+    margin-top: 30px;
+    text-align: justify;
+  }
+  .dashboardside:hover
+  {
+      background-color: #c8c19c;
+      align-self: auto;
+      width: 100%;
+      height: 70px;
+      margin-left: 0;
+      margin-top: 20px;
+      text-align: justify;
+  }
+  .allservices{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .spacer{
+    flex: 1 1 auto;
+  }
+  .inboxicon
+  {
+    font-size: 30px;
+    color: #14213D;
+    margin-right: 20px;
+  }
+  .logoutBtn
+  {
+    font-size: 20px;
+    color: antiquewhite;
+  }
+  .logoutBtn:hover{
+    background-color: black;
+  }
 .h1title
 {
     font-size: 25px;
     font-family: 'Trebuchet MS';
     margin-left: 25px;
 }
-.airconcard
-{
-    margin-top: 30px;
-    margin-left: 20px;
-    width: 150px;
-    height: 150px;
-}
-
-.h1aircon
-{
+.h1button{
     font-family: 'Trebuchet MS';
     font-size: 18px;
     justify-content: center;
     display: flex;
-    margin-top: -10px;
-    margin-left: 32px;
-}
-
-.refcard
-{
-    margin-top:-182px;
-    margin-left: 215px;
-    width: 160px;
-    height: 150px;
-}
-
-.h1ref
-{
-    font-family: 'Trebuchet MS';
-    font-size: 18px;
-    justify-content: center;
-    display: flex;
-    margin-top: -20px;
-    margin-left: 15px;
-}
-
-.efancard
-{
-    margin-top: -182px;
-    margin-left: 420px;
-    width: 150px;
-    height: 150px;
-}
-
-.h1efan
-{
-    font-family: 'Trebuchet MS';
-    font-size: 18px;
-    justify-content: center;
-    display: flex;
-    margin-top: -10px;
-    margin-left: 15px;
-}
-
-.washingcard
-{
-    margin-top: -182px;
-    margin-left: 615px;
-    width: 150px;
-    height: 150px;
-}
-
-.h1washing
-{
-    font-family: 'Trebuchet MS';
-    font-size: 18px;
-    justify-content: center;
-    display: flex;
-    margin-top: -10px;
-    margin-left: -8px;
-}
-
-.tvcard
-{
-    margin-top: -182px;
-    margin-left: 812px;
-    width: 150px;
-    height: 150px;
-}
-
-.h1tv
-{
-    font-family: 'Trebuchet MS';
-    font-size: 18px;
-    justify-content: center;
-    display: flex;
-    margin-top: -10px;
-    margin-left: 18px;
-}
-
-.close-button
-{
-    float: right;
-    top:-24px;
-}
-.close-button:hover{
-    background-color: #cccccc;
-}
-.close-icon{
     margin: auto;
-    display: flex;
-    justify-content: center;
 }
+.appliancecard
+{
+    margin: 20px;
+    margin-top: 20px;
+    width: 150px;
+    height: fit-content;
+}
+
 

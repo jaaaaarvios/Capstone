@@ -61,7 +61,6 @@
   width: 100px;
   height: 50px;
   margin-top: 25px;
-  margin-right: 200px;
   float: right;
 }
 .backBtn
@@ -73,7 +72,6 @@
   width: 100px;
   height: 50px;
   margin-top: 25px;
-  margin-left: 310px;
   float: left;
 }
 .locationcard
@@ -347,7 +345,6 @@ margin-top: 10px;
   color: #14213D;
   width: 100px;
   height: 50px;
-  margin-right: 345px;
   float: right;
 }
 
@@ -424,6 +421,17 @@ margin-top: 10px;
   height: 100%;
   background-color: cornsilk;
   margin: auto;
+}
+.details_sum{
+  width: fit-content;
+  height: 100%;
+  background-color: cornsilk;
+  margin: auto;
+  margin-top: 50px;
+}
+.ds{
+  margin: auto;
+  width: fit-content;
 }
 .row {
   display: flex;

@@ -45,6 +45,7 @@
     <!--1st Stepper-->
     <mat-horizontal-stepper class="stepper" #stepper [linear]="true">
       <mat-step state="first" [completed]="locationForm.valid" [editable]="true">
+        <div class="ds">
         <form [formGroup]="locationForm" (ngSubmit)="locationSubmit()">
           <ng-template matStepLabel>Service Location</ng-template>
           <!--Service Location-->
@@ -96,6 +97,8 @@
             matStepperNext>Next</button><br><br><br><br>
           <br><br>
         </form>
+        </div>
+
         <mat-card class="details">
           <div>
             <mat-icon class="listicon">description</mat-icon>
@@ -103,13 +106,13 @@
           </div>
           <div class="row">
             <div class="column">
-              <h3>Appliance: </h3> None
-              <h3>Brand: </h3> None
-              <h3>Unit Problem: </h3> None
+              <h4>Appliance: </h4> {{service_appliance}}
+              <h4>Brand: </h4> None
+              <h4>Unit Problem: </h4> None
             </div>
             <div class="column">
-              <h3>Type: </h3> None
-              <h3>Unit Type: </h3> None
+              <h4>Type: </h4> None
+              <h4>Unit Type: </h4> None
             </div>
           </div>
         </mat-card>
@@ -117,9 +120,10 @@
 
       <!--2nd Stepper-->
       <mat-step state="second" [completed]="scheduleForm.valid" [editable]="true">
+        
         <form [formGroup]="scheduleForm" (ngSubmit)="schedSubmit()">
+          <div class="ds">
           <ng-template matStepLabel>Service Schedule</ng-template>
-
           <mat-card class="schedcard">
             <div>
               <mat-icon class="schedicon">today</mat-icon>
@@ -152,7 +156,7 @@
                     required>10:00am-1:00pm<h1 class="h1technicians">10 Technicians
                   </h1>
                 </button>
-                <button mat-stroked-button class="tech3Btn" value="1:00pm-3:00pm">
+                <button mat-stroked-button class="tech4Btn" value="1:00pm-3:00pm">
                   <input type="radio" value="1:00pm - 3:00pm" formControlName="service_timeslot" required>1:00pm-3:00pm
                   <h1 class="h1technicians">10 Technicians</h1>
                 </button>
@@ -163,12 +167,13 @@
               </div>
             </div>
           </mat-card>
-
           <!--Back and Next Button-->
           <button class="backBtn" mat-button matStepperPrevious>Back</button>
           <button class="nextBtn" type="submit" [disabled]="!scheduleForm.valid" mat-button matStepperNext>Next</button>
+          </div>
         </form>
-        <br><br><br><br><br><br>
+      
+      <br><br><br><br><br><br>
         <mat-card class="details">
           <div>
             <mat-icon class="listicon">description</mat-icon>
@@ -177,19 +182,19 @@
           <div class="summary">
             <div class="row">
               <div class="column">
-                <h3>Appliance: </h3> None
-                <h3>Brand: </h3> None
-                <h3>Unit Problem: </h3> None
+                <h4>Appliance: </h4> None
+                <h4>Brand: </h4> None
+                <h4>Unit Problem: </h4> None
               </div>
               <div class="column">
-                <h3>Type: </h3> None
-                <h3>Unit Type: </h3> None
+                <h4>Type: </h4> None
+                <h4>Unit Type: </h4> None
               </div>
               <hr>
               <div class="column">
-                <h3>City: </h3>{{service_city}}
-                <h3>Property Type: </h3>{{service_property_type}}
-                <h3>Zip Code: </h3>{{service_zipcode}}
+                <h4>City: </h4>{{service_city}}
+                <h4>Property Type: </h4>{{service_property_type}}
+                <h4>Zip Code: </h4>{{service_zipcode}}
               </div>
             </div>
           </div>
@@ -198,8 +203,8 @@
 
       <!--3rd Stepper-->
       <mat-step state="third" [completed]="contactDetialsForm.valid" [editable]="true">
+        <div class="ds">
         <form [formGroup]="contactDetialsForm" (ngSubmit)="contactDetailsSubmit()">
-
           <ng-template matStepLabel>Contact Details</ng-template>
           <mat-card class="contactcard">
             <div>
@@ -278,7 +283,8 @@
               <!--Instructions-->
               <mat-form-field class="instructions" appearance="outline">
                 <mat-label>Instructions</mat-label>
-                <input matInput formControlName="service_instruction" [errorStateMatcher]="matcher" autocomplete="off">
+                <input matInput formControlName="service_instruction" [errorStateMatcher]="matcher" 
+                placeholder="Any instruction to the technician?" autocomplete="off">
                 <mat-error *ngIf="contactDetialsForm.get('service_instruction').hasError('required')">
                   Landmark,
                 </mat-error>
@@ -290,8 +296,8 @@
           <button class="CDbackBtn" mat-button matStepperPrevious>Back</button>
           <button class="CDnextBtn" type="submit" [disabled]="!contactDetialsForm.valid" mat-button matStepperNext> Next
           </button>
-
         </form>
+      </div>
 
         <br><br><br><br><br><br>
         <mat-card class="details">
@@ -299,24 +305,24 @@
           <div class="summary">
             <div class="row">
               <div class="column">
-                <h3>Appliance: </h3> None
-                <h3>Brand: </h3> None
-                <h3>Unit Problem: </h3> None
+                <h4>Appliance: </h4> None
+                <h4>Brand: </h4> None
+                <h4>Unit Problem: </h4> None
               </div>
               <div class="column">
-                <h3>Type: </h3> None
-                <h3>Unit Type: </h3> None
-              </div>
-              <hr>
-              <div class="column">
-                <h3>City: </h3>{{service_city}}
-                <h3>Property Type: </h3>{{service_property_type}}
-                <h3>Zip Code: </h3>{{service_zipcode}}
+                <h4>Type: </h4> None
+                <h4>Unit Type: </h4> None
               </div>
               <hr>
               <div class="column">
-                <h3>Date: </h3>{{service_date | date:"MM/dd/YYYY" }}
-                <h3>Time: </h3>{{service_timeslot}}
+                <h4>City: </h4>{{service_city}}
+                <h4>Property Type: </h4>{{service_property_type}}
+                <h4>Zip Code: </h4>{{service_zipcode}}
+              </div>
+              <hr>
+              <div class="column">
+                <h4>Date: </h4>{{service_date | date:"MM/dd/YYYY" }}
+                <h4>Time: </h4>{{service_timeslot}}
               </div>
             </div>
           </div>
@@ -326,33 +332,33 @@
       <!--4th Stepper-->
       <mat-step state="final">
         <ng-template matStepLabel>Confirm Service Details</ng-template>
-        <mat-card class="details">
+        <div class="ds">
+        <mat-card class="details_sum">
           <div>
             <mat-icon class="listicon">description</mat-icon>
             <h1 class="detailssummary">Details Summary</h1>
           </div>
-
           <div class="summary">
             <div class="row">
               <div class="column">
-                <h3>Appliance: </h3> None
-                <h3>Brand: </h3> None
-                <h3>Unit Problem: </h3> None
+                <h4>Appliance: </h4> None
+                <h4>Brand: </h4> None
+                <h4>Unit Problem: </h4> None
               </div>
               <div class="column">
-                <h3>Type: </h3> None
-                <h3>Unit Type: </h3> None
-              </div>
-              <hr>
-              <div class="column">
-                <h3>City: </h3>{{service_city}}
-                <h3>Property Type: </h3>{{service_property_type}}
-                <h3>Zip Code: </h3>{{service_zipcode}}
+                <h4>Type: </h4> None
+                <h4>Unit Type: </h4> None
               </div>
               <hr>
               <div class="column">
-                <h3>Date: </h3>{{service_date | date:"MM/dd/YYYY" }}
-                <h3>Time: </h3>{{service_timeslot}}
+                <h4>City: </h4>{{service_city}}
+                <h4>Property Type: </h4>{{service_property_type}}
+                <h4>Zip Code: </h4>{{service_zipcode}}
+              </div>
+              <hr>
+              <div class="column">
+                <h4>Date: </h4>{{service_date | date:"MM/dd/YYYY" }}
+                <h4>Time: </h4>{{service_timeslot}}
               </div>
               <hr>
               <div class="column">
@@ -369,6 +375,7 @@
           </div>
         </mat-card>
         <button class="doneBtn" (click)="servicedetailsSubmit()" mat-button>Done</button>
+      </div>
       </mat-step>
     </mat-horizontal-stepper>
   </mat-sidenav-content>

@@ -1,14 +1,20 @@
+.container{
+    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .logincard
 {
     border-radius: 40px;
-    margin-top: 100px;
-    margin-left: 680px;
+    margin: auto;
     padding-top: 50px;
     min-height: 620px;
     max-width: 500px;
     background-color: #fffade;
     opacity: 100%;
     position: absolute;
+    
 }
 .logo
 {
@@ -128,7 +134,6 @@ margin-left: 140px;
 .loginTabs
 {
     margin-left: -10px;
-   margin-bottom: 80px; 
 }
 
 .mat-tab-group

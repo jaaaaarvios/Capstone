@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
 
   user_fname="";
   user_lname="";
+
   subscription: any;
 
   @ViewChild('drawer') drawer: any;
@@ -26,7 +27,7 @@ export class DashboardComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+    displayedColumns: string[] = ['service_id', 'name', 'weight', 'symbol'];
     dataSource = ELEMENT_DATA;
   
     
@@ -55,15 +56,15 @@ export class DashboardComponent implements OnInit {
 }
 
 export interface PeriodicElement {
-  position: number;
+  service_id: number;
   name: string;
-  weight: number;
+  weight: any;
   symbol: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+  {service_id: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+  {service_id: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+  {service_id: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
 ];
  

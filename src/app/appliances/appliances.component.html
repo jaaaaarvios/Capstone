@@ -1,50 +1,93 @@
-<html>
-    <body>
-      <div>
-        <div fxLayoutAlign="end">
-          <button mat-icon-button class="close-button" [mat-dialog-close]="true">
-            <mat-icon class="close-icon" color="warn">close</mat-icon>
-          </button>
-        </div>
-          <h1 class="h1title">Appliance to repair</h1>
-      </div> 
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <br>
+    <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+    <mat-nav-list class="nav-list">
+      <div class="dashboardside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
+          <a class="nav-btn" routerLink="/dashboard">Dashboard</a>
+        </mat-list-item>
+      </div>
+      <div class="dashboardside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+          <a class="nav-btn" routerLink="/booking">Book a Service</a>
+        </mat-list-item>
+      </div>
+      <div class="dashboardside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+          <a class="nav-btn" routerLink="/profile">Profile</a>
+        </mat-list-item>
+      </div>
+      <!-- <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
+          <a class="nav-btn" routerLink="/payment">Payment</a>
+        </mat-list-item> -->
+    </mat-nav-list>
+  </mat-sidenav>
 
-      <div class= mat-dialog-content>
-        <mat-card class="airconcard">
-          <img class="airconimg" mat-button (click)="AirconOpenDialog()" mat-card-image src="../../assets/airconicon.png"mat-dialog-close>
-            <mat-card-content>
-              <button class="h1aircon" mat-button (click)="AirconOpenDialog()" mat-dialog-close>Aircon</button>
-             </mat-card-content>
-        </mat-card>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
+      <button class="logoutBtn" (click)="signOut()" mat-button>
+        <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
+        Logout
+      </button>
+    </mat-toolbar>
+    <h1 class="h1title">Appliance to Repair</h1>
+    <div class="allservices">
 
-        <mat-card class="refcard">
-          <img class="refimg" mat-button (click)="RefrigeratorOpenDialog()" mat-card-image src="../../assets/reficon.png"mat-dialog-close>
-            <mat-card-content>
-              <button class="h1ref" mat-button (click)="RefrigeratorOpenDialog()" mat-dialog-close>Refrigerator</button>
-            </mat-card-content>
-        </mat-card>
+  <mat-card class="appliancecard">
+    <mat-card-content>
+    <img class="airconimg" mat-button  (click)="AirconOpen()" mat-card-image src="../../assets/airconicon.png">
+      <button class="h1button" mat-button (click)="AirconOpen()">Aircon</button>
+    </mat-card-content>
+  </mat-card>
 
-        <mat-card class="efancard">
-          <img class="efanimg" mat-button (click)="ElectricfanOpenDialog()" mat-card-image src="../../assets/efanicon.png"mat-dialog-close>
-            <mat-card-content>
-              <button class="h1efan" mat-button (click)="ElectricfanOpenDialog()" mat-dialog-close>Electric Fan</button>
-            </mat-card-content>
-        </mat-card>
+  <mat-card class="appliancecard">
+    <mat-card-content>
+    <img class="refimg" mat-button  (click)="RefrigeratorOpen()" mat-card-image src="../../assets/reficon.png">
+      <button class="h1button" mat-button (click)="RefrigeratorOpen()">Refrigerator</button>
+    </mat-card-content>
+  </mat-card>
 
-        <mat-card class="washingcard">
-          <img class="washingimg" mat-button (click)="WashingmachineOpenDialog()" mat-card-image src="../../assets/washingicon.png"mat-dialog-close>
-            <mat-card-content>
-              <button class="h1washing" mat-button (click)="WashingmachineOpenDialog()" mat-dialog-close>Washing Machine</button>
-            </mat-card-content>
-        </mat-card>
+  <mat-card class="appliancecard">
+    <mat-card-content>
+    <img class="efanimg" mat-button (click)="ElectricfanOpen()" mat-card-image src="../../assets/efanicon.png"
+      mat-dialog-close>
+      <button class="h1button" mat-button (click)="ElectricfanOpen()" mat-dialog-close>Electric Fan</button>
+    </mat-card-content>
+  </mat-card>
 
-        <mat-card class="tvcard">
-          <img class="tvimg" mat-button (click)="TelevisionOpenDialog()" mat-card-image src="../../assets/tvicon.png"mat-dialog-close>
-            <mat-card-content>
-              <button class="h1tv" mat-button (click)="TelevisionOpenDialog()" mat-dialog-close>Television</button>
-            </mat-card-content>
-        </mat-card>
+  <mat-card class="appliancecard">
+    <mat-card-content>
+    <img class="washingimg" mat-button (click)="WashingmachineOpen()" mat-card-image
+      src="../../assets/washingicon.png" mat-dialog-close>
+      <button class="h1button" mat-button (click)="WashingmachineOpen()" mat-dialog-close>Washing
+        Machine</button>
+    </mat-card-content>
+  </mat-card>
 
-        </div>
-    </body>
-</html>
+  <mat-card class="appliancecard">
+    <mat-card-content>
+    <img class="tvimg" mat-button (click)="TelevisionOpen()" mat-card-image src="../../assets/tvicon.png"
+      mat-dialog-close>
+      <button class="h1button" mat-button (click)="TelevisionOpen()" mat-dialog-close>Television</button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

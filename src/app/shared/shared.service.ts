@@ -5,22 +5,28 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  user_fname:any;
-  user_lname:any;
-  user_email:any;
-  user_password:any;
+  user_fname: any;
+  user_lname: any;
+  user_email: any;
+  user_password: any;
 
-  service_city:any;
-  service_property_type:any;
-  service_zipcode:number;
-  service_date:any;
-  service_timeslot:any;
-  service_address:any;
-  service_firstname:any;
-  service_lastname:any;
-  service_phoneNumber:number;
-  service_addressDetails:any;
-  service_instruction:any;
+  service_appliance: any;
+  service_type: any;
+  service_brand: any;
+  service_unitType: any;
+  service_unitProb: any;
+
+  service_city: any;
+  service_property_type: any;
+  service_zipcode: number;
+  service_date: any;
+  service_timeslot: any;
+  service_address: any;
+  service_firstname: any;
+  service_lastname: any;
+  service_phoneNumber: number;
+  service_addressDetails: any;
+  service_instruction: any;
 
   private UserFnameSource = new BehaviorSubject('');
   currentUserFname = this.UserFnameSource.asObservable();
@@ -67,55 +73,87 @@ export class SharedService {
   private instructionSource = new BehaviorSubject('None');
   currentInstruction = this.instructionSource.asObservable();
 
-  
+  private applianceSource = new BehaviorSubject('None');
+  currentAppliance = this.applianceSource.asObservable();
+
+  private acTypeSource = new BehaviorSubject('None');
+  currentACType = this.acTypeSource.asObservable();
+
+  private acBrandSource = new BehaviorSubject('None');
+  currentACBrand = this.acBrandSource.asObservable();
+
+  private acUTypeSource = new BehaviorSubject('None');
+  currentACUType = this.acUTypeSource.asObservable();
+
+  private acUProbSource = new BehaviorSubject('None');
+  currentACUProb = this.acUProbSource.asObservable();
+
+
   constructor() { }
 
-  changeUserFname(user_fname: string){
+  changeUserFname(user_fname: string) {
     this.UserFnameSource.next(user_fname)
   }
-  changeUserLname(user_lname: string){
+  changeUserLname(user_lname: string) {
     this.UserLnameSource.next(user_lname)
   }
-  changeUserEmail(user_email: string){
+  changeUserEmail(user_email: string) {
     this.UserEmailSource.next(user_email)
   }
-  changeUserPassword(user_password: string){
+  changeUserPassword(user_password: string) {
     this.UserPasswordSource.next(user_password)
   }
 
+  changeAppliance(service_appliance: string) {
+    this.applianceSource.next(service_appliance)
+  }
+  changeACType(service_type: string) {
+    this.acTypeSource.next(service_type)
+  }
+  changeACBrand(service_brand: string) {
+    this.acBrandSource.next(service_brand)
+  }
+  changeACUType(service_unitType: string) {
+    this.acUTypeSource.next(service_unitType)
+  }
+
+  changeACUProb(service_unitProb: string) {
+    this.acUProbSource.next(service_unitProb)
+  }
+
   //Service Details
-  changeCity(service_city: string){
+  changeCity(service_city: string) {
     this.citySource.next(service_city)
   }
-  changeType(service_property_type: string){
+  changeType(service_property_type: string) {
     this.property_typeSource.next(service_property_type)
   }
-  changeZipcode(service_zipcode: number){
+  changeZipcode(service_zipcode: number) {
     this.zipcodeSource.next(service_zipcode)
   }
-  changeDate(service_date: string){
+  changeDate(service_date: string) {
     this.dateSource.next(service_date)
   }
-  changeTimeslot(service_timeslot: string){
+  changeTimeslot(service_timeslot: string) {
     this.timeslotSource.next(service_timeslot)
   }
-  changeAddress(service_address: string){
+  changeAddress(service_address: string) {
     this.addressSource.next(service_address)
   }
-  changeFirstname(service_firstname: string){
+  changeFirstname(service_firstname: string) {
     this.firstnameSource.next(service_firstname)
   }
-  changeLastname(service_lastname: string){
+  changeLastname(service_lastname: string) {
     this.lastnameSource.next(service_lastname)
   }
-  changePhoneNumber(service_phoneNumber: number){
+  changePhoneNumber(service_phoneNumber: number) {
     this.numberSource.next(service_phoneNumber)
   }
-  changeAddressDetails(service_addressDetails: string){
+  changeAddressDetails(service_addressDetails: string) {
     this.address_detailsSource.next(service_addressDetails)
   }
-  changeInstruction(service_instruction: string){
+  changeInstruction(service_instruction: string) {
     this.instructionSource.next(service_instruction)
   }
-  
+
 }
