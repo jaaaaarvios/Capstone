@@ -131,6 +131,20 @@
 
               <!--Date Picker-->
               <div>
+<<<<<<< HEAD
+                <mat-icon class="phoneicon"> local_phone</mat-icon>
+                <h1 class="contactdetails">Contact Details</h1>
+              </div>  
+  
+            <!--Geolocation--> 
+              <div id="mapid"></div>
+                <div>
+                  <h1 class="h1address">Move map to exact location under the red pin.</h1>
+                  <mat-form-field appearance="outline">
+                    
+                    <mat-label name="address">{{address}}</mat-label>
+                    <input matInput>
+=======
                 <mat-form-field class="datepicker" appearance="outline">
                   <mat-label>Date of Service</mat-label>
                   <input matInput [matDatepicker]="picker" formControlName="service_date" autocomplete="off">
@@ -139,6 +153,7 @@
                   <mat-error *ngIf="scheduleForm.get('service_date').hasError('required')">
                     You must make a selection
                   </mat-error>
+>>>>>>> c53139f2f69c378931defb3c8063c5d916226fe1
                 </mat-form-field>
                 <button mat-raised-button class="dateBtn" (click)="picker.open()">Pick a date</button>
               </div>
@@ -372,6 +387,45 @@
                 <h4>Instructions:</h4> {{service_instruction}}
               </div>
             </div>
+<<<<<<< HEAD
+          </mat-card>  
+  
+  <!--Back and Next Button--> 
+            <button class="CDbackBtn"mat-button matStepperPrevious>Back</button>
+            <button class="CDnextBtn" mat-button matStepperNext>Next</button>
+          </mat-step>
+  
+  <!--4th Stepper--> 
+          <mat-step>
+            <ng-template matStepLabel>Confirm Service Details</ng-template>
+              <mat-card class="schedcard">
+                <div>
+                    <mat-icon class="listicon">description</mat-icon>
+                       <h1 class="detailssummary">Details Summary</h1>
+                </div> 
+              
+              <!--Edit Button--> 
+                <div class="editBtn">
+                  <button mat-mini-fab>
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                </div>
+
+                <div id="dropin-container"></div>
+            </mat-card>
+  
+  <!--Done Button--> 
+            <button class="doneBtn" mat-button matStepperNext><a routerLink="/dashboard">Done</a></button>
+        </mat-step>
+  
+  
+        </mat-horizontal-stepper>
+      </mat-drawer-content>
+    </mat-drawer-container>
+    
+  </div>
+  
+=======
           </div>
         </mat-card>
         <button class="doneBtn" (click)="servicedetailsSubmit()" mat-button>Done</button>
@@ -380,3 +434,4 @@
     </mat-horizontal-stepper>
   </mat-sidenav-content>
 </mat-sidenav-container>
+>>>>>>> c53139f2f69c378931defb3c8063c5d916226fe1

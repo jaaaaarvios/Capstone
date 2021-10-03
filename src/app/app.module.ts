@@ -54,6 +54,11 @@ import { TechprofileComponent } from './techprofile/techprofile.component';
 import { SchedulepageComponent } from './schedulepage/schedulepage.component';
 import { AddtechComponent } from './addtech/addtech.component';
 
+//payment
+import AdyenCheckout from '@adyen/adyen-web';
+import '@adyen/adyen-web/dist/adyen.css';
+
+
 @NgModule({
   declarations: [
     AppComponent,
