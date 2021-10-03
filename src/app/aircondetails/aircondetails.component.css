@@ -11,21 +11,6 @@
     margin-top: 40px;
     margin-left: 18px;
 }
-
-.servicetype
-{
-    margin-left: 40px;
-    margin-top: 10px;
-    font-family: 'Trebuchet MS';
-}
-
-.zipcode
-{
-    margin-left: 40px;
-    margin-top: 10px;
-    font-family: 'Trebuchet MS';
-}
-
 .airconselect
 {
     margin-left: 40px;
@@ -91,7 +76,9 @@
 .close-button{
     float: right;
     top: 5px;
-    right: -15px;
+}
+.close-button:hover{
+    background-color: #cccccc;
 }
 .close-icon{
     margin: auto;

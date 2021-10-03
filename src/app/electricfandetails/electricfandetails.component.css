@@ -10,20 +10,6 @@
     margin-left: 18px;
 }
 
-.servicetype
-{
-    margin-left: 40px;
-    margin-top: 10px;
-    font-family: 'Trebuchet MS';
-}
-
-.zipcode
-{
-    margin-left: 40px;
-    margin-top: 10px;
-    font-family: 'Trebuchet MS';
-}
-
 .electricfanselect
 {
     margin-left: 40px;
@@ -88,8 +74,10 @@
 }
 .close-button{
     float: right;
-    top: 14px;
-    right:-15px;
+    top: 5px;
+}
+.close-button:hover{
+    background-color: #cccccc;
 }
 .close-icon{
     margin: auto;

@@ -1,229 +1,82 @@
-.example-container {
-  max-width: 95%;
-  min-height: 910px;
-  margin-top: 10px;
-  margin-left: 50px;
-  border: 1px solid #E5E5E5;
-  border-radius: 30px;
+.sidenav-container {
+  height: 100%;
 }
-
-.mat-drawer
-{
-width: 280px;
-background-color: #EAE2B7;
+.sidenav{
+  width: fit-content;
+  width: 280px;
+  background-color: #EAE2B7;
 }
-
-.toolbar
-  {
-    background-color: #D62828;
-    margin-top: -20px;
-  }
-
-.logotxt
-  {
-    font-family: Candara;
-    font-style: bold;
-    font-size: 30px;
-    color: #FFFFFF;
-    padding-top: 5px;
-    margin-left: 5px;
-  }
-
-  .inboxicon
-  {
-    font-size: 30px;
-    color: white;
-    float: right;
-    margin-right: 160px;
-    margin-top: 10px;
-  }
-  
-  .logouticon
-  {
-    font-size: 30px;
-    color: #FFFFFF;
-    margin-left: 1200px;
-    margin-top: 10px;
-  }
-
-.mat-drawer-content
-{
-height: 910px;
-background-color: #FFFFFF;
+.mat-sidenav-content{
+   height: 910px;
+   background-color: white;
 }
-
-.logo
-{
-  width: 170px;
-  height: 150px;
+.mat-toolbar{
+  background-color: #D62828;
+  width: 100%;
+}
+.logo{
+  width: 200px;
+  height: 180px;
   padding-top: 40px;
-  margin-left: 60px;
+  margin-left: 40px;
 }
-
-.dashboardside
-{
-margin-left: 0px;
-margin-top: 50px;
-text-align: justify;
+.nav-icon{
+  color: #003049;
+  font-size: 35px;
+  margin-left: 25px;
 }
-
+.nav-btn{
+  color: #003049;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  margin-left: 25px;
+}
+.dashboardside{
+  margin-left: 0px;
+  margin-top: 30px;
+  text-align: justify;
+}
 .dashboardside:hover
 {
     background-color: #c8c19c;
-    
     align-self: auto;
     width: 100%;
     height: 70px;
     margin-left: 0;
-    margin-top: 50px;
+    margin-top: 20px;
     text-align: justify;
-    
 }
 
-.dashlink
-{
-color: #003049;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-font-size: 18px;
-margin-left: 55px;
-text-decoration: none;
-margin-top: -33px;
+.spacer{
+  flex: 1 1 auto;
 }
 
-.homeicon
-{
-  color: #003049;
-  font-size: 35px;
-  padding-top: 20px;
-  margin-left: 55px;
+.tab{
+  margin-top: 40px;
+  margin-left: 50px;
+  width: fit-content;
 }
-
-.bookingside
-{
-  margin-left: 0px;
-  margin-top: 20px;
-  text-align: justify;
-}
-
-.bookingside:hover
-{
-    background-color: #c8c19c;
-    width: 100%;
-    height: 70px;
-    margin-left: 0;
-    margin-top: 20px;
-    
-}
-
-.bookinglink
-{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-left: 55px;
-  text-decoration: none;
-  margin-top: -34px;
-}
-
-.bookingicon
-{
-  color: #003049;
-  font-size: 35px;
-  margin-top: 20px;
-  margin-left: 55px;
-}
-
-   
-.profileside
-{
-  margin-left: 0px;
-  margin-top: 20px;
-  text-align: justify;
-
-}
-
-.profileside:hover
-{
-    background-color: #c8c19c;
-    width: 100%;
-    height: 70px;
-    margin-left: 0;
-    margin-top: 20px;
-    
-}
-.profileicon
-{
-  color: #003049;
-  font-size: 35px;
-  margin-top: 20px;
-  margin-left: 55px;
-}
-
-.profilelink
-{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-left: 55px;
-  text-decoration: none;
-  margin-top: -34px;
-}
-.mat-tab-group
-{
-    width: 1000px;
-    margin-top: 50px;
-    margin-left: 70px;
-}
-
-.paymentside
-{
-margin-left: 40px;
-
-}
-
-.paymenticon
-{
-  color: #003049;
-  font-size: 35px;
-}
-
-
-.paymentlink
-{
-  text-decoration: none;
-  color: white;
-}
-
 .welcome
 {
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 font-size: 20px;
-color: #14213D;
-float: right;
-margin-top: -40px;
-margin-right: 350px;
+color: antiquewhite;
 }
-.services
+
+.inboxicon
 {
-
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-font-size: 30px;
-color: #14213D;
-margin-top: 40px;
-margin-left: 50px;
+  font-size: 30px;
+  color: #14213D;
+  margin-right: 20px;
 }
-
-
 .logoutBtn
 {
-  font-size: 18px;
-  color: #14213D;
-  float: right;
-  margin-right: -390px;
-  margin-top: -45px;
+  font-size: 20px;
+  color: antiquewhite;
 }
-
-
+.logoutBtn:hover{
+  background-color: black;
+}
 
 .appliancescard
 {
@@ -262,8 +115,9 @@ border-radius: 20px;
 
 .servicescard
 {
+  margin-top: 30px;
   margin-left: 90px;
-  width: 850px;
+  width: fit-content;
   height: 250px;
 }
 
@@ -271,7 +125,6 @@ border-radius: 20px;
 {
   font-size: 15px;
   color: #14213D;
-  font-family: 'Trebuchet MS';
   margin-left: 70px;
   margin-top:-10px;
 }
@@ -280,7 +133,6 @@ border-radius: 20px;
 {
   font-size: 15px;
   color: #14213D;
-  font-family: 'Trebuchet MS';
   margin-left: 320px;
   margin-top:-25px;
 }
@@ -289,7 +141,6 @@ border-radius: 20px;
 {
   font-size: 15px;
   color: #14213D;
-  font-family: 'Trebuchet MS';
   margin-left: 620px;
   margin-top:-27px;
 }
@@ -299,24 +150,16 @@ border-radius: 20px;
   margin-left: 20px;
   margin-top: 15px;
   width: 850px;
-  height: 300px;
+  height: fit-content;
   border: 2px solid #E5E5E5;
 }
-
-.h1pending
-{
-  font-size: 18px;
-  font-family: 'Trebuchet MS';
-  
-}
-
 .searchfield
 {
   height: 30px;
   width: 300px;
   font-family: 'Trebuchet MS';
   float: right;
-  margin-top: -40px;
+  margin-top: -70px;
 }
 
 .completedcard
@@ -324,14 +167,8 @@ border-radius: 20px;
   margin-left: 20px;
   margin-top: 15px;
   width: 850px;
-  height: 300px;
+  height: fit-content;
   border: 2px solid #E5E5E5;
-}
-
-.h1completed
-{
-  font-size: 18px;
-  font-family: 'Trebuchet MS'
 }
 
 .cancelledcard
@@ -339,74 +176,8 @@ border-radius: 20px;
   margin-left: 20px;
   margin-top: 15px;
   width: 850px;
-  height: 300px;
+  height: fit-content;
   border: 2px solid #E5E5E5;
-}
-
-.h1cancelled
-{
-  font-size: 18px;
-  font-family: 'Trebuchet MS'
-}
-
-
-
-.h1serviceid
-{
-  margin-left: 50px;
-  margin-top: 60px;
-  font-size: 15px;
-  color: #14213D;
-  font-family: 'Trebuchet MS';
-}
-
-.h1servicetype
-{
-  margin-left: 250px;
-  margin-top: -23px;
-  font-size: 15px;
-  color: #14213D;
-  font-family: 'Trebuchet MS';
-}
-.h1date
-{
-  margin-left: 450px;
-  margin-top: -23px;
-  font-size: 15px;
-  color: #14213D;
-  font-family: 'Trebuchet MS';
-}
-
-.detailsBtn
-{
-  float: right;
-  border-color:#FCA311;
-}
-
-.hserviceid
-{
-  margin-left: 70px;
-  margin-top: 20px;
-  font-size: 12px;
-  color: grey;
-  font-family: 'Trebuchet MS';
-}
-
-.hservicetype
-{
-  margin-left: 245px;
-  margin-top: -23px;
-  font-size: 12px;
-  color: grey;
-  font-family: 'Trebuchet MS';
-}
-.hdate
-{
-  margin-left: 460px;
-  margin-top: -23px;
-  font-size: 12px;
-  color: grey;
-  font-family: 'Trebuchet MS';
 }
 
 .detailsBtn
@@ -416,5 +187,13 @@ border-radius: 20px;
   width: 80px;
   font-size: 10px;
   height: 30px;
-  font-family: 'Trebuchet MS';
+}
+
+table {
+  width: 100%;
+  margin-top: 30px;
+}
+.request{
+  padding: 10px;
+  font-size: 22px;
 }

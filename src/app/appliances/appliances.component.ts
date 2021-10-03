@@ -4,6 +4,7 @@ import {AircondetailsComponent} from '../../app/aircondetails/aircondetails.comp
 import {RefrigeratordetailsComponent} from '../../app/refrigeratordetails/refrigeratordetails.component';
 import {ElectricfandetailsComponent} from '../../app/electricfandetails/electricfandetails.component';
 import {WashingmachinedetailsComponent} from '../../app/washingmachinedetails/washingmachinedetails.component';
+import { TelevisiondetailsComponent } from '../televisiondetails/televisiondetails.component';
 
 @Component({
   selector: 'app-appliances',
@@ -37,6 +38,14 @@ export class AppliancesComponent implements OnInit {
   }
   WashingmachineOpenDialog() {
     const dialogRef = this.dialog.open(WashingmachinedetailsComponent);
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  TelevisionOpenDialog() {
+    const dialogRef = this.dialog.open(TelevisiondetailsComponent);
     
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

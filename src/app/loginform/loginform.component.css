@@ -6,7 +6,7 @@
     padding-top: 50px;
     min-height: 620px;
     max-width: 500px;
-    background-color: white;
+    background-color: #fffade;
     opacity: 100%;
     position: absolute;
 }
@@ -37,21 +37,18 @@ margin-left: 140px;
 {
     min-height: 40px;
     width: 300px;
-    margin-top: 10px;
     margin-left: 10px;
 }
 .signup-lnamefield
 {
     min-height: 40px;
     width: 300px;
-    margin-top: -30px;
     margin-left: 10px;
 }
 .signup-emailfield
 {
     min-height: 40px;
     width: 300px;
-    margin-top: -50px;
     margin-left: 10px;
     border: #FCA311, 3px;
 }
@@ -59,38 +56,35 @@ margin-left: 140px;
 {
     min-height: 40px;
     width: 300px;
-    margin-top: -10px;
     margin-left: 10px;
     border: #FCA311;
 }
 .loginBtn
 {
-background-color: #D62828;
-color: #FFFFFF;
-height: 40px;
-width: 180px;
-margin-left: 70px;
-margin-top: 10px;
-border-radius: 5px;
-}
-
-.g-signin2
-{
-    width: 180px;
+    background-color: #D62828;
+    color: #FFFFFF;
     height: 40px;
+    width: 180px;
     margin-top: 10px;
     margin-left: 70px;
+    border-radius: 5px;
 }
-
+.g-signin2
+{
+    height: 40px;
+    width: fit-content;
+    margin-top: 15px;
+    margin-left: 70px;
+    border-radius: 5px;
+}
 
 .signupBtn
 {
-background-color: #D62828;
-height: 40px;
-width: 180px;
-margin-left: 70px;
-margin-top: -10px;
-border-radius: 5px;
+    background-color: #D62828;
+    color: #FFFFFF;
+    height: 40px;
+    width: 180px;
+    margin-left: 70px;
 }
 .signuplink
 {
@@ -108,12 +102,6 @@ border-radius: 5px;
     text-decoration: none;
 }
       
-.fblink
-
-{
-    color: white;
-    text-decoration: none;
-}
    
 .googlelink
 
@@ -122,12 +110,6 @@ border-radius: 5px;
     text-decoration: none;
 }
    
-.fblink:hover 
-{
- 
-    color: #14213D;
-       
-}
    
 .googlelink:hover 
 {

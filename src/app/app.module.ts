@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LayoutModule } from '@angular/cdk/layout';
 // -----------------Materials----------------------------
 import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
@@ -23,6 +24,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
 // --------------Components-----------------------------
 import { HomepageComponent } from './homepage/homepage.component';
 import {LoginformComponent} from './loginform/loginform.component';
@@ -93,6 +96,7 @@ import '@adyen/adyen-web/dist/adyen.css';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    LayoutModule,
 
     MatButtonModule,
     MatBadgeModule,
@@ -111,7 +115,10 @@ import '@adyen/adyen-web/dist/adyen.css';
     MatDialogModule,
     MatTableModule,
     MatToolbarModule,
-    MatTableModule
+    MatTableModule,
+    MatListModule,
+    MatGridListModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
