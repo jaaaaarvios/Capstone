@@ -11,6 +11,8 @@
   },
   "private": true,
   "dependencies": {
+    "@adyen/adyen-web": "^4.8.0",
+    "@adyen/api-library": "^9.1.0",
     "@angular/animations": "~11.2.13",
     "@angular/cdk": "^11.2.12",
     "@angular/common": "~11.2.13",

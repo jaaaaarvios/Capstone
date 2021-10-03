@@ -155,8 +155,9 @@
               <div id="mapid"></div>
                 <div>
                   <h1 class="h1address">Move map to exact location under the red pin.</h1>
-                  <mat-form-field class="address" appearance="outline">
-                    <mat-label>Service Address</mat-label>
+                  <mat-form-field appearance="outline">
+                    
+                    <mat-label name="address">{{address}}</mat-label>
                     <input matInput>
                 </mat-form-field>
               </div>
@@ -227,6 +228,8 @@
                     <mat-icon>edit</mat-icon>
                   </button>
                 </div>
+
+                <div id="dropin-container"></div>
             </mat-card>
   
   <!--Done Button--> 
