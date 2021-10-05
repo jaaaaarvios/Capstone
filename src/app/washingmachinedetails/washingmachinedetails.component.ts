@@ -8,7 +8,6 @@ import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
 import { SharedService } from '../shared/shared.service';
 
-
 declare const L: any;
 
 @Component({
@@ -25,7 +24,7 @@ export class WashingmachinedetailsComponent implements OnInit {
   subscription: Subscription;
 
   service_appliance = "Washing Machine";
-  service_type = "";
+  service_aptype = "";
   service_brand = "";
   service_unitType="";
   service_unitProb="";
@@ -75,7 +74,7 @@ export class WashingmachinedetailsComponent implements OnInit {
 
   ngOnInit(): void {
     //Sending data to the service
-    this.subscription = this.shared.currentACType.subscribe(service_type => this.service_type = service_type);
+    this.subscription = this.shared.currentACType.subscribe(service_aptype => this.service_aptype = service_aptype);
     this.subscription = this.shared.currentACBrand.subscribe(service_brand => this.service_brand = service_brand);
     this.subscription = this.shared.currentACUType.subscribe(service_unitType => this.service_unitType = service_unitType);
     this.subscription = this.shared.currentACUProb.subscribe(service_unitProb => this.service_unitProb = service_unitProb);
@@ -92,7 +91,7 @@ export class WashingmachinedetailsComponent implements OnInit {
     this.subscription = this.shared.currentInstruction.subscribe(service_instruction => this.service_instruction = service_instruction);
 
     this.unitdetailsForm = this._formBuilder.group({
-      service_type: ['', Validators.required],
+      service_aptype: ['', Validators.required],
       service_brand: ['', Validators.required],
       service_unitProb: ['', Validators.required],
     });
@@ -190,7 +189,7 @@ export class WashingmachinedetailsComponent implements OnInit {
 
   unitdetailsSubmit(){
     if (this.unitdetailsForm.valid) {
-      this.shared.changeACType(this.unitdetailsForm.value.service_type);
+      this.shared.changeACType(this.unitdetailsForm.value.service_aptype);
       this.shared.changeACBrand(this.unitdetailsForm.value.service_brand);
       this.shared.changeACUType(this.unitdetailsForm.value.service_unitType);
       this.shared.changeACUProb(this.unitdetailsForm.value.service_unitProb);
@@ -233,7 +232,7 @@ export class WashingmachinedetailsComponent implements OnInit {
   servicedetailsSubmit() {
     console.log(
       this.service_appliance,
-      this.service_type,
+      this.service_aptype,
       this.service_brand,
       this.service_unitType,
       this.service_unitProb,

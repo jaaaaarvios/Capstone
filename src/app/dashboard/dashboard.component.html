@@ -44,11 +44,11 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
         <h1 class="ayosgamit">Ayosgamit</h1>
-        <div class="datetime">
-          <label class="date">{{date   | date: "MMMM dd, yyyy  "}}</label>
-          <label class="time">{{date   | date: "h:mm:ss a'"}}</label>
-         </div>
         <span class="spacer"></span>
+        <div class="datetime">
+          <label>{{date   | date: "MMMM dd, yyyy  "}}</label>
+          <label>({{date   | date: "h:mm:ss a'"}})</label>
+         </div>
         <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
         <button class="logoutBtn" (click)="signOut()" mat-button>
           <i class="fas fa-sign-out-alt"></i>

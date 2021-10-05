@@ -54,12 +54,12 @@
 
               <mat-form-field class="washingmachineselect" appearance="outline">
                 <mat-label>Television Type</mat-label>
-                <mat-select formControlName="service_type">
-                  <mat-option *ngFor="let wmt of tv_type" [value]="tvt">
+                <mat-select formControlName="service_aptype">
+                  <mat-option *ngFor="let tvt of tv_type" [value]="tvt">
                     {{tvt}}
                   </mat-option>
                 </mat-select>
-                <mat-error *ngIf="unitdetailsForm.get('service_type').hasError('required')">
+                <mat-error *ngIf="unitdetailsForm.get('service_aptype').hasError('required')">
                   You must make a selection
                 </mat-error>
               </mat-form-field>
@@ -67,7 +67,7 @@
               <mat-form-field class="washingmachinebrand" appearance="outline">
                 <mat-label>Brand</mat-label>
                 <mat-select formControlName="service_brand">
-                  <mat-option *ngFor="let wmb of tv_brand" [value]="tvb">
+                  <mat-option *ngFor="let tvb of tv_brand" [value]="tvb">
                     {{tvb}}
                   </mat-option>
                 </mat-select>
@@ -79,7 +79,7 @@
                 <mat-form-field class="washingmachineprob" appearance="outline">
                   <mat-label>Unit Problem</mat-label>
                   <mat-select formControlName="service_unitProb">
-                    <mat-option *ngFor="let wmut of tv_unitProblem" [value]="tvup">
+                    <mat-option *ngFor="let tvup of tv_unitProblem" [value]="tvup">
                       {{tvup}}
                     </mat-option>
                   </mat-select>
@@ -182,8 +182,7 @@
               <h4>Unit Problem: </h4> {{service_unitProb}}
             </div>
             <div class="column">
-              <h4>Type: </h4> {{service_type}}
-              <h4>Unit Type: </h4> {{service_unitType}}
+              <h4>Type: </h4> {{service_aptype}}
             </div>
           </div>
         </mat-card>
@@ -261,8 +260,7 @@
                 <h4>Unit Problem: </h4> {{service_unitProb}}
               </div>
               <div class="column">
-                <h4>Type: </h4> {{service_type}}
-                <h4>Unit Type: </h4> {{service_unitType}}
+                <h4>Type: </h4> {{service_aptype}}
               </div>
               <hr>
               <div class="column">
@@ -385,8 +383,7 @@
                 <h4>Unit Problem: </h4> {{service_unitProb}}
               </div>
               <div class="column">
-                <h4>Type: </h4> {{service_type}}
-                <h4>Unit Type: </h4> {{service_unitType}}
+                <h4>Type: </h4> {{service_aptype}}
               </div>
               <hr>
               <div class="column">
@@ -421,8 +418,7 @@
                   <h4>Unit Problem: </h4> {{service_unitProb}}
                 </div>
                 <div class="column">
-                  <h4>Type: </h4> {{service_type}}
-                  <h4>Unit Type: </h4> {{service_unitType}}
+                  <h4>Type: </h4> {{service_aptype}}
                 </div>
                 <hr>
                 <div class="column">

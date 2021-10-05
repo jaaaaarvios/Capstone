@@ -11,7 +11,7 @@ export class SharedService {
   user_password: any;
 
   service_appliance: any;
-  service_type: any;
+  service_aptype: any;
   service_brand: any;
   service_unitType: any;
   service_unitProb: any;
@@ -104,11 +104,12 @@ export class SharedService {
     this.UserPasswordSource.next(user_password)
   }
 
+  //appliane details
   changeAppliance(service_appliance: string) {
     this.applianceSource.next(service_appliance)
   }
-  changeACType(service_type: string) {
-    this.acTypeSource.next(service_type)
+  changeACType(service_aptype: string) {
+    this.acTypeSource.next(service_aptype)
   }
   changeACBrand(service_brand: string) {
     this.acBrandSource.next(service_brand)

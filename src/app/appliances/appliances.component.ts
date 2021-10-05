@@ -1,10 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {AircondetailsComponent} from '../../app/aircondetails/aircondetails.component';
-import {RefrigeratordetailsComponent} from '../../app/refrigeratordetails/refrigeratordetails.component';
-import {ElectricfandetailsComponent} from '../../app/electricfandetails/electricfandetails.component';
-import {WashingmachinedetailsComponent} from '../../app/washingmachinedetails/washingmachinedetails.component';
-import { TelevisiondetailsComponent } from '../televisiondetails/televisiondetails.component';
 import { SharedService } from '../shared/shared.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -18,8 +13,6 @@ import { map } from 'rxjs/operators';
 })
 export class AppliancesComponent implements OnInit {
 
-  enteredValue ="";
-  service_appliance = "";
   subscription: any;
   
   @ViewChild('drawer') drawer: any;
@@ -28,7 +21,7 @@ export class AppliancesComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-  constructor(public dialog: MatDialog, private shared: SharedService, private router: Router, private breakpointObserver: BreakpointObserver) { }
+  constructor(private shared: SharedService, private router: Router, private breakpointObserver: BreakpointObserver) { }
 
   // RefrigeratorOpenDialog() {
   //   const dialogRef = this.dialog.open(RefrigeratordetailsComponent);
@@ -64,24 +57,19 @@ export class AppliancesComponent implements OnInit {
   }
 
   AirconOpen(){
-    this.router.navigate(['/aircon']);
-    console.log(this.service_appliance);
+    this.router.navigate(['/aircon-repair']);
   }
   RefrigeratorOpen(){
-    this.router.navigate(['/refrigerator']);
-    console.log(this.service_appliance);
+    this.router.navigate(['/refrigerator-repair']);
   }
   ElectricfanOpen(){
-    this.router.navigate(['/electricfan']);
-    console.log(this.service_appliance);
+    this.router.navigate(['/electricfan-repair']);
   }
   WashingmachineOpen(){
-    this.router.navigate(['/washingmachine']);
-    console.log(this.service_appliance);
+    this.router.navigate(['/washingmachine-repair']);
   }
   TelevisionOpen(){
-    this.router.navigate(['/television']);
-    console.log(this.service_appliance);
+    this.router.navigate(['/television-repair']);
   }
 
   signOut() {

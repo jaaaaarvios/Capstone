@@ -54,8 +54,18 @@ import { TechprofileComponent } from './techprofile/techprofile.component';
 import { SchedulepageComponent } from './schedulepage/schedulepage.component';
 import { AddtechComponent } from './addtech/addtech.component';
 import { BookingsummaryComponent } from './bookingsummary/bookingsummary.component';
-import { CleaningComponent } from './cleaning/cleaning.component';
-
+import { ApplianceCleaningComponent } from './appliance-cleaning/appliance-cleaning.component';
+import { AirconCleaningComponent } from './aircon-cleaning/aircon-cleaning.component';
+import { RefrigeratorCleaningComponent } from './refrigerator-cleaning/refrigerator-cleaning.component';
+import { ElectricfanCleaningComponent } from './electricfan-cleaning/electricfan-cleaning.component';
+import { WashingmachineCleaningComponent } from './washingmachine-cleaning/washingmachine-cleaning.component';
+import { TelevisionCleaningComponent } from './television-cleaning/television-cleaning.component';
+import { ApplianceInstallComponent } from './appliance-install/appliance-install.component';
+import { AirconInstallComponent } from './aircon-install/aircon-install.component';
+import { RefrigeratorInstallComponent } from './refrigerator-install/refrigerator-install.component';
+import { ElectricfanInstallComponent } from './electricfan-install/electricfan-install.component';
+import { WashingmachineInstallComponent } from './washingmachine-install/washingmachine-install.component';
+import { TelevisionInstallComponent } from './television-install/television-install.component';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -91,7 +101,18 @@ import { CleaningComponent } from './cleaning/cleaning.component';
     SchedulepageComponent,
     AddtechComponent,
     BookingsummaryComponent,
-    CleaningComponent
+    ApplianceCleaningComponent,
+    AirconCleaningComponent,
+    RefrigeratorCleaningComponent,
+    ElectricfanCleaningComponent,
+    WashingmachineCleaningComponent,
+    TelevisionCleaningComponent,
+    ApplianceInstallComponent,
+    AirconInstallComponent,
+    RefrigeratorInstallComponent,
+    ElectricfanInstallComponent,
+    WashingmachineInstallComponent,
+    TelevisionInstallComponent,
 
   ],
   imports: [

@@ -19,7 +19,18 @@ import { RefrigeratordetailsComponent } from './refrigeratordetails/refrigerator
 import { ElectricfandetailsComponent } from './electricfandetails/electricfandetails.component';
 import { WashingmachinedetailsComponent } from './washingmachinedetails/washingmachinedetails.component';
 import { TelevisiondetailsComponent } from './televisiondetails/televisiondetails.component';
-import { CleaningComponent } from './cleaning/cleaning.component';
+import { ApplianceCleaningComponent } from './appliance-cleaning/appliance-cleaning.component';
+import { AirconCleaningComponent } from './aircon-cleaning/aircon-cleaning.component';
+import { RefrigeratorCleaningComponent } from './refrigerator-cleaning/refrigerator-cleaning.component';
+import { ElectricfanCleaningComponent } from './electricfan-cleaning/electricfan-cleaning.component';
+import { WashingmachineCleaningComponent } from './washingmachine-cleaning/washingmachine-cleaning.component';
+import { TelevisionCleaningComponent } from './television-cleaning/television-cleaning.component';
+import { ApplianceInstallComponent } from './appliance-install/appliance-install.component';
+import { AirconInstallComponent } from './aircon-install/aircon-install.component';
+import { RefrigeratorInstallComponent } from './refrigerator-install/refrigerator-install.component';
+import { ElectricfanInstallComponent } from './electricfan-install/electricfan-install.component';
+import { WashingmachineInstallComponent } from './washingmachine-install/washingmachine-install.component';
+import { TelevisionInstallComponent } from './television-install/television-install.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -38,12 +49,24 @@ const routes: Routes = [
   { path: 'technicians', component: TechniciansComponent },
   { path: 'techprofile', component: TechprofileComponent },
   { path: 'appliance', component: AppliancesComponent },
-  { path: 'aircon', component: AircondetailsComponent },
-  { path: 'refrigerator', component: RefrigeratordetailsComponent },
-  { path: 'electricfan', component: ElectricfandetailsComponent },
-  { path: 'washingmachine', component: WashingmachinedetailsComponent },
-  { path: 'television', component: TelevisiondetailsComponent },
-  { path: 'cleaning', component: CleaningComponent },
+  { path: 'aircon-repair', component: AircondetailsComponent },
+  { path: 'refrigerator-repair', component: RefrigeratordetailsComponent },
+  { path: 'electricfan-repair', component: ElectricfandetailsComponent },
+  { path: 'washingmachine-repair', component: WashingmachinedetailsComponent },
+  { path: 'television-repair', component: TelevisiondetailsComponent },
+  { path: 'cleaning', component: ApplianceCleaningComponent },
+  { path: 'aircon-cleaning', component: AirconCleaningComponent },
+  { path: 'refrigerator-cleaning', component: RefrigeratorCleaningComponent },
+  { path: 'electricfan-cleaning', component: ElectricfanCleaningComponent },
+  { path: 'washingmachine-cleaning', component: WashingmachineCleaningComponent },
+  { path: 'television-cleaning', component: TelevisionCleaningComponent },
+  { path: 'installation', component: ApplianceInstallComponent },
+  { path: 'aircon-installation', component: AirconInstallComponent },
+  { path: 'refrigerator-installation', component: RefrigeratorInstallComponent },
+  { path: 'electricfan-installation', component: ElectricfanInstallComponent },
+  { path: 'washingmachine-installation', component: WashingmachineInstallComponent },
+  { path: 'television-installation', component: TelevisionInstallComponent },
+
 ];
 
 @NgModule({

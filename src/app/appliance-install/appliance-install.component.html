@@ -1,0 +1,91 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+            *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <br>
+        <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+        <mat-nav-list class="nav-list">
+            <div class="dashboardside">
+              <mat-list-item (click)="closeSideNav()">
+                <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
+                <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
+              </mat-list-item>
+            </div>
+            <div class="bookingside">
+              <mat-list-item (click)="closeSideNav()">
+                <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+                <a class="booking-btn" routerLink="/booking">Book a Service</a>
+              </mat-list-item>
+            </div>
+            <div class="profileside">
+              <mat-list-item (click)="closeSideNav()">
+                <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+                <a class="profile-btn" routerLink="/profile">Profile</a>
+              </mat-list-item>
+            </div>
+            <!-- <mat-list-item (click)="closeSideNav()">
+                <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
+                <a class="nav-btn" routerLink="/payment">Payment</a>
+              </mat-list-item> -->
+          </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+                *ngIf="isHandset$ | async">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span class="spacer"></span>
+            <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
+            <button class="logoutBtn" (click)="signOut()" mat-button>
+                <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
+                Logout
+            </button>
+        </mat-toolbar>
+        <h1 class="h1title">Appliance to Install</h1>
+        <hr>
+        <div class="allservices">
+            <mat-card class="airconcard">
+                <mat-card-content (click)="AirconOpen()"> 
+                    <img class="airconimg" mat-button  mat-card-image src="../../assets/airconicon.png">
+                    <h1 class="aircontxt" mat-button >Aircon</h1>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="refcard">
+                <mat-card-content  (click)="RefrigeratorOpen()">
+                    <img class="refimg" mat-button mat-card-image src="../../assets/reficon.png">
+                    <h1 class="reftxt" mat-button> Refrigerator </h1>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="fancard">
+                <mat-card-content (click)="ElectricfanOpen()">
+                    <img class="fanimg" mat-button  mat-card-image src="../../assets/efanicon.png" mat-dialog-close>
+                    <h1 class="fantxt" mat-button  mat-dialog-close>Electric Fan</h1>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="washingcard">
+                <mat-card-content (click)="WashingmachineOpen()">
+                    <img class="washingimg" mat-button  mat-card-image
+                        src="../../assets/washingicon.png" mat-dialog-close>
+                    <h1 class="washingtxt" mat-button mat-dialog-close>Washing
+                        Machine</h1>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="tvcard">
+                <mat-card-content (click)="TelevisionOpen()">
+                    <img class="tvimg" mat-button mat-card-image
+                        src="../../assets/tvicon.png" mat-dialog-close>
+                    <h1 class="tvtxt" mat-button mat-dialog-close>Television</h1>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

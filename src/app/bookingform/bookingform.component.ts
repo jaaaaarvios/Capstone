@@ -51,6 +51,12 @@ export class BookingformComponent implements OnInit {
   ApplianceOpen(){
     this.router.navigate(['/appliance'])
   }
+  CleaningOpen(){
+    this.router.navigate(['/cleaning'])
+  }
+  InstallationOpen(){
+    this.router.navigate(['/installation'])
+  }
 
   signOut() {
     this.router.navigate(['/home'])

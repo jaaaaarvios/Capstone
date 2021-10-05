@@ -54,12 +54,12 @@
 
               <mat-form-field class="electricfanselect" appearance="outline">
                 <mat-label>Electric Fan Type</mat-label>
-                <mat-select formControlName="service_type">
+                <mat-select formControlName="service_aptype">
                   <mat-option *ngFor="let eft of efan_type" [value]="eft">
                     {{eft}}
                   </mat-option>
                 </mat-select>
-                <mat-error *ngIf="unitdetailsForm.get('service_type').hasError('required')">
+                <mat-error *ngIf="unitdetailsForm.get('service_aptype').hasError('required')">
                   You must make a selection
                 </mat-error>
               </mat-form-field>
@@ -195,7 +195,7 @@
               <h4>Unit Problem: </h4> {{service_unitProb}}
             </div>
             <div class="column">
-              <h4>Type: </h4> {{service_type}}
+              <h4>Type: </h4> {{service_aptype}}
               <h4>Unit Type: </h4> {{service_unitType}}
             </div>
           </div>
@@ -274,7 +274,7 @@
                 <h4>Unit Problem: </h4> {{service_unitProb}}
               </div>
               <div class="column">
-                <h4>Type: </h4> {{service_type}}
+                <h4>Type: </h4> {{service_aptype}}
                 <h4>Unit Type: </h4> {{service_unitType}}
               </div>
               <hr>
@@ -398,7 +398,7 @@
                 <h4>Unit Problem: </h4> {{service_unitProb}}
               </div>
               <div class="column">
-                <h4>Type: </h4> {{service_type}}
+                <h4>Type: </h4> {{service_aptype}}
                 <h4>Unit Type: </h4> {{service_unitType}}
               </div>
               <hr>
@@ -434,7 +434,7 @@
                   <h4>Unit Problem: </h4> {{service_unitProb}}
                 </div>
                 <div class="column">
-                  <h4>Type: </h4> {{service_type}}
+                  <h4>Type: </h4> {{service_aptype}}
                   <h4>Unit Type: </h4> {{service_unitType}}
                 </div>
                 <hr>

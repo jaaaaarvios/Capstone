@@ -30,9 +30,7 @@
           <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
           <a class="nav-btn" routerLink="/payment">Payment</a>
         </mat-list-item> -->
-
     </mat-nav-list>
-
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -49,10 +47,7 @@
       </button>
     </mat-toolbar>
     <!--Appliances Repair-->
-    <div>
-      <h1 class="h1bookservice">Book a service</h1>
       <h1 class="h1serviceneed">What service do you need?</h1>
-    </div>
     <div class="allservices">
       <mat-card class="appliancescard">
         <img class="applianceimg" mat-button (click)="ApplianceOpen()" mat-card-image
@@ -64,19 +59,19 @@
 
       <!--Electrical Repair-->
       <mat-card class="cleaningcard">
-        <img class="cleaningimg" mat-button (click)="CleaningOpenDialog()" mat-card-image
+        <img class="cleaningimg" mat-button (click)="CleaningOpen()" mat-card-image
           src="../../assets/cleaning.png">
         <mat-card-content>
-          <h1 class="h1cleaning" mat-button (click)="CleaningOpenDialog()">Appliances Cleaning</h1>
+          <h1 class="h1cleaning" mat-button (click)="CleaningOpen()">Appliances Cleaning</h1>
         </mat-card-content>
       </mat-card>
 
       <!--House Cleaning-->
       <mat-card class="installcard">
-        <img class="installimg" mat-button (click)="InstallationOpenDialog()" mat-card-image
+        <img class="installimg" mat-button (click)="InstallationOpen()" mat-card-image
           src="../../assets/installation.png">
         <mat-card-content>
-          <h1 class="h1install" mat-button (click)="InstallationOpenDialog()">Aircon Installation/Dismantling</h1>
+          <h1 class="h1install" mat-button (click)="InstallationOpen()">Appliance Installation</h1>
         </mat-card-content>
       </mat-card>
 
