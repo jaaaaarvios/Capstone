@@ -1,20 +1,39 @@
+.mat-toolbar{
+    width: 100%;
+    height: fit-content;
+    background-color: #D62828;
+    color: white;
+}
+.navLink{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: larger;
+    margin: 5px;
+}
+.logo_nav
+{   
+    margin: 0;
+    width: 120px;
+    height: 100px;
+    padding-right: 30px;
+}
+.spacer {
+    flex: 1 1 auto;
+}
 .container{
-    height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .logincard
-{
+{  
     border-radius: 40px;
-    margin: auto;
-    padding-top: 50px;
+    margin-top: 750px;
     min-height: 620px;
     max-width: 500px;
     background-color: #fffade;
-    opacity: 100%;
+    opacity: 1;
     position: absolute;
-    
 }
 .logo
 {
@@ -140,14 +159,4 @@ margin-left: 140px;
 {
     width: 320px;
     margin-left: 100px;
-}
-.close-button{
-    float: right;
-    top:-24px;
-    margin-right:auto;
-}
-.close-icon{
-    margin: auto;
-    display: flex;
-    justify-content: center;
 }

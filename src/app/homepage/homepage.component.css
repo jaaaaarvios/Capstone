@@ -1,160 +1,28 @@
-
+.mat-toolbar{
+    width: 100%;
+    height: fit-content;
+    background-color: #D62828;
+}
+/* .mat-card-content{
+    
+} */
+.navLink{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: larger;
+    margin: 5px;
+}
 .homebg1
 {
-    margin-top: 0;
-    width: 1000px;
-    height: 937px;
-    float: left;
-    margin-right: 0;
+    width: 100%;
+    height: fit-content;
 }
-
+.spacer {
+    flex: 1 1 auto;
+}
 .logo
 {
-    width: 200px;
-    height: 190px;
-    float: right;
-    margin-right: 390px;
-    margin-top: 100px;
-}
-
-.menu
-{
-    float: left;
-    margin-left: -850px;
-    margin-top: 60px;
-}
-
-.servicesBtn
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 17px;
-    margin-right: 150px;
-}
-
-.pricingBtn
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 17px;
-    margin-right: 150px;
-}
-
-.aboutusBtn
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 17px;
-}
-
-.content
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 37px;
-    float: left;
-    margin-left: -850px;
-    margin-top: 330px;
-}
-
-.title1
-{
-    margin-top: -40px;
-}
-
-.title2
-{
-    margin-top: -40px;
-}
-
-.loginTabs
-{
-    float: right;
-    margin-right: 330px; 
-    margin-top: 50px;
-}
-
-.mat-tab-group
-{
-    width: 320px;
-    margin-left: 100px;
-}
-
-.login-emailfield
-{
-    min-height: 40px;
-    width: 300px;
-    margin-top: 40px;
-    margin-left: 10px;
-    border-color: #FCA311, 3px;
-}
-.login-passfield 
-{
-    padding: 0;
-    width: 300px;
-    margin-top: 1px;
-    margin-left: 10px;
-    border: #FCA311;
-}
-
-.loginBtn
-{
-    background-color: #D62828;
-    color: #FFFFFF;
-    height: 40px;
-    width: 180px;
-    margin-top: 10px;
-    margin-left: 70px;
-    border-radius: 5px;
-}
-
-.signup-fnamefield
-{
-    min-height: 40px;
-    width: 300px;
-    margin-left: 10px;
-    margin-top: 40px;
-}
-.signup-lnamefield
-{
-    min-height: 40px;
-    width: 300px;
-    margin-left: 10px;
-}
-.signup-emailfield
-{
-    min-height: 40px;
-    width: 300px;
-    margin-left: 10px;
-    border: #FCA311, 3px;
-}
-.signup-passfield 
-{
-    min-height: 40px;
-    width: 300px;
-    margin-left: 10px;
-    border: #FCA311;
-}
-
-.signupBtn
-{
-    background-color: #D62828;
-    color: #FFFFFF;
-    height: 40px;
-    width: 180px;
-    margin-left: 70px;
-}
-
-.signupTab
-{
-    margin-left: 150px;
-}
-
-.inquireBtn
-{
-    background-color: #FFFFFF;
-    text-decoration: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 15px;
-    color: #D62828;
+    margin: 0;
+    width: 120px;
+    height: 100px;
+    padding-right: 30px;
 }
