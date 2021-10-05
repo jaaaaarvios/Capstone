@@ -158,6 +158,9 @@
                 <mat-error *ngIf="locationForm.get('service_zipcode').hasError('required')">
                   Input valid zipcode
                 </mat-error>
+                <mat-error *ngIf="locationForm.get('service_zipcode').hasError('pattern')">
+                  Input valid zipcode
+                </mat-error>
               </mat-form-field>
 
             </mat-card>

@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   user_fname="";
   user_lname="";
-
+  date: Date;
   subscription: any;
 
   @ViewChild('drawer') drawer: any;
@@ -28,11 +28,7 @@ export class DashboardComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-    displayedColumns: string[] = ['service_id', 'name', 'weight', 'symbol'];
-    dataSource = ELEMENT_DATA;
-  date: Date;
   
-    
   constructor(private router: Router, public dialog: MatDialog, 
     private breakpointObserver: BreakpointObserver, private shared: SharedService, ) {
       {
@@ -42,8 +38,6 @@ export class DashboardComponent implements OnInit {
       }
      }
 
-
-  
      
   ngOnInit(): void {
     this.subscription = this.shared.currentUserFname.subscribe(user_fname => this.user_fname = user_fname);
@@ -67,18 +61,4 @@ export class DashboardComponent implements OnInit {
   }
 }
 
-
- 
-export interface PeriodicElement {
-  service_id: number;
-  name: string;
-  weight: any;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {service_id: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {service_id: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {service_id: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-];
  

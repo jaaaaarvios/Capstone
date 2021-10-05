@@ -100,12 +100,12 @@
                   </mat-error>
                 </mat-form-field>
               </div>
-              <div>
-                <button class="addunit" mat-stroked-button>
-                  <mat-icon>add_box</mat-icon>Add unit
-                </button>
-              </div>
           </mat-card>
+          <div>
+            <button class="addunit" mat-stroked-button>
+              <mat-icon>add_box</mat-icon>Add unit
+            </button>
+          </div>
          
           <!--Back and Next Button-->
           <button class="nextBtn" type="submit" [disabled]="!unitdetailsForm.valid" mat-button
@@ -170,6 +170,9 @@
               <input matInput type="number" pattern="[0-9]{3,4}" formControlName="service_zipcode"
                 [errorStateMatcher]="matcher" autocomplete="off">
               <mat-error *ngIf="locationForm.get('service_zipcode').hasError('required')">
+                Input valid zipcode
+              </mat-error>
+              <mat-error *ngIf="locationForm.get('service_zipcode').hasError('pattern')">
                 Input valid zipcode
               </mat-error>
             </mat-form-field>
