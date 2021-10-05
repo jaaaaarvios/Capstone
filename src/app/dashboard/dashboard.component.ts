@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { RequestdetailsComponent } from '../requestdetails/requestdetails.component';
 import { SharedService } from '../shared/shared.service';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -29,10 +30,21 @@ export class DashboardComponent implements OnInit {
 
     displayedColumns: string[] = ['service_id', 'name', 'weight', 'symbol'];
     dataSource = ELEMENT_DATA;
+  date: Date;
   
     
-  constructor(private router: Router, public dialog: MatDialog, private breakpointObserver: BreakpointObserver, private shared: SharedService) { }
+  constructor(private router: Router, public dialog: MatDialog, 
+    private breakpointObserver: BreakpointObserver, private shared: SharedService, ) {
+      {
+        setInterval(() => {
+          this.date = new Date()
+        }, 1000)
+      }
+     }
 
+
+  
+     
   ngOnInit(): void {
     this.subscription = this.shared.currentUserFname.subscribe(user_fname => this.user_fname = user_fname);
     this.subscription = this.shared.currentUserLname.subscribe(user_lname => this.user_lname = user_lname);
@@ -55,6 +67,8 @@ export class DashboardComponent implements OnInit {
   }
 }
 
+
+ 
 export interface PeriodicElement {
   service_id: number;
   name: string;

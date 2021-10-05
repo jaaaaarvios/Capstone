@@ -11,19 +11,19 @@
       <div class="dashboardside">
         <mat-list-item (click)="closeSideNav()">
           <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
-          <a class="nav-btn" routerLink="/dashboard">Dashboard</a>
+          <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
         </mat-list-item>
       </div>
-      <div class="dashboardside">
+      <div class="bookingside">
         <mat-list-item (click)="closeSideNav()">
           <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-          <a class="nav-btn" routerLink="/booking">Book a Service</a>
+          <a class="booking-btn" routerLink="/booking">Book a Service</a>
         </mat-list-item>
       </div>
-      <div class="dashboardside">
+      <div class="profileside">
         <mat-list-item (click)="closeSideNav()">
           <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-          <a class="nav-btn" routerLink="/profile">Profile</a>
+          <a class="profile-btn" routerLink="/profile">Profile</a>
         </mat-list-item>
       </div>
       <!-- <mat-list-item (click)="closeSideNav()">
@@ -47,47 +47,48 @@
       </button>
     </mat-toolbar>
     <h1 class="h1title">Appliance to Repair</h1>
+
     <div class="allservices">
 
-  <mat-card class="appliancecard">
+
+  <mat-card class="airconcard">
     <mat-card-content>
     <img class="airconimg" mat-button  (click)="AirconOpen()" mat-card-image src="../../assets/airconicon.png">
-      <button class="h1button" mat-button (click)="AirconOpen()">Aircon</button>
+      <h1 class="aircontxt" mat-button (click)="AirconOpen()">Aircon</h1>
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="appliancecard">
+
+  <mat-card class="refcard">
     <mat-card-content>
     <img class="refimg" mat-button  (click)="RefrigeratorOpen()" mat-card-image src="../../assets/reficon.png">
-      <button class="h1button" mat-button (click)="RefrigeratorOpen()">Refrigerator</button>
+      <h1 class="reftxt" mat-button (click)="RefrigeratorOpen()">Refrigerator</h1>
     </mat-card-content>
   </mat-card>
-
-  <mat-card class="appliancecard">
+ 
+  <mat-card class="fancard">
     <mat-card-content>
-    <img class="efanimg" mat-button (click)="ElectricfanOpen()" mat-card-image src="../../assets/efanicon.png"
+    <img class="fanimg" mat-button (click)="ElectricfanOpen()" mat-card-image src="../../assets/efanicon.png"
       mat-dialog-close>
-      <button class="h1button" mat-button (click)="ElectricfanOpen()" mat-dialog-close>Electric Fan</button>
+      <h1 class="fantxt" mat-button (click)="ElectricfanOpen()" mat-dialog-close>Electric Fan</h1>
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="appliancecard">
+  <mat-card class="washingcard">
     <mat-card-content>
     <img class="washingimg" mat-button (click)="WashingmachineOpen()" mat-card-image
       src="../../assets/washingicon.png" mat-dialog-close>
-      <button class="h1button" mat-button (click)="WashingmachineOpen()" mat-dialog-close>Washing
-        Machine</button>
+      <h1 class="washingtxt" mat-button (click)="WashingmachineOpen()" mat-dialog-close>Washing
+        Machine</h1>
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="appliancecard">
+  <mat-card class="tvcard">
     <mat-card-content>
     <img class="tvimg" mat-button (click)="TelevisionOpen()" mat-card-image src="../../assets/tvicon.png"
       mat-dialog-close>
-      <button class="h1button" mat-button (click)="TelevisionOpen()" mat-dialog-close>Television</button>
+      <h1 class="tvtxt" mat-button (click)="TelevisionOpen()" mat-dialog-close>Television</h1>
     </mat-card-content>
-  </mat-card>
-</div>
 
-  </mat-sidenav-content>
-</mat-sidenav-container>
+
+

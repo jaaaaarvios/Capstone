@@ -53,6 +53,8 @@ import { TechniciansComponent } from './technicians/technicians.component';
 import { TechprofileComponent } from './techprofile/techprofile.component';
 import { SchedulepageComponent } from './schedulepage/schedulepage.component';
 import { AddtechComponent } from './addtech/addtech.component';
+import { BookingsummaryComponent } from './bookingsummary/bookingsummary.component';
+import { CleaningComponent } from './cleaning/cleaning.component';
 
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
@@ -87,7 +89,9 @@ import { AddtechComponent } from './addtech/addtech.component';
     TechniciansComponent,
     TechprofileComponent,
     SchedulepageComponent,
-    AddtechComponent
+    AddtechComponent,
+    BookingsummaryComponent,
+    CleaningComponent
 
   ],
   imports: [

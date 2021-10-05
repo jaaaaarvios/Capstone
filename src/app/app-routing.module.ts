@@ -19,7 +19,7 @@ import { RefrigeratordetailsComponent } from './refrigeratordetails/refrigerator
 import { ElectricfandetailsComponent } from './electricfandetails/electricfandetails.component';
 import { WashingmachinedetailsComponent } from './washingmachinedetails/washingmachinedetails.component';
 import { TelevisiondetailsComponent } from './televisiondetails/televisiondetails.component';
-
+import { CleaningComponent } from './cleaning/cleaning.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -43,6 +43,7 @@ const routes: Routes = [
   { path: 'electricfan', component: ElectricfandetailsComponent },
   { path: 'washingmachine', component: WashingmachinedetailsComponent },
   { path: 'television', component: TelevisiondetailsComponent },
+  { path: 'cleaning', component: CleaningComponent },
 ];
 
 @NgModule({

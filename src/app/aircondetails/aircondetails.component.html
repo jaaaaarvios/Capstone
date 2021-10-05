@@ -11,19 +11,19 @@
       <div class="dashboardside">
         <mat-list-item (click)="closeSideNav()">
           <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
-          <a class="nav-btn" routerLink="/dashboard">Dashboard</a>
+          <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
         </mat-list-item>
       </div>
-      <div class="dashboardside">
+      <div class="bookingside">
         <mat-list-item (click)="closeSideNav()">
           <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-          <a class="nav-btn" routerLink="/booking">Book a Service</a>
+          <a class="booking-btn" routerLink="/booking">Book a Service</a>
         </mat-list-item>
       </div>
-      <div class="dashboardside">
+      <div class="profileside">
         <mat-list-item (click)="closeSideNav()">
           <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-          <a class="nav-btn" routerLink="/profile">Profile</a>
+          <a class="profile-btn" routerLink="/profile">Profile</a>
         </mat-list-item>
       </div>
       <!-- <mat-list-item (click)="closeSideNav()">
@@ -101,12 +101,13 @@
                   </mat-error>
                 </mat-form-field>
               </div>
+              <div>
+                <button class="addunit" mat-stroked-button>
+                  <mat-icon>add_box</mat-icon>Add unit
+                </button>
+              </div>
           </mat-card>
-          <div>
-            <button class="addunit" mat-stroked-button>
-              <mat-icon>add_box</mat-icon>Add unit
-            </button>
-          </div>
+         
           <!--Back and Next Button-->
           <button class="nextBtn" type="submit" [disabled]="!unitdetailsForm.valid" mat-button
             matStepperNext>Next</button><br><br><br><br>
@@ -429,6 +430,8 @@
                 <h4>Brand: </h4> {{service_brand}}
                 <h4>Unit Problem: </h4> {{service_unitProb}}
               </div>
+
+              
               <div class="column">
                 <h4>Type: </h4> {{service_type}}
                 <h4>Unit Type: </h4> {{service_unitType}}

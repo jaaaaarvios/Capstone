@@ -11,19 +11,19 @@
       <div class="dashboardside">
         <mat-list-item (click)="closeSideNav()">
           <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
-          <a class="nav-btn" routerLink="/dashboard">Dashboard</a>
+          <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
         </mat-list-item>
       </div>
-      <div class="dashboardside">
+      <div class="bookingside">
         <mat-list-item (click)="closeSideNav()">
           <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-          <a class="nav-btn" routerLink="/booking">Book a Service</a>
+          <a class="booking-btn" routerLink="/booking">Book a Service</a>
         </mat-list-item>
       </div>
-      <div class="dashboardside">
+      <div class="profileside">
         <mat-list-item (click)="closeSideNav()">
           <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-          <a class="nav-btn" routerLink="/profile">Profile</a>
+          <a class="profile-btn" routerLink="/profile">Profile</a>
         </mat-list-item>
       </div>
       <!-- <mat-list-item (click)="closeSideNav()">
@@ -58,7 +58,7 @@
         <img class="applianceimg" mat-button (click)="ApplianceOpen()" mat-card-image
           src="../../assets/appliancesrepair.png">
         <mat-card-content>
-          <button class="h1appliances" mat-button (click)="ApplianceOpen()">Appliances Repair</button>
+          <h1 class="h1appliances" mat-button (click)="ApplianceOpen()">Appliances Repair</h1>
         </mat-card-content>
       </mat-card>
 
@@ -67,7 +67,7 @@
         <img class="cleaningimg" mat-button (click)="CleaningOpenDialog()" mat-card-image
           src="../../assets/cleaning.png">
         <mat-card-content>
-          <button class="h1cleaning" mat-button (click)="CleaningOpenDialog()">Appliances Cleaning</button>
+          <h1 class="h1cleaning" mat-button (click)="CleaningOpenDialog()">Appliances Cleaning</h1>
         </mat-card-content>
       </mat-card>
 
@@ -76,8 +76,7 @@
         <img class="installimg" mat-button (click)="InstallationOpenDialog()" mat-card-image
           src="../../assets/installation.png">
         <mat-card-content>
-          <button class="h1install" mat-button (click)="InstallationOpenDialog()">Aircon Installation and
-            Dismantling</button>
+          <h1 class="h1install" mat-button (click)="InstallationOpenDialog()">Aircon Installation/Dismantling</h1>
         </mat-card-content>
       </mat-card>
 
