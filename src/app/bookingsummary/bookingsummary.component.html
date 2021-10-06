@@ -1,0 +1,125 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+
+    <br>
+    <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+    <mat-nav-list class="nav-list">
+      <div class="dashboardside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
+          <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
+        </mat-list-item>
+      </div>
+
+      <div class="bookingside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+          <a class="booking-btn" routerLink="/booking">Book a Service</a>
+        </mat-list-item>
+      </div>
+
+      <div class="profileside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+          <a class="profile-btn" routerLink="/profile">Profile</a>
+        </mat-list-item>
+      </div>
+
+      <!-- <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
+            <a class="nav-btn" routerLink="/payment">Payment</a>
+          </mat-list-item> -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <mat-toolbar>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <!--HEADER------------------------------------------------>
+    <mat-card class="header">
+      <div>
+        <h1 class="servicetype">{{service_appliance}} {{service_type}}</h1>
+
+        <button mat-stroked-button class="cancelBtn">Cancel Request</button>
+      </div>
+    </mat-card>
+    
+    <!-- pag isahin mo nalang sigurong card simula dito pababa? para nasa loob lahat sila ng isang card pero separate
+    pa din ng card yung summary, payment  -->
+
+    <div>
+      <img class="pendingvector" mat-card-image src="../../assets/pendingvector.png">
+    </div>
+
+    <div>
+      <h1 class="pendingtxt">Your request is pending</h1>
+    </div>
+
+    <!--REQUEST SUMMARY------------------------------------------------>
+    <mat-card class="summary">
+      <div>
+        <mat-icon class="icon">description<h1 class="title">Request Summary</h1>
+        </mat-icon>
+      </div>
+      <!--PERSONAL INFO------------------------------------------------>
+      <div class="personalinfo">
+        <h1 class="personalinfotxt">Personal Information</h1>
+        <label class="fname">First Name <br>{{service_firstname}}</label>
+        <label class="lname">Last Name <br>{{service_lastname}}</label>
+        <label class="number">Contact Number <br> {{service_phoneNumber}}</label>
+      </div>
+
+      <div class="addressinfo">
+        <label class="address">Address <br>{{service_address}}</label>
+        <label class="city">City<br> {{service_city}}</label>
+        <label class="property">Property Type <br>{{service_property_type}}</label>
+        <label class="zipcode">Zip Code <br>{{service_zipcode}}</label>
+      </div>
+
+      <!--SERVICE INFO------------------------------------------------>
+      <div class="serviceinfo">
+        <h1 class="serviceinfotxt">Service Information</h1>
+        <label class="appliance">Appliance <br>{{service_aptype}}</label>
+        <label class="brand">Brand <br>{{service_brand}}</label>
+        <label class="unittype">Unit Type <br>{{service_unitType}} </label>
+      </div>
+
+      <div class="unitprob">
+        <label class="unitproblem">Unit Problem <br>{{service_unitProb}}</label>
+      </div>
+      <!--DATE INFO------------------------------------------------>
+      <div class="datetimeinfo">
+
+        <label class="date">Scheduled Date <br>{{service_date | date:"MM/dd/YYYY"}}</label>
+        <label class="time">Time Slot <br>{{service_timeslot}}</label>
+      </div>
+
+      <div>
+        <button mat-stroked-button class="reschedBtn">Reschedule Request</button>
+      </div>
+    </mat-card>
+
+
+    <!--PAYMENT SUMMARY------------------------------------------------>
+    <mat-card class="payment">
+      <div class="paymentinfo">
+        <h1 class="paymentinfotxt">Payment Summary</h1>
+        <label class="appliance">Appliance</label>
+      </div>
+
+      <div>
+        <button mat-raised-button class="payBtn">Pay Now</button>
+      </div>
+    </mat-card>

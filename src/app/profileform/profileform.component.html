@@ -6,34 +6,36 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+
       <br>
       <img class="logo" mat-card-image src="../../assets/mainlogo.png">
       <mat-nav-list class="nav-list">
         <div class="dashboardside">
           <mat-list-item (click)="closeSideNav()">
             <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
-            <a class="nav-btn" routerLink="/dashboard">Dashboard</a>
+            <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
           </mat-list-item>
         </div>
-        <div class="dashboardside">
+  
+        <div class="bookingside">
           <mat-list-item (click)="closeSideNav()">
             <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-            <a class="nav-btn" routerLink="/booking">Book a Service</a>
+            <a class="booking-btn" routerLink="/booking">Book a Service</a>
           </mat-list-item>
         </div>
-        <div class="dashboardside">
+  
+        <div class="profileside">
           <mat-list-item (click)="closeSideNav()">
             <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-            <a class="nav-btn" routerLink="/profile">Profile</a>
+            <a class="profile-btn" routerLink="/profile">Profile</a>
           </mat-list-item>
         </div>
+  
         <!-- <mat-list-item (click)="closeSideNav()">
-            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
-            <a class="nav-btn" routerLink="/payment">Payment</a>
-          </mat-list-item> -->
-  
+              <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
+              <a class="nav-btn" routerLink="/payment">Payment</a>
+            </mat-list-item> -->
       </mat-nav-list>
-  
     </mat-sidenav>
   
     <mat-sidenav-content>

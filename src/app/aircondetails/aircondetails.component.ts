@@ -42,7 +42,7 @@ export class AircondetailsComponent implements OnInit {
   contactDetialsForm: FormGroup;
   subscription: Subscription;
 
-  service_appliance = "Aircon";
+  service_appliance = "";
   service_aptype = "";
   service_brand = "";
   service_unitType="";
@@ -230,35 +230,16 @@ export class AircondetailsComponent implements OnInit {
       this.shared.changePhoneNumber(this.contactDetialsForm.value.service_phoneNumber);
       this.shared.changeAddressDetails(this.contactDetialsForm.value.service_addressDetails);
       this.shared.changeInstruction(this.contactDetialsForm.value.service_instruction);
+      this.router.navigate(['/summary'])
     } else {
       return;
     }
   }
-  servicedetailsSubmit() {
-    console.log(
-      this.service_appliance,
-      this.service_aptype,
-      this.service_brand,
-      this.service_unitType,
-      this.service_unitProb,
-      this.service_city,
-      this.service_property_type,
-      this.service_zipcode,
-      this.service_date,
-      this.service_timeslot,
-      this.service_address,
-      this.service_firstname,
-      this.service_lastname,
-      this.service_phoneNumber,
-      this.service_addressDetails,
-      this.service_instruction,
-    )
-    alert("Booking Success")
-    this.router.navigate(['/dashboard'])
-  }
+
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();
     }
   }
+  
 }

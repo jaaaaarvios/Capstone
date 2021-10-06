@@ -15,22 +15,32 @@ declare const L: any;
 })
 export class BookingformComponent implements OnInit {
 
+  subscription: any;
+  service_type ="";
+  repair = "Repair";
+  cleaning = "Cleaning";
+  install = "Installation"
+
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
+ 
 
   constructor(private router: Router, public dialog: MatDialog, 
     private breakpointObserver: BreakpointObserver, private shared: SharedService) { }
 
   ApplianceOpen(){
+    this.shared.changeServiceType(this.repair);
     this.router.navigate(['/appliance'])
   }
   CleaningOpen(){
+    this.shared.changeServiceType(this.cleaning);
     this.router.navigate(['/cleaning'])
   }
   InstallationOpen(){
+    this.shared.changeServiceType(this.install);
     this.router.navigate(['/installation'])
   }
 
@@ -39,78 +49,8 @@ export class BookingformComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    // if (!navigator.geolocation) {
-    //   console.log('location is not supported');
-    // }
-    // navigator.geolocation.getCurrentPosition((position) => {
-    //   const coords = position.coords;
-    //   const latLong = [coords.latitude, coords.longitude];
-    //   console.log(
-    //     `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
-    //   );
-    //   let mymap = L.map('mapid').setView(latLong, 13);
-
-    //   var circle = L.circle([51.508, -0.11], {
-    //     color: 'red',
-    //     fillColor: '#f03',
-    //     fillOpacity: 0.5,
-    //     radius: 500
-    //   }).addTo(mymap);
-
-    //   L.tileLayer(
-    //     'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoieGFhYWFhcm9uIiwiYSI6ImNrb3hxczd0ZTA3anAydXFueTQzNmNzM2gifQ.3U1BwgLJM3TXPAS0e2nz-A',
-    //     {
-    //       attribution:
-    //         'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    //       maxZoom: 18,
-    //       id: 'mapbox/streets-v11',
-    //       tileSize: 512,
-    //       zoomOffset: -1,
-    //       accessToken: 'your.mapbox.access.token',
-    //     }
-    //   ).addTo(mymap);
-
-    //   let marker = L.marker(latLong).addTo(mymap);
-
-    //   marker.bindPopup('<b>Hi</b>').openPopup();
-
-    //   let popup = L.popup()
-    //     .setLatLng(latLong)
-    //     .setContent('Hello')
-    //     .openOn(mymap);
-    // });
-    // this.watchPosition();
+    this.subscription = this.shared.currentServiceType.subscribe(service_type => this.service_type = service_type);
   }
-
-  // watchPosition() {
-  //   let desLat = 0;
-  //   let desLon = 0;
-
-  //   let id = navigator.geolocation.watchPosition(
-  //     (position) => {
-  //       console.log(
-  //         `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
-  //       );
-  //       if (position.coords.latitude === desLat) {
-  //         navigator.geolocation.clearWatch(id);
-  //       }
-  //     },
-  //     (err) => {
-  //       console.log(err);
-  //     },
-  //     {
-  //       enableHighAccuracy: true,
-  //       timeout: 5000,
-  //       maximumAge: 0,
-  //     }
-  //   );
-  // }
-
-  // checked = false;
-  // indeterminate = false;
-  // labelPosition: 'before' | 'after' = 'after';
-  // disabled = false;
 
   closeSideNav() {
     if (this.drawer._mode == 'over') {

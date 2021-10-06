@@ -14,6 +14,12 @@ import { map } from 'rxjs/operators';
 export class ApplianceCleaningComponent implements OnInit {
 
   subscription: any;
+  service_appliance="";
+  ac = "Aircon";
+  ref = "Refrigerator";
+  efan = "Electric Fan";
+  wm = "Washing Machine";
+  tv = "Television";
   
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -24,21 +30,27 @@ export class ApplianceCleaningComponent implements OnInit {
   constructor(private shared: SharedService, private router: Router, private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
+    this.subscription = this.shared.currentAppliance.subscribe(service_appliance => this.service_appliance = service_appliance);
   }
 
   AirconOpen(){
+    this.shared.changeAppliance(this.ac);
     this.router.navigate(['/aircon-cleaning']);
   }
   RefrigeratorOpen(){
+    this.shared.changeAppliance(this.ref);
     this.router.navigate(['/refrigerator-cleaning']);
   }
   ElectricfanOpen(){
+    this.shared.changeAppliance(this.efan);
     this.router.navigate(['/electricfan-cleaning']);
   }
   WashingmachineOpen(){
+    this.shared.changeAppliance(this.wm);
     this.router.navigate(['/washingmachine-cleaning']);
   }
   TelevisionOpen(){
+    this.shared.changeAppliance(this.tv);
     this.router.navigate(['/television-cleaning']);
   }
 

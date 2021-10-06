@@ -1,49 +1,50 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-      *ngIf="isHandset$ | async">
-      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-    </button>
-    <br>
-    <img class="logo" mat-card-image src="../../assets/mainlogo.png">
-    <mat-nav-list class="nav-list">
-      <div class="dashboardside">
-        <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
-          <a class="nav-btn" routerLink="/dashboard">Dashboard</a>
-        </mat-list-item>
-      </div>
-      <div class="dashboardside">
-        <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-          <a class="nav-btn" routerLink="/booking">Book a Service</a>
-        </mat-list-item>
-      </div>
-      <div class="dashboardside">
-        <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-          <a class="nav-btn" routerLink="/profile">Profile</a>
-        </mat-list-item>
-      </div>
-      <!-- <mat-list-item (click)="closeSideNav()">
-            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
-            <a class="nav-btn" routerLink="/payment">Payment</a>
-          </mat-list-item> -->
-    </mat-nav-list>
-  </mat-sidenav>
 
-  <mat-sidenav-content>
-    <mat-toolbar>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-    </mat-toolbar>
-    <!--1st Stepper-->
-    <mat-horizontal-stepper class="stepper" #stepper [linear]="true">
-      <mat-step state="first" [completed]="unitdetailsForm.valid" [editable]="true">
-        <div class="ds">
+      <br>
+      <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+      <mat-nav-list class="nav-list">
+        <div class="dashboardside">
+          <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
+            <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
+          </mat-list-item>
+        </div>
+        <div class="bookingside">
+          <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+            <a class="booking-btn" routerLink="/booking">Book a Service</a>
+          </mat-list-item>
+        </div>
+        <div class="profileside">
+          <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+            <a class="profile-btn" routerLink="/profile">Profile</a>
+          </mat-list-item>
+        </div>
+        <!-- <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
+            <a class="nav-btn" routerLink="/payment">Payment</a>
+          </mat-list-item> -->
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      </mat-toolbar>
+      <!--1st Stepper-->
+      <mat-horizontal-stepper class="stepper" #stepper [linear]="true">
+        <mat-step state="first" [completed]="unitdetailsForm.valid" [editable]="true">
+          <div class="ds">
           <form [formGroup]="unitdetailsForm" (ngSubmit)="unitdetailsSubmit()">
             <ng-template matStepLabel>Unit Details</ng-template>
             <!--Service Location-->
@@ -51,7 +52,7 @@
               <div>
                 <h1 class="unitdetails">Unit Details</h1>
               </div>
-
+  
               <mat-form-field class="electricfanselect" appearance="outline">
                 <mat-label>Electric Fan Type</mat-label>
                 <mat-select formControlName="service_aptype">
@@ -87,34 +88,24 @@
                   You must make a selection
                 </mat-error>
               </mat-form-field>
+              
             </mat-card>
             <div>
               <button class="addunit" mat-stroked-button>
                 <mat-icon>add_box</mat-icon>Add unit
               </button>
             </div>
+           
             <!--Back and Next Button-->
             <button class="nextBtn" type="submit" [disabled]="!unitdetailsForm.valid" mat-button
               matStepperNext>Next</button><br><br><br><br>
             <br><br>
           </form>
-        </div>
-
-        <mat-card class="details">
-          <div>
-            <mat-icon class="listicon">description</mat-icon>
-            <h1 class="detailssummary">Details Summary</h1>
           </div>
-          <div class="row">
-            <div class="column">
-              <h4>Appliance: </h4> {{service_appliance}}
-            </div>
-          </div>
-        </mat-card>
-      </mat-step>
-
-      <mat-step state="first" [completed]="locationForm.valid" [editable]="true">
-        <div class="ds">
+        </mat-step>
+  
+        <mat-step state="second" [completed]="locationForm.valid" [editable]="true">
+          <div class="ds">
           <form [formGroup]="locationForm" (ngSubmit)="locationSubmit()">
             <ng-template matStepLabel>Service Location</ng-template>
             <!--Service Location-->
@@ -123,7 +114,7 @@
                 <mat-icon class="locationicon">place</mat-icon>
                 <h1 class="servicelocation">Service Location</h1>
               </div>
-
+  
               <!--Select City-->
               <mat-form-field class="cityselect" appearance="outline">
                 <mat-label>Select a City</mat-label>
@@ -136,7 +127,7 @@
                   You must make a selection
                 </mat-error>
               </mat-form-field>
-
+  
               <!--Property Type-->
               <mat-form-field class="propertyselect" appearance="outline">
                 <mat-label>Property Type</mat-label>
@@ -149,7 +140,7 @@
                   You must make a selection
                 </mat-error>
               </mat-form-field>
-
+  
               <!--Zipcode-->
               <mat-form-field class="zipcode" appearance="outline">
                 <mat-label>Zipcode</mat-label>
@@ -162,7 +153,7 @@
                   Input valid zipcode
                 </mat-error>
               </mat-form-field>
-
+  
             </mat-card>
             <!--Back and Next Button-->
             <button class="backBtn" mat-button matStepperPrevious>Back</button>
@@ -170,37 +161,20 @@
               matStepperNext>Next</button><br><br><br><br>
             <br><br>
           </form>
-        </div>
-
-        <mat-card class="details">
-          <div>
-            <mat-icon class="listicon">description</mat-icon>
-            <h1 class="detailssummary">Details Summary</h1>
           </div>
-          <div class="row">
-            <div class="column">
-              <h4>Appliance: </h4> {{service_appliance}}
-              <h4>Brand: </h4> {{service_brand}}
-            </div>
-            <div class="column">
-              <h4>Type: </h4> {{service_aptype}}
-              <h4>Unit Type: </h4> {{service_unitType}}
-            </div>
-          </div>
-        </mat-card>
-      </mat-step>
-
-      <!--2nd Stepper-->
-      <mat-step state="second" [completed]="scheduleForm.valid" [editable]="true">
-
-        <form [formGroup]="scheduleForm" (ngSubmit)="schedSubmit()">
-          <div class="ds">
+        </mat-step>
+  
+        <!--2nd Stepper-->
+        <mat-step state="third" [completed]="scheduleForm.valid" [editable]="true">
+          
+          <form [formGroup]="scheduleForm" (ngSubmit)="schedSubmit()">
+            <div class="ds">
             <ng-template matStepLabel>Service Schedule</ng-template>
             <mat-card class="schedcard">
               <div>
                 <mat-icon class="schedicon">today</mat-icon>
                 <h1 class="servicesched">Service Schedule</h1>
-
+  
                 <!--Date Picker-->
                 <div>
                   <mat-form-field class="datepicker" appearance="outline">
@@ -214,7 +188,7 @@
                   </mat-form-field>
                   <button mat-raised-button class="dateBtn" (click)="picker.open()">Pick a date</button>
                 </div>
-
+  
                 <!--Time Slots-->
                 <div class="timeslots">
                   <h1 class="timeslot">Select a time slot</h1>
@@ -229,13 +203,11 @@
                     </h1>
                   </button>
                   <button mat-stroked-button class="tech4Btn" value="1:00pm-3:00pm">
-                    <input type="radio" value="1:00pm - 3:00pm" formControlName="service_timeslot"
-                      required>1:00pm-3:00pm
+                    <input type="radio" value="1:00pm - 3:00pm" formControlName="service_timeslot" required>1:00pm-3:00pm
                     <h1 class="h1technicians">10 Technicians</h1>
                   </button>
                   <button mat-stroked-button class="tech4Btn" value="3:00pm-6:00pm">
-                    <input type="radio" value="3:00pm - 6:00pm" formControlName="service_timeslot"
-                      required>3:00pm-6:00pm
+                    <input type="radio" value="3:00pm - 6:00pm" formControlName="service_timeslot" required>3:00pm-6:00pm
                     <h1 class="h1technicians">10 Technicians</h1>
                   </button>
                 </div>
@@ -243,41 +215,14 @@
             </mat-card>
             <!--Back and Next Button-->
             <button class="backBtn" mat-button matStepperPrevious>Back</button>
-            <button class="nextBtn" type="submit" [disabled]="!scheduleForm.valid" mat-button
-              matStepperNext>Next</button>
-          </div>
-        </form>
-
-        <br><br><br><br><br><br>
-        <mat-card class="details">
-          <div>
-            <mat-icon class="listicon">description</mat-icon>
-            <h1 class="detailssummary">Details Summary</h1>
-          </div>
-          <div class="summary">
-            <div class="row">
-              <div class="column">
-                <h4>Appliance: </h4> {{service_appliance}}
-                <h4>Brand: </h4> {{service_brand}}
-              </div>
-              <div class="column">
-                <h4>Type: </h4> {{service_aptype}}
-                <h4>Unit Type: </h4> {{service_unitType}}
-              </div>
-              <hr>
-              <div class="column">
-                <h4>City: </h4>{{service_city}}
-                <h4>Property Type: </h4>{{service_property_type}}
-                <h4>Zip Code: </h4>{{service_zipcode}}
-              </div>
+            <button class="nextBtn" type="submit" [disabled]="!scheduleForm.valid" mat-button matStepperNext>Next</button>
             </div>
-          </div>
-        </mat-card>
-      </mat-step>
-
-      <!--3rd Stepper-->
-      <mat-step state="third" [completed]="contactDetialsForm.valid" [editable]="true">
-        <div class="ds">
+          </form>
+        </mat-step>
+  
+        <!--3rd Stepper-->
+        <mat-step state="final" [completed]="contactDetialsForm.valid" [editable]="true">
+          <div class="ds">
           <form [formGroup]="contactDetialsForm" (ngSubmit)="contactDetailsSubmit()">
             <ng-template matStepLabel>Contact Details</ng-template>
             <mat-card class="contactcard">
@@ -285,7 +230,7 @@
                 <mat-icon class="phoneicon"> local_phone</mat-icon>
                 <h1 class="contactdetails">Contact Details</h1>
               </div>
-
+  
               <!--Geolocation-->
               <div id="mapid"></div>
               <div>
@@ -301,12 +246,12 @@
               <!--Booking checkboxes-->
               <div class="checkbox">
                 <h1 class="h1cb">Booking for yourself?</h1>
-
+  
                 <section class="example-section">
                   <mat-checkbox class="cbYes">Yes</mat-checkbox>
                   <mat-checkbox class="cbNo">No</mat-checkbox>
                 </section>
-
+  
                 <mat-form-field class="fname" appearance="outline">
                   <mat-label>First Name</mat-label>
                   <input matInput type="text" pattern="[a-zA-Z_ ]{1,15}" formControlName="service_firstname"
@@ -318,7 +263,7 @@
                     Invalid Name (Max of 15 Characters)
                   </mat-error>
                 </mat-form-field>
-
+  
                 <mat-form-field class="lname" appearance="outline">
                   <mat-label>Last Name</mat-label>
                   <input matInput type="text" pattern="[a-zA-Z_ ]{1,15}" formControlName="service_lastname"
@@ -357,99 +302,21 @@
                 <!--Instructions-->
                 <mat-form-field class="instructions" appearance="outline">
                   <mat-label>Instructions</mat-label>
-                  <input matInput formControlName="service_instruction" [errorStateMatcher]="matcher"
-                    placeholder="Any instruction to the technician?" autocomplete="off">
+                  <input matInput formControlName="service_instruction" [errorStateMatcher]="matcher" 
+                  placeholder="Any instruction to the technician?" autocomplete="off">
                   <mat-error *ngIf="contactDetialsForm.get('service_instruction').hasError('required')">
                     Landmark,
                   </mat-error>
                 </mat-form-field>
               </div>
             </mat-card>
-
+  
             <!--Back and Next Button-->
             <button class="CDbackBtn" mat-button matStepperPrevious>Back</button>
-            <button class="CDnextBtn" type="submit" [disabled]="!contactDetialsForm.valid" mat-button matStepperNext>
-              Next
-            </button>
+            <button class="doneBtn" type="submit" [disabled]="!contactDetialsForm.valid" mat-button> Done </button>
           </form>
         </div>
-
-        <br><br><br><br><br><br>
-        <mat-card class="details">
-          <h1 class="text_summary">Summary</h1>
-          <div class="summary">
-            <div class="row">
-              <div class="column">
-                <h4>Appliance: </h4> {{service_appliance}}
-                <h4>Brand: </h4> {{service_brand}}
-              </div>
-              <div class="column">
-                <h4>Type: </h4> {{service_aptype}}
-                <h4>Unit Type: </h4> {{service_unitType}}
-              </div>
-              <hr>
-              <div class="column">
-                <h4>City: </h4>{{service_city}}
-                <h4>Property Type: </h4>{{service_property_type}}
-                <h4>Zip Code: </h4>{{service_zipcode}}
-              </div>
-              <hr>
-              <div class="column">
-                <h4>Date: </h4>{{service_date | date:"MM/dd/YYYY" }}
-                <h4>Time: </h4>{{service_timeslot}}
-              </div>
-            </div>
-          </div>
-        </mat-card>
-      </mat-step>
-
-      <!--4th Stepper-->
-      <mat-step state="final">
-        <ng-template matStepLabel>Confirm Service Details</ng-template>
-        <div class="ds">
-          <mat-card class="details_sum">
-            <div>
-              <mat-icon class="listicon">description</mat-icon>
-              <h1 class="detailssummary">Details Summary</h1>
-            </div>
-            <div class="summary">
-              <div class="row">
-                <div class="column">
-                  <h4>Appliance: </h4> {{service_appliance}}
-                  <h4>Brand: </h4> {{service_brand}}
-                </div>
-                <div class="column">
-                  <h4>Type: </h4> {{service_aptype}}
-                  <h4>Unit Type: </h4> {{service_unitType}}
-                </div>
-                <hr>
-                <div class="column">
-                  <h4>City: </h4>{{service_city}}
-                  <h4>Property Type: </h4>{{service_property_type}}
-                  <h4>Zip Code: </h4>{{service_zipcode}}
-                </div>
-                <hr>
-                <div class="column">
-                  <h4>Date: </h4>{{service_date | date:"MM/dd/YYYY" }}
-                  <h4>Time: </h4>{{service_timeslot}}
-                </div>
-                <hr>
-                <div class="column">
-                  <h4>Address:</h4>{{service_address}}
-                  <h4>First Name:</h4>{{service_firstname}}
-                  <h4>Last Name:</h4> {{service_lastname}}
-                </div>
-                <div class="column">
-                  <h4>Phone Number:</h4>{{service_phoneNumber }}
-                  <h4>Address Details:</h4>{{service_addressDetails}}
-                  <h4>Instructions:</h4> {{service_instruction}}
-                </div>
-              </div>
-            </div>
-          </mat-card>
-          <button class="doneBtn" (click)="servicedetailsSubmit()" mat-button>Done</button>
-        </div>
-      </mat-step>
-    </mat-horizontal-stepper>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

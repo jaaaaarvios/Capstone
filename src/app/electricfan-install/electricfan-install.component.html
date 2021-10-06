@@ -1,4 +1,5 @@
-<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
@@ -11,25 +12,25 @@
         <div class="dashboardside">
           <mat-list-item (click)="closeSideNav()">
             <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
-            <a class="nav-btn" routerLink="/dashboard">Dashboard</a>
+            <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
           </mat-list-item>
         </div>
-        <div class="dashboardside">
+        <div class="bookingside">
           <mat-list-item (click)="closeSideNav()">
             <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-            <a class="nav-btn" routerLink="/booking">Book a Service</a>
+            <a class="booking-btn" routerLink="/booking">Book a Service</a>
           </mat-list-item>
         </div>
-        <div class="dashboardside">
+        <div class="profileside">
           <mat-list-item (click)="closeSideNav()">
             <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-            <a class="nav-btn" routerLink="/profile">Profile</a>
+            <a class="profile-btn" routerLink="/profile">Profile</a>
           </mat-list-item>
         </div>
         <!-- <mat-list-item (click)="closeSideNav()">
-              <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
-              <a class="nav-btn" routerLink="/payment">Payment</a>
-            </mat-list-item> -->
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
+            <a class="nav-btn" routerLink="/payment">Payment</a>
+          </mat-list-item> -->
       </mat-nav-list>
     </mat-sidenav>
   
@@ -44,411 +45,277 @@
       <mat-horizontal-stepper class="stepper" #stepper [linear]="true">
         <mat-step state="first" [completed]="unitdetailsForm.valid" [editable]="true">
           <div class="ds">
-            <form [formGroup]="unitdetailsForm" (ngSubmit)="unitdetailsSubmit()">
-              <ng-template matStepLabel>Unit Details</ng-template>
-              <!--Service Location-->
-              <mat-card class="unitdetailscard">
-                <div>
-                  <h1 class="unitdetails">Unit Details</h1>
-                </div>
-  
-                <mat-form-field class="electricfanselect" appearance="outline">
-                  <mat-label>Electric Fan Type</mat-label>
-                  <mat-select formControlName="service_aptype">
-                    <mat-option *ngFor="let eft of efan_type" [value]="eft">
-                      {{eft}}
-                    </mat-option>
-                  </mat-select>
-                  <mat-error *ngIf="unitdetailsForm.get('service_aptype').hasError('required')">
-                    You must make a selection
-                  </mat-error>
-                </mat-form-field>
-  
-                <mat-form-field class="electricfanbrand" appearance="outline">
-                  <mat-label>Brand</mat-label>
-                  <mat-select formControlName="service_brand">
-                    <mat-option *ngFor="let efb of efan_brand" [value]="efb">
-                      {{efb}}
-                    </mat-option>
-                  </mat-select>
-                  <mat-error *ngIf="unitdetailsForm.get('service_brand').hasError('required')">
-                    You must make a selection
-                  </mat-error>
-                </mat-form-field>
-  
-                <mat-form-field class="unittype" appearance="outline">
-                  <mat-label>Unit Type</mat-label>
-                  <mat-select formControlName="service_unitType">
-                    <mat-option *ngFor="let efut of efan_unitType" [value]="efut">
-                      {{efut}}
-                    </mat-option>
-                  </mat-select>
-                  <mat-error *ngIf="unitdetailsForm.get('service_unitType').hasError('required')">
-                    You must make a selection
-                  </mat-error>
-                </mat-form-field>
-              </mat-card>
+          <form [formGroup]="unitdetailsForm" (ngSubmit)="unitdetailsSubmit()">
+            <ng-template matStepLabel>Unit Details</ng-template>
+            <!--Service Location-->
+            <mat-card class="unitdetailscard">
               <div>
-                <button class="addunit" mat-stroked-button>
-                  <mat-icon>add_box</mat-icon>Add unit
-                </button>
+                <h1 class="unitdetails">Unit Details</h1>
               </div>
-              <!--Back and Next Button-->
-              <button class="nextBtn" type="submit" [disabled]="!unitdetailsForm.valid" mat-button
-                matStepperNext>Next</button><br><br><br><br>
-              <br><br>
-            </form>
-          </div>
   
-          <mat-card class="details">
+              <mat-form-field class="electricfanselect" appearance="outline">
+                <mat-label>Electric Fan Type</mat-label>
+                <mat-select formControlName="service_aptype">
+                  <mat-option *ngFor="let eft of efan_type" [value]="eft">
+                    {{eft}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="unitdetailsForm.get('service_aptype').hasError('required')">
+                  You must make a selection
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="electricfanbrand" appearance="outline">
+                <mat-label>Brand</mat-label>
+                <mat-select formControlName="service_brand">
+                  <mat-option *ngFor="let efb of efan_brand" [value]="efb">
+                    {{efb}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="unitdetailsForm.get('service_brand').hasError('required')">
+                  You must make a selection
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="unittype" appearance="outline">
+                <mat-label>Unit Type</mat-label>
+                <mat-select formControlName="service_unitType">
+                  <mat-option *ngFor="let efut of efan_unitType" [value]="efut">
+                    {{efut}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="unitdetailsForm.get('service_unitType').hasError('required')">
+                  You must make a selection
+                </mat-error>
+              </mat-form-field>
+
+            </mat-card>
             <div>
-              <mat-icon class="listicon">description</mat-icon>
-              <h1 class="detailssummary">Details Summary</h1>
+              <button class="addunit" mat-stroked-button>
+                <mat-icon>add_box</mat-icon>Add unit
+              </button>
             </div>
-            <div class="row">
-              <div class="column">
-                <h4>Appliance: </h4> {{service_appliance}}
-              </div>
-            </div>
-          </mat-card>
+           
+            <!--Back and Next Button-->
+            <button class="nextBtn" type="submit" [disabled]="!unitdetailsForm.valid" mat-button
+              matStepperNext>Next</button><br><br><br><br>
+            <br><br>
+          </form>
+          </div>
         </mat-step>
   
-        <mat-step state="first" [completed]="locationForm.valid" [editable]="true">
+        <mat-step state="second" [completed]="locationForm.valid" [editable]="true">
           <div class="ds">
-            <form [formGroup]="locationForm" (ngSubmit)="locationSubmit()">
-              <ng-template matStepLabel>Service Location</ng-template>
-              <!--Service Location-->
-              <mat-card class="locationcard">
-                <div>
-                  <mat-icon class="locationicon">place</mat-icon>
-                  <h1 class="servicelocation">Service Location</h1>
-                </div>
+          <form [formGroup]="locationForm" (ngSubmit)="locationSubmit()">
+            <ng-template matStepLabel>Service Location</ng-template>
+            <!--Service Location-->
+            <mat-card class="locationcard">
+              <div>
+                <mat-icon class="locationicon">place</mat-icon>
+                <h1 class="servicelocation">Service Location</h1>
+              </div>
   
-                <!--Select City-->
-                <mat-form-field class="cityselect" appearance="outline">
-                  <mat-label>Select a City</mat-label>
-                  <mat-select formControlName="service_city" [errorStateMatcher]="matcher">
-                    <mat-option *ngFor="let cit of city" [value]="cit">
-                      {{cit}}
-                    </mat-option>
-                  </mat-select>
-                  <mat-error *ngIf="locationForm.get('service_city').hasError('required')">
-                    You must make a selection
-                  </mat-error>
-                </mat-form-field>
+              <!--Select City-->
+              <mat-form-field class="cityselect" appearance="outline">
+                <mat-label>Select a City</mat-label>
+                <mat-select formControlName="service_city" [errorStateMatcher]="matcher">
+                  <mat-option *ngFor="let cit of city" [value]="cit">
+                    {{cit}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="locationForm.get('service_city').hasError('required')">
+                  You must make a selection
+                </mat-error>
+              </mat-form-field>
   
-                <!--Property Type-->
-                <mat-form-field class="propertyselect" appearance="outline">
-                  <mat-label>Property Type</mat-label>
-                  <mat-select formControlName="service_property_type" [errorStateMatcher]="matcher">
-                    <mat-option *ngFor="let ptype of property_type" [value]="ptype">
-                      {{ptype}}
-                    </mat-option>
-                  </mat-select>
-                  <mat-error *ngIf="locationForm.get('service_property_type').hasError('required')">
-                    You must make a selection
-                  </mat-error>
-                </mat-form-field>
+              <!--Property Type-->
+              <mat-form-field class="propertyselect" appearance="outline">
+                <mat-label>Property Type</mat-label>
+                <mat-select formControlName="service_property_type" [errorStateMatcher]="matcher">
+                  <mat-option *ngFor="let ptype of property_type" [value]="ptype">
+                    {{ptype}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="locationForm.get('service_property_type').hasError('required')">
+                  You must make a selection
+                </mat-error>
+              </mat-form-field>
   
-                <!--Zipcode-->
-                <mat-form-field class="zipcode" appearance="outline">
-                  <mat-label>Zipcode</mat-label>
-                  <input matInput type="number" pattern="[0-9]{3,4}" formControlName="service_zipcode"
-                    [errorStateMatcher]="matcher" autocomplete="off">
-                  <mat-error *ngIf="locationForm.get('service_zipcode').hasError('required')">
-                    Input valid zipcode
-                  </mat-error>
-                  <mat-error *ngIf="locationForm.get('service_zipcode').hasError('pattern')">
-                    Input valid zipcode
-                  </mat-error>
-                </mat-form-field>
+              <!--Zipcode-->
+              <mat-form-field class="zipcode" appearance="outline">
+                <mat-label>Zipcode</mat-label>
+                <input matInput type="number" pattern="[0-9]{3,4}" formControlName="service_zipcode"
+                  [errorStateMatcher]="matcher" autocomplete="off">
+                <mat-error *ngIf="locationForm.get('service_zipcode').hasError('required')">
+                  Input valid zipcode
+                </mat-error>
+                <mat-error *ngIf="locationForm.get('service_zipcode').hasError('pattern')">
+                  Input valid zipcode
+                </mat-error>
+              </mat-form-field>
   
-              </mat-card>
-              <!--Back and Next Button-->
-              <button class="backBtn" mat-button matStepperPrevious>Back</button>
-              <button class="nextBtn" type="submit" [disabled]="!locationForm.valid" mat-button
-                matStepperNext>Next</button><br><br><br><br>
-              <br><br>
-            </form>
+            </mat-card>
+            <!--Back and Next Button-->
+            <button class="backBtn" mat-button matStepperPrevious>Back</button>
+            <button class="nextBtn" type="submit" [disabled]="!locationForm.valid" mat-button
+              matStepperNext>Next</button><br><br><br><br>
+            <br><br>
+          </form>
           </div>
-  
-          <mat-card class="details">
-            <div>
-              <mat-icon class="listicon">description</mat-icon>
-              <h1 class="detailssummary">Details Summary</h1>
-            </div>
-            <div class="row">
-              <div class="column">
-                <h4>Appliance: </h4> {{service_appliance}}
-                <h4>Brand: </h4> {{service_brand}}
-              </div>
-              <div class="column">
-                <h4>Type: </h4> {{service_aptype}}
-                <h4>Unit Type: </h4> {{service_unitType}}
-              </div>
-            </div>
-          </mat-card>
         </mat-step>
   
         <!--2nd Stepper-->
-        <mat-step state="second" [completed]="scheduleForm.valid" [editable]="true">
-  
+        <mat-step state="third" [completed]="scheduleForm.valid" [editable]="true">
+          
           <form [formGroup]="scheduleForm" (ngSubmit)="schedSubmit()">
             <div class="ds">
-              <ng-template matStepLabel>Service Schedule</ng-template>
-              <mat-card class="schedcard">
-                <div>
-                  <mat-icon class="schedicon">today</mat-icon>
-                  <h1 class="servicesched">Service Schedule</h1>
-  
-                  <!--Date Picker-->
-                  <div>
-                    <mat-form-field class="datepicker" appearance="outline">
-                      <mat-label>Date of Service</mat-label>
-                      <input matInput [matDatepicker]="picker" formControlName="service_date" autocomplete="off">
-                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                      <mat-datepicker #picker></mat-datepicker>
-                      <mat-error *ngIf="scheduleForm.get('service_date').hasError('required')">
-                        You must make a selection
-                      </mat-error>
-                    </mat-form-field>
-                    <button mat-raised-button class="dateBtn" (click)="picker.open()">Pick a date</button>
-                  </div>
-  
-                  <!--Time Slots-->
-                  <div class="timeslots">
-                    <h1 class="timeslot">Select a time slot</h1>
-                    <button mat-stroked-button class="tech1Btn">
-                      <input type="radio" value="7:00am - 10:00am" formControlName="service_timeslot"
-                        required>7:00am-10:00am<h1 class="h1technicians">10 Technicians
-                      </h1>
-                    </button>
-                    <button mat-stroked-button class="tech2Btn" value="10:00am-1:00pm">
-                      <input type="radio" value="10:00am - 1:00pm" formControlName="service_timeslot"
-                        required>10:00am-1:00pm<h1 class="h1technicians">10 Technicians
-                      </h1>
-                    </button>
-                    <button mat-stroked-button class="tech4Btn" value="1:00pm-3:00pm">
-                      <input type="radio" value="1:00pm - 3:00pm" formControlName="service_timeslot"
-                        required>1:00pm-3:00pm
-                      <h1 class="h1technicians">10 Technicians</h1>
-                    </button>
-                    <button mat-stroked-button class="tech4Btn" value="3:00pm-6:00pm">
-                      <input type="radio" value="3:00pm - 6:00pm" formControlName="service_timeslot"
-                        required>3:00pm-6:00pm
-                      <h1 class="h1technicians">10 Technicians</h1>
-                    </button>
-                  </div>
-                </div>
-              </mat-card>
-              <!--Back and Next Button-->
-              <button class="backBtn" mat-button matStepperPrevious>Back</button>
-              <button class="nextBtn" type="submit" [disabled]="!scheduleForm.valid" mat-button
-                matStepperNext>Next</button>
-            </div>
-          </form>
-  
-          <br><br><br><br><br><br>
-          <mat-card class="details">
-            <div>
-              <mat-icon class="listicon">description</mat-icon>
-              <h1 class="detailssummary">Details Summary</h1>
-            </div>
-            <div class="summary">
-              <div class="row">
-                <div class="column">
-                  <h4>Appliance: </h4> {{service_appliance}}
-                  <h4>Brand: </h4> {{service_brand}}
-                </div>
-                <div class="column">
-                  <h4>Type: </h4> {{service_aptype}}
-                  <h4>Unit Type: </h4> {{service_unitType}}
-                </div>
-                <hr>
-                <div class="column">
-                  <h4>City: </h4>{{service_city}}
-                  <h4>Property Type: </h4>{{service_property_type}}
-                  <h4>Zip Code: </h4>{{service_zipcode}}
-                </div>
-              </div>
-            </div>
-          </mat-card>
-        </mat-step>
-  
-        <!--3rd Stepper-->
-        <mat-step state="third" [completed]="contactDetialsForm.valid" [editable]="true">
-          <div class="ds">
-            <form [formGroup]="contactDetialsForm" (ngSubmit)="contactDetailsSubmit()">
-              <ng-template matStepLabel>Contact Details</ng-template>
-              <mat-card class="contactcard">
-                <div>
-                  <mat-icon class="phoneicon"> local_phone</mat-icon>
-                  <h1 class="contactdetails">Contact Details</h1>
-                </div>
-  
-                <!--Geolocation-->
-                <div id="mapid"></div>
-                <div>
-                  <h1 class="h1address">Move map to exact location under the red pin.</h1>
-                  <mat-form-field class="address" appearance="outline">
-                    <mat-label>Service Address</mat-label>
-                    <input matInput formControlName="service_address" [errorStateMatcher]="matcher" autocomplete="off">
-                    <mat-error *ngIf="contactDetialsForm.get('service_address').hasError('required')">
-                      Input your Home Adress
-                    </mat-error>
-                  </mat-form-field>
-                </div>
-                <!--Booking checkboxes-->
-                <div class="checkbox">
-                  <h1 class="h1cb">Booking for yourself?</h1>
-  
-                  <section class="example-section">
-                    <mat-checkbox class="cbYes">Yes</mat-checkbox>
-                    <mat-checkbox class="cbNo">No</mat-checkbox>
-                  </section>
-  
-                  <mat-form-field class="fname" appearance="outline">
-                    <mat-label>First Name</mat-label>
-                    <input matInput type="text" pattern="[a-zA-Z_ ]{1,15}" formControlName="service_firstname"
-                      placeholder="Juan" [errorStateMatcher]="matcher">
-                    <mat-error *ngIf="contactDetialsForm.get('service_firstname').hasError('required')">
-                      Input your first name
-                    </mat-error>
-                    <mat-error *ngIf="contactDetialsForm.get('service_firstname').hasError('pattern')">
-                      Invalid Name (Max of 15 Characters)
-                    </mat-error>
-                  </mat-form-field>
-  
-                  <mat-form-field class="lname" appearance="outline">
-                    <mat-label>Last Name</mat-label>
-                    <input matInput type="text" pattern="[a-zA-Z_ ]{1,15}" formControlName="service_lastname"
-                      placeholder="Dela Cruz" [errorStateMatcher]="matcher">
-                    <mat-error *ngIf="contactDetialsForm.get('service_lastname').hasError('required')">
-                      Input your last name
-                    </mat-error>
-                    <mat-error *ngIf="contactDetialsForm.get('service_lastname').hasError('pattern')">
-                      Invalid Name (Max of 15 Characters)
-                    </mat-error>
-                  </mat-form-field>
-                  <!--Phone Number-->
-                  <mat-form-field class="phonenumber" appearance="outline">
-                    <mat-label>Phone Number</mat-label>
-                    <input matInput pattern="(09)[0-9]{9}" formControlName="service_phoneNumber"
-                      [errorStateMatcher]="matcher" #input maxlength="11" placeholder="09XXXXXXXXX" autocomplete="off"
-                      required>
-                    <mat-hint>{{input.value?.length || 0}}/11</mat-hint>
-                    <mat-error *ngIf="contactDetialsForm.get('service_phoneNumber').hasError('required')">
-                      Enter a valid phone number
-                    </mat-error>
-                    <mat-error *ngIf="contactDetialsForm.get('service_phoneNumber').hasError('pattern')">
-                      Invalid phone number
-                    </mat-error>
-                  </mat-form-field>
-                  <!--Address Details-->
-                  <mat-form-field class="addressdetails" appearance="outline">
-                    <mat-label>Service Address Details</mat-label>
-                    <input matInput formControlName="service_addressDetails" [errorStateMatcher]="matcher"
-                      autocomplete="off">
-                    <mat-hint>unit no., floor no., building name, block no.</mat-hint>
-                    <mat-error *ngIf="contactDetialsForm.get('service_addressDetails').hasError('required')">
-                      Input your address details
-                    </mat-error>
-                  </mat-form-field>
-                  <!--Instructions-->
-                  <mat-form-field class="instructions" appearance="outline">
-                    <mat-label>Instructions</mat-label>
-                    <input matInput formControlName="service_instruction" [errorStateMatcher]="matcher"
-                      placeholder="Any instruction to the technician?" autocomplete="off">
-                    <mat-error *ngIf="contactDetialsForm.get('service_instruction').hasError('required')">
-                      Landmark,
-                    </mat-error>
-                  </mat-form-field>
-                </div>
-              </mat-card>
-  
-              <!--Back and Next Button-->
-              <button class="CDbackBtn" mat-button matStepperPrevious>Back</button>
-              <button class="CDnextBtn" type="submit" [disabled]="!contactDetialsForm.valid" mat-button matStepperNext>
-                Next
-              </button>
-            </form>
-          </div>
-  
-          <br><br><br><br><br><br>
-          <mat-card class="details">
-            <h1 class="text_summary">Summary</h1>
-            <div class="summary">
-              <div class="row">
-                <div class="column">
-                  <h4>Appliance: </h4> {{service_appliance}}
-                  <h4>Brand: </h4> {{service_brand}}
-                </div>
-                <div class="column">
-                  <h4>Type: </h4> {{service_aptype}}
-                  <h4>Unit Type: </h4> {{service_unitType}}
-                </div>
-                <hr>
-                <div class="column">
-                  <h4>City: </h4>{{service_city}}
-                  <h4>Property Type: </h4>{{service_property_type}}
-                  <h4>Zip Code: </h4>{{service_zipcode}}
-                </div>
-                <hr>
-                <div class="column">
-                  <h4>Date: </h4>{{service_date | date:"MM/dd/YYYY" }}
-                  <h4>Time: </h4>{{service_timeslot}}
-                </div>
-              </div>
-            </div>
-          </mat-card>
-        </mat-step>
-  
-        <!--4th Stepper-->
-        <mat-step state="final">
-          <ng-template matStepLabel>Confirm Service Details</ng-template>
-          <div class="ds">
-            <mat-card class="details_sum">
+            <ng-template matStepLabel>Service Schedule</ng-template>
+            <mat-card class="schedcard">
               <div>
-                <mat-icon class="listicon">description</mat-icon>
-                <h1 class="detailssummary">Details Summary</h1>
-              </div>
-              <div class="summary">
-                <div class="row">
-                  <div class="column">
-                    <h4>Appliance: </h4> {{service_appliance}}
-                    <h4>Brand: </h4> {{service_brand}}
-                  </div>
-                  <div class="column">
-                    <h4>Type: </h4> {{service_aptype}}
-                    <h4>Unit Type: </h4> {{service_unitType}}
-                  </div>
-                  <hr>
-                  <div class="column">
-                    <h4>City: </h4>{{service_city}}
-                    <h4>Property Type: </h4>{{service_property_type}}
-                    <h4>Zip Code: </h4>{{service_zipcode}}
-                  </div>
-                  <hr>
-                  <div class="column">
-                    <h4>Date: </h4>{{service_date | date:"MM/dd/YYYY" }}
-                    <h4>Time: </h4>{{service_timeslot}}
-                  </div>
-                  <hr>
-                  <div class="column">
-                    <h4>Address:</h4>{{service_address}}
-                    <h4>First Name:</h4>{{service_firstname}}
-                    <h4>Last Name:</h4> {{service_lastname}}
-                  </div>
-                  <div class="column">
-                    <h4>Phone Number:</h4>{{service_phoneNumber }}
-                    <h4>Address Details:</h4>{{service_addressDetails}}
-                    <h4>Instructions:</h4> {{service_instruction}}
-                  </div>
+                <mat-icon class="schedicon">today</mat-icon>
+                <h1 class="servicesched">Service Schedule</h1>
+  
+                <!--Date Picker-->
+                <div>
+                  <mat-form-field class="datepicker" appearance="outline">
+                    <mat-label>Date of Service</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="service_date" autocomplete="off">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="scheduleForm.get('service_date').hasError('required')">
+                      You must make a selection
+                    </mat-error>
+                  </mat-form-field>
+                  <button mat-raised-button class="dateBtn" (click)="picker.open()">Pick a date</button>
+                </div>
+  
+                <!--Time Slots-->
+                <div class="timeslots">
+                  <h1 class="timeslot">Select a time slot</h1>
+                  <button mat-stroked-button class="tech1Btn">
+                    <input type="radio" value="7:00am - 10:00am" formControlName="service_timeslot"
+                      required>7:00am-10:00am<h1 class="h1technicians">10 Technicians
+                    </h1>
+                  </button>
+                  <button mat-stroked-button class="tech2Btn" value="10:00am-1:00pm">
+                    <input type="radio" value="10:00am - 1:00pm" formControlName="service_timeslot"
+                      required>10:00am-1:00pm<h1 class="h1technicians">10 Technicians
+                    </h1>
+                  </button>
+                  <button mat-stroked-button class="tech4Btn" value="1:00pm-3:00pm">
+                    <input type="radio" value="1:00pm - 3:00pm" formControlName="service_timeslot" required>1:00pm-3:00pm
+                    <h1 class="h1technicians">10 Technicians</h1>
+                  </button>
+                  <button mat-stroked-button class="tech4Btn" value="3:00pm-6:00pm">
+                    <input type="radio" value="3:00pm - 6:00pm" formControlName="service_timeslot" required>3:00pm-6:00pm
+                    <h1 class="h1technicians">10 Technicians</h1>
+                  </button>
                 </div>
               </div>
             </mat-card>
-            <button class="doneBtn" (click)="servicedetailsSubmit()" mat-button>Done</button>
-          </div>
+            <!--Back and Next Button-->
+            <button class="backBtn" mat-button matStepperPrevious>Back</button>
+            <button class="nextBtn" type="submit" [disabled]="!scheduleForm.valid" mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+  
+        <!--3rd Stepper-->
+        <mat-step state="final" [completed]="contactDetialsForm.valid" [editable]="true">
+          <div class="ds">
+          <form [formGroup]="contactDetialsForm" (ngSubmit)="contactDetailsSubmit()">
+            <ng-template matStepLabel>Contact Details</ng-template>
+            <mat-card class="contactcard">
+              <div>
+                <mat-icon class="phoneicon"> local_phone</mat-icon>
+                <h1 class="contactdetails">Contact Details</h1>
+              </div>
+  
+              <!--Geolocation-->
+              <div id="mapid"></div>
+              <div>
+                <h1 class="h1address">Move map to exact location under the red pin.</h1>
+                <mat-form-field class="address" appearance="outline">
+                  <mat-label>Service Address</mat-label>
+                  <input matInput formControlName="service_address" [errorStateMatcher]="matcher" autocomplete="off">
+                  <mat-error *ngIf="contactDetialsForm.get('service_address').hasError('required')">
+                    Input your Home Adress
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <!--Booking checkboxes-->
+              <div class="checkbox">
+                <h1 class="h1cb">Booking for yourself?</h1>
+  
+                <section class="example-section">
+                  <mat-checkbox class="cbYes">Yes</mat-checkbox>
+                  <mat-checkbox class="cbNo">No</mat-checkbox>
+                </section>
+  
+                <mat-form-field class="fname" appearance="outline">
+                  <mat-label>First Name</mat-label>
+                  <input matInput type="text" pattern="[a-zA-Z_ ]{1,15}" formControlName="service_firstname"
+                    placeholder="Juan" [errorStateMatcher]="matcher">
+                  <mat-error *ngIf="contactDetialsForm.get('service_firstname').hasError('required')">
+                    Input your first name
+                  </mat-error>
+                  <mat-error *ngIf="contactDetialsForm.get('service_firstname').hasError('pattern')">
+                    Invalid Name (Max of 15 Characters)
+                  </mat-error>
+                </mat-form-field>
+  
+                <mat-form-field class="lname" appearance="outline">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput type="text" pattern="[a-zA-Z_ ]{1,15}" formControlName="service_lastname"
+                    placeholder="Dela Cruz" [errorStateMatcher]="matcher">
+                  <mat-error *ngIf="contactDetialsForm.get('service_lastname').hasError('required')">
+                    Input your last name
+                  </mat-error>
+                  <mat-error *ngIf="contactDetialsForm.get('service_lastname').hasError('pattern')">
+                    Invalid Name (Max of 15 Characters)
+                  </mat-error>
+                </mat-form-field>
+                <!--Phone Number-->
+                <mat-form-field class="phonenumber" appearance="outline">
+                  <mat-label>Phone Number</mat-label>
+                  <input matInput pattern="(09)[0-9]{9}" formControlName="service_phoneNumber"
+                    [errorStateMatcher]="matcher" #input maxlength="11" placeholder="09XXXXXXXXX" autocomplete="off"
+                    required>
+                  <mat-hint>{{input.value?.length || 0}}/11</mat-hint>
+                  <mat-error *ngIf="contactDetialsForm.get('service_phoneNumber').hasError('required')">
+                    Enter a valid phone number
+                  </mat-error>
+                  <mat-error *ngIf="contactDetialsForm.get('service_phoneNumber').hasError('pattern')">
+                    Invalid phone number
+                  </mat-error>
+                </mat-form-field>
+                <!--Address Details-->
+                <mat-form-field class="addressdetails" appearance="outline">
+                  <mat-label>Service Address Details</mat-label>
+                  <input matInput formControlName="service_addressDetails" [errorStateMatcher]="matcher"
+                    autocomplete="off">
+                  <mat-hint>unit no., floor no., building name, block no.</mat-hint>
+                  <mat-error *ngIf="contactDetialsForm.get('service_addressDetails').hasError('required')">
+                    Input your address details
+                  </mat-error>
+                </mat-form-field>
+                <!--Instructions-->
+                <mat-form-field class="instructions" appearance="outline">
+                  <mat-label>Instructions</mat-label>
+                  <input matInput formControlName="service_instruction" [errorStateMatcher]="matcher" 
+                  placeholder="Any instruction to the technician?" autocomplete="off">
+                  <mat-error *ngIf="contactDetialsForm.get('service_instruction').hasError('required')">
+                    Landmark,
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </mat-card>
+  
+            <!--Back and Next Button-->
+            <button class="CDbackBtn" mat-button matStepperPrevious>Back</button>
+            <button class="doneBtn" type="submit" [disabled]="!contactDetialsForm.valid" mat-button> Done </button>
+          </form>
+        </div>
         </mat-step>
       </mat-horizontal-stepper>
     </mat-sidenav-content>

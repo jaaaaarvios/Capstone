@@ -15,17 +15,37 @@
   width: 100%;
 }
 .logo{
-  width: 200px;
-  height: 180px;
+  width: 180px;
+  height: 150px;
   padding-top: 40px;
-  margin-left: 40px;
+  margin-left: 55px;
 }
+
+.dashtitle
+{
+  color: #003049;
+  font-size: 25px;
+  margin-left: 80px;
+  margin-top: 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.dashvector
+{
+  width: 360px;
+  height: 250px;
+  margin-left: 620px;
+  margin-top: -60px;
+}
+
 .nav-icon{
   color: #003049;
   font-size: 35px;
   margin-left: 25px;
   margin-top: -12px;
 }
+
 .dashboardside{
   margin-left: 0px;
   margin-top: 30px;
@@ -60,7 +80,6 @@
 .bookingside:hover
 {
     background-color: #c8c19c;
-    
     width: 100%;
     height: 70px;
     margin-left: 0;
@@ -84,7 +103,6 @@
 .profileside:hover
 {
     background-color: #c8c19c;
-    
     width: 100%;
     height: 70px;
     margin-left: 0;
@@ -318,7 +336,6 @@
     color: #FFFFFF;
     width: 100px;
     height: 50px;
-    margin-left: 180px;
     float: left;
   }
   
@@ -331,7 +348,6 @@
     color: #FFFFFF;
     width: 100px;
     height: 50px;
-    margin-right: 180px;
     float: right;
   }
   

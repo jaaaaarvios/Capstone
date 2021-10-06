@@ -14,7 +14,12 @@ import { map } from 'rxjs/operators';
 export class AppliancesComponent implements OnInit {
 
   subscription: any;
-  service_type="";
+  service_appliance="";
+  ac = "Aircon";
+  ref = "Refrigerator";
+  efan = "Electric Fan";
+  wm = "Washing Machine";
+  tv = "Television";
   
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -24,53 +29,28 @@ export class AppliancesComponent implements OnInit {
 
   constructor(private shared: SharedService, private router: Router, private breakpointObserver: BreakpointObserver) { }
 
-  // RefrigeratorOpenDialog() {
-  //   const dialogRef = this.dialog.open(RefrigeratordetailsComponent);
-    
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
-  // ElectricfanOpenDialog() {
-  //   const dialogRef = this.dialog.open(ElectricfandetailsComponent);
-    
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
-  // WashingmachineOpenDialog() {
-  //   const dialogRef = this.dialog.open(WashingmachinedetailsComponent);
-    
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
-
-  // TelevisionOpenDialog() {
-  //   const dialogRef = this.dialog.open(TelevisiondetailsComponent);
-    
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
-
   ngOnInit() {
-    this.subscription = this.shared.currentServiceType.subscribe(service_type => this.service_type = service_type);
+    this.subscription = this.shared.currentAppliance.subscribe(service_appliance => this.service_appliance = service_appliance);
   }
 
   AirconOpen(){
+    this.shared.changeAppliance(this.ac);
     this.router.navigate(['/aircon-repair']);
   }
   RefrigeratorOpen(){
+    this.shared.changeAppliance(this.ref);
     this.router.navigate(['/refrigerator-repair']);
   }
   ElectricfanOpen(){
+    this.shared.changeAppliance(this.efan);
     this.router.navigate(['/electricfan-repair']);
   }
   WashingmachineOpen(){
+    this.shared.changeAppliance(this.wm);
     this.router.navigate(['/washingmachine-repair']);
   }
   TelevisionOpen(){
+    this.shared.changeAppliance(this.tv);
     this.router.navigate(['/television-repair']);
   }
 
