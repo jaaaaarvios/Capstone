@@ -16,6 +16,7 @@ declare const L: any;
   templateUrl: './aircondetails.component.html',
   styleUrls: ['./aircondetails.component.css']
 })
+
 export class AircondetailsComponent implements OnInit {
 
   ac_type: any[] = ["Split Type", "Window Type", "Tower", "Cassette",
@@ -71,7 +72,6 @@ export class AircondetailsComponent implements OnInit {
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
-
 
   constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog, 
     private shared: SharedService, private breakpointObserver: BreakpointObserver) { }

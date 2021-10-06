@@ -10,6 +10,7 @@ export class SharedService {
   user_email: any;
   user_password: any;
 
+  service_type: any;
   service_appliance: any;
   service_aptype: any;
   service_brand: any;
@@ -73,6 +74,9 @@ export class SharedService {
   private instructionSource = new BehaviorSubject('None');
   currentInstruction = this.instructionSource.asObservable();
 
+  private serviceTypeSource = new BehaviorSubject('None');
+  currentServiceType = this.serviceTypeSource.asObservable();
+
   private applianceSource = new BehaviorSubject('None');
   currentAppliance = this.applianceSource.asObservable();
 
@@ -105,6 +109,11 @@ export class SharedService {
   }
 
   //appliane details
+
+  changeServiceType(service_type: string) {
+    this.serviceTypeSource.next(service_type)
+  }
+
   changeAppliance(service_appliance: string) {
     this.applianceSource.next(service_appliance)
   }

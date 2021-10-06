@@ -14,6 +14,7 @@ import { map } from 'rxjs/operators';
 export class AppliancesComponent implements OnInit {
 
   subscription: any;
+  service_type="";
   
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -54,6 +55,7 @@ export class AppliancesComponent implements OnInit {
   // }
 
   ngOnInit() {
+    this.subscription = this.shared.currentServiceType.subscribe(service_type => this.service_type = service_type);
   }
 
   AirconOpen(){
