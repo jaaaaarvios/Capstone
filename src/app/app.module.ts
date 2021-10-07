@@ -66,6 +66,7 @@ import { RefrigeratorInstallComponent } from './refrigerator-install/refrigerato
 import { ElectricfanInstallComponent } from './electricfan-install/electricfan-install.component';
 import { WashingmachineInstallComponent } from './washingmachine-install/washingmachine-install.component';
 import { TelevisionInstallComponent } from './television-install/television-install.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -142,7 +143,8 @@ import { TelevisionInstallComponent } from './television-install/television-inst
     MatToolbarModule,
     MatTableModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    NgbModule
 
   ],
   providers: [],

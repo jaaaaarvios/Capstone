@@ -45,25 +45,58 @@
       </button>
         <h1 class="ayosgamit">Ayosgamit</h1>
         <span class="spacer"></span>
-        <div class="datetime">
-          <label>{{date   | date: "MMMM dd, yyyy  "}}</label>
-          <label>({{date   | date: "h:mm:ss a'"}})</label>
-         </div>
-        <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
+        <h2 class="welcome">Welcome, {{user_fname}}!</h2>
+         <mat-icon class="accounticon" aria-hidden="false" aria-label="">account_circle</mat-icon>
         <button class="logoutBtn" (click)="signOut()" mat-button>
-          <i class="fas fa-sign-out-alt"></i>
-          Logout
+          
+          <mat-icon class="logouticon">exit_to_app<h1 class="logoutxt">Logout</h1></mat-icon>
+          
         </button>
     </mat-toolbar>
 
     <div>
-      <h1 class= "dashtitle">Dashboard</h1>
-      <h2 class="welcome">Welcome, {{user_fname}} {{user_lname}}!</h2>
+      <h1 class= "dashtitle">Dashboard</h1>   
+    </div>
+    
+    <div class="datetime">
+      <label>{{date   | date: "MMMM dd, yyyy  "}}</label>
+      <label>({{date   | date: "h:mm:a'"}})</label>
+     </div>
+     
+    <div>
+      <h1 class= "services">Services Offered</h1>   
     </div>
 
     <div>
-      <img class="dashvector" mat-card-image src="../../assets/homebg1.png">
-    </div>
+    <mat-card class="airconcard">
+      <img class="aircon" mat-card-image src="../../assets/aircon cleaning.jpg">
+      <h1 class="aircontxt">Air Conditioner</h1>
+     
+    </mat-card>
+
+    <mat-card class="refcard">
+      <img class="ref" mat-card-image src="../../assets/ref repair.jpg">
+      <h1 class="reftxt">Refigerator</h1>
+    </mat-card>
+
+    <mat-card class="fancard">
+      <img class="fan" mat-card-image src="../../assets/fan repair.jpg">
+      <h1 class="fantxt">Electric Fans</h1>
+    </mat-card>
+
+    <mat-card class="washingcard">
+      <img class="washing" mat-card-image src="../../assets/washing.jpg">
+      <h1 class="washingtxt">Washing Machine</h1>
+    </mat-card>
+
+    <mat-card class="tvcard">
+      <img class="tv" mat-card-image src="../../assets/tv repair.jpg">
+      <h1 class="tvtxt">Television</h1>
+    </mat-card>
+
+  </div>
+
+    
    
     <mat-tab-group class="tab">
 

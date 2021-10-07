@@ -29,13 +29,21 @@
 .dashtitle
 {
   color: #003049;
-  font-size: 25px;
+  font-size: 22px;
   margin-left: 80px;
-  margin-top: 60px;
+  margin-top: 40px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
+.services
+{
+  color: #003049;
+  font-size: 16px;
+  margin-left: 80px;
+  margin-top: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 .dashvector
 {
@@ -44,6 +52,119 @@
   margin-left: 620px;
   margin-top: -60px;
 }
+
+.airconcard
+{
+  margin-left: 80px;
+  margin-top: 20px;
+  width: 168px;
+  height: 118px;
+}
+
+.aircon
+{
+  width: 200px;
+  height: 150px;
+}
+
+.aircontxt
+{
+  font-size: 17px;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: -50px;
+  margin-left: -5px;
+}
+.refcard
+{
+  margin-left: 290px;
+  margin-top: -150px;
+  width: 168px;
+  height: 118px;
+}
+
+.ref
+{
+  width: 200px;
+  height: 150px;
+}
+
+.reftxt
+{
+  font-size: 17px;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: -50px;
+  margin-left: -5px;
+}
+.fancard
+{
+  margin-left: 500px;
+  margin-top: -150px;
+  width: 168px;
+  height: 118px;
+}
+
+.fan
+{
+  width: 200px;
+  height: 150px;
+}
+
+.fantxt
+{
+  font-size: 17px;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: -50px;
+  margin-left: -5px;
+}
+.washingcard
+{
+  margin-left: 710px;
+  margin-top: -150px;
+  width: 168px;
+  height: 118px;
+}
+
+.washing
+{
+  width: 200px;
+  height: 150px;
+}
+
+.washingtxt
+{
+  font-size: 17px;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: -50px;
+  margin-left: -5px;
+}
+
+.tvcard
+{
+  margin-left: 920px;
+  margin-top: -150px;
+  width: 168px;
+  height: 118px;
+}
+
+.tv
+{
+  width: 200px;
+  height: 150px;
+}
+
+.tvtxt
+{
+  font-size: 17px;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: -50px;
+  margin-left: -5px;
+}
+
 
 .nav-icon{
   color: #003049;
@@ -130,9 +251,12 @@
 .datetime
 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #FFFFFF;
-  font-size: 20px;
-  margin: 10px;
+  color: #003049;
+  float: right;
+  margin-right: 520px;
+  font-size: 15px;
+  margin-top: -40px;
+  
 }
 
 .tab{
@@ -152,24 +276,42 @@
 {
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 font-size: 18px;
-margin-left: 80px;
-margin-top: -15px;
-color: #003049;
+float: right;
+margin-right: -150px;
+margin-top: 3px;
+color: #FFFFFF;
 }
 
-.inboxicon
+.accounticon
+{
+  font-size: 38px;
+  float: right;
+  margin-right: 280px;
+  margin-top: -10px;
+  color: #FFFFFF;
+}
+
+.logouticon
 {
   font-size: 30px;
-  color: #14213D;
-  margin-right: 20px;
+  float: right;
+  margin-right: 80px;
+  margin-top: -5px;
+  color: #FFFFFF;
 }
+
 .logoutBtn
 {
-  font-size: 20px;
-  color: antiquewhite;
+  font-size: 18px;
+  color: #FFFFFF;
 }
-.logoutBtn:hover{
-  background-color: black;
+.logoutxt
+{
+  font-size: 17px;
+  color: #FFFFFF;
+  margin-top: -30px;
+  float: right;
+  margin-right: -70px;
 }
 
 .appliancescard

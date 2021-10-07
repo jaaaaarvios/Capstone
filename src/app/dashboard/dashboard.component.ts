@@ -6,10 +6,13 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RequestdetailsComponent } from '../requestdetails/requestdetails.component';
 import { SharedService } from '../shared/shared.service';
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
 
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-dashboard', 
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
@@ -17,6 +20,7 @@ import { SharedService } from '../shared/shared.service';
 
 export class DashboardComponent implements OnInit {
 
+  
   user_fname="";
   user_lname="";
   date: Date;
@@ -38,11 +42,14 @@ export class DashboardComponent implements OnInit {
       }
      }
 
+
      
   ngOnInit(): void {
     this.subscription = this.shared.currentUserFname.subscribe(user_fname => this.user_fname = user_fname);
     this.subscription = this.shared.currentUserLname.subscribe(user_lname => this.user_lname = user_lname);
   }
+
+  images = [];
 
   signOut() {
     this.router.navigate(['/home'])
