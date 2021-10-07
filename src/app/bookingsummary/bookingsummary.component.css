@@ -413,7 +413,6 @@ margin-left: 50px;
   font-size: 14px;
   float: right;
   margin-right: 20px;
-  margin-top: -40px;
 }
 
 .cancelBtn
@@ -477,8 +476,4 @@ margin-left: 50px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
   margin-left: 70px;
-}
-
-thead, tbody {
-  text-align: center;
 }

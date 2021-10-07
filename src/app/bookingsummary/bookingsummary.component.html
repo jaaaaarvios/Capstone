@@ -67,7 +67,7 @@
                 <th>Appliance</th>
                 <th>Brand</th>
                 <th>Unit Type</th>
-                <th>Unit Problem</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -75,17 +75,19 @@
                 <td>{{service_appliance}}</td>
                 <td>{{service_brand}}</td>
                 <td>{{service_unitType}}</td>
-                <td>{{service_unitProb}}</td>
+                
               </tr>
             </tbody>
             <thead>
               <tr>
+                <th>Unit Problem</th>
                 <th>Scheduled Date</th>
                 <th>Time Slot</th>
               </tr>
             </thead>
             <tbody>
               <tr>
+                <td>{{service_unitProb}}</td>
                 <td>{{service_date | date:"MM/dd/YYYY"}}</td>
                 <td>{{service_timeslot}}</td>
               </tr>
