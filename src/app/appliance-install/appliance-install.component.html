@@ -9,28 +9,28 @@
         <img class="logo" mat-card-image src="../../assets/mainlogo.png">
         <mat-nav-list class="nav-list">
             <div class="dashboardside">
-              <mat-list-item (click)="closeSideNav()">
-                <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
-                <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
-              </mat-list-item>
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
+                    <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
+                </mat-list-item>
             </div>
             <div class="bookingside">
-              <mat-list-item (click)="closeSideNav()">
-                <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-                <a class="booking-btn" routerLink="/booking">Book a Service</a>
-              </mat-list-item>
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+                    <a class="booking-btn" routerLink="/booking">Book a Service</a>
+                </mat-list-item>
             </div>
             <div class="profileside">
-              <mat-list-item (click)="closeSideNav()">
-                <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-                <a class="profile-btn" routerLink="/profile">Profile</a>
-              </mat-list-item>
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+                    <a class="profile-btn" routerLink="/profile">Profile</a>
+                </mat-list-item>
             </div>
             <!-- <mat-list-item (click)="closeSideNav()">
                 <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
                 <a class="nav-btn" routerLink="/payment">Payment</a>
               </mat-list-item> -->
-          </mat-nav-list>
+        </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
@@ -50,39 +50,37 @@
         <hr>
         <div class="allservices">
             <mat-card class="airconcard">
-                <mat-card-content (click)="AirconOpen()"> 
-                    <img class="airconimg" mat-button  mat-card-image src="../../assets/airconicon.png">
-                    <h1 class="aircontxt" mat-button >Aircon</h1>
+                <mat-card-content (click)="AirconOpen()">
+                    <img class="airconimg" mat-button mat-card-image src="../../assets/airconicon.png" mat-dialog-close>
+                    <h1 class="aircontxt" mat-button mat-dialog-close>Aircon</h1>
                 </mat-card-content>
             </mat-card>
 
             <mat-card class="refcard">
-                <mat-card-content  (click)="RefrigeratorOpen()">
-                    <img class="refimg" mat-button mat-card-image src="../../assets/reficon.png">
-                    <h1 class="reftxt" mat-button> Refrigerator </h1>
+                <mat-card-content (click)="RefrigeratorOpen()">
+                    <img class="refimg" mat-button mat-card-image src="../../assets/reficon.png" mat-dialog-close>
+                    <h1 class="reftxt" mat-button mat-dialog-close> Refrigerator </h1>
                 </mat-card-content>
             </mat-card>
 
             <mat-card class="fancard">
                 <mat-card-content (click)="ElectricfanOpen()">
-                    <img class="fanimg" mat-button  mat-card-image src="../../assets/efanicon.png" mat-dialog-close>
-                    <h1 class="fantxt" mat-button  mat-dialog-close>Electric Fan</h1>
+                    <img class="fanimg" mat-button mat-card-image src="../../assets/efanicon.png" mat-dialog-close>
+                    <h1 class="fantxt" mat-button mat-dialog-close>Electric Fan</h1>
                 </mat-card-content>
             </mat-card>
 
             <mat-card class="washingcard">
                 <mat-card-content (click)="WashingmachineOpen()">
-                    <img class="washingimg" mat-button  mat-card-image
-                        src="../../assets/washingicon.png" mat-dialog-close>
-                    <h1 class="washingtxt" mat-button mat-dialog-close>Washing
-                        Machine</h1>
+                    <img class="washingimg" mat-button mat-card-image src="../../assets/washingicon.png"
+                        mat-dialog-close>
+                    <h1 class="washingtxt" mat-button mat-dialog-close>Washing Machine</h1>
                 </mat-card-content>
             </mat-card>
 
             <mat-card class="tvcard">
                 <mat-card-content (click)="TelevisionOpen()">
-                    <img class="tvimg" mat-button mat-card-image
-                        src="../../assets/tvicon.png" mat-dialog-close>
+                    <img class="tvimg" mat-button mat-card-image src="../../assets/tvicon.png" mat-dialog-close>
                     <h1 class="tvtxt" mat-button mat-dialog-close>Television</h1>
                 </mat-card-content>
             </mat-card>

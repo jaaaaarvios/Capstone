@@ -51,27 +51,27 @@
     <div class="allservices">
       <mat-card class="appliancescard">
         <img class="applianceimg" mat-button (click)="ApplianceOpen()" mat-card-image
-          src="../../assets/appliancesrepair.png">
+          src="../../assets/appliancesrepair.png" mat-dialog-close>
         <mat-card-content>
-          <h1 class="h1appliances" mat-button (click)="ApplianceOpen()">Appliances Repair</h1>
+          <h1 class="h1appliances" mat-button (click)="ApplianceOpen()" mat-dialog-close>Appliances Repair</h1>
         </mat-card-content>
       </mat-card>
 
       <!--Electrical Repair-->
       <mat-card class="cleaningcard">
         <img class="cleaningimg" mat-button (click)="CleaningOpen()" mat-card-image
-          src="../../assets/cleaning.png">
+          src="../../assets/cleaning.png" mat-dialog-close>
         <mat-card-content>
-          <h1 class="h1cleaning" mat-button (click)="CleaningOpen()">Appliances Cleaning</h1>
+          <h1 class="h1cleaning" mat-button (click)="CleaningOpen()" mat-dialog-close>Appliances Cleaning</h1>
         </mat-card-content>
       </mat-card>
 
       <!--House Cleaning-->
       <mat-card class="installcard">
         <img class="installimg" mat-button (click)="InstallationOpen()" mat-card-image
-          src="../../assets/installation.png">
+          src="../../assets/installation.png" mat-dialog-close>
         <mat-card-content>
-          <h1 class="h1install" mat-button (click)="InstallationOpen()">Appliance Installation</h1>
+          <h1 class="h1install" mat-button (click)="InstallationOpen()" mat-dialog-close>Appliance Installation</h1>
         </mat-card-content>
       </mat-card>
     </div>
