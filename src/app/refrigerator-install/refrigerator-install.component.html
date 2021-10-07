@@ -99,18 +99,6 @@
             <br><br>
           </form>
           </div>
-  
-          <mat-card class="details">
-            <div>
-              <mat-icon class="listicon">description</mat-icon>
-              <h1 class="detailssummary">Details Summary</h1>
-            </div>
-            <div class="row">
-              <div class="column">
-                <h4>Appliance: </h4> {{service_appliance}}
-              </div>
-            </div>
-          </mat-card>
         </mat-step>
   
         <mat-step state="second" [completed]="locationForm.valid" [editable]="true">
@@ -244,32 +232,6 @@
             <button class="nextBtn" type="submit" [disabled]="!scheduleForm.valid" mat-button matStepperNext>Next</button>
             </div>
           </form>
-        
-        <br><br><br><br><br><br>
-          <mat-card class="details">
-            <div>
-              <mat-icon class="listicon">description</mat-icon>
-              <h1 class="detailssummary">Details Summary</h1>
-            </div>
-            <div class="summary">
-              <div class="row">
-                <div class="column">
-                  <h4>Appliance: </h4> {{service_appliance}}
-                  <h4>Brand: </h4> {{service_brand}}
-                </div>
-                <div class="column">
-                  <h4>Type: </h4> {{service_aptype}}
-                  <h4>Unit Type: </h4> {{service_unitType}}
-                </div>
-                <hr>
-                <div class="column">
-                  <h4>City: </h4>{{service_city}}
-                  <h4>Property Type: </h4>{{service_property_type}}
-                  <h4>Zip Code: </h4>{{service_zipcode}}
-                </div>
-              </div>
-            </div>
-          </mat-card>
         </mat-step>
   
         <mat-step state="final" [completed]="contactDetialsForm.valid" [editable]="true">

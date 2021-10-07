@@ -1,6 +1,7 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SharedService } from '../shared/shared.service';
@@ -39,7 +40,7 @@ export class BookingsummaryComponent implements OnInit {
     .pipe(map((result: BreakpointState) => result.matches));
   
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver,
-    private shared: SharedService) { }
+    private shared: SharedService, private router: Router) { }
 
   ngOnInit(): void {
     //Sending and retrieving data in the service
@@ -60,6 +61,10 @@ export class BookingsummaryComponent implements OnInit {
     this.subscription = this.shared.currentPhoneNumber.subscribe(service_phoneNumber => this.service_phoneNumber = service_phoneNumber);
     this.subscription = this.shared.currentAddressDetails.subscribe(service_addressDetails => this.service_addressDetails = service_addressDetails);
     this.subscription = this.shared.currentInstruction.subscribe(service_instruction => this.service_instruction = service_instruction);
+  }
+
+  cancelRequest(){
+    this.router.navigate(['/booking']);
   }
   closeSideNav() {
     if (this.drawer._mode == 'over') {

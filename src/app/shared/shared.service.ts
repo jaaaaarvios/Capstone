@@ -47,13 +47,13 @@ export class SharedService {
   private property_typeSource = new BehaviorSubject('None');
   currentPropertyType = this.property_typeSource.asObservable();
 
-  private zipcodeSource = new BehaviorSubject(null);
+  private zipcodeSource = new BehaviorSubject("None");
   currentZipcode = this.zipcodeSource.asObservable();
 
-  private dateSource = new BehaviorSubject(null);
+  private dateSource = new BehaviorSubject("None");
   currentDate = this.dateSource.asObservable();
 
-  private timeslotSource = new BehaviorSubject(null);
+  private timeslotSource = new BehaviorSubject("None");
   currentTimeslot = this.timeslotSource.asObservable();
 
   private addressSource = new BehaviorSubject('None');
@@ -65,7 +65,7 @@ export class SharedService {
   private lastnameSource = new BehaviorSubject('None');
   currentLastname = this.lastnameSource.asObservable();
 
-  private numberSource = new BehaviorSubject(null);
+  private numberSource = new BehaviorSubject("None");
   currentPhoneNumber = this.numberSource.asObservable();
 
   private address_detailsSource = new BehaviorSubject('None');
@@ -138,7 +138,7 @@ export class SharedService {
   changeType(service_property_type: string) {
     this.property_typeSource.next(service_property_type)
   }
-  changeZipcode(service_zipcode: number) {
+  changeZipcode(service_zipcode: string) {
     this.zipcodeSource.next(service_zipcode)
   }
   changeDate(service_date: string) {
@@ -156,7 +156,7 @@ export class SharedService {
   changeLastname(service_lastname: string) {
     this.lastnameSource.next(service_lastname)
   }
-  changePhoneNumber(service_phoneNumber: number) {
+  changePhoneNumber(service_phoneNumber: string) {
     this.numberSource.next(service_phoneNumber)
   }
   changeAddressDetails(service_addressDetails: string) {
