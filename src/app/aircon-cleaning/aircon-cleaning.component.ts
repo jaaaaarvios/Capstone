@@ -18,58 +18,58 @@ declare const L: any;
 export class AirconCleaningComponent implements OnInit {
 
   ac_type: any[] = ["Split Type", "Window Type", "Tower", "Cassette",
-  "Suspended", "Concealed"];
+    "Suspended", "Concealed"];
 
-ac_brand: any[] = ["Aiwa", "American Home", "Asahi", "Camel",
-  "Carrier", "Coldfront", "Condura", "Daikin", "Everest",
-  "Fujidenzo", "GE", "Concealed", "Gree", "Haeir",
-  "Hanabishi", "Hisense", "Hitachi", "Kelvinator", "Kolin",
-  "Koppel", "LG", "Lex", "Mabe", "Midea", "Mitsubishi", "National",
-  "Panasonic", "Samsung", "Sanyo", "Sharp", "TCLSSSS", "Union", "Xtreme",
-  "York", "Other"];
+  ac_brand: any[] = ["Aiwa", "American Home", "Asahi", "Camel",
+    "Carrier", "Coldfront", "Condura", "Daikin", "Everest",
+    "Fujidenzo", "GE", "Concealed", "Gree", "Haeir",
+    "Hanabishi", "Hisense", "Hitachi", "Kelvinator", "Kolin",
+    "Koppel", "LG", "Lex", "Mabe", "Midea", "Mitsubishi", "National",
+    "Panasonic", "Samsung", "Sanyo", "Sharp", "TCLSSSS", "Union", "Xtreme",
+    "York", "Other"];
 
-ac_unitType: any[] = ["Inverter", "Non-Inverter", "I don't know"];
+  ac_unitType: any[] = ["Inverter", "Non-Inverter", "I don't know"];
 
-unitdetailsForm: FormGroup;
-locationForm: FormGroup;
-scheduleForm: FormGroup;
-contactDetialsForm: FormGroup;
-subscription: Subscription;
+  unitdetailsForm: FormGroup;
+  locationForm: FormGroup;
+  scheduleForm: FormGroup;
+  contactDetialsForm: FormGroup;
+  subscription: Subscription;
 
-service_appliance = "Aircon";
-service_aptype = ""
-service_brand = "";
-service_unitType="";
-service_city = "";
-service_property_type = "";
-service_zipcode = null;
-service_date = "";
-service_timeslot = "";
-service_address = "";
-service_firstname = "";
-service_lastname = "";
-service_phoneNumber = null;
-service_addressDetails = "";
-service_instruction = "";
+  service_appliance = "Aircon";
+  service_aptype = ""
+  service_brand = "";
+  service_unitType = "";
+  service_city = "";
+  service_property_type = "";
+  service_zipcode = null;
+  service_date = "";
+  service_timeslot = "";
+  service_address = "";
+  service_firstname = "";
+  service_lastname = "";
+  service_phoneNumber = null;
+  service_addressDetails = "";
+  service_instruction = "";
 
-matcher = new MyErrorStateMatcher();
+  matcher = new MyErrorStateMatcher();
 
-city: any[] = ["Manila City", "Quezon City", "Caloocan City", "Las Piñas City", "Valenzuela City", "Makati City",
-  "Malabon City", "Mandaluyong City", "Marikina City", "Muntinlupa City", "Navotas City", "Parañaque City", "Pasay City",
-  "Pasig City", "San Juan City", "Taguig City", "Valenzuela City"];
+  city: any[] = ["Manila City", "Quezon City", "Caloocan City", "Las Piñas City", "Valenzuela City", "Makati City",
+    "Malabon City", "Mandaluyong City", "Marikina City", "Muntinlupa City", "Navotas City", "Parañaque City", "Pasay City",
+    "Pasig City", "San Juan City", "Taguig City", "Valenzuela City"];
 
-property_type: any[] = ["Condo", "Apartment", "House", "Store", "Office Building", "Warehouse or Storage"];
+  property_type: any[] = ["Condo", "Apartment", "House", "Store", "Office Building", "Warehouse or Storage"];
 
-@ViewChild('drawer') drawer: any;
-public selectedItem: string = '';
-public isHandset$: Observable<boolean> = this.breakpointObserver
-  .observe(Breakpoints.Handset)
-  .pipe(map((result: BreakpointState) => result.matches));
+  @ViewChild('drawer') drawer: any;
+  public selectedItem: string = '';
+  public isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map((result: BreakpointState) => result.matches));
 
-  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog, 
+  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog,
     private shared: SharedService, private breakpointObserver: BreakpointObserver) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     //Sending data to the service
     this.subscription = this.shared.currentACType.subscribe(service_aptype => this.service_aptype = service_aptype);
     this.subscription = this.shared.currentACBrand.subscribe(service_brand => this.service_brand = service_brand);
@@ -183,7 +183,7 @@ public isHandset$: Observable<boolean> = this.breakpointObserver
   labelPosition: 'before' | 'after' = 'after';
   disabled = false;
 
-  unitdetailsSubmit(){
+  unitdetailsSubmit() {
     if (this.unitdetailsForm.valid) {
       this.shared.changeACType(this.unitdetailsForm.value.service_aptype);
       this.shared.changeACBrand(this.unitdetailsForm.value.service_brand);
@@ -225,7 +225,7 @@ public isHandset$: Observable<boolean> = this.breakpointObserver
       return;
     }
   }
-  
+
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();
