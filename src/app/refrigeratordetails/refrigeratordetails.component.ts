@@ -113,8 +113,8 @@ export class RefrigeratordetailsComponent implements OnInit {
 
     this.contactDetialsForm = this._formBuilder.group({
       service_address: ['', Validators.required],
-      service_firstname: ['', (Validators.required, Validators.maxLength(15))],
-      service_lastname: ['', (Validators.required, Validators.maxLength(15))],
+      service_firstname: ['', Validators.required],
+      service_lastname: ['', Validators.required],
       service_phoneNumber: ['', [Validators.required, Validators.pattern]],
       service_addressDetails: ['', Validators.required],
       service_instruction: ['', Validators.required],

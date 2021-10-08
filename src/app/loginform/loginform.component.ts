@@ -80,15 +80,18 @@ export class LoginformComponent implements OnInit {
   }
   
   onClickSubmit() {
-    if (this.userForm.value.user_email == this.user_semail && this.userForm.value.user_password == this.user_spassword) {
+
+    const val = this.userForm.value;
+
+    if (val.user_email == this.user_semail && val.user_password == this.user_spassword) {
       alert("Login Successfully");
       this.onSubmit();
     }
-    else if(this.userForm.value.user_email == "admin" && this.userForm.value.user_password == "admin"){
+    else if(val.user_email == "admin" && val.user_password == "admin"){
       alert("Login Successfully");
       this.onSubmit1();
     }
-    else if(this.userForm.value.user_email == "" && this.userForm.value.user_password == ""){
+    else if(val.user_email == "" && val.user_password == ""){
       alert("Invalid Information. Please try again.");
       this.userForm.reset();
     }
