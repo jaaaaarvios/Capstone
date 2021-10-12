@@ -1,275 +1,163 @@
-<html>
-  <body>
-    <div class="dashboard">
-      <mat-drawer-container class="example-container">
-        <mat-drawer mode="side" opened>
-          <img class="logo" mat-card-image src="../../assets/mainlogo.png">
-      
-        <div class="dashboardside">
-          <div>
-            <mat-icon class="homeicon" aria-hidden="false" aria-label>dashboard</mat-icon>
-          </div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <br>
+    <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+    <mat-nav-list class="nav-list">
+      <div class="dashboardside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
+          <a class="dashboard-btn" routerLink="/admin">Dashboard</a>
+        </mat-list-item>
+      </div>
+      <div class="bookingside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">face</mat-icon>
+          <a class="booking-btn" routerLink="/technicians">Technicians</a>
+        </mat-list-item>
+      </div>
+      <div class="profileside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">schedule</mat-icon>
+          <a class="profile-btn" routerLink="/admin">Schedule</a>
+        </mat-list-item>
+      </div>
+      <!-- <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
+            <a class="nav-btn" routerLink="/payment">Payment</a>
+          </mat-list-item> -->
 
-          <div class="dashlink">
-            <a class="dashlink" routerLink="/admin">Dashboard</a>
-          </div>
-       </div>  
+    </mat-nav-list>
+  </mat-sidenav>
 
-        <div class="workerside">
-          <div>
-            <mat-icon class="workericon" aria-hidden="false" aria-label="">face</mat-icon>
-          </div>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <h1 class="ayosgamit">Ayosgamit</h1>
+      <span class="spacer"></span>
+      <mat-icon class="accounticon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+      <h2 class="welcome">Welcome, ADMIN!</h2>
+    </mat-toolbar>
 
-          <div class="workerlink">
-            <a class="workerlink" routerLink="/technicians">Technicians</a>
-          </div>
-        </div> 
-
-        <div class="scheduleside">
-          <div>
-            <mat-icon class="scheduleicon" aria-hidden="false" aria-label="">schedule</mat-icon>
-          </div>
-
-          <div class="schedulelink">
-            <a class="schedulelink" routerLink="/bookingform">Schedules</a>
-          </div>
-        </div>
-      </mat-drawer>
-
-    <mat-drawer-content>
-      <p>
-        <mat-toolbar class="toolbar">
-          <h1 class="logotxt"><b>Ayosgamit</b></h1>
-          <div>
-            <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
-              <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
-           </div>
-        </mat-toolbar>
-      </p>
- 
-
-<div>
-  
-
-  <mat-card class="newreqcard">
-    <img class="newreqbg" mat-card-image src="../../assets/newreqbg.jpg"> 
-      <h1 class="newreqtxt">New Requests</h1>
-       <h2 class="newreqcount">10</h2>
-  </mat-card>
+    <mat-grid-list [cols]="cols$ | async" rowHeight="35:10" gutterSize="0px" >
+      <mat-grid-tile>
+        <mat-card class="newreqcard">
+          <img class="newreqbg" mat-card-image src="../../assets/newreqbg.jpg">
+          <h1 class="newreqtxt">New Requests</h1>
+          <h2 class="newreqcount">10</h2>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card class="pendingcard">
+          <img class="pendingbg" mat-card-image src="../../assets/pendingbg.jpg">
+          <h1 class="pendingtxt">Pending Requests</h1>
+          <h2 class="pendingcount">10</h2>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card class="reschedcard">
+          <img class="reschedbg" mat-card-image src="../../assets/reschedbg.jpg">
+          <h1 class="reschedtxt">Rescheduled Requests</h1>
+          <h2 class="reschedcount">10</h2>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card class="completedcard">
+          <img class="completedbg" mat-card-image src="../../assets/completedbg.jpg">
+          <h1 class="completedtxt">Completed Requests</h1>
+          <h2 class="completedcount">10</h2>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card class="cancelledcard">
+          <img class="cancelledbg" mat-card-image src="../../assets/cancelledbg.jpg">
+          <h1 class="cancelledtxt">Cancelled Requests</h1>
+          <h2 class="cancelledcount">10</h2>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-card class="workercard">
+            <img class="workerbg" mat-card-image src="../../assets/workerbg.jpg">
+            <h1 class="workertxt">Active Technicians</h1>
+            <h2 class="workercount">10</h2>
+          </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
     
-  <mat-card class="completedcard">
-    <img class="completedbg" mat-card-image src="../../assets/completedbg.jpg"> 
-      <h1 class="completedtxt">Completed Requests</h1>
-       <h2 class="completedcount">10</h2>
-  </mat-card>
-
-  <mat-card class="pendingcard">
-    <img class="pendingbg" mat-card-image src="../../assets/pendingbg.jpg"> 
-      <h1 class="pendingtxt">Pending Requests</h1>
-       <h2 class="pendingcount">10</h2>
-  </mat-card>
-    
-  <mat-card class="cancelledcard">
-    <img class="cancelledbg" mat-card-image src="../../assets/cancelledbg.jpg"> 
-      <h1 class="cancelledtxt">Cancelled Requests</h1>
-       <h2 class="cancelledcount">10</h2>
-  </mat-card>
-
-  <mat-card class="reschedcard">
-    <img class="reschedbg" mat-card-image src="../../assets/reschedbg.jpg"> 
-      <h1 class="reschedtxt">Rescheduled Requests</h1>
-       <h2 class="reschedcount">10</h2>
-  </mat-card>
-    
-  <mat-card class="workercard">
-    <img class="workerbg" mat-card-image src="../../assets/workerbg.jpg"> 
-      <h1 class="workertxt">Active Technicians</h1>
-       <h2 class="workercount">10</h2>
-  </mat-card>
-
-</div>
-   
-<div>
-  <mat-tab-group>
-    <mat-tab label="New Requests">
-      <mat-card class="newreq">
-        <h1 class="h1new">New Requests</h1>
-          <mat-form-field class="searchfield" appearance="outline">
-            <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
+      <mat-tab-group>
+        <mat-tab label="New Requests">
+          <mat-card class="newreq">
+            <h1 class="h1new">New Requests</h1>
+            <mat-form-field class="searchfield" appearance="outline">
+              <mat-label>
+                <mat-icon>find_in_page</mat-icon>Search..
+              </mat-label>
               <input matInput>
-          </mat-form-field>
+            </mat-form-field>
 
-          <div>
-            <h1 class="serviceid">Service ID</h1>
-           </div>
-    
-          <div>
-            <h1 class="name">Name</h1>
-          </div>
-    
-          <div>
-            <h1 class="appdate">Appointed Date</h1>
-          </div>
-    
-          <div>
-            <h1 class="time">Time</h1>
-          </div>
-
-          <div>
-            <h1 class="address">Address</h1>
-          </div>
-    
-          <div>
-            <h1 class="dateapp">Date Appointed</h1>
-          </div>
-      </mat-card>
-    </mat-tab>
+          </mat-card>
+        </mat-tab>
 
 
-    <mat-tab label="Pending Requests">  
-      <mat-card class="pendingreq">
-        <h1 class="h1pending">Pending Requests</h1>
-          <mat-form-field class="searchfield" appearance="outline">
-            <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
+        <mat-tab label="Pending Requests">
+          <mat-card class="pendingreq">
+            <h1 class="h1pending">Pending Requests</h1>
+            <mat-form-field class="searchfield" appearance="outline">
+              <mat-label>
+                <mat-icon>find_in_page</mat-icon>Search..
+              </mat-label>
               <input matInput>
-          </mat-form-field>
+            </mat-form-field>
 
-          <div>
-            <h1 class="serviceid">Service ID</h1>
-           </div>
-    
-          <div>
-            <h1 class="name">Name</h1>
-          </div>
-    
-          <div>
-            <h1 class="appdate">Appointed Date</h1>
-          </div>
-    
-          <div>
-            <h1 class="time">Time</h1>
-          </div>
+          </mat-card>
+        </mat-tab>
 
-          <div>
-            <h1 class="address">Address</h1>
-          </div>
-    
-          <div>
-            <h1 class="dateapp">Date Appointed</h1>
-          </div>
-     </mat-card>
-  </mat-tab>
+        <mat-tab label="Completed Requests">
+          <mat-card class="completedreq">
+            <h1 class="h1completed">Completed Requests</h1>
+            <mat-form-field class="searchfield" appearance="outline">
+              <mat-label>
+                <mat-icon>find_in_page</mat-icon>Search..
+              </mat-label>
+              <input matInput>
+            </mat-form-field>
 
-  <mat-tab label="Completed Requests"> 
-    <mat-card class="completedreq">
-      <h1 class="h1completed">Completed Requests</h1>
-        <mat-form-field class="searchfield" appearance="outline">
-          <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
-            <input matInput>
-        </mat-form-field>
+          </mat-card>
+        </mat-tab>
 
-        <div>
-          <h1 class="serviceid">Service ID</h1>
-         </div>
-  
-        <div>
-          <h1 class="name">Name</h1>
-        </div>
-  
-        <div>
-          <h1 class="appdate">Appointed Date</h1>
-        </div>
-  
-        <div>
-          <h1 class="time">Time</h1>
-        </div>
+        <mat-tab label="Cancelled Requests">
+          <mat-card class="cancelledreq">
+            <h1 class="h1cancelled">Cancelled Requests</h1>
+            <mat-form-field class="searchfield" appearance="outline">
+              <mat-label>
+                <mat-icon>find_in_page</mat-icon>Search..
+              </mat-label>
+              <input matInput>
+            </mat-form-field>
 
-        <div>
-          <h1 class="address">Address</h1>
-        </div>
-  
-        <div>
-          <h1 class="dateapp">Date Appointed</h1>
-        </div>
-    </mat-card>
-  </mat-tab>
+          </mat-card>
+        </mat-tab>
 
-  <mat-tab label="Cancelled Requests">
-    <mat-card class="cancelledreq">
-      <h1 class="h1cancelled">Cancelled Requests</h1>
-        <mat-form-field class="searchfield" appearance="outline">
-          <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
-            <input matInput>
-        </mat-form-field>
+        <mat-tab label="Rescheduled Requests">
+          <mat-card class="reschedreq">
+            <h1 class="h1resched">Rescheduled Requests</h1>
+            <mat-form-field class="searchfield" appearance="outline">
+              <mat-label>
+                <mat-icon>find_in_page</mat-icon>Search..
+              </mat-label>
+              <input matInput>
+            </mat-form-field>
 
-        <div>
-          <h1 class="serviceid">Service ID</h1>
-         </div>
-  
-        <div>
-          <h1 class="name">Name</h1>
-        </div>
-  
-        <div>
-          <h1 class="appdate">Appointed Date</h1>
-        </div>
-  
-        <div>
-          <h1 class="time">Time</h1>
-        </div>
+          </mat-card>
+        </mat-tab>
+      </mat-tab-group>
 
-        <div>
-          <h1 class="address">Address</h1>
-        </div>
-  
-        <div>
-          <h1 class="dateapp">Date Appointed</h1>
-        </div>
-    </mat-card>
-  </mat-tab>
-
-  <mat-tab label="Rescheduled Requests">
-    <mat-card class="reschedreq">
-      <h1 class="h1resched">Rescheduled Requests</h1>
-        <mat-form-field class="searchfield" appearance="outline">
-          <mat-label><mat-icon>find_in_page</mat-icon>Search..</mat-label>
-            <input matInput>
-        </mat-form-field>
-
-        <div>
-          <h1 class="serviceid">Service ID</h1>
-         </div>
-  
-        <div>
-          <h1 class="name">Name</h1>
-        </div>
-  
-        <div>
-          <h1 class="appdate">Appointed Date</h1>
-        </div>
-  
-        <div>
-          <h1 class="time">Time</h1>
-        </div>
-
-        <div>
-          <h1 class="address">Address</h1>
-        </div>
-  
-        <div>
-          <h1 class="dateapp">Date Appointed</h1>
-        </div>
-    </mat-card>
-  </mat-tab>
-</mat-tab-group>
-
-</div>
-
-
-
-
-
-
-
-    
-  
+  </mat-sidenav-content>
+</mat-sidenav-container>

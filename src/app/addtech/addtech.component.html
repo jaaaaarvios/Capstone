@@ -1,62 +1,104 @@
-<html>
-    <body>
-        <div class="mat-dialog-content">
-            
-            <h1 class="title">Add Technician</h1>
-          
-            
-        <div>
-            <mat-form-field class="name" appearance="outline">
-                <mat-label>Name</mat-label>
-                <input matInput [formControl]="name" required>
-                <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
-            </mat-form-field>
+
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <br>
+      <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+      <mat-nav-list class="nav-list">
+        <div class="dashboardside">
+          <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
+            <a class="dashboard-btn" routerLink="/admin">Dashboard</a>
+          </mat-list-item>
         </div>
-
-        <div>
-            <mat-form-field class="specialization" appearance="outline">
-                <mat-label>Specialization</mat-label>
-                    <mat-select>
-                        <mat-option value="one">Appliances Repair</mat-option>
-                        <mat-option value="two">Appliances cleaning</mat-option>
-                        <mat-option value="two">Installation and Dismantling</mat-option>
-                    </mat-select>
-            </mat-form-field>
+        <div class="bookingside">
+          <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">face</mat-icon>
+            <a class="booking-btn" routerLink="/technicians">Technicians</a>
+          </mat-list-item>
         </div>
-        
-        <div>
-            <mat-form-field class="contact" appearance="outline">
-                <mat-label>Contact Number</mat-label>
-                <input matInput #input maxlength="11">
-                <mat-hint>{{input.value?.length || 0}}/11</mat-hint>
-            </mat-form-field>
+        <div class="profileside">
+          <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">schedule</mat-icon>
+            <a class="profile-btn" routerLink="/admin">Schedule</a>
+          </mat-list-item>
         </div>
-
-        <div>
-            <mat-form-field class="address" appearance="outline">
-                <mat-label>Home Address</mat-label>
-                <input matInput>
-              </mat-form-field>
+        <!-- <mat-list-item (click)="closeSideNav()">
+              <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
+              <a class="nav-btn" routerLink="/payment">Payment</a>
+            </mat-list-item> -->
+  
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <h1 class="ayosgamit">Ayosgamit</h1>
+        <span class="spacer"></span>
+      </mat-toolbar>
+  
+      <div class="mat-dialog-content">
+        <h1 class="title">Add Technician</h1>
+        <div class="container">
+            <form [formGroup]="addTech" (ngSubmit)="submit()">
+                <div class="card">
+    
+                    <mat-form-field class="textfield" appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="tech_name" pattern="[a-zA-Z_ ]{1,30}" 
+                        placeholder="Juan Dela Cruz" [errorStateMatcher]="matcher" autocomplete="off">
+                        <mat-error *ngIf="addTech.get('tech_name').hasError('required')">
+                            Input Technicians full name
+                        </mat-error>
+                        <mat-error *ngIf="addTech.get('tech_name').hasError('pattern')">
+                            Invalid Technicians name
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <div class="form-group">
+                        <label for="tech_specialization">Specialization:</label>
+                        <div *ngFor="let web of specializationList">
+                            <label>
+                                <input type="checkbox" [value]="web.job" (change)="onCheckboxChange($event)" />
+                                {{web.job}}
+                            </label>
+                        </div>
+                    </div>
+    
+                    <mat-form-field class="textfield" appearance="outline">
+                        <mat-label>Contact Number</mat-label>
+                        <input matInput formControlName="tech_number" #input pattern="(09)[0-9]{9}" maxlength="11"
+                            placeholder="09XXXXXXXXX" [errorStateMatcher]="matcher" autocomplete="off">
+                        <mat-hint>{{input.value?.length || 0}}/11</mat-hint>
+                        <mat-error *ngIf="addTech.get('tech_number').hasError('required')">
+                            Input Technicians contact number.
+                        </mat-error>
+                        <mat-error *ngIf="addTech.get('tech_number').hasError('pattern')">
+                            Invalid contact number.
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <mat-form-field class="textfield" appearance="outline">
+                        <mat-label>Home Address</mat-label>
+                        <input matInput formControlName="tech_address" [errorStateMatcher]="matcher" autocomplete="off">
+                        <mat-error *ngIf="addTech.get('tech_address').hasError('required')">
+                            Input Technicians address
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <button type="submit" class="addBtn">Add</button>
+            </form>
         </div>
-
-
-        <div>
-            <button mat-raised-button class="addBtn">Add</button>
-            
-        </div>
-
-
-
-
-
-
-
-
-
-
-               
-            </div>
-       
-    </body>
-</html>
-
+    </div>
+  
+    </mat-sidenav-content>
+  </mat-sidenav-container>

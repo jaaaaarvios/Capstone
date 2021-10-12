@@ -32,6 +32,7 @@ import { ElectricfanInstallComponent } from './electricfan-install/electricfan-i
 import { WashingmachineInstallComponent } from './washingmachine-install/washingmachine-install.component';
 import { TelevisionInstallComponent } from './television-install/television-install.component';
 import { BookingsummaryComponent } from './bookingsummary/bookingsummary.component';
+import { AddtechComponent } from './addtech/addtech.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -68,6 +69,7 @@ const routes: Routes = [
   { path: 'washingmachine-installation', component: WashingmachineInstallComponent },
   { path: 'television-installation', component: TelevisionInstallComponent },
   { path: 'summary', component: BookingsummaryComponent },
+  { path: 'add_technician', component: AddtechComponent }
 ];
 
 @NgModule({
