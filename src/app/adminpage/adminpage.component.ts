@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-adminpage',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminpageComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('drawer') drawer: any;
+  public selectedItem: string = '';
+  public isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map((result: BreakpointState) => result.matches));
+
+  cols$: Observable<number> = this.breakpointObserver
+  .observe([Breakpoints.Small, Breakpoints.XSmall])
+  .pipe(
+    map((result) => {
+      if (result.breakpoints[Breakpoints.XSmall]) {
+        return 1;
+      } else if (result.breakpoints[Breakpoints.Small]) {
+        return 2;
+      } else {
+        return 3;
+      }
+    }),
+  );
+
+  constructor( private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
+  }
+
+  closeSideNav() {
+    if (this.drawer._mode == 'over') {
+      this.drawer.close();
+    }
   }
 
 }

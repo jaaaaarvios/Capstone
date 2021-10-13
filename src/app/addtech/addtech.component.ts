@@ -1,8 +1,10 @@
-import { analyzeAndValidateNgModules } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-
-
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { MyErrorStateMatcher } from '../app.component';
 
 @Component({
   selector: 'app-addtech',
@@ -12,33 +14,64 @@ import { FormControl, Validators } from '@angular/forms';
 export class AddtechComponent implements OnInit {
   url: any;
   imageSrc: string | ArrayBuffer;
+  
+  matcher = new MyErrorStateMatcher();
 
-  onUpload()
-  {
+  addTech: FormGroup;
+  specializationList: any = [
+    { id: 1, job: 'Appliances Repair' },
+    { id: 2, job: 'Appliances cleaning' },
+    { id: 3, job: 'Installation and Dismantling' }
+  ];
+
+  @ViewChild('drawer') drawer: any;
+  public selectedItem: string = '';
+  public isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map((result: BreakpointState) => result.matches));
+
+  constructor(private formBuilder: FormBuilder, private router: Router,
+    private breakpointObserver: BreakpointObserver){}
+
+  onUpload() {
+  }
+
+  ngOnInit(): void {
+    this.addTech = this.formBuilder.group({
+      tech_specialization: this.formBuilder.array([], [Validators.required]),
+      tech_name: ['', Validators.required],
+      tech_number: ['', Validators.required],
+      tech_address: ['', Validators.required],
+    });
+  }
+
+  onCheckboxChange(e) {
+    const tech_specialization: FormArray = this.addTech.get('tech_specialization') as FormArray;
+  
+    if (e.target.checked) {
+      tech_specialization.push(new FormControl(e.target.value));
+    } else {
+       const index = tech_specialization.controls.findIndex(x => x.value === e.target.value);
+       tech_specialization.removeAt(index);
+    }
+  }
+
+  submit(){
+    if(this.addTech.valid){
+      console.log(this.addTech.value);
+      alert("Added Successfully!");
+      this.router.navigate(['/technicians']);
+    }
+    else{
+      alert("Fill up the requirements.");
+    }
     
   }
-  
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
-  name = new FormControl('', [Validators.required, Validators.required]);
-
-  getErrorMessage() {
-    if (this.name.hasError('required')) {
-      return 'Enter a name';
+  closeSideNav() {
+    if (this.drawer._mode == 'over') {
+      this.drawer.close();
     }
-  
-  
-  
-
-  AddtechComponent.constructor(); { }
-
-  this.ngOnInit()  
-{
+  }
 
 }
-
-
-    }
-  }

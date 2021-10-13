@@ -82,7 +82,7 @@ export class LoginformComponent implements OnInit {
   onClickSubmit() {
 
     const val = this.userForm.value;
-
+    
     if (val.user_email == this.user_semail && val.user_password == this.user_spassword) {
       alert("Login Successfully");
       this.onSubmit();
@@ -93,7 +93,6 @@ export class LoginformComponent implements OnInit {
     }
     else if(val.user_email == "" && val.user_password == ""){
       alert("Invalid Information. Please try again.");
-      this.userForm.reset();
     }
     else{
       alert("Invalid Information. Please try again.");
@@ -118,7 +117,7 @@ export class LoginformComponent implements OnInit {
         });
       }
       else{
-        alert("Fill up the textfields with valid information");
+        alert("Fill up the required textfields with valid information");
       }
   }
 

@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { TechprofileComponent } from '../techprofile/techprofile.component';
-import {AddtechComponent} from '../addtech/addtech.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-technicians',
@@ -10,7 +13,14 @@ import {AddtechComponent} from '../addtech/addtech.component';
 })
 export class TechniciansComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  @ViewChild('drawer') drawer: any;
+  public selectedItem: string = '';
+  public isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map((result: BreakpointState) => result.matches));
+
+  constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver
+    ,private router: Router) { }
 
   TechprofileOpenDialog() {
     const dialogRef = this.dialog.open(TechprofileComponent);
@@ -21,13 +31,15 @@ export class TechniciansComponent implements OnInit {
   }
 
   AddtechOpenDialog() {
-    const dialogRef = this.dialog.open(AddtechComponent);
-    
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.router.navigate(['/add_technician']);
   }
   ngOnInit(): void {
+  }
+
+  closeSideNav() {
+    if (this.drawer._mode == 'over') {
+      this.drawer.close();
+    }
   }
 
 }
