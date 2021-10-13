@@ -26,11 +26,15 @@
           <a class="profile-btn" routerLink="/profile">Profile</a>
         </mat-list-item>
       </div>
-      <!-- <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
-          <a class="nav-btn" routerLink="/payment">Payment</a>
-        </mat-list-item> -->
-    </mat-nav-list>
+     
+      <div class="logoutside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon">exit_to_app</mat-icon>
+          <a class="logout-btn" routerLink="/home">Logout</a>
+        </mat-list-item>
+        </div>
+
+      </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -39,6 +43,8 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+      <h1 class="ayosgamit">Ayosgamit</h1>
+      <span class="spacer"></span>
     </mat-toolbar>
     <!--1st Stepper-->
     <mat-horizontal-stepper class="stepper" #stepper [linear]="true">

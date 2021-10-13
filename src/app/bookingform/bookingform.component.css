@@ -1,42 +1,29 @@
+@media (min-width: 820px)
+{
 .sidenav-container {
   height: 100%;
 }
+
 .sidenav{
   width: fit-content;
   width: 280px;
   background-color: #EAE2B7;
 }
+
 .mat-sidenav-content{
    height: 910px;
    background-color: white;
 }
+
 .mat-toolbar{
   background-color: #D62828;
   width: 100%;
 }
+
 .logo{
-  width: 180px;
-  height: 150px;
-  padding-top: 40px;
-  margin-left: 55px;
-}
-
-.dashtitle
-{
-  color: #003049;
-  font-size: 25px;
-  margin-left: 80px;
-  margin-top: 60px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-}
-
-.dashvector
-{
-  width: 360px;
-  height: 250px;
-  margin-left: 620px;
-  margin-top: -60px;
+  width: 60%;
+  height: 18%;
+  margin-left: 60px;
 }
 
 .nav-icon{
@@ -103,6 +90,7 @@
 .profileside:hover
 {
     background-color: #c8c19c;
+    
     width: 100%;
     height: 70px;
     margin-left: 0;
@@ -118,24 +106,41 @@
   margin-left: 25px;
 }
 
+.logoutside{
+  margin-left: 0px;
+  margin-top: 30px;
+  text-align: justify;
+}
 
-.spacer{
-  flex: 1 1 auto;
-}
-.inboxicon
+.logoutside:hover
 {
+    background-color: #c8c19c;
+    
+    width: 100%;
+    height: 70px;
+    margin-left: 0;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+.logout-btn
+{
+  color: #003049;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 25px;
+}
+
+
+.ayosgamit
+{
+  font-family: 'Candara';
   font-size: 30px;
-  color: #14213D;
-  margin-right: 20px;
+  margin-left: 10px;
+  color: #FFFFFF;
 }
-.logoutBtn
-{
-  font-size: 20px;
-  color: antiquewhite;
-}
-.logoutBtn:hover{
-  background-color: black;
-}
+
+
 .allservices{
   display: flex;
   justify-content: center;
@@ -213,4 +218,93 @@
     color: #14213D;
     margin-top: 100px;
     text-align: center;
+}
+}
+@media (max-width: 576px)
+{
+  .logo{
+    width: 65%;
+    height: 15%;
+    padding-top: 10px;
+    margin-left: 30px;
+  }
+
+  .mat-toolbar{
+    background-color: #D62828;
+    width: 100%;
+  }
+
+  .ayosgamit
+{
+  font-family: 'Candara';
+  font-size: 20px;
+  position: center;
+  color: #FFFFFF;
+}
+
+.h1serviceneed
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: #14213D;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.appliancescard
+{
+    margin-top: 50px;
+    width: 40%;
+    height: 40%;
+    position: center;
+    margin-left: 110px;
+}
+.h1appliances
+{
+  font-family: 'Trebuchet MS';
+  font-size: 13px;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+}
+
+.appliancesimg
+{
+  width: 50px;
+  height: 70px;
+}
+
+.cleaningcard
+{
+  margin-top: 50px;
+  width: 40%;
+  height: 40%;
+  position: center;
+  margin-left: 110px;
+}
+.h1cleaning
+{
+    font-family: 'Trebuchet MS';
+    font-size: 13px;
+    justify-content: center;
+    display: flex;
+    margin: auto;
+}
+.installcard
+{
+  margin-top: 50px;
+    width: 40%;
+    height: 40%;
+    position: center;
+    margin-left: 110px;
+}
+.h1install
+{
+    font-family: 'Trebuchet MS';
+    font-size: 12px;
+    justify-content: center;
+    display: flex;
+    margin: auto;
+    margin-left: -8px;
+}
 }

@@ -26,10 +26,15 @@
           <a class="profile-btn" routerLink="/profile">Profile</a>
         </mat-list-item>
       </div>
-      <!-- <mat-list-item (click)="closeSideNav()">
-            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
-            <a class="nav-btn" routerLink="/payment">Payment</a>
-          </mat-list-item> -->
+     
+      <div class="logoutside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon">exit_to_app</mat-icon>
+          <a class="logout-btn" routerLink="/home">Logout</a>
+        </mat-list-item>
+        </div>
+
+    
 
     </mat-nav-list>
   </mat-sidenav>
@@ -42,12 +47,9 @@
       </button>
       <h1 class="ayosgamit">Ayosgamit</h1>
       <span class="spacer"></span>
-      <mat-icon class="accounticon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+      
       <h2 class="welcome">Welcome, {{user_fname}}!</h2>
-      <button class="logoutBtn" (click)="signOut()" mat-button>
-        <mat-icon class="logouticon">exit_to_app<h1 class="logoutxt">Logout</h1>
-        </mat-icon>
-      </button>
+      
     </mat-toolbar>
 
     <div class="container">
@@ -55,45 +57,20 @@
       <div>
         <h1 class="dashtitle">Dashboard</h1>
       </div>
-
       <div class="datetime">
         <label>{{date | date: "MMMM dd, yyyy "}}</label>
         <label>({{date | date: "h:mm:a'"}})</label>
       </div>
+     
 
       <div>
-        <h1 class="services">Services Offered</h1>
+        <img class="dashvector" mat-card-image src="../../assets/homebg1.png">
       </div>
-
-      <div class="cards">
-        <mat-card class="card_appliance">
-          <img class="card_image" mat-card-image src="../../assets/aircon cleaning.jpg">
-          <h1 class="card_txt">Air Conditioner</h1>
-        </mat-card>
-
-        <mat-card class="card_appliance">
-          <img class="card_image" mat-card-image src="../../assets/ref repair.jpg">
-          <h1 class="card_txt">Refigerator</h1>
-        </mat-card>
-
-        <mat-card class="card_appliance">
-          <img class="card_image" mat-card-image src="../../assets/fan repair.jpg">
-          <h1 class="card_txt">Electric Fans</h1>
-        </mat-card>
-
-        <mat-card class="card_appliance">
-          <img class="card_image" mat-card-image src="../../assets/washing.jpg">
-          <h1 class="card_txt">Washing Machine</h1>
-        </mat-card>
-
-        <mat-card class="card_appliance">
-          <img class="card_image" mat-card-image src="../../assets/tv repair.jpg">
-          <h1 class="card_txt">Television</h1>
-        </mat-card>
 
       </div>
 
       <mat-tab-group class="tab">
+
         <mat-tab label="Pending Requests">
           <mat-card class="pendingcard">
             <h2 class="request">Pending Requests</h2>
@@ -133,7 +110,6 @@
         </mat-tab>
     </mat-tab-group>
 
-  </div>
+
 
   </mat-sidenav-content>
-</mat-sidenav-container>
