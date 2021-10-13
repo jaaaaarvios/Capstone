@@ -529,39 +529,6 @@ color: #FFFFFF;
     font-size: 18px;
     font-family: 'Trebuchet MS';
   }
-  
-  .airconcard
-  {
-    margin-top: 100px;
-    margin-left: 250px;
-    width: 200px;
-    height: 200px;
-  }
-  
-  .refcard
-  {
-    margin-top: -235px;
-    margin-left: 500px;
-    width: 200px;
-    height: 200px;
-  }
-  
-  .efancard
-  {
-    margin-top: -235px;
-    margin-left: 760px;
-    width: 200px;
-    height: 200px;
-  }
-  
-  .washingcard
-  {
-    margin-top: -230px;
-    margin-left: 1015px;
-    width: 200px;
-    height: 200px;
-  }
-  
   .timeslots
   {
     margin-top: -135px;
@@ -762,4 +729,27 @@ color: #FFFFFF;
     margin-top: 25px;
     float: left;
   }
+  .CDbackBtn
+  {
+    margin-top: 30px;
+    font-size: 18px;
+    font-family: 'Trebuchet MS';
+    background-color: #D62828;
+    color: #FFFFFF;
+    width: 100px;
+    height: 50px;
+    float: left;
+  }
+  .doneBtn
+  {
+    margin-top: 30px;
+    font-size: 18px;
+    font-family: 'Trebuchet MS';
+    background-color: #FCA311;
+    color: #14213D;
+    width: 100px;
+    height: 50px;
+    float: right;
+  }
+
 }
