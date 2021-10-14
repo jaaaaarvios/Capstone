@@ -1,3 +1,14 @@
+.mat-toolbar{
+    background-color: #D62828;
+    width: 100%;
+}
+.ayosgamit
+{
+  font-family: 'Candara';
+  font-size: 30px;
+  margin-left: 10px;
+  color: #FFFFFF;
+}
 .container{
     height: 100%;
     display: flex;

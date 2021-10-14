@@ -67,6 +67,7 @@ import { ElectricfanInstallComponent } from './electricfan-install/electricfan-i
 import { WashingmachineInstallComponent } from './washingmachine-install/washingmachine-install.component';
 import { TelevisionInstallComponent } from './television-install/television-install.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -114,6 +115,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ElectricfanInstallComponent,
     WashingmachineInstallComponent,
     TelevisionInstallComponent,
+    StarRatingComponent,
 
   ],
   imports: [

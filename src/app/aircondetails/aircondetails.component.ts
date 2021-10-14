@@ -43,6 +43,7 @@ export class AircondetailsComponent implements OnInit {
   subscription: Subscription;
 
   service_appliance = "";
+  service_type = "";
   service_aptype = "";
   service_brand = "";
   service_unitType="";
@@ -78,6 +79,8 @@ export class AircondetailsComponent implements OnInit {
 
   ngOnInit(): void {
     //Sending data to the service
+    this.subscription = this.shared.currentAppliance.subscribe(service_appliance => this.service_appliance = service_appliance);
+    this.subscription = this.shared.currentServiceType.subscribe(service_type => this.service_type = service_type);
     this.subscription = this.shared.currentACType.subscribe(service_aptype => this.service_aptype = service_aptype);
     this.subscription = this.shared.currentACBrand.subscribe(service_brand => this.service_brand = service_brand);
     this.subscription = this.shared.currentACUType.subscribe(service_unitType => this.service_unitType = service_unitType);
@@ -241,5 +244,25 @@ export class AircondetailsComponent implements OnInit {
       this.drawer.close();
     }
   }
-  
+
+  // getServiceDetails(){
+  //   serviceDetails:[ 
+  //     this.service_appliance,
+  //     this.service_aptype,
+  //     this.service_brand,
+  //     this.service_unitType,
+  //     this.service_unitProb,
+  //     this.service_city,
+  //     this.service_property_type,
+  //     this.service_zipcode ,
+  //     this.service_date ,
+  //     this.service_timeslot,
+  //     this.service_address,
+  //     this.service_firstname,
+  //     this.service_lastname,
+  //     this.service_phoneNumber,
+  //     this.service_addressDetails,
+  //     this.service_instruction,
+  //   ]
+  // }
 }

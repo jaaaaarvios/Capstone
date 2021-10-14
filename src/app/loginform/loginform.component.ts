@@ -1,9 +1,11 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedService } from '../shared/shared.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-loginform', 
@@ -33,10 +35,15 @@ export class LoginformComponent implements OnInit {
   userForm: FormGroup;
   signupForm: FormGroup;
   subscription: Subscription;
+
+  @ViewChild('drawer') drawer: any;
+  public selectedItem: string = '';
+  public isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map((result: BreakpointState) => result.matches));
  
   constructor(private router: Router, private shared: SharedService,
-    ngZone: NgZone
-    ) {
+    ngZone: NgZone, private breakpointObserver: BreakpointObserver) {
 
       window ['onSignIn'] = user => ngZone.run(
         () => {
@@ -119,6 +126,12 @@ export class LoginformComponent implements OnInit {
       else{
         alert("Fill up the required textfields with valid information");
       }
+  }
+
+  closeSideNav() {
+    if (this.drawer._mode == 'over') {
+      this.drawer.close();
+    }
   }
 
 }

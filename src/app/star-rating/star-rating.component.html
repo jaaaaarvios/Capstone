@@ -1,0 +1,12 @@
+<h2>Rate the technician </h2>
+<div class="row">
+    <div class="col-sm-12">
+        <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+            <li (click)="countStar(star)" [ngClass]="{'selected': (star &lt;= selectedValue)}">
+                <button mat-button>
+                    <mat-icon class="star">star</mat-icon>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>

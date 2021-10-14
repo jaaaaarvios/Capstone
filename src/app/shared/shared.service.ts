@@ -165,5 +165,4 @@ export class SharedService {
   changeInstruction(service_instruction: string) {
     this.instructionSource.next(service_instruction)
   }
-
 }
