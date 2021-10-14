@@ -1,13 +1,14 @@
 @media (min-width: 820px)
 {
-    .container
+    body
     {
-        background-image: url("../../assets/homebg.jpg");
-        background-repeat: no-repeat;
-        background-size: cover !important;
-        background-attachment: fixed;
+        background-image: url('../../assets/homebg.jpg');
+        background-size: cover;
+        text-align: center;
         width: 100%;
-        height: 100%;
+        height: 100vh;
+        background-attachment: fixed;
+        
     }
 
     .logo
@@ -22,45 +23,51 @@
     
 .content
 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 30px;
+  
+    float: left;
+    margin-left: -500px;
+    margin-top: 350px;
     
-    
-    margin-top: 250px;
 }
 
 .title1
 {
-    margin-top: -40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFFFFF;
+    float: left;
+    font-size: 35px;
+    margin-left: 10px;
 }
 
 .title2
 {
-    margin-top: -40px;
-}
-
-.menu
-{
-    float: left;
-    margin-left: 50px;
-    margin-top: 80px;
-}
-
-.servicesBtn
-{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #FFFFFF;
-    font-size: 17px;
-    margin-right: 150px;
+    float: left;
+    font-size: 35px;
+    margin-left: -370px;
+    margin-top: 35px;
 }
 
 .pricingBtn
 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #FFFFFF;
+    float: left;
+    margin-left: 100px;
+    margin-top: 80px;
     font-size: 17px;
-    margin-right: 150px;
+    
+}
+
+.contactUsBtn
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFFFFF;
+    font-size: 17px;
+    float: left;
+    margin-left: 100px;
+    margin-top: 80px;
 }
 
 .aboutusBtn
@@ -68,18 +75,135 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #FFFFFF;
     font-size: 17px;
+    float: left;
+    margin-left: 100px;
+    margin-top: 80px;
 }
 
+.bookBtn
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FFFFFF;
+    color: #D62828;
+    float: left;
+    margin-left: -490px;
+    margin-top: 450px;
+    font-size: 15px;
 }
 
+.inquireBtn
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #D62828;
+    color: #FFFFFF;
+    float: left;
+    margin-left: -350px;
+    margin-top: 450px;
+    font-size: 15px;
+}
+}
 
 @media (max-width: 576px)
 {
-    .backgroundimg
+
+    body
     {
-        background-image: url("../../assets/mobilebg.jpg") !important;
-        background-repeat: no-repeat;
-         width: 100%;
-        height: 100%;
+        background-image: url('../../assets/mobilebg.jpg');
+        background-size: cover;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        background-attachment: fixed;
+        
+    }
+    .logo
+    {
+        width: 30%;
+        height: 30%;
+        float: left !important;
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+    
+    .content
+    {
+      
+        float: left;
+        margin-left: 10px;
+        margin-top: 150px;
+        
+    }
+    
+    .title1
+    {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #FFFFFF;
+        float: left;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    
+    .title2
+    {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #FFFFFF;
+        float: left;
+        font-size: 20px;
+        margin-left: 10px;
+        margin-top: 0;
+    }
+    
+    .pricingBtn
+    {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #FFFFFF;
+        float: left;
+        margin-left: 0;
+        margin-top: 60px;
+        font-size: 15px;
+        
+    }
+    
+    .contactUsBtn
+    {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #FFFFFF;
+        font-size: 17px;
+        float: left;
+        margin-left: 5px;
+        margin-top: 60px;
+        font-size: 15px;
+    }
+    
+    .aboutusBtn
+    {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #FFFFFF;
+        font-size: 17px;
+        float: left;
+        
+        font-size: 15px;
+    }
+    
+    .bookBtn
+    {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #FFFFFF;
+        color: #D62828;
+        float: left;
+        margin-left: 15px;
+        margin-top: 20px;
+        font-size: 12px;
+    }
+    
+    .inquireBtn
+    {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #D62828;
+        color: #FFFFFF;
+        float: left;
+        margin-left: 10px;
+        margin-top: 20px;
+        font-size: 12px;
     }
 }
