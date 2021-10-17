@@ -33,6 +33,10 @@ import { WashingmachineInstallComponent } from './washingmachine-install/washing
 import { TelevisionInstallComponent } from './television-install/television-install.component';
 import { BookingsummaryComponent } from './bookingsummary/bookingsummary.component';
 import { AddtechComponent } from './addtech/addtech.component';
+import { EditAddressComponent } from './edit-address/edit-address.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -69,7 +73,10 @@ const routes: Routes = [
   { path: 'washingmachine-installation', component: WashingmachineInstallComponent },
   { path: 'television-installation', component: TelevisionInstallComponent },
   { path: 'summary', component: BookingsummaryComponent },
-  { path: 'add_technician', component: AddtechComponent }
+  { path: 'add_technician', component: AddtechComponent },
+  { path: 'edit_address', component: EditAddressComponent },
+  { path: 'edit_profile', component: EditProfileComponent },
+  { path: 'change_password', component: ChangePasswordComponent },
 ];
 
 @NgModule({

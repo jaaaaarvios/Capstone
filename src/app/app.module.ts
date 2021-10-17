@@ -68,6 +68,9 @@ import { WashingmachineInstallComponent } from './washingmachine-install/washing
 import { TelevisionInstallComponent } from './television-install/television-install.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StarRatingComponent } from './star-rating/star-rating.component';
+import { EditAddressComponent } from './edit-address/edit-address.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -116,6 +119,9 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
     WashingmachineInstallComponent,
     TelevisionInstallComponent,
     StarRatingComponent,
+    EditAddressComponent,
+    EditProfileComponent,
+    ChangePasswordComponent,
 
   ],
   imports: [

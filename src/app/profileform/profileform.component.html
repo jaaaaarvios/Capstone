@@ -1,60 +1,105 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <br>
+    <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+    <mat-nav-list class="nav-list">
+      <div class="dashboardside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
+          <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
+        </mat-list-item>
+      </div>
 
-  <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+      <div class="bookingside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+          <a class="booking-btn" routerLink="/booking">Book a Service</a>
+        </mat-list-item>
+      </div>
+
+      <div class="profileside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+          <a class="profile-btn" routerLink="/profile">Profile</a>
+        </mat-list-item>
+      </div>
+
+      <div class="logoutside">
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon class="nav-icon">exit_to_app</mat-icon>
+          <a class="logout-btn" routerLink="/home">Logout</a>
+        </mat-list-item>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar>
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-
-      <br>
-      <img class="logo" mat-card-image src="../../assets/mainlogo.png">
-      <mat-nav-list class="nav-list">
-        <div class="dashboardside">
-          <mat-list-item (click)="closeSideNav()">
-            <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
-            <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
-          </mat-list-item>
-        </div>
-  
-        <div class="bookingside">
-          <mat-list-item (click)="closeSideNav()">
-            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-            <a class="booking-btn" routerLink="/booking">Book a Service</a>
-          </mat-list-item>
-        </div>
-  
-        <div class="profileside">
-          <mat-list-item (click)="closeSideNav()">
-            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-            <a class="profile-btn" routerLink="/profile">Profile</a>
-          </mat-list-item>
-        </div>
-  
-        <!-- <mat-list-item (click)="closeSideNav()">
-              <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
-              <a class="nav-btn" routerLink="/payment">Payment</a>
-            </mat-list-item> -->
-      </mat-nav-list>
-    </mat-sidenav>
-  
-    <mat-sidenav-content>
-      <mat-toolbar>
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <h2>Profile</h2>
-        <span class="spacer"></span>
-        <mat-icon class="inboxicon" matBadge="15" matBadgeColor="warn">inbox</mat-icon>
-        <button class="logoutBtn" (click)="signOut()" mat-button>
-          <mat-icon class="logouticon" aria-hidden="false" aria-label="">power_settings_new</mat-icon>
-          Logout
-        </button>
+      <h1 class="ayosgamit">Ayosgamit</h1>
+      <span class="spacer"></span>
     </mat-toolbar>
     <!-- put the content below -->
-    <p>
-      Profile Works!
-    </p>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+    <div>
+      <h1>Profile Settings</h1>
+      <mat-card class="editprofile">
+        <div>
+          <button class="editbtn" mat-raised-button routerLink="/edit_profile">Edit</button>
+        </div>
+        <div>
+          <h1 class="personalinfoLbl">Full Name</h1>
+        </div>
+        <div>
+          <mat-icon class="text_icon">mail</mat-icon>
+          <span class="text-icon">jeffbezos@gmail.com</span>
+        </div>
+        <div>
+          <mat-icon class="text_icon">call</mat-icon>
+          <span class="text-icon">09123456789</span>
+        </div>
+        <div>
+          <mat-icon class="text_icon">lock</mat-icon>
+          <span class="text-icon"><a href="/change_password">Change Password?</a></span>
+        </div>
+      </mat-card>
+
+      <mat-card class="editprofile">
+        <div>
+          <button class="editbtn" mat-raised-button routerLink="/edit_address">Edit</button>
+        </div>
+        <div>
+          <h3>Address Details</h3>
+        </div>
+        <div>
+          <div class="row">
+            <div class="col-12">
+              <p class="paper-label">Service Address</p>
+              <p class="mt-2">DATA</p>
+            </div>
+            <div class="col-12">
+              <p class="paper-label">Service Address Details (Unit No., Block/Lot No., Bldg./Tower)</p>
+              <p class="mt-2">DATA</p>
+            </div>
+            <div class="col-12">
+              <p class="paper-label">Property type</p>
+              <p class="mt-2">DATA</p>
+            </div>
+
+            <div class="col-12">
+              <img class="map-image mt-4" lat="14.6141994" long="120.9991554">
+            </div>
+          </div>
+          </div>
+      </mat-card>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
