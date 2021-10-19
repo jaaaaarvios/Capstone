@@ -1,12 +1,14 @@
-
-
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .cancelLbl
 {
     font-size: 20px;
     margin-top: 30px;
     font-family: 'Trebuchet MS';
 }
-
 .yes
 {
     background-color: #FCA311;
@@ -14,10 +16,7 @@
     font-size: 15px;
     margin-left: 280px;
     margin-top: 50px;
-    
 }
-
-
 .no
 {
     background-color: #FCA311;

@@ -150,9 +150,6 @@ color: #FFFFFF;
   margin-right: 15px;
   color: #FFFFFF;
 }
-.content{
-  margin: auto;
-}
 .content1{
   margin: auto;
 }
@@ -173,77 +170,13 @@ color: #FFFFFF;
     font-size: 25px;
     margin-left: 80px;
     margin-top: 50px;
-    
+}
+.table{
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}
+.head, .body{
+  text-align: center;
 }
 
-.techicon
-{
-    width: 360px;
-    height: 250px;
-    float: right;
-    margin-right: 100px;
-    margin-top: -20px;
-}
-
-.addtech
-{
-    background-color: #FCBF49;
-    margin-left: 80px;
-}
-
-.technician1
-{
-width: 750px;
-height: fit-content;
-margin-left: 80px;
-margin-top: 50px;
-border: 2px;
-}
-
-.name1
-{
-    color: #003049;
-    font-family: 'Trebuchet MS';
-    font-size: 18px;
-    margin-left: 55px;
-    margin-top: 2px;
-    
-}
-
-.position1
-{
-    color: #003049;
-    font-family: 'Trebuchet MS';
-    margin-top:-8px;
-    font-size: 13px;
-    margin-left: 55px;
-}
-
-.statusBtn1
-{
-    width: 70px;
-    height: 35px;
-    float: right;
-    margin: auto;
-    margin-right: 110px;
-    margin-top: -40px;
-    border-color: #FCBF49;
-    font-family: 'Trebuchet MS';
-}
-.profileBtn1
-{
-    width: 70px;
-    height: 35px;
-    float: right;
-    margin: auto;
-    margin-right: 30px;
-    margin-top: -40px;
-    background-color: #FCBF49;
-    font-family: 'Trebuchet MS';
-}
-.editBtn1
-{
-    float: right;
-    margin: auto;
-    margin-top: -45px;
-}

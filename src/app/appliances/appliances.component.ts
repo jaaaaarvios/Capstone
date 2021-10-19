@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-appliances',
@@ -27,7 +28,8 @@ export class AppliancesComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-  constructor(private shared: SharedService, private router: Router, private breakpointObserver: BreakpointObserver) { }
+  constructor(private shared: SharedService, private router: Router, 
+    private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
   ngOnInit() {
     this.subscription = this.shared.currentAppliance.subscribe(service_appliance => this.service_appliance = service_appliance);

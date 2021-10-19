@@ -47,15 +47,8 @@
       <h2 class="welcome">Welcome, ADMIN!</h2>
     </mat-toolbar>
     <div class="content">
-      <h1 class="titletxt">Technicians</h1>
-      <!-- <img class="techicon" mat-card-image src="../../assets/techicon.png"> -->
-
-      <button mat-icon-button class="addtech" (click)="AddtechOpenDialog()"
-        aria-label="Example icon button with a home icon">
-        <mat-icon>add</mat-icon>
-      </button>
+      <h1 class="titletxt">Users</h1>
       <div class="content1">
-
         <!-- <mat-form-field class="searchfield" appearance="outline">
           <mat-label>
             <mat-icon>find_in_page</mat-icon> Search..
@@ -63,32 +56,34 @@
           <input matInput>
         </mat-form-field> -->
 
-        <mat-card class="technician1">
-          <div *ngFor="let tech of technicians">
-            <h1 class="name1">{{tech.fullname}}</h1>
-            <h2 class="position1">{{tech.specialization}}</h2>
-            <button mat-stroked-button class="statusBtn1" [matMenuTriggerFor]="statusmenu">Status</button>
-            <mat-menu #statusmenu="matMenu">
-              <button mat-menu-item>Active</button>
-              <button mat-menu-item>Inactive</button>
-            </mat-menu>
-            <button mat-flat-button class="profileBtn1" (click)="TechprofileOpenDialog()">Profile</button>
-            <button mat-icon-button class="editBtn1" [matMenuTriggerFor]="editmenu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #editmenu="matMenu">
-              <button mat-menu-item>
-                <mat-icon>edit</mat-icon>
-                <span>Edit</span>
-              </button>
-              <button mat-menu-item>
-                <mat-icon>delete</mat-icon>
-                <span>Delete</span>
-              </button>
-            </mat-menu>
-            <hr>
-          </div>
-        </mat-card>
+        <table class="table">
+          <thead class="head">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Password</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Service Address</th>
+              <th scope="col">Property Type</th>
+              <th scope="col">Created Date</th>
+            </tr>
+          </thead>
+          <tbody class="body">
+            <tr *ngFor="let user of users">
+              <th scope="row">{{user._id}}</th>
+              <td>{{user.first_name}}</td>
+              <td>{{user.last_name}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.password}}</td>
+              <td>{{user.number}}</td>
+              <td>{{user.service_address}}</td>
+              <td>{{user.property_type}}</td>
+              <td>{{user.createdDate | date}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </mat-sidenav-content>

@@ -24,15 +24,16 @@
         </div>
         <div class="profileside">
           <mat-list-item (click)="closeSideNav()">
-            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">schedule</mat-icon>
-            <a class="profile-btn" routerLink="/admin">Schedule</a>
+            <mat-icon class="nav-icon" aria-hidden="false" aria-label="">face</mat-icon>
+            <a class="profile-btn" routerLink="/user">Users</a>
           </mat-list-item>
         </div>
-        <!-- <mat-list-item (click)="closeSideNav()">
-              <mat-icon class="nav-icon" aria-hidden="false" aria-label="">credit_card</mat-icon>
-              <a class="nav-btn" routerLink="/payment">Payment</a>
-            </mat-list-item> -->
-  
+        <div class="logoutside">
+          <mat-list-item (click)="closeSideNav()">
+            <mat-icon class="nav-icon">exit_to_app</mat-icon>
+            <a class="logout-btn" routerLink="/home">Logout</a>
+          </mat-list-item>
+        </div>
       </mat-nav-list>
     </mat-sidenav>
   
@@ -95,7 +96,7 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-                <button type="submit" class="addBtn">Add</button>
+                <button mat-raised-button type="submit" class="addBtn">Add</button>
             </form>
         </div>
     </div>

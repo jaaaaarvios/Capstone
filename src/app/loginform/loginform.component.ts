@@ -96,13 +96,6 @@ export class LoginformComponent implements OnInit {
     //     console.log(this.items)
     //   });
 
-    // let user:Observable<any>;
-    // user = this.http.post(this.endpointURL);
-    // user.subscribe(result => {
-    //   this.items = result
-    //   console.log(this.items)
-    // });
-
   }
 
   onClickSubmit() {
@@ -129,39 +122,28 @@ export class LoginformComponent implements OnInit {
     }
   }
 
-  // SignUpSubmit() {
-  //   let body = {
-  //     "first_name": "test",
-  //     "last_name": "test",
-  //     "email": "test@gmail.com",
-  //     "password": "warren",
-  //     "number": "091234578",
-  //     "service_address": "Lucba",
-  //     "service_addressDetails": "2nd Floor",
-  //     "property_type": "Apartment"
-  //   }
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       "Accept": "application/json",
-  //       "Content-Type": "application/json"
-  //     }),
-  //   }
-  //   this.http.post("http://localhost:3000/CredentialDB", body, httpOptions)
-  //   .subscribe(data => {
-  //     console.log(data, 'success');
-  //   }, error => {
-  //     console.log(error)
-  //   });
-  // }
-
   SignUpSubmit() {
+
+    const val = this.signupForm.value;
+    let body = {
+      "first_name": val.user_fname,
+      "last_name": val.user_lname,
+      "email": val.user_semail,
+      "password": val.user_spassword,
+      "number": "None",
+      "service_address": "None",
+      "service_addressDetails": "None",
+      "property_type": "None"
+    }
+
     if (this.signupForm.valid) {
       alert("Sign up successfully");
-      console.log(this.signupForm.value);
-      this.shared.changeUserFname(this.signupForm.value.user_fname);
-      this.shared.changeUserLname(this.signupForm.value.user_lname);
-      this.shared.changeUserEmail(this.signupForm.value.user_semail);
-      this.shared.changeUserPassword(this.signupForm.value.user_spassword);
+      this.http.post("http://localhost:3000/CredentialDB", body)
+        .subscribe(data => {
+          console.log(data, 'success');
+        }, error => {
+          console.log(error)
+        });
       this.signupForm.reset();
       Object.keys(this.signupForm.controls).forEach(key => {
         this.signupForm.get(key).setErrors(null);
@@ -171,6 +153,24 @@ export class LoginformComponent implements OnInit {
       alert("Fill up the required textfields with valid information");
     }
   }
+
+  // SignUpSubmit() {
+  //   if (this.signupForm.valid) {
+  //     alert("Sign up successfully");
+  //     console.log(this.signupForm.value);
+  //     this.shared.changeUserFname(this.signupForm.value.user_fname);
+  //     this.shared.changeUserLname(this.signupForm.value.user_lname);
+  //     this.shared.changeUserEmail(this.signupForm.value.user_semail);
+  //     this.shared.changeUserPassword(this.signupForm.value.user_spassword);
+  //     this.signupForm.reset();
+  //     Object.keys(this.signupForm.controls).forEach(key => {
+  //       this.signupForm.get(key).setErrors(null);
+  //     });
+  //   }
+  //   else {
+  //     alert("Fill up the required textfields with valid information");
+  //   }
+  // }
 
   closeSideNav() {
     if (this.drawer._mode == 'over') {

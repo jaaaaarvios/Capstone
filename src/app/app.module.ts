@@ -79,6 +79,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MenuWashingComponent } from './menu-washing/menu-washing.component';
 import { MenuRefComponent } from './menu-ref/menu-ref.component';
 import { MenuTvComponent } from './menu-tv/menu-tv.component';
+import { AdminUserComponent } from './admin-user/admin-user.component';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -137,6 +138,7 @@ import { MenuTvComponent } from './menu-tv/menu-tv.component';
     MenuWashingComponent,
     MenuRefComponent,
     MenuTvComponent,
+    AdminUserComponent,
 
   ],
   imports: [

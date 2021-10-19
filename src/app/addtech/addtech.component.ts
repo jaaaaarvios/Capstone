@@ -1,4 +1,5 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,7 +15,7 @@ import { MyErrorStateMatcher } from '../app.component';
 export class AddtechComponent implements OnInit {
   url: any;
   imageSrc: string | ArrayBuffer;
-  
+
   matcher = new MyErrorStateMatcher();
 
   addTech: FormGroup;
@@ -31,7 +32,7 @@ export class AddtechComponent implements OnInit {
     .pipe(map((result: BreakpointState) => result.matches));
 
   constructor(private formBuilder: FormBuilder, private router: Router,
-    private breakpointObserver: BreakpointObserver){}
+    private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
   onUpload() {
   }
@@ -47,25 +48,38 @@ export class AddtechComponent implements OnInit {
 
   onCheckboxChange(e) {
     const tech_specialization: FormArray = this.addTech.get('tech_specialization') as FormArray;
-  
+
     if (e.target.checked) {
       tech_specialization.push(new FormControl(e.target.value));
     } else {
-       const index = tech_specialization.controls.findIndex(x => x.value === e.target.value);
-       tech_specialization.removeAt(index);
+      const index = tech_specialization.controls.findIndex(x => x.value === e.target.value);
+      tech_specialization.removeAt(index);
     }
   }
 
-  submit(){
-    if(this.addTech.valid){
+  submit() {
+    const val = this.addTech.value;
+    let body = {
+      "fullname": val.tech_name,
+      "specialization": val.tech_specialization,
+      "number": val.tech_number,
+      "address": val.tech_address
+    }
+    if (this.addTech.valid) {
       console.log(this.addTech.value);
       alert("Added Successfully!");
-      this.router.navigate(['/technicians']);
+      this.http.post("http://localhost:3000/technician", body)
+        .subscribe(data => {
+          console.log(data, 'success');
+          this.router.navigate(['/technicians']);
+        }, error => {
+          console.log(error)
+        });
     }
-    else{
+    else {
       alert("Fill up the requirements.");
     }
-    
+
   }
 
   closeSideNav() {

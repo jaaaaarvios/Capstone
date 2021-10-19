@@ -1,20 +1,21 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { MatDialog } from '@angular/material/dialog';
-import { TechprofileComponent } from '../techprofile/techprofile.component';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { MyErrorStateMatcher } from '../app.component';
 
 @Component({
-  selector: 'app-technicians',
-  templateUrl: './technicians.component.html',
-  styleUrls: ['./technicians.component.css']
+  selector: 'app-admin-user',
+  templateUrl: './admin-user.component.html',
+  styleUrls: ['./admin-user.component.css']
 })
-export class TechniciansComponent implements OnInit {
+export class AdminUserComponent implements OnInit {
 
-  technicians =[];
+  users =[];
 
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -25,13 +26,13 @@ export class TechniciansComponent implements OnInit {
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver
     ,private router: Router, private http: HttpClient) { }
 
-  TechprofileOpenDialog() {
-    const dialogRef = this.dialog.open(TechprofileComponent);
+  // TechprofileOpenDialog() {
+  //   const dialogRef = this.dialog.open(TechprofileComponent);
     
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
 
   AddtechOpenDialog() {
     this.router.navigate(['/add_technician']);
@@ -39,10 +40,10 @@ export class TechniciansComponent implements OnInit {
   ngOnInit(): void {
 
     let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/technician');
+      data = this.http.get('http://localhost:3000/CredentialDB');
       data.subscribe(result => {
-        this.technicians = result
-        console.log(this.technicians)
+        this.users = result
+        console.log(this.users)
       });
   }
 
