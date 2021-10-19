@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
+import { HttpClientModule } from '@angular/common/http';
 // -----------------Materials----------------------------
 import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
@@ -71,6 +72,13 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
 import { EditAddressComponent } from './edit-address/edit-address.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { MenuFanComponent } from './menu-fan/menu-fan.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { MenuAirconComponent } from './menu-aircon/menu-aircon.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { MenuWashingComponent } from './menu-washing/menu-washing.component';
+import { MenuRefComponent } from './menu-ref/menu-ref.component';
+import { MenuTvComponent } from './menu-tv/menu-tv.component';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -122,6 +130,13 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     EditAddressComponent,
     EditProfileComponent,
     ChangePasswordComponent,
+    MenuFanComponent,
+    AboutUsComponent,
+    MenuAirconComponent,
+    ContactUsComponent,
+    MenuWashingComponent,
+    MenuRefComponent,
+    MenuTvComponent,
 
   ],
   imports: [
@@ -131,6 +146,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     FormsModule,
     ReactiveFormsModule,
     LayoutModule,
+    HttpClientModule,
 
     MatButtonModule,
     MatBadgeModule,

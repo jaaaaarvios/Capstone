@@ -6,20 +6,24 @@ import { SharedService } from '../shared/shared.service';
 import { Observable, Subscription } from 'rxjs';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
-  selector: 'app-loginform', 
+  selector: 'app-loginform',
   templateUrl: './loginform.component.html',
   styleUrls: ['./loginform.component.css'],
 })
 
 export class LoginformComponent implements OnInit {
+  endpointURL = 'http://localhost:3000/CredentialDB'
   value = '';
   hide = true;
   minPw = 8;
   maxPw = 15;
   guser: any;
   metaservice: any;
+
+  items = [];
 
   user_email = "";
   user_password = "";
@@ -41,38 +45,38 @@ export class LoginformComponent implements OnInit {
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
- 
-  constructor(private router: Router, private shared: SharedService,
+
+  constructor(private router: Router, private shared: SharedService, private http: HttpClient,
     ngZone: NgZone, private breakpointObserver: BreakpointObserver) {
 
-      window ['onSignIn'] = user => ngZone.run(
-        () => {
-          this.afterSignUp(user);
-          console.log("success")
-        }
-      );
-    }
-     
-      afterSignUp(googleUser) {
-        this.router.navigate(['/dashboard'])  
-        console.log(googleUser)
-        this.guser = googleUser;
+    window['onSignIn'] = user => ngZone.run(
+      () => {
+        this.afterSignUp(user);
+        console.log("success")
       }
+    );
+  }
+
+  afterSignUp(googleUser) {
+    this.router.navigate(['/dashboard'])
+    console.log(googleUser)
+    this.guser = googleUser;
+  }
 
 
-    onSubmit() {  
-        this.router.navigate(['/dashboard'])  
-    }  
-    onSubmit1() {  
-      this.router.navigate(['/admin'])  
-  }  
+  onSubmit() {
+    this.router.navigate(['/dashboard'])
+  }
+  onSubmit1() {
+    this.router.navigate(['/admin'])
+  }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.subscription = this.shared.currentUserFname.subscribe(user_fname => this.user_fname = user_fname);
     this.subscription = this.shared.currentUserLname.subscribe(user_lname => this.user_lname = user_lname);
     this.subscription = this.shared.currentUserEmail.subscribe(user_semail => this.user_semail = user_semail);
     this.subscription = this.shared.currentUserPassword.subscribe(user_spassword => this.user_spassword = user_spassword);
-    
+
     this.userForm = new FormGroup({
       user_email: new FormControl('', [Validators.required]),
       user_password: new FormControl('', [Validators.required, Validators.minLength(this.minPw)]),
@@ -84,48 +88,88 @@ export class LoginformComponent implements OnInit {
       user_semail: new FormControl('', [Validators.required]),
       user_spassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw), Validators.maxLength(this.maxPw)]),
     });
+
+    // let data:Observable<any>;
+    //   data = this.http.get('http://localhost:3000/CredentialDB');
+    //   data.subscribe(result => {
+    //     this.items = result
+    //     console.log(this.items)
+    //   });
+
+    // let user:Observable<any>;
+    // user = this.http.post(this.endpointURL);
+    // user.subscribe(result => {
+    //   this.items = result
+    //   console.log(this.items)
+    // });
+
   }
-  
+
   onClickSubmit() {
 
     const val = this.userForm.value;
-    
+
     if (val.user_email == this.user_semail && val.user_password == this.user_spassword) {
       alert("Login Successfully");
       this.onSubmit();
     }
-    else if(val.user_email == "admin" && val.user_password == "admin"){
+    else if (val.user_email == "admin" && val.user_password == "admin") {
       alert("Login Successfully");
       this.onSubmit1();
     }
-    else if(val.user_email == "" && val.user_password == ""){
+    else if (val.user_email == "" && val.user_password == "") {
       alert("Invalid Information. Please try again.");
     }
-    else{
+    else {
       alert("Invalid Information. Please try again.");
       this.userForm.reset();
       Object.keys(this.userForm.controls).forEach(key => {
-        this.userForm.get(key).setErrors(null) ;
+        this.userForm.get(key).setErrors(null);
       });
     }
   }
 
-  SignUpSubmit(){
-    if(this.signupForm.valid){
-        alert("Sign up successfully");
-        console.log(this.signupForm.value);
-        this.shared.changeUserFname(this.signupForm.value.user_fname);
-        this.shared.changeUserLname(this.signupForm.value.user_lname);
-        this.shared.changeUserEmail(this.signupForm.value.user_semail);
-        this.shared.changeUserPassword(this.signupForm.value.user_spassword);
-        this.signupForm.reset();
-        Object.keys(this.signupForm.controls).forEach(key => {
-          this.signupForm.get(key).setErrors(null) ;
-        });
-      }
-      else{
-        alert("Fill up the required textfields with valid information");
-      }
+  // SignUpSubmit() {
+  //   let body = {
+  //     "first_name": "test",
+  //     "last_name": "test",
+  //     "email": "test@gmail.com",
+  //     "password": "warren",
+  //     "number": "091234578",
+  //     "service_address": "Lucba",
+  //     "service_addressDetails": "2nd Floor",
+  //     "property_type": "Apartment"
+  //   }
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       "Accept": "application/json",
+  //       "Content-Type": "application/json"
+  //     }),
+  //   }
+  //   this.http.post("http://localhost:3000/CredentialDB", body, httpOptions)
+  //   .subscribe(data => {
+  //     console.log(data, 'success');
+  //   }, error => {
+  //     console.log(error)
+  //   });
+  // }
+
+  SignUpSubmit() {
+    if (this.signupForm.valid) {
+      alert("Sign up successfully");
+      console.log(this.signupForm.value);
+      this.shared.changeUserFname(this.signupForm.value.user_fname);
+      this.shared.changeUserLname(this.signupForm.value.user_lname);
+      this.shared.changeUserEmail(this.signupForm.value.user_semail);
+      this.shared.changeUserPassword(this.signupForm.value.user_spassword);
+      this.signupForm.reset();
+      Object.keys(this.signupForm.controls).forEach(key => {
+        this.signupForm.get(key).setErrors(null);
+      });
+    }
+    else {
+      alert("Fill up the required textfields with valid information");
+    }
   }
 
   closeSideNav() {

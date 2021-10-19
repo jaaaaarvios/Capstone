@@ -1,0 +1,69 @@
+<body>
+    <mat-toolbar>
+        <h1 class="ayosgamit" routerLink="/home">Ayosgamit</h1>
+        <div>
+            <button mat-button class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon>
+                </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
+                <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
+                <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
+                <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
+                <button mat-menu-item routerLink="/menu_tv">Television</button>
+            </mat-menu>
+        </div>
+        <div>
+            <button mat-button class="pricingBtn1">Pricing</button>
+            <button mat-button class="contactUsBtn1" routerLink="/contact_us">Contact Us</button>
+            <button mat-button class="aboutusBtn1" routerLink="/about_us">About Us</button>
+        </div>
+    </mat-toolbar>
+
+    <div>
+        <mat-card>
+            <div class="description">
+                <p>Book an affordable and trusted aircon technician that are expert</p>
+                <p>in handling residential and light commercial types and brands of airconditioner.</p>
+            </div>
+            <h1 class="title">Aircon Services</h1>
+
+            <div class="services">
+                <h1 class="service1">
+                    <mat-icon class="text_icon">done</mat-icon> Repair and part replacement
+                </h1>
+                <h1 class="service2">
+                    <mat-icon class="text_icon">done</mat-icon> Cleaning
+                </h1>
+                <h1 class="service3">
+                    <mat-icon class="text_icon">done</mat-icon> Installation and Dismantling
+                </h1>
+            </div>
+
+            <h1 class="title2">All Types and Brands</h1>
+
+            <div class="types">
+                <h1 class="type1">
+                    <mat-icon class="text_icon">done</mat-icon> Window Type
+                </h1>
+                <h1 class="type2">
+                    <mat-icon class="text_icon">done</mat-icon> Split Type
+                </h1>
+                <h1 class="type2">
+                    <mat-icon class="text_icon">done</mat-icon> Tower Type
+                </h1>
+                <h1 class="type2">
+                    <mat-icon class="text_icon">done</mat-icon> Cassette Type
+                </h1>
+                <h1 class="type2">
+                    <mat-icon class="text_icon">done</mat-icon> Suspended Type
+                </h1>
+                <h1 class="type2">
+                    <mat-icon class="text_icon">done</mat-icon> Concealed Type
+                </h1>
+            </div>
+            <button mat-raised-button class="bookBtn" routerLink="/login">Book a Service</button>
+            <button mat-raised-button class="pricingBtn" routerLink="/login">Check pricing</button>
+        </mat-card>
+    </div>
+</body>
+<footer class="footer">© 2021 Ayosgamit - All Rights Reserved</footer>

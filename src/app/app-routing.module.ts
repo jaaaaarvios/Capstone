@@ -36,6 +36,13 @@ import { AddtechComponent } from './addtech/addtech.component';
 import { EditAddressComponent } from './edit-address/edit-address.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { MenuAirconComponent } from './menu-aircon/menu-aircon.component';
+import { MenuFanComponent } from './menu-fan/menu-fan.component';
+import { MenuTvComponent } from './menu-tv/menu-tv.component';
+import { MenuWashingComponent } from './menu-washing/menu-washing.component';
+import { MenuRefComponent } from './menu-ref/menu-ref.component';
 
 
 const routes: Routes = [
@@ -77,6 +84,14 @@ const routes: Routes = [
   { path: 'edit_address', component: EditAddressComponent },
   { path: 'edit_profile', component: EditProfileComponent },
   { path: 'change_password', component: ChangePasswordComponent },
+  { path: 'about_us', component: AboutUsComponent },
+  { path: 'contact_us', component: ContactUsComponent },
+  { path: 'menu_aircon', component: MenuAirconComponent },
+  { path: 'menu_fan', component: MenuFanComponent },
+  { path: 'menu_tv', component: MenuTvComponent },
+  { path: 'menu_washing', component: MenuWashingComponent },
+  { path: 'menu_ref', component: MenuRefComponent },
+
 ];
 
 @NgModule({
