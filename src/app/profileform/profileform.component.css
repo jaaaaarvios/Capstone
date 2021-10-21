@@ -137,24 +137,103 @@
   font-size: 30px;
   margin-left: 10px;
   color: #FFFFFF;
+  margin-top: 5px;
 }
-.editprofile{
+
+h1
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  color:#003049;
+  float: left;
+  margin-left: 80px;
+  margin-top: 50px;
+}
+
+.infocard
+{
   width: 800px;
   height: fit-content;
-  margin-top: 30px;
-  margin-left: 30px;
+  float: left;
+  margin-top: 150px;
+  margin-left: -165px;
 }
-.text_icon{
-  position: relative;
-  top: 5px;
-  padding: 10px;
-  margin-top: 10px;
-}
-.text-icon{
+
+.personalinfoLbl
+{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 22px;
-  padding: 10px;
-  margin-left: 10px;
+  font-size: 20px;
+  color:#003049;
+  float: left;
+  margin-left: 30px;
+  margin-top: 10px;
+
+}
+.addresscard
+{
+  width: 800px;
+  height: fit-content;
+  float: left;
+  margin-top: 30px;
+  margin-left: 85px;
+}
+
+
+.mail_icon
+{
+  font-size: 20px;
+  color: #14213D;
+  margin-top: 50px;
+  float: left;
+  margin-left: -90px;
+}
+
+.mail
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  color: #14213D;
+  margin-top: 50px;
+  float: left;
+  margin-left: -50px;
+}
+
+.contact_icon
+{
+  font-size: 20px;
+  color: #14213D;
+  margin-top: 90px;
+  float: left;
+  margin-left: -163px;
+}
+
+.contact
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  color: #14213D;
+  margin-top: 90px;
+  float: left;
+  margin-left: -120px;
+}
+
+.pass_icon
+{
+  font-size: 20px;
+  color: #14213D;
+  margin-top: 130px;
+  float: left;
+  margin-left: -163px;
+}
+
+.pass
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  color: #14213D;
+  margin-top: 130px;
+  float: left;
+  margin-left: -120px;
 }
 .paper-label{
   color: grey;
@@ -164,6 +243,22 @@
   height: 40px;
   font-size: 16px;
   float: right;
-  color: #14213D;
-  background-color: #FCA311;
+  color: #FFFFFF;
+  background-color: #D62828;
+}
+
+h3
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  color:#003049;
+  float: left;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.row
+{
+  margin-top: 50px;
+  margin-left: 10px;
 }

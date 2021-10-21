@@ -50,7 +50,9 @@
     <!-- put the content below -->
     <div>
       <h1>Profile Settings</h1>
-      <mat-card class="editprofile">
+    </div>
+
+      <mat-card class="infocard">
         <div>
           <button class="editbtn" mat-raised-button routerLink="/edit_profile">Edit</button>
         </div>
@@ -58,26 +60,31 @@
           <h1 class="personalinfoLbl">Full Name</h1>
         </div>
         <div>
-          <mat-icon class="text_icon">mail</mat-icon>
-          <span class="text-icon">jeffbezos@gmail.com</span>
+          <mat-icon class="mail_icon">mail</mat-icon>
+          <label class="mail">email@yahoo.com</label>
         </div>
+
         <div>
-          <mat-icon class="text_icon">call</mat-icon>
-          <span class="text-icon">09123456789</span>
+          <mat-icon class="contact_icon">call</mat-icon>
+          <label class="contact">09676428307</label>
         </div>
+
         <div>
-          <mat-icon class="text_icon">lock</mat-icon>
-          <span class="text-icon"><a href="/change_password">Change Password?</a></span>
+          <mat-icon class="pass_icon">lock</mat-icon>
+          <label class="pass">09676428307</label>
         </div>
+      
+      
       </mat-card>
 
-      <mat-card class="editprofile">
+      <mat-card class="addresscard">
         <div>
           <button class="editbtn" mat-raised-button routerLink="/edit_address">Edit</button>
         </div>
         <div>
           <h3>Address Details</h3>
         </div>
+
         <div>
           <div class="row">
             <div class="col-12">
@@ -100,6 +107,6 @@
           </div>
       </mat-card>
 
-    </div>
+    
   </mat-sidenav-content>
 </mat-sidenav-container>
