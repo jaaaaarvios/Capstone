@@ -10,6 +10,8 @@ import { map } from 'rxjs/operators';
 })
 export class AdminpageComponent implements OnInit {
 
+  date: Date;
+  
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
@@ -30,7 +32,11 @@ export class AdminpageComponent implements OnInit {
     }),
   );
 
-  constructor( private breakpointObserver: BreakpointObserver) { }
+  constructor( private breakpointObserver: BreakpointObserver) { 
+    setInterval(() => {
+      this.date = new Date()
+    }, 1000)
+  }
 
   ngOnInit(): void {
   }

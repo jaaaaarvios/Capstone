@@ -1,0 +1,84 @@
+<body>
+
+    <mat-toolbar>
+        <h1 class="ayosgamit" routerLink="/home" >Ayosgamit</h1>
+
+        <div>
+            <button mat-button class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon>
+                </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
+                <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
+                <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
+                <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
+                <button mat-menu-item routerLink="/menu_tv">Television</button>
+            </mat-menu>
+        </div>
+        <div>
+            <button mat-button class="pricingBtn">Pricing</button>
+            <button mat-button class="contactUsBtn" routerLink="/contact_us">Contact Us</button>
+            <button mat-button class="aboutusBtn" routerLink="/about_us">About Us</button>
+        </div>
+    </mat-toolbar>
+
+    <mat-card>
+        <div>
+            <h1 class="title">Privacy Policy</h1>
+        </div>
+
+        <div>
+            <p class="description1">Ayosgamit values the privacy of its partner technicians and customers (“Users”). 
+                 We take the protection and security of our Users’ Personal Data with utmost importance and commitment.
+                 This Data Privacy Notice contains a summary of our policies regarding the access, collection, use and storage 
+                 of our Users’ Personal Data which we receive and collect from our Users through our web application.</p>
+        </div>
+
+        <div>
+            
+            <p class="description2">We collect and process our Users’ Personal Data only upon their affirmative consent and 
+                in accordance with the Data Privacy Act. In the usual course of our business activities, we collect the following 
+                Personal Data from our Users for our own use and the use of our affiliates and third party providers:</p>
+        </div>
+
+        <div>
+            <p class="description3">For Customers:</p>
+            <p class="description4">1. Complete name</p>
+            <p class="description4">2. Mobile Number</p>
+            <p class="description4">3. Residential and/or office address</p>
+            <p class="description4">4. E-mail address</p>
+            <p class="description4">5. Geolocation</p>
+           
+        </div>
+     
+        <div>
+            <p class="description3">For Partnered Technicians:</p>
+            <p class="description4">1. Complete name</p>
+            <p class="description4">2. Mobile Number</p>
+            <p class="description4">3. Residential and/or office address</p>
+            <p class="description4">4. Date of birth</p>
+            <p class="description4">5. Details of Government-issued ID’s and certificates, including but
+                 not limited to: Driver’s License, NBI or Police Clearances, secondary ID’s, TESDA and/or
+                  other certifications</p>
+                  <p class="description4">6. Certifications of previous experience and/or employment.</p>
+            <p class="description4">7. E-mail address</p>
+        </div>
+     
+        <div>
+            <p class="description3">All our Users’ Personal Data, which are collected with their consent, 
+                and other information with regard to their transactions with us may be combined and processed to:</p>
+            <p class="description4">1. Verify Users’ identity</p>
+            <p class="description4">2. Verify Users’ qualifications</p>
+            <p class="description4">3. Validate jobs</p>
+            <p class="description4">4.  Improve our products and services</p>
+            <p class="description4">5.  Communicate with our Users</p>
+                  
+        </div>
+
+        <div>
+            <p class="description5"><b>Conformity</b></p>
+            <p class="description3">By logging in, you confirm that you have been fully informed of Ayosgamit’s processing activities with respect to the Personal Data we have collected from you, 
+                that you completely understand the terms thereof, and that you hereby freely consent there to.</p>
+        </div>
+    </mat-card>
+</body>
+<footer class="footer">© 2021 Ayosgamit - All Rights Reserved</footer>

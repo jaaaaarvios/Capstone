@@ -75,7 +75,7 @@
 {
     min-height: 40px;
     width: 300px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 10px;
     border-color: #FCA311, 3px;
 }
@@ -123,13 +123,22 @@
     margin: auto;
     border-radius: 5px;
 }
+h1
+{
+    color: grey;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 10px !important;
+    position: center !important;
+    margin: auto;
+}
 .g-signin2
 {
     height: 40px;
-    width: fit-content;
-    margin-top: 15px;
-    margin-left: 70px;
-    border-radius: 5px;
+    width: 50%;
+    margin-top: 30px !important;
+    position: center !important;
+    margin: auto;
 }
 
 .signupBtn
