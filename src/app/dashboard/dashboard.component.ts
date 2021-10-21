@@ -6,16 +6,9 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RequestdetailsComponent } from '../requestdetails/requestdetails.component';
 import { SharedService } from '../shared/shared.service';
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-<<<<<<< HEAD
 import { HttpClient } from '@angular/common/http';
-
-
-=======
-import { CookieService } from 'ngx-cookie-service';
+// import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../auth.service';
->>>>>>> 358f1dfdd922ebba95a768f592929375c608b517
 
 @Component({
   selector: 'app-dashboard', 
@@ -26,7 +19,6 @@ import { AuthService } from '../auth.service';
 
 export class DashboardComponent implements OnInit {
 
-  
   user_fname="";
   user_lname="";
   date: Date;
@@ -38,27 +30,16 @@ export class DashboardComponent implements OnInit {
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
-
-
   
-<<<<<<< HEAD
   constructor(private router: Router, public dialog: MatDialog, private http: HttpClient,
-    private breakpointObserver: BreakpointObserver, private shared: SharedService, ) {
-=======
-  constructor(private router: Router, public dialog: MatDialog, 
-    private breakpointObserver: BreakpointObserver, private shared: SharedService, private cookieService: CookieService, private auth: AuthService) {
->>>>>>> 358f1dfdd922ebba95a768f592929375c608b517
+    private breakpointObserver: BreakpointObserver, private shared: SharedService) {
       {
         setInterval(() => {
           this.date = new Date()
         }, 1000)
-
-
       }
      }
 
-
-     
   ngOnInit(): void {
     this.subscription = this.shared.currentUserFname.subscribe(user_fname => this.user_fname = user_fname);
     this.subscription = this.shared.currentUserLname.subscribe(user_lname => this.user_lname = user_lname);
@@ -74,11 +55,9 @@ export class DashboardComponent implements OnInit {
   images = [];
 
   signOut() {
-    
     var auth2 = auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
-
     this.router.navigate(['/home'])
   });
   }

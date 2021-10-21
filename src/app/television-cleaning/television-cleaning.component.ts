@@ -219,7 +219,7 @@ export class TelevisionCleaningComponent implements OnInit {
       "service_aptype": unit.service_aptype,
       "service_brand": unit.service_brand,
       "service_unitType": "None",
-      "service_unitProb": this.service_unitProb,
+      "service_unitProb": "None",
       "service_city": loc.service_city,
       "service_property_type": loc.service_property_type,
       "service_zipcode": loc.service_zipcode,

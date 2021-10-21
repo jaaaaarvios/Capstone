@@ -224,7 +224,7 @@ export class TelevisiondetailsComponent implements OnInit {
       "service_appliance": "Television",
       "service_aptype": unit.service_aptype,
       "service_brand": unit.service_brand,
-      "service_unitType": this.service_unitType,
+      "service_unitType": "None",
       "service_unitProb": unit.service_unitProb,
       "service_city": loc.service_city,
       "service_property_type": loc.service_property_type,
