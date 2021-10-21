@@ -44,54 +44,28 @@
       </button>
       <h1 class="ayosgamit">Ayosgamit</h1>
       <span class="spacer"></span>
-      <mat-icon class="accounticon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+      
       <h2 class="welcome">Welcome, ADMIN!</h2>
     </mat-toolbar>
 
-    <mat-grid-list [cols]="cols$ | async" rowHeight="35:10" gutterSize="0px" >
-      <mat-grid-tile>
-        <mat-card class="newreqcard">
-          <img class="newreqbg" mat-card-image src="../../assets/newreqbg.jpg">
-          <h1 class="newreqtxt">New Requests</h1>
-          <h2 class="newreqcount">10</h2>
-        </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-card class="pendingcard">
-          <img class="pendingbg" mat-card-image src="../../assets/pendingbg.jpg">
-          <h1 class="pendingtxt">Pending Requests</h1>
-          <h2 class="pendingcount">10</h2>
-        </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-card class="reschedcard">
-          <img class="reschedbg" mat-card-image src="../../assets/reschedbg.jpg">
-          <h1 class="reschedtxt">Rescheduled Requests</h1>
-          <h2 class="reschedcount">10</h2>
-        </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-card class="completedcard">
-          <img class="completedbg" mat-card-image src="../../assets/completedbg.jpg">
-          <h1 class="completedtxt">Completed Requests</h1>
-          <h2 class="completedcount">10</h2>
-        </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-card class="cancelledcard">
-          <img class="cancelledbg" mat-card-image src="../../assets/cancelledbg.jpg">
-          <h1 class="cancelledtxt">Cancelled Requests</h1>
-          <h2 class="cancelledcount">10</h2>
-        </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-card class="workercard">
-            <img class="workerbg" mat-card-image src="../../assets/workerbg.jpg">
-            <h1 class="workertxt">Active Technicians</h1>
-            <h2 class="workercount">10</h2>
-          </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
+
+    
+
+      <div>
+        <h1 class="dashtitle">Dashboard</h1>
+      </div>
+      <div class="datetime">
+        <label>{{date | date: "MMMM dd, yyyy "}}</label>
+        <label>({{date | date: "h:mm:a'"}})</label>
+      </div>
+
+
+      <div>
+        <img class="dashvector" mat-card-image src="../../assets/adminvector.png">
+      </div>
+
+    
+  
     
       <mat-tab-group>
         <mat-tab label="New Requests">

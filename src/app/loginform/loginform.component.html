@@ -16,6 +16,9 @@
      
         <form [formGroup]="userForm" (ngSubmit)="onClickSubmit()">
 
+          <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true"></div> 
+
+          <h1>OR</h1>
           <mat-form-field class="login-emailfield" appearance="outline">
             <mat-label>Email Address</mat-label>
             <input matInput formControlName="user_email" ngModel [email]="true" type="email"
@@ -37,7 +40,7 @@
           </mat-form-field>
 
           <button mat-raised-button class="loginBtn" type="submit">Login</button>
-          <!-- <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true"></div> -->
+           
         </form>
       </mat-tab>
 

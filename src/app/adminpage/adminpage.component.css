@@ -144,192 +144,37 @@ font-size: 18px;
 margin-top: 3px;
 color: #FFFFFF;
 }
-.accounticon
+
+.dashtitle
 {
-  font-size: 38px;
-  margin-top: -10px;
-  margin-right: 15px;
-  color: #FFFFFF;
+  color: #003049;
+  font-size: 30px;
+  margin-top: 40px;
+  float: left;
+  margin-left: 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
- .newreqcard
- {
-  width: 280px;
-  height: 40px;
- }
 
- .newreqtxt
- {
-  font-family: 'Trebuchet MS';
+.datetime
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #003049;
   font-size: 18px;
-  color: white;
-  margin-top: -85px;
-  margin-left: 125px;
- }
+  float: left;
+  margin-left: -145px;
+  margin-top: 80px;
+}
 
- .newreqcount
- {
-  font-family: 'Trebuchet MS';
-  font-size: 18px;
-  color: white;
-  margin-top: -5px;
-  margin-left: 125px; 
- }
+.dashvector
+{ 
+  width: 20%;
+  height: 20%;
+  float: left;
+  margin-left: 300px;
+  margin-top: 70px !important;
 
- .newreqbg
- {
-  width: 313px;
-  height: 80px;
- }
-
- .completedcard
- {
-  width: 280px;
-  height: 40px;
- }
-
- .completedtxt
- {
-  font-family: 'Trebuchet MS';
-  font-size: 15px;
-  color: white;
-  margin-top: -85px;
-  margin-left: 125px;
- }
-
- .completedcount
- {
-  font-family: 'Trebuchet MS';
-  font-size: 18px;
-  color: white;
-  margin-top: -5px;
-  margin-left: 125px; 
- }
-
- .completedbg
- {
-    width: 313px;
-    height: 80px;
- }
- 
- .pendingcard
- {
-  width: 280px;
-  height: 40px;
- }
-
- .pendingtxt
- {
-  font-family: 'Trebuchet MS';
-  font-size: 18px;
-  color: white;
-  margin-top: -85px;
-  margin-left: 125px;
- }
-
- .pendingcount
- {
-  font-family: 'Trebuchet MS';
-  font-size: 18px;
-  color: white;
-  margin-top: -5px;
-  margin-left: 125px; 
- }
-
- .pendingbg
- {
-  width: 313px;
-  height: 80px;
- }
-
-  .cancelledcard
- {
-    width: 280px;
-    height: 40px;
- }
-
- .cancelledtxt
- {
-  font-family: 'Trebuchet MS';
-  font-size: 15px;
-  color: white;
-  margin-top: -85px;
-  margin-left: 125px;
- }
-
- .cancelledcount
- {
-  font-family: 'Trebuchet MS';
-  font-size: 18px;
-  color: white;
-  margin-top: -5px;
-  margin-left: 125px;
- }
-
- .cancelledbg
- {
-    width: 313px;
-    height: 80px;
- }
-
- .reschedcard
- {
-    width: 280px;
-    height: 40px;
- }
-
- .reschedtxt
- {
-  font-family: 'Trebuchet MS';
-  font-size: 14px;
-  color: white;
-  margin-top: -85px;
-  margin-left: 125px;
- }
-
- .reschedcount
- {
-  font-family: 'Trebuchet MS';
-  font-size: 18px;
-  color: white;
-  margin-top: -5px;
-  margin-left: 125px;
- }
-
- .reschedbg
- {
-    width: 313px;
-    height: 80px;
- }
-
- .workercard
- {
-    width: 280px;
-    height: 40px;
- }
-
- .workertxt
- {
-  font-family: 'Trebuchet MS';
-  font-size: 15px;
-  color: white;
-  margin-top: -85px;
-  margin-left: 125px;
- }
-
- .workercount
- {
-  font-family: 'Trebuchet MS';
-  font-size: 18px;
-  color: white;
-  margin-top: -5px;
-  margin-left: 125px;
- }
-
- .workerbg
- {
-    width: 313px;
-    height: 80px;
- }
+}
 
  .mat-tab-group
  {
