@@ -1,42 +1,80 @@
-.reschedule
+@media (min-width: 820px)
 {
-width: 750px;
-height: 380px;
+
+.mat-toolbar{
+    background-color: #D62828;
+    width: 100%;
+  }
+  
+  .ayosgamit
+  {
+  font-family: 'Candara';
+  font-size: 30px;
+  float: left;
+  color: #FFFFFF;
+  }
+
+mat-card
+{
+    width: 800px;
+    height: 550px;
+    position: center !important;
+    margin: auto;
+    margin-top: 100px;
 }
 
-.reschedule
+
+p
 {
-    font-size: 13px;
-    font-family: 'Trebuchet MS';
+    margin-top: 50px;
+    font-size: 15px;
+    margin-left: 20px;
+    color: grey;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.resched
+{
+    font-size: 25px;
+    margin-top: 30px;
+    margin-left: 20px;
+    color: #14213D;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .datepicker
 {
-    margin-top: 40px;
-    margin-left: 50px;
+    margin-top: 25px;
+    margin-left: 20px;
 }
 
 .dateBtn
 {
     
-    margin-left: 20px;
-    background-color: #FCA311;
-    color: #14213D;
-    height: 52px;
-    font-size: 18px;
-    font-family: 'Trebuchet MS';
+    margin-left: 15px;
+    border-color: #F77F00;
+    color: #F77F00;
+    width: 70px !important;
+    height: 50px !important;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.timeslot
+{
+  margin-top: 30px;
+  float: left;
+  margin-left: 20px;
+  font-size: 15px;
+  color: grey;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .timeslots
 {
-    margin-top: 55px;
+    margin-left: 20px;
+    margin-top: 70px;
 }
-.timeslot
-{
-    margin-top: 30px;
-    margin-right: 75px;
-    font-size: 18px;
-    font-family: 'Trebuchet MS';
-}
+
 
 .mat-stroked-button
 {
@@ -44,48 +82,482 @@ height: 380px;
     width: 180px;
     height: 60px;
 }
+
+  
 .tech1Btn
- {
-margin-top: -100px;
- }
-
- .tech2Btn
- {
-margin-top: 10px;
- }
-
- .tech3Btn
- {
-margin-top: 10px;
- }
-
- .tech4Btn
- {
-margin-top: 10px;
- }
-
- .h1technicians
- {
-   font-size: 10px;
-   margin-top: -15px;
+  {
+  margin-top: -100px;
+  }
+  
+  .tech2Btn
+  {
+  margin-top: 10px;
+  }
+  
+  .tech3Btn
+  {
+  margin-top: 10px;
+  }
+  
+  .tech4Btn
+  {
+  margin-top: 10px;
+  }
+  
+  .h1technicians
+  {
+   font-size: 12px;
    font-family: 'Trebuchet MS';
- }
+  }
 
  .cancelBtn
+ {
+   width: 120px;
+   height: 40px;
+   background-color: #D62828;
+   color: #FFFFFF;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-size: 13px;
+   float: right;
+   margin-right: 20px;
+   margin-top: 70px;
+   
+   
+ }
+
+ .reschedBtn
 {
-    background-color: red;
-    color: white; 
-    font-size: 15px;
-    font-family: 'Trebuchet MS';
-    float: right;
-    margin-right: 30px;
-    margin-top: -50px;
+  width: 160px;
+  height: 40px;
+  background-color: #F77F00;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  float: right;
+  margin-top: 70px;
+  margin-right: 25px;
+}
 }
 
- .cancellink
- {
-     color: white;
-     text-decoration: none;
- }
- 
- 
+@media (max-width: 576px)
+{
+    .mat-toolbar{
+        background-color: #D62828;
+        width: 100%;
+      }
+      
+      .ayosgamit
+      {
+      font-family: 'Candara';
+      font-size: 20px;
+      float: left;
+      color: #FFFFFF;
+      }
+    
+    mat-card
+    {
+        width: 350px;
+        height: 600px;
+        position: center !important;
+        margin: auto;
+        margin-top: 100px;
+    }
+    
+    
+    p
+    {
+        margin-top: 50px;
+        font-size: 15px;
+        margin-left: 15px;
+        color: grey;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .resched
+    {
+        font-size: 18px;
+        margin-top: 30px;
+        margin-left: 20px;
+        color: #14213D;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .datepicker
+    {
+
+        margin-top: 25px;
+        margin-left: 20px;
+    }
+    
+    .dateBtn
+    {
+        
+        margin-top: 25px;
+        margin-left: 20px;
+        border-color: #F77F00;
+        color: #F77F00;
+        width: 10% !important;
+        height: 50px !important;
+        font-size: 15px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .timeslot
+    {
+      margin-top: 30px;
+      float: left;
+      margin-left: 20px;
+      font-size: 15px;
+      color: grey;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .timeslots
+    {
+        margin-left: 20px;
+        margin-top: 70px;
+    }
+    
+    
+    .mat-stroked-button
+    {
+        border-color: #FCA311;
+        width: 180px;
+        height: 60px;
+    }
+    
+      
+    .tech1Btn
+      {
+      margin-top: -100px;
+      }
+      
+      .tech2Btn
+      {
+      margin-top: 10px;
+      }
+      
+      .tech3Btn
+      {
+      margin-top: 10px;
+      }
+      
+      .tech4Btn
+      {
+      margin-top: 10px;
+      }
+      
+      .h1technicians
+      {
+       font-size: 12px;
+       font-family: 'Trebuchet MS';
+      }
+    
+     .cancelBtn
+     {
+       width: 120px;
+       height: 40px;
+       background-color: #D62828;
+       color: #FFFFFF;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       font-size: 13px;
+       float: right;
+       margin-right: 20px;
+       margin-top: 30px;
+       
+       
+     }
+    
+     .reschedBtn
+    {
+      width: 160px;
+      height: 40px;
+      background-color: #F77F00;
+      color: #FFFFFF;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 14px;
+      float: right;
+      margin-top: 70px;
+      margin-right: 25px;
+    }
+}
+@media (max-width: 820px)
+{
+    .mat-toolbar{
+        background-color: #D62828;
+        width: 100%;
+      }
+      
+      .ayosgamit
+      {
+      font-family: 'Candara';
+      font-size: 30px;
+      float: left;
+      color: #FFFFFF;
+      }
+    
+    mat-card
+    {
+        width: 800px;
+        height: 550px;
+        position: center !important;
+        margin: auto;
+        margin-top: 100px;
+    }
+    
+    
+    p
+    {
+        margin-top: 50px;
+        font-size: 15px;
+        margin-left: 20px;
+        color: grey;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .resched
+    {
+        font-size: 25px;
+        margin-top: 30px;
+        margin-left: 20px;
+        color: #14213D;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .datepicker
+    {
+        margin-top: 25px;
+        margin-left: 20px;
+    }
+    
+    .dateBtn
+    {
+        
+        margin-left: 15px;
+        border-color: #F77F00;
+        color: #F77F00;
+        width: 70px !important;
+        height: 50px !important;
+        font-size: 15px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .timeslot
+    {
+      margin-top: 30px;
+      float: left;
+      margin-left: 20px;
+      font-size: 15px;
+      color: grey;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .timeslots
+    {
+        margin-left: 20px;
+        margin-top: 70px;
+    }
+    
+    
+    .mat-stroked-button
+    {
+        border-color: #FCA311;
+        width: 180px;
+        height: 60px;
+    }
+    
+      
+    .tech1Btn
+      {
+      margin-top: -100px;
+      }
+      
+      .tech2Btn
+      {
+      margin-top: 10px;
+      }
+      
+      .tech3Btn
+      {
+      margin-top: 10px;
+      }
+      
+      .tech4Btn
+      {
+      margin-top: 10px;
+      }
+      
+      .h1technicians
+      {
+       font-size: 12px;
+       font-family: 'Trebuchet MS';
+      }
+    
+     .cancelBtn
+     {
+       width: 120px;
+       height: 40px;
+       background-color: #D62828;
+       color: #FFFFFF;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       font-size: 13px;
+       float: right;
+       margin-right: 20px;
+       margin-top: 70px;
+       
+       
+     }
+    
+     .reschedBtn
+    {
+      width: 160px;
+      height: 40px;
+      background-color: #F77F00;
+      color: #FFFFFF;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 14px;
+      float: right;
+      margin-top: 70px;
+      margin-right: 25px;
+    }
+    }
+    
+@media (max-width: 576px)
+    {
+        .mat-toolbar{
+            background-color: #D62828;
+            width: 100%;
+          }
+          
+          .ayosgamit
+          {
+          font-family: 'Candara';
+          font-size: 20px;
+          float: left;
+          color: #FFFFFF;
+          }
+        
+        mat-card
+        {
+            width: 350px;
+            height: 690px;
+            position: center !important;
+            margin: auto;
+            margin-top: 50px;
+        }
+        
+        
+        p
+        {
+            margin-top: 50px;
+            font-size: 15px;
+            margin-left: 15px;
+            color: grey;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .resched
+        {
+            font-size: 18px;
+            margin-top: 30px;
+            margin-left: 20px;
+            color: #14213D;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .datepicker
+        {
+    
+            margin-top: 25px;
+            margin-left: 20px;
+        }
+        
+        .dateBtn
+        {
+            
+            margin-top: 25px;
+            margin-left: 20px;
+            border-color: #F77F00;
+            color: #F77F00;
+            width: 10% !important;
+            height: 50px !important;
+            font-size: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .timeslot
+        {
+          margin-top: 30px;
+          float: left;
+          margin-left: 20px;
+          font-size: 15px;
+          color: grey;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .timeslots
+        {
+            margin-left: 20px;
+            margin-top: 70px;
+        }
+        
+        
+        .mat-stroked-button
+        {
+            border-color: #FCA311;
+            width: 180px;
+            height: 60px;
+        }
+        
+          
+        .tech1Btn
+          {
+          margin-top: -100px;
+          }
+          
+          .tech2Btn
+          {
+          margin-top: 10px;
+          }
+          
+          .tech3Btn
+          {
+          margin-top: 10px;
+          }
+          
+          .tech4Btn
+          {
+          margin-top: 10px;
+          }
+          
+          .h1technicians
+          {
+           font-size: 12px;
+           font-family: 'Trebuchet MS';
+          }
+        
+         .cancelBtn
+         {
+           width: 120px;
+           height: 40px;
+           background-color: #D62828;
+           color: #FFFFFF;
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+           font-size: 12px;
+           float: right;
+           margin-right: 20px;
+           margin-top: 60px;
+           
+           
+         }
+        
+         .reschedBtn
+        {
+          width: 140px;
+          height: 40px;
+          background-color: #F77F00;
+          color: #FFFFFF;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          font-size: 12px;
+          float: right;
+          margin-top: 60px;
+          margin-right: 5px;
+        }
+}

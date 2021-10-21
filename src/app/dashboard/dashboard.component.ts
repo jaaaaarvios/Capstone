@@ -8,8 +8,8 @@ import { RequestdetailsComponent } from '../requestdetails/requestdetails.compon
 import { SharedService } from '../shared/shared.service';
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-
+import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-dashboard', 
@@ -32,13 +32,16 @@ export class DashboardComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
+
   
   constructor(private router: Router, public dialog: MatDialog, 
-    private breakpointObserver: BreakpointObserver, private shared: SharedService, ) {
+    private breakpointObserver: BreakpointObserver, private shared: SharedService, private cookieService: CookieService, private auth: AuthService) {
       {
         setInterval(() => {
           this.date = new Date()
         }, 1000)
+
+
       }
      }
 
@@ -52,8 +55,15 @@ export class DashboardComponent implements OnInit {
   images = [];
 
   signOut() {
+    
+    var auth2 = auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+
     this.router.navigate(['/home'])
+  });
   }
+  
   openDialog() {
     const dialogRef = this.dialog.open(RequestdetailsComponent);
 

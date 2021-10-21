@@ -1,7 +1,9 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable} from 'rxjs';
+import { map } from 'rxjs/operators';
 import { SharedService } from '../shared/shared.service';
 
 
@@ -11,6 +13,7 @@ import { SharedService } from '../shared/shared.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
+  [x: string]: any;
   value = '';
   hide = true;
   minPw = 8;
@@ -31,8 +34,11 @@ export class HomepageComponent implements OnInit {
 
   userForm: FormGroup;
   signupForm: FormGroup;
-  subscription: Subscription;
+  
+
  
+
+    
   constructor(private router: Router, private shared: SharedService,
     ngZone: NgZone
     ) {
@@ -116,7 +122,8 @@ export class HomepageComponent implements OnInit {
       else{
         alert("Fill up the textfields with valid information");
       }
+      
   }
 
+  
 }
-

@@ -9,15 +9,16 @@
 <body>
 
       <!--HEADER------------------------------------------------>
-      <mat-card class="header">
-        <div>
-          <h1 class="servicetype">{{service_appliance}} {{service_type}}</h1>
+      <mat-toolbar>
+        <h1 class="ayosgamit" routerLink="/home" >Ayosgamit</h1>
 
-          <button mat-stroked-button (click)="cancelRequest()" class="cancelBtn">Cancel Request</button>
-        </div>
-      </mat-card>
+     
+          
+        
+        </mat-toolbar>
+   
 
-      <mat-card class="container">
+      
 
         <!--REQUEST SUMMARY------------------------------------------------>
         <mat-card class="summary">
@@ -97,30 +98,51 @@
           <div>
             <button mat-stroked-button class="reschedBtn">Reschedule Request</button>
           </div>
-
-          <!--PAYMENT SUMMARY------------------------------------------------>
         </mat-card>
-        <div>
+          <!--PAYMENT SUMMARY------------------------------------------------>
+     
+    
 
           <div>
             <div class="pending">
-              <img class="pendingvector" mat-card-image src="../../assets/pendingvector.png">
               <h1 class="pendingtxt">Your request is pending</h1>
             </div>
-          </div>
 
-          <div>
+            <div class="description">
+              <p class="description1">Your service request is now on pending.</p>
+              <p class="description2">Choose a payment option
+                to grant your</p>
+              <p class="description3">service request.</p>
+
+              <button mat-raised-button (click)="cancelRequest()" class="cancelBtn">Cancel Request</button>
+            </div>
+
+      
+              
+      
+
+            <div class="pendingvector1">
+            <img class="pendingvector" mat-card-image src="../../assets/pendingvector.png">
+            </div>
+
             <mat-card class="payment">
               <div>
                 <h1 class="paymentinfotxt">Payment Summary</h1>
-                <label class="appliance">Appliance</label>
+               
               </div>
               <div>
-                <button mat-raised-button class="payBtn">Pay Now</button>
+                <button mat-raised-button class="payBtn">Pay with Cash</button>
+                <h1 class="ortxt">OR</h1>
+                <div class="paypalBtn" id="myPaypalButtons"></div>
+                
               </div>
             </mat-card>
-          </div>
+  
+
+          
 
         </div>
-      </mat-card>
+
+        
+   
 </body>

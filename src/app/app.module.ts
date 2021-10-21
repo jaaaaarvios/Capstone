@@ -82,6 +82,9 @@ import { MenuTvComponent } from './menu-tv/menu-tv.component';
 import { AdminUserComponent } from './admin-user/admin-user.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { PrivacytermsComponent } from './privacyterms/privacyterms.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import {CookieService} from 'ngx-cookie-service';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -144,6 +147,7 @@ import { PrivacytermsComponent } from './privacyterms/privacyterms.component';
     PricingComponent,
    
     PrivacytermsComponent,
+         FeedbackComponent,
 
   ],
   imports: [
@@ -175,10 +179,13 @@ import { PrivacytermsComponent } from './privacyterms/privacyterms.component';
     MatTableModule,
     MatListModule,
     MatGridListModule,
-    NgbModule
+    NgbModule,
+    NgxStarRatingModule
 
   ],
   providers: [],
+  
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

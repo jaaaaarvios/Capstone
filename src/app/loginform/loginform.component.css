@@ -1,13 +1,5 @@
-/* body
-    {
-        background-image: url('../../assets/homebg.jpg');
-        background-size: cover;
-        text-align: center;
-        width: 100%;
-        height: 100vh;
-        background-attachment: fixed;
-    } */
-
+@media (min-width: 820px)
+{
 .mat-toolbar{
     background-color: #D62828;
     width: 100%;
@@ -187,4 +179,150 @@ h1
     color: #14213D;
        
 }
+}
 
+@media (max-width: 576px)
+{
+   
+    .mat-toolbar{
+        background-color: #D62828;
+        width: 100%;
+    }
+    .ayosgamit
+    {
+      font-family: 'Candara';
+      font-size: 30px;
+      margin-left: 10px;
+      color: #FFFFFF;
+    }
+    .container{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .mat-toolbar{
+        background-color: #D62828;
+        width: 100%;
+    }
+      
+    .ayosgamit
+    {
+      font-family: 'Candara';
+      font-size: 30px;
+      margin-left: 10px;
+      color: #FFFFFF;
+    }
+    
+    .signincard
+    {
+        width: 70%;
+        height: 50%;
+        border-radius: 20px;
+        
+        background-color: #fffade;
+        justify-content: center;
+        opacity: 1;
+       
+    }
+    
+    mat-tab-group
+    {
+        margin-top: 20px;
+        width: fit-content;
+        text-align: center !important;
+       
+    }
+    
+   
+    .logo
+    {
+        height: 40%;
+        width: 40%;
+        float: left;
+        margin-left: 120px;
+        margin-top: 40px;
+                     
+    }
+    .login-emailfield
+    {
+        min-height: 40px;
+        width: 300px;
+        margin-top: 20px;
+        margin-left: 10px;
+        border-color: #FCA311, 3px;
+    }
+    .login-passfield 
+    {
+        padding: 0;
+        width: 300px;
+        margin-top: 1px;
+        margin-left: 10px;
+        border: #FCA311;
+    }
+    .signup-fnamefield
+    {
+        min-height: 40px;
+        width: 300px;
+        margin-left: 10px;
+        margin-top: 50px;
+    }
+    .signup-lnamefield
+    {
+        min-height: 40px;
+        width: 300px;
+        margin-left: 10px;
+    }
+    .signup-emailfield
+    {
+        min-height: 40px;
+        width: 300px;
+        margin-left: 10px;
+        border: #FCA311, 3px;
+    }
+    .signup-passfield 
+    {
+        min-height: 40px;
+        width: 300px;
+        margin-left: 10px;
+        border: #FCA311;
+    }
+    .loginBtn
+    {
+        background-color: #D62828;
+        color: #FFFFFF;
+        height: 10%;
+        width: 85%;
+        margin: auto;
+        border-radius: 5px;
+    }
+    h1
+    {
+        color: grey;
+        font-size: 15px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: 10px !important;
+        position: center !important;
+        margin: auto;
+    }
+    .g-signin2
+    {
+        height: 40px;
+        width: 50%;
+        margin-top: 30px !important;
+        position: center !important;
+        margin: auto;
+    }
+    
+    .signupBtn
+    {
+        background-color: #D62828;
+        color: #FFFFFF;
+        height: 10%;
+        width: 85%;
+        margin: auto;
+    }
+
+
+}

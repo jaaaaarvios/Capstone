@@ -2,7 +2,7 @@
 {
     body
     {
-        
+        background-image: url('../../assets/aboutus.jpg');
         background-size: cover;
         text-align: center;
         width: 100%;
@@ -73,10 +73,10 @@
     position: center !important;
     margin-top: 50px;
 }
+
 mat-tab-group
 {
-    width: 50%;
-   
+    width: fit-content;
     position: center !important;
     margin-top: 50px !important;
     margin: auto;
@@ -90,6 +90,7 @@ mat-tab-group
     margin-top: 40px;
     float: left;
     margin-left: 50px;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .cleaningcard
@@ -100,6 +101,7 @@ mat-tab-group
     margin-top: 40px;
     float: left;
     margin-left: 20px;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .installcard
@@ -110,13 +112,14 @@ mat-tab-group
     margin-top: 40px;
     float: left;
     margin-left: 20px;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 
 .airconrepair
 {
     font-size: 20px;
-    color: #003049;
+    color: #FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: center !important;
     margin-top: 20px;
@@ -135,7 +138,7 @@ mat-tab-group
 .aircondescrip
 {
     font-size: 15px;
-    color: #003049;
+    color: #FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: center !important;
     margin-top: 50px;
@@ -144,7 +147,7 @@ mat-tab-group
 .aircondescrip2
 {
     font-size: 15px;
-    color: #003049;
+    color: #FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: center !important;
     margin-top: 20px;
@@ -158,7 +161,7 @@ mat-tab-group
 .repairservice1
 {
     font-size: 15px;
-    color: #003049;
+    color: #FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     float: left;
    
@@ -167,7 +170,7 @@ mat-tab-group
 .cleaningservice1
 {
     font-size: 15px;
-    color: #003049;
+    color: #FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     float: left;
     margin-top: 50px;
@@ -176,7 +179,7 @@ mat-tab-group
 .cleaningservice2
 {
     font-size: 15px;
-    color: #003049;
+    color: #FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     float: left;
   
@@ -191,6 +194,7 @@ mat-tab-group
     margin-top: 40px !important;
     position: center !important;
     margin: auto;
+    background: rgba(0, 0, 0, 0.6);
 
 }
 
@@ -202,7 +206,8 @@ mat-tab-group
     border-radius: 20px;
     margin-top: 40px !important;
     float: left;
-    margin-left: 200px;
+    margin-left: 100px !important;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .washinginstallcard
@@ -212,8 +217,9 @@ mat-tab-group
     height: 600px;
     border-radius: 20px;
     margin-top: 40px !important;
-    float: right;
-    margin-right: 200px;
+    float: left;
+    margin-left: 50px !important;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .footer
@@ -232,14 +238,15 @@ mat-tab-group
 {
     body
     {
-        background-image: url('../../assets/airconmobilebg.jpg');
+        background-image: url('../../assets/pricingmobilebg.jpg');
         background-size: cover;
         text-align: center;
         width: 100%;
-        height: 100vh;
+        height: fit-content;
         background-attachment: fixed;
         
     }
+
   .mat-toolbar{
     background-color: #D62828;
     width: 100%;
@@ -273,6 +280,204 @@ mat-tab-group
     padding-top: 20px;
     color: #FFFFFF;
     
+}
+
+
+
+.pricingBtn
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFFFFF;
+    font-size: 10px;
+    float: left;
+    margin-left: 40px;
+    margin-top: 80px;
+    margin-top: 0;
+    display: none;
+}
+
+
+.contactUsBtn
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFFFFF;
+    font-size: 10px;
+    float: left;
+    margin-left: 40px;
+    margin-top: 0;
+    display: none;
+}
+
+
+.aboutusBtn
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFFFFF;
+    font-size: 10px;
+    float: left;
+    margin-left: 40px;
+    margin-top: 0;
+    display: none;
+}
+
+
+.menuBtn
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFFFFF;
+    font-size: 10px;
+    float: left;
+    margin-left: 40px;
+    margin-top: 0;
+    display: none;
+}
+
+.title
+{
+    font-size: 20px;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: center !important;
+    margin-top: 20px;
+}
+
+mat-tab-group
+{
+    width: 100%;
+    position: center !important;
+    margin-top: 50px !important;
+    margin: auto;
+    
+}
+
+.repaircard
+{
+    width: 270px;
+    height: 500px;
+    border-radius: 20px;
+    margin-top: 40px;
+    position: center !important;
+    
+}
+
+.cleaningcard
+{
+    width: 270px;
+    height: 600px;
+    border-radius: 20px;
+    margin-top: 40px;
+    position: center !important;
+}
+
+.installcard
+{
+    width: 270px;
+    height: 600px;
+    border-radius: 20px;
+    margin-top: 40px;
+    position: center !important;
+}
+
+
+.airconrepair
+{
+    font-size: 20px;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: center !important;
+    margin-top: 20px;
+}
+
+.airconfee
+{
+    font-size: 17px;
+    color: #F77F00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: center !important;
+    margin-top: 20px;
+    
+}
+
+.aircondescrip
+{
+    font-size: 15px;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: center !important;
+    margin-top: 50px;
+}
+
+.aircondescrip2
+{
+    font-size: 15px;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: center !important;
+    margin-top: 20px;
+}
+
+.text_icon
+{
+    color: #FCBF49;
+    font-size: 25px;
+}
+.repairservice1
+{
+    font-size: 15px;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    float: left;
+   
+}
+
+.cleaningservice1
+{
+    font-size: 15px;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    float: left;
+    margin-top: 50px;
+   
+}
+.cleaningservice2
+{
+    font-size: 15px;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    float: left;
+  
+   
+}
+
+.refrepaircard
+{
+    width: 270px;
+    height: 600px;
+    border-radius: 20px;
+    margin-top: 40px !important;
+    position: center !important;
+    margin: auto;
+
+}
+
+.washingrepaircard
+{
+
+    width: 270px;
+    height: 600px;
+    border-radius: 20px;
+    margin-top: 40px !important;
+    position: center !important;
+}
+
+.washinginstallcard
+{
+
+    width: 270px;
+    height: 600px;
+    border-radius: 20px;
+    margin-top: 40px !important;
+    position: center !important;
 }
 
 .footer
