@@ -1,12 +1,12 @@
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
-import { MatDialogConfig } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedService } from '../shared/shared.service';
 import { Observable, Subscription } from 'rxjs';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-loginform',
@@ -15,7 +15,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 
 export class LoginformComponent implements OnInit {
-  endpointURL = 'http://localhost:3000/CredentialDB'
   value = '';
   hide = true;
   minPw = 8;
@@ -47,7 +46,7 @@ export class LoginformComponent implements OnInit {
     .pipe(map((result: BreakpointState) => result.matches));
 
   constructor(private router: Router, private shared: SharedService, private http: HttpClient,
-    ngZone: NgZone, private breakpointObserver: BreakpointObserver) {
+    ngZone: NgZone, private breakpointObserver: BreakpointObserver, private auth: AuthService) {
 
     window['onSignIn'] = user => ngZone.run(
       () => {
@@ -78,8 +77,8 @@ export class LoginformComponent implements OnInit {
     this.subscription = this.shared.currentUserPassword.subscribe(user_spassword => this.user_spassword = user_spassword);
 
     this.userForm = new FormGroup({
-      user_email: new FormControl('', [Validators.required]),
-      user_password: new FormControl('', [Validators.required, Validators.minLength(this.minPw)]),
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.minLength(this.minPw)]),
     });
 
     this.signupForm = new FormGroup({
@@ -89,28 +88,31 @@ export class LoginformComponent implements OnInit {
       user_spassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw), Validators.maxLength(this.maxPw)]),
     });
 
-    // let data:Observable<any>;
-    //   data = this.http.get('http://localhost:3000/CredentialDB');
-    //   data.subscribe(result => {
-    //     this.items = result
-    //     console.log(this.items)
-    //   });
-
   }
 
   onClickSubmit() {
 
     const val = this.userForm.value;
 
-    if (val.user_email == this.user_semail && val.user_password == this.user_spassword) {
-      alert("Login Successfully");
-      this.onSubmit();
+    if(this.userForm.valid){
+      this.auth.login(val).subscribe(result => {
+        if(result) {
+          console.log(result);
+          alert(result.message);
+          this.router.navigate(['/dashboard'])
+        } else {
+          alert("Invalid Informations")
+        }
+      }), error => {
+        console.log(error);
+        alert("Invalid Informations")
+      }
     }
-    else if (val.user_email == "admin" && val.user_password == "admin") {
+    else if (val.email == "admin" && val.password == "admin") {
       alert("Login Successfully");
       this.onSubmit1();
     }
-    else if (val.user_email == "" && val.user_password == "") {
+    else if (val.email == "" && val.password == "") {
       alert("Invalid Information. Please try again.");
     }
     else {
@@ -137,40 +139,24 @@ export class LoginformComponent implements OnInit {
     }
 
     if (this.signupForm.valid) {
-      alert("Sign up successfully");
       this.http.post("http://localhost:3000/CredentialDB", body)
         .subscribe(data => {
           console.log(data, 'success');
+          alert("Sign up successfully");
+          this.signupForm.reset();
+          Object.keys(this.signupForm.controls).forEach(key => {
+            this.signupForm.get(key).setErrors(null);
+          });
         }, error => {
-          console.log(error)
+          console.log(error);
+          alert("The email already exists");
         });
-      this.signupForm.reset();
-      Object.keys(this.signupForm.controls).forEach(key => {
-        this.signupForm.get(key).setErrors(null);
-      });
     }
     else {
       alert("Fill up the required textfields with valid information");
     }
+    
   }
-
-  // SignUpSubmit() {
-  //   if (this.signupForm.valid) {
-  //     alert("Sign up successfully");
-  //     console.log(this.signupForm.value);
-  //     this.shared.changeUserFname(this.signupForm.value.user_fname);
-  //     this.shared.changeUserLname(this.signupForm.value.user_lname);
-  //     this.shared.changeUserEmail(this.signupForm.value.user_semail);
-  //     this.shared.changeUserPassword(this.signupForm.value.user_spassword);
-  //     this.signupForm.reset();
-  //     Object.keys(this.signupForm.controls).forEach(key => {
-  //       this.signupForm.get(key).setErrors(null);
-  //     });
-  //   }
-  //   else {
-  //     alert("Fill up the required textfields with valid information");
-  //   }
-  // }
 
   closeSideNav() {
     if (this.drawer._mode == 'over') {

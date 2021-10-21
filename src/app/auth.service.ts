@@ -1,14 +1,21 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getUserDetails(){
-    //post these details to API Server return user info if correct
-  
+  login(data):Observable<any>{
+    return this.http.post("http://localhost:3000/CredentialDB/login", data)
   }
+
+  deleteTechnician(_id): Observable<any>{
+    return this.http.delete<void>("http://localhost:3000/technician/:id", _id)
+  }
+
 }

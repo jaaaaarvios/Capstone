@@ -18,21 +18,21 @@
 
           <mat-form-field class="login-emailfield" appearance="outline">
             <mat-label>Email Address</mat-label>
-            <input matInput formControlName="user_email" ngModel [email]="true" type="email"
+            <input matInput formControlName="email" ngModel [email]="true" type="email"
               placeholder="user@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$">
-            <mat-error *ngIf="userForm.get('user_email').hasError('required')"> Email is required </mat-error>
-            <mat-error *ngIf="userForm.get('user_email').hasError('pattern')"> Please enter a valid email address
+            <mat-error *ngIf="userForm.get('email').hasError('required')"> Email is required </mat-error>
+            <mat-error *ngIf="userForm.get('email').hasError('pattern')"> Please enter a valid email address
             </mat-error>
           </mat-form-field>
 
           <mat-form-field class="login-passfield" appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput formControlName="user_password" placeholder="Enter password"
+            <input matInput formControlName="password" placeholder="Enter password"
               [type]="hide ? 'password' : 'text'">
             <mat-icon mat-icon-button matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
             </mat-icon>
-            <mat-error *ngIf="userForm.get('user_password').hasError('required')">Password is required</mat-error>
-            <mat-error *ngIf="userForm.get('user_password').hasError('minlength')">Password must have at least
+            <mat-error *ngIf="userForm.get('password').hasError('required')">Password is required</mat-error>
+            <mat-error *ngIf="userForm.get('password').hasError('minlength')">Password must have at least
               {{minPw}} characters</mat-error>
           </mat-form-field>
 
