@@ -44,6 +44,8 @@ import { MenuTvComponent } from './menu-tv/menu-tv.component';
 import { MenuWashingComponent } from './menu-washing/menu-washing.component';
 import { MenuRefComponent } from './menu-ref/menu-ref.component';
 import { AdminUserComponent } from './admin-user/admin-user.component';
+import { PricingComponent } from './pricing/pricing.component';
+import { PrivacytermsComponent } from './privacyterms/privacyterms.component';
 
 
 const routes: Routes = [
@@ -93,6 +95,8 @@ const routes: Routes = [
   { path: 'menu_washing', component: MenuWashingComponent },
   { path: 'menu_ref', component: MenuRefComponent },
   { path: 'user', component: AdminUserComponent },
+  { path: 'pricing', component: PricingComponent },
+  { path: 'privacy_terms', component: PrivacytermsComponent },
 
 ];
 

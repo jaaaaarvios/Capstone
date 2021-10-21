@@ -81,7 +81,6 @@ import { MenuRefComponent } from './menu-ref/menu-ref.component';
 import { MenuTvComponent } from './menu-tv/menu-tv.component';
 import { AdminUserComponent } from './admin-user/admin-user.component';
 import { PricingComponent } from './pricing/pricing.component';
-
 import { PrivacytermsComponent } from './privacyterms/privacyterms.component';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';

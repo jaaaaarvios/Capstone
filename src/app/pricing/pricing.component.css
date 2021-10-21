@@ -150,12 +150,11 @@ mat-tab-group
     margin-top: 20px;
 }
 
- mat-icon
- {
-     font-size: 18px;
-     color: #FCBF49;
-    
- }
+.text_icon
+{
+    color: #FCBF49;
+    font-size: 25px;
+}
 .repairservice1
 {
     font-size: 15px;
