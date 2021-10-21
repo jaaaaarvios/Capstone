@@ -42,7 +42,6 @@
 .dashboardside:hover
 {
     background-color: #c8c19c;
-    
     width: 100%;
     height: 70px;
     margin-left: 0;
@@ -203,8 +202,6 @@ color: #FFFFFF;
   margin-right: -70px;
 }
 
-
-
 .dashvector
 { 
   width: 40%;
@@ -214,16 +211,17 @@ color: #FFFFFF;
 }
 
 .tab{
-  margin-top: 20px;
-  float: left;
-  margin-left: 50px;
   width: fit-content;
+  margin-top: 350px;
+  margin-left: 50px;
 }
 
 .pendingcard
 {
-  width: 1100px;
-  height: 350px;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 20px;
+  margin-top: 15px;
   border: solid 1px grey;
 }
 
@@ -268,6 +266,21 @@ color: #FFFFFF;
 .card_image{
   width: 200px;
   height: 150px;
+}
+.table{
+  width: 100%;
+  height: fit-content;
+  margin-top: 50px;
+}
+table{
+  width: 800px;
+}
+.header, td{
+  text-align: center;
+}
+.detailsBtn{
+  margin-top: 5px;
+  margin-left: 20px;
 }
 }
 
@@ -338,10 +351,9 @@ color: #FFFFFF;
 
 .pendingcard
 {
- 
   margin-top: 15px;
-  width: 400px;
-  height: 250px;
+  width: fit-content;
+  height: fit-content;
   border: 2px solid #E5E5E5;
 }
 .searchfield
@@ -362,19 +374,31 @@ color: #FFFFFF;
 }
 .completedcard
 {
+  width: fit-content;
+  height: fit-content;
   margin-left: 20px;
   margin-top: 15px;
-  width: 850px;
-  height: fit-content;
   border: 2px solid #E5E5E5;
 }
 
 .cancelledcard
 {
+  width: fit-content;
+  height: fit-content;
   margin-left: 20px;
   margin-top: 15px;
-  width: 850px;
-  height: fit-content;
   border: 2px solid #E5E5E5;
+}
+.table{
+  width: fit-content;
+  height: fit-content;
+  margin-top: 50px;
+}
+td{
+  text-align: center;
+}
+.detailsBtn{
+  margin-top: 5px;
+  margin-left: 20px;
 }
 }

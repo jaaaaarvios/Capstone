@@ -44,13 +44,10 @@
       </button>
       <h1 class="ayosgamit">Ayosgamit</h1>
       <span class="spacer"></span>
-      
+
       <h2 class="welcome">Welcome, ADMIN!</h2>
     </mat-toolbar>
-
-
-    
-
+    <div class="container">
       <div>
         <h1 class="dashtitle">Dashboard</h1>
       </div>
@@ -59,14 +56,9 @@
         <label>({{date | date: "h:mm:a'"}})</label>
       </div>
 
-
       <div>
         <img class="dashvector" mat-card-image src="../../assets/adminvector.png">
       </div>
-
-    
-  
-    
       <mat-tab-group>
         <mat-tab label="New Requests">
           <mat-card class="newreq">
@@ -77,11 +69,29 @@
               </mat-label>
               <input matInput>
             </mat-form-field>
-
+            <div class="table">
+              <table>
+                <thead class="head">
+                  <tr>
+                    <th scope="col">Service ID</th>
+                    <th scope="col" class="header">Service Appliance</th>
+                    <th scope="col" class="header">Service Type</th>
+                    <th scope="col" class="header">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="body">
+                  <tr *ngFor="let sr of service_request">
+                    <th scope="row">{{sr._id}}</th>
+                    <td>{{sr.service_appliance}}</td>
+                    <td>{{sr.service_type}}</td>
+                    <td>{{sr.status}}</td>
+                    <td><button mat-raised-button class="detailsBtn">Accept</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </mat-card>
         </mat-tab>
-
-
         <mat-tab label="Pending Requests">
           <mat-card class="pendingreq">
             <h1 class="h1pending">Pending Requests</h1>
@@ -91,7 +101,27 @@
               </mat-label>
               <input matInput>
             </mat-form-field>
-
+            <div class="table">
+              <table>
+                <thead class="head">
+                  <tr>
+                    <th scope="col">Service ID</th>
+                    <th scope="col" class="header">Service Appliance</th>
+                    <th scope="col" class="header">Service Type</th>
+                    <th scope="col" class="header">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="body">
+                  <tr *ngFor="let sr of service_request">
+                    <th scope="row">{{sr._id}}</th>
+                    <td>{{sr.service_appliance}}</td>
+                    <td>{{sr.service_type}}</td>
+                    <td>{{sr.status}}</td>
+                    <button mat-raised-button class="detailsBtn">Accept</button>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </mat-card>
         </mat-tab>
 
@@ -104,7 +134,27 @@
               </mat-label>
               <input matInput>
             </mat-form-field>
-
+            <div class="table">
+              <table>
+                <thead class="head">
+                  <tr>
+                    <th scope="col">Service ID</th>
+                    <th scope="col" class="header">Service Appliance</th>
+                    <th scope="col" class="header">Service Type</th>
+                    <th scope="col" class="header">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="body">
+                  <tr *ngFor="let sr of service_request">
+                    <th scope="row">{{sr._id}}</th>
+                    <td>{{sr.service_appliance}}</td>
+                    <td>{{sr.service_type}}</td>
+                    <td>{{sr.status}}</td>
+                    <button mat-raised-button class="detailsBtn">Accept</button>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </mat-card>
         </mat-tab>
 
@@ -117,23 +167,30 @@
               </mat-label>
               <input matInput>
             </mat-form-field>
-
-          </mat-card>
-        </mat-tab>
-
-        <mat-tab label="Rescheduled Requests">
-          <mat-card class="reschedreq">
-            <h1 class="h1resched">Rescheduled Requests</h1>
-            <mat-form-field class="searchfield" appearance="outline">
-              <mat-label>
-                <mat-icon>find_in_page</mat-icon>Search..
-              </mat-label>
-              <input matInput>
-            </mat-form-field>
-
+            <div class="table">
+              <table>
+                <thead class="head">
+                  <tr>
+                    <th scope="col">Service ID</th>
+                    <th scope="col" class="header">Service Appliance</th>
+                    <th scope="col" class="header">Service Type</th>
+                    <th scope="col" class="header">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="body">
+                  <tr *ngFor="let sr of service_request">
+                    <th scope="row">{{sr._id}}</th>
+                    <td>{{sr.service_appliance}}</td>
+                    <td>{{sr.service_type}}</td>
+                    <td>{{sr.status}}</td>
+                    <button mat-raised-button class="detailsBtn">Accept</button>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </mat-card>
         </mat-tab>
       </mat-tab-group>
-
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

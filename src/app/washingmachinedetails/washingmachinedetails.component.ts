@@ -7,6 +7,7 @@ import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
 import { SharedService } from '../shared/shared.service';
+import { HttpClient } from '@angular/common/http';
 
 declare const L: any;
 
@@ -70,7 +71,7 @@ export class WashingmachinedetailsComponent implements OnInit {
     "Door or lid does not lock", "Stops mid-cycle", "Other", "I don't know"];
 
   constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog, 
-    private shared: SharedService, private breakpointObserver: BreakpointObserver) { }
+    private shared: SharedService, private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
   ngOnInit(): void {
     //Sending data to the service
@@ -218,15 +219,43 @@ export class WashingmachinedetailsComponent implements OnInit {
   }
 
   contactDetailsSubmit() {
+    const unit = this.unitdetailsForm.value;
+    const loc = this.locationForm.value;
+    const sched = this.scheduleForm.value;
+    const contact = this.contactDetialsForm.value;
+    let body = {
+      "service_type": "Repair",
+      "service_appliance": "Washing Machine",
+      "service_aptype": unit.service_aptype,
+      "service_brand": unit.service_brand,
+      "service_unitType": this.service_unitType,
+      "service_unitProb": unit.service_unitProb,
+      "service_city": loc.service_city,
+      "service_property_type": loc.service_property_type,
+      "service_zipcode": loc.service_zipcode,
+      "service_date": sched.service_date,
+      "service_timeslot": sched.service_timeslot,
+      "service_address": contact.service_address,
+      "service_firstname": contact.service_firstname,
+      "service_lastname": contact.service_lastname,
+      "service_phoneNumber": contact.service_phoneNumber,
+      "service_addressDetails": contact.service_addressDetails,
+      "service_instruction": contact.service_instruction,
+      "status": "Pending"
+    }
+
     if (this.contactDetialsForm.valid) {
-      this.shared.changeAddress(this.contactDetialsForm.value.service_address);
-      this.shared.changeFirstname(this.contactDetialsForm.value.service_firstname);
-      this.shared.changeLastname(this.contactDetialsForm.value.service_lastname);
-      this.shared.changePhoneNumber(this.contactDetialsForm.value.service_phoneNumber);
-      this.shared.changeAddressDetails(this.contactDetialsForm.value.service_addressDetails);
-      this.shared.changeInstruction(this.contactDetialsForm.value.service_instruction);
-      this.router.navigate(['/summary'])
-    } else {
+      this.http.post("http://localhost:3000/NewServiceRequest", body)
+        .subscribe(data => {
+          console.log(data, 'Booking Success');
+          alert("Booking Success");
+          this.router.navigate(['/summary'])
+        }, error => {
+          console.log(error);
+          alert(error);
+        });
+    }
+    else {
       return;
     }
   }
