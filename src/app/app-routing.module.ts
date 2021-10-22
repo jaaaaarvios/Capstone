@@ -46,6 +46,8 @@ import { MenuRefComponent } from './menu-ref/menu-ref.component';
 import { AdminUserComponent } from './admin-user/admin-user.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { PrivacytermsComponent } from './privacyterms/privacyterms.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { RepairFeeComponent } from './repair-fee/repair-fee.component';
 
 
 const routes: Routes = [
@@ -97,7 +99,8 @@ const routes: Routes = [
   { path: 'user', component: AdminUserComponent },
   { path: 'pricing', component: PricingComponent },
   { path: 'privacy_terms', component: PrivacytermsComponent },
-
+  { path: 'feedback', component: FeedbackComponent },
+  { path: 'repair-fee', component: RepairFeeComponent },
 ];
 
 @NgModule({

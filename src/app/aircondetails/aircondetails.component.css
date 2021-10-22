@@ -205,6 +205,7 @@ color: #FFFFFF;
   .stepper
   {
     margin: auto;
+    position: center !important;
     margin-top: 50px;
     font-family: 'Trebuchet MS';
     width: fit-content;

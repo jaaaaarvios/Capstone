@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { RepairFeeComponent } from '../repair-fee/repair-fee.component';
 
 @Component({
   selector: 'app-appliances',
@@ -29,11 +30,15 @@ export class AppliancesComponent implements OnInit {
     .pipe(map((result: BreakpointState) => result.matches));
 
   constructor(private shared: SharedService, private router: Router, 
-    private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
+    private breakpointObserver: BreakpointObserver, private http: HttpClient, public dialog: MatDialog) { }
+
+  
 
   ngOnInit() {
     this.subscription = this.shared.currentAppliance.subscribe(service_appliance => this.service_appliance = service_appliance);
   }
+  
+
 
   AirconOpen(){
     this.shared.changeAppliance(this.ac);
@@ -66,3 +71,7 @@ export class AppliancesComponent implements OnInit {
     }
   }
 }
+function DialogContentExampleDialog(DialogContentExampleDialog: any) {
+  throw new Error('Function not implemented.');
+}
+
