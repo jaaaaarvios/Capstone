@@ -1,4 +1,5 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -11,6 +12,7 @@ import { map } from 'rxjs/operators';
 export class AdminpageComponent implements OnInit {
 
   date: Date;
+  service_request = []
   
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -32,13 +34,19 @@ export class AdminpageComponent implements OnInit {
     }),
   );
 
-  constructor( private breakpointObserver: BreakpointObserver) { 
+  constructor( private breakpointObserver: BreakpointObserver, private http: HttpClient) { 
     setInterval(() => {
       this.date = new Date()
     }, 1000)
   }
 
   ngOnInit(): void {
+    let data:Observable<any>;
+      data = this.http.get('http://localhost:3000/NewServiceRequest');
+      data.subscribe(result => {
+        this.service_request = result
+        console.log(this.service_request)
+      });
   }
 
   closeSideNav() {

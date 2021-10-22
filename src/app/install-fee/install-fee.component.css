@@ -4,12 +4,10 @@ body
     position: center !important;
 }
 
-
-
 .airconrepair
 {
     font-size: 20px;
-    color: #003049;
+    color: #14213D;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: center !important;
     margin-top: 20px;
@@ -24,35 +22,26 @@ body
     margin-top: 20px;
     
 }
-
-.aircondescrip
+.cleaningservice1
 {
     font-size: 15px;
-    color: #003049;
+    color: #14213D;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    position: center !important;
+    float: left;
     margin-top: 50px;
+   
 }
-
-.aircondescrip2
+.cleaningservice2
 {
     font-size: 15px;
-    color: #003049;
+    color: #14213D;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    position: center !important;
-    margin-top: 20px;
+    float: left;
+  
+   
 }
-
 .text_icon
 {
     color: #FCBF49;
     font-size: 25px;
-}
-.repairservice1
-{
-    font-size: 15px;
-    color: #003049;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    float: left;
-   
 }

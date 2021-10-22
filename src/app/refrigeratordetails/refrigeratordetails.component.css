@@ -232,6 +232,37 @@ color: #FFFFFF;
     margin-top: 25px;
     float: left;
   }
+
+  .viewprice
+  {
+    width: 800px;
+    height: fit-content;
+    margin: auto;
+  }
+
+  .pricetxt
+  {
+    color: #14213D;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+p
+{
+  color: #14213D;
+  font-size: 13px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.priceBtn
+{
+  background-color: #003049;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  float: right;
+  margin-top: -50px;
+}
   .unitdetailscard
   {
     margin: auto;

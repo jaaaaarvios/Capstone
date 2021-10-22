@@ -7,6 +7,8 @@ import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
 import { SharedService } from '../shared/shared.service';
+import { HttpClient } from '@angular/common/http';
+import { InstallFeeComponent } from '../install-fee/install-fee.component';
 
 declare const L: any;
 
@@ -40,6 +42,7 @@ export class AirconInstallComponent implements OnInit {
   service_aptype = "";
   service_brand = "";
   service_unitType = "";
+  service_unitProb = "";
   service_city = "";
   service_property_type = "";
   service_zipcode = null;
@@ -67,13 +70,21 @@ export class AirconInstallComponent implements OnInit {
     .pipe(map((result: BreakpointState) => result.matches));
 
   constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog,
-    private shared: SharedService, private breakpointObserver: BreakpointObserver) { }
+    private shared: SharedService, private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
+    openDialog() {
+      const dialogRef = this.dialog.open(InstallFeeComponent);
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
   ngOnInit(): void {
     //Sending data to the service
     this.subscription = this.shared.currentACType.subscribe(service_aptype => this.service_aptype = service_aptype);
     this.subscription = this.shared.currentACBrand.subscribe(service_brand => this.service_brand = service_brand);
     this.subscription = this.shared.currentACUType.subscribe(service_unitType => this.service_unitType = service_unitType);
+    this.subscription = this.shared.currentACUProb.subscribe(service_unitProb => this.service_unitProb = service_unitProb);
     this.subscription = this.shared.currentCity.subscribe(service_city => this.service_city = service_city);
     this.subscription = this.shared.currentPropertyType.subscribe(service_property_type => this.service_property_type = service_property_type);
     this.subscription = this.shared.currentZipcode.subscribe(service_zipcode => this.service_zipcode = service_zipcode);
@@ -213,15 +224,43 @@ export class AirconInstallComponent implements OnInit {
   }
 
   contactDetailsSubmit() {
+    const unit = this.unitdetailsForm.value;
+    const loc = this.locationForm.value;
+    const sched = this.scheduleForm.value;
+    const contact = this.contactDetialsForm.value;
+    let body = {
+      "service_type": "Installation",
+      "service_appliance": "Aircon",
+      "service_aptype": unit.service_aptype,
+      "service_brand": unit.service_brand,
+      "service_unitType": unit.service_unitType,
+      "service_unitProb": this.service_unitProb,
+      "service_city": loc.service_city,
+      "service_property_type": loc.service_property_type,
+      "service_zipcode": loc.service_zipcode,
+      "service_date": sched.service_date,
+      "service_timeslot": sched.service_timeslot,
+      "service_address": contact.service_address,
+      "service_firstname": contact.service_firstname,
+      "service_lastname": contact.service_lastname,
+      "service_phoneNumber": contact.service_phoneNumber,
+      "service_addressDetails": contact.service_addressDetails,
+      "service_instruction": contact.service_instruction,
+      "status": "Pending"
+    }
+
     if (this.contactDetialsForm.valid) {
-      this.shared.changeAddress(this.contactDetialsForm.value.service_address);
-      this.shared.changeFirstname(this.contactDetialsForm.value.service_firstname);
-      this.shared.changeLastname(this.contactDetialsForm.value.service_lastname);
-      this.shared.changePhoneNumber(this.contactDetialsForm.value.service_phoneNumber);
-      this.shared.changeAddressDetails(this.contactDetialsForm.value.service_addressDetails);
-      this.shared.changeInstruction(this.contactDetialsForm.value.service_instruction);
-      this.router.navigate(['/summary'])
-    } else {
+      this.http.post("http://localhost:3000/NewServiceRequest", body)
+        .subscribe(data => {
+          console.log(data, 'Booking Success');
+          alert("Booking Success");
+          this.router.navigate(['/summary'])
+        }, error => {
+          console.log(error);
+          alert(error);
+        });
+    }
+    else {
       return;
     }
   }

@@ -74,7 +74,7 @@
     margin-top: 50px;
 }
 
-mat-tab-group
+.mat-tab-group
 {
     width: fit-content;
     position: center !important;
@@ -224,15 +224,13 @@ mat-tab-group
 
 .footer
 {
+    height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     background-color: #D62828;
     color: whitesmoke;
     text-align: center;
 }
-
-
-
 }
 @media (max-width: 576px)
 {

@@ -86,6 +86,9 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import {CookieService} from 'ngx-cookie-service';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { RepairFeeComponent } from './repair-fee/repair-fee.component';
+import { CleaningFeeComponent } from './cleaning-fee/cleaning-fee.component';
+import { InstallFeeComponent } from './install-fee/install-fee.component';
+import { InstallFeeWashingComponent } from './install-fee-washing/install-fee-washing.component';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -150,6 +153,9 @@ import { RepairFeeComponent } from './repair-fee/repair-fee.component';
     PrivacytermsComponent,
          FeedbackComponent,
          RepairFeeComponent,
+         CleaningFeeComponent,
+         InstallFeeComponent,
+         InstallFeeWashingComponent,
 
   ],
   imports: [

@@ -18,4 +18,8 @@ export class AuthService {
     return this.http.delete<void>("http://localhost:3000/technician/:id", _id)
   }
 
+  updateTechnician(data){
+    return this.http.patch("http://localhost:3000/technician/:id", data)
+  }
+
 }

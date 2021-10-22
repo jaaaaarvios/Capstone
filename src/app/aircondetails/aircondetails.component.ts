@@ -7,6 +7,7 @@ import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
 import { SharedService } from '../shared/shared.service';
+import { RepairFeeComponent } from '../repair-fee/repair-fee.component';
 
 
 declare const L: any;
@@ -76,6 +77,15 @@ export class AircondetailsComponent implements OnInit {
 
   constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog, 
     private shared: SharedService, private breakpointObserver: BreakpointObserver) { }
+
+    openDialog() {
+      const dialogRef = this.dialog.open(RepairFeeComponent);
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
+  
 
   ngOnInit(): void {
     //Sending data to the service

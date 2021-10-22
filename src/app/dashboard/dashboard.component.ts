@@ -6,9 +6,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RequestdetailsComponent } from '../requestdetails/requestdetails.component';
 import { SharedService } from '../shared/shared.service';
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { CookieService } from 'ngx-cookie-service';
+import { HttpClient } from '@angular/common/http';
+// import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -20,46 +19,45 @@ import { AuthService } from '../auth.service';
 
 export class DashboardComponent implements OnInit {
 
-  
   user_fname="";
   user_lname="";
   date: Date;
   subscription: any;
+  service_request = []
 
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
-
-
   
-  constructor(private router: Router, public dialog: MatDialog, 
-    private breakpointObserver: BreakpointObserver, private shared: SharedService, private cookieService: CookieService, private auth: AuthService) {
+  constructor(private router: Router, public dialog: MatDialog, private http: HttpClient,
+    private breakpointObserver: BreakpointObserver, private shared: SharedService) {
       {
         setInterval(() => {
           this.date = new Date()
         }, 1000)
-
-
       }
      }
 
-
-     
   ngOnInit(): void {
     this.subscription = this.shared.currentUserFname.subscribe(user_fname => this.user_fname = user_fname);
     this.subscription = this.shared.currentUserLname.subscribe(user_lname => this.user_lname = user_lname);
+
+    let data:Observable<any>;
+      data = this.http.get('http://localhost:3000/NewServiceRequest');
+      data.subscribe(result => {
+        this.service_request = result
+        console.log(this.service_request)
+      });
   }
 
   images = [];
 
   signOut() {
-    
     var auth2 = auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
-
     this.router.navigate(['/home'])
   });
   }

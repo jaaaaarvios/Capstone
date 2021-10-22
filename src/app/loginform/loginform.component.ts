@@ -48,26 +48,18 @@ export class LoginformComponent implements OnInit {
   constructor(private router: Router, private shared: SharedService, private http: HttpClient,
     ngZone: NgZone, private breakpointObserver: BreakpointObserver, private auth: AuthService) {
 
-    window['onSignIn'] = user => ngZone.run(
-      () => {
-        this.afterSignUp(user);
-        console.log("success")
-      }
-    );
+    // window['onSignIn'] = user => ngZone.run(
+    //   () => {
+    //     this.afterSignUp(user);
+    //     console.log("success")
+    //   }
+    // );
   }
 
   afterSignUp(googleUser) {
     this.router.navigate(['/dashboard'])
     console.log(googleUser)
     this.guser = googleUser;
-  }
-
-
-  onSubmit() {
-    this.router.navigate(['/dashboard'])
-  }
-  onSubmit1() {
-    this.router.navigate(['/admin'])
   }
 
   ngOnInit(): void {
@@ -110,7 +102,7 @@ export class LoginformComponent implements OnInit {
     }
     else if (val.email == "admin" && val.password == "admin") {
       alert("Login Successfully");
-      this.onSubmit1();
+      this.router.navigate(['/admin']);
     }
     else if (val.email == "" && val.password == "") {
       alert("Invalid Information. Please try again.");
@@ -125,7 +117,6 @@ export class LoginformComponent implements OnInit {
   }
 
   SignUpSubmit() {
-
     const val = this.signupForm.value;
     let body = {
       "first_name": val.user_fname,
@@ -135,9 +126,9 @@ export class LoginformComponent implements OnInit {
       "number": "None",
       "service_address": "None",
       "service_addressDetails": "None",
-      "property_type": "None"
+      "property_type": "None",
+      "active": "1"
     }
-
     if (this.signupForm.valid) {
       this.http.post("http://localhost:3000/CredentialDB", body)
         .subscribe(data => {
@@ -155,7 +146,6 @@ export class LoginformComponent implements OnInit {
     else {
       alert("Fill up the required textfields with valid information");
     }
-    
   }
 
   closeSideNav() {
