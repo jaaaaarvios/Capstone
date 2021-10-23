@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SharedService } from '../shared/shared.service';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-bookingsummary',
@@ -18,6 +19,11 @@ export class BookingsummaryComponent implements OnInit {
 
   service_request = []
 
+  checked = false;
+  indeterminate = false;
+  labelPosition: 'before' | 'after' = 'after';
+  disabled = false;
+  
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
@@ -25,7 +31,9 @@ export class BookingsummaryComponent implements OnInit {
     .pipe(map((result: BreakpointState) => result.matches));
   
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver,
-    private http: HttpClient, private router: Router) { }
+    private http: HttpClient, private router: Router) {
+
+    }
 
   ngOnInit(): void {
     let data:Observable<any>;

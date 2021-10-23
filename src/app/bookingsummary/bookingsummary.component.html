@@ -6,6 +6,8 @@
   <div class="container">
     <!--REQUEST SUMMARY------------------------------------------------>
     <div>
+   
+
     <mat-card class="summary">
       <div>
         <mat-icon class="icon">description<h1 class="title">Request Summary</h1>
@@ -82,38 +84,19 @@
           </tr>
         </tbody>
       </table>
+
+      <div class="termschkbox">
+      <mat-checkbox [(ngModel)]="checked">I agree to Ayosgamit <b>Terms and Conditions.</b></mat-checkbox>
+    </div>
+
+    <div>
+      <button mat-raised-button class="proceedBtn" routerLink="/paymentform">Proceed</button>
+    </div>
     </mat-card>
   </div>
     <!--PAYMENT SUMMARY------------------------------------------------>
-    <div>
-      <div class="pending">
-        <h1 class="pendingtxt">Your request is pending</h1>
-      </div>
-
-      <div class="description">
-        <p class="description1">Your service request is now on pending.</p>
-        <p class="description2">Choose a payment option
-          to grant your</p>
-        <p class="description3">service request.</p>
-        <button mat-raised-button (click)="cancelRequest()" class="cancelBtn">Cancel Request</button>
-        <button mat-stroked-button class="reschedBtn">Reschedule Request</button>
-      </div>
-
-      <div class="pendingvector1">
-        <img class="pendingvector" mat-card-image src="../../assets/pendingvector.png">
-      </div>
-
-      <mat-card class="payment">
-        <div>
-          <h1 class="paymentinfotxt">Payment Summary</h1>
-
-        </div>
-        <div>
-          <button mat-raised-button class="payBtn">Pay with Cash</button>
-          <h1 class="ortxt">OR</h1>
-          <div class="paypalBtn" id="myPaypalButtons"></div>
-        </div>
-      </mat-card>
-    </div>
+    
+      
+    
   </div>
 </body>

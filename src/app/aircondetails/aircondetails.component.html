@@ -215,6 +215,8 @@
                       You must make a selection
                     </mat-error>
                   </mat-form-field>
+
+                  
                   <button mat-raised-button class="dateBtn" (click)="picker.open()">Pick a date</button>
                 </div>
 
@@ -345,7 +347,7 @@
 
             <!--Back and Next Button-->
             <button class="CDbackBtn" mat-button matStepperPrevious>Back</button>
-            <button class="doneBtn" type="submit" [disabled]="!contactDetialsForm.valid" mat-button> Done </button>
+            <button class="doneBtn" type="submit" [disabled]="!contactDetialsForm.valid" mat-button>Review</button>
           </form>
         </div>
       </mat-step>

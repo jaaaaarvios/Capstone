@@ -1,0 +1,306 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'firebase'
+1 verbose cli ]
+2 info using npm@6.14.15
+3 info using node@v14.18.1
+4 verbose npm-session 21d28f5697a4875d
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 http fetch GET 200 https://registry.npmjs.org/firebase 1568ms
+8 http fetch GET 200 https://registry.npmjs.org/firebase/-/firebase-9.1.3.tgz 1279ms
+9 silly pacote tag manifest for firebase@latest fetched in 2927ms
+10 timing stage:loadCurrentTree Completed in 8986ms
+11 silly install loadIdealTree
+12 silly install cloneCurrentTreeToIdealTree
+13 timing stage:loadIdealTree:cloneCurrentTree Completed in 26ms
+14 silly install loadShrinkwrap
+15 timing stage:loadIdealTree:loadShrinkwrap Completed in 1977ms
+16 silly install loadAllDepsIntoIdealTree
+17 silly resolveWithNewModule firebase@9.1.3 checking installable status
+18 http fetch GET 200 https://registry.npmjs.org/@firebase%2ffirestore-compat 282ms
+19 http fetch GET 200 https://registry.npmjs.org/@firebase%2fauth-compat 490ms
+20 http fetch GET 200 https://registry.npmjs.org/@firebase%2fdatabase-compat 753ms
+21 http fetch GET 200 https://registry.npmjs.org/@firebase/firestore-compat/-/firestore-compat-0.1.4.tgz 1466ms
+22 silly pacote version manifest for @firebase/firestore-compat@0.1.4 fetched in 1757ms
+23 silly resolveWithNewModule @firebase/firestore-compat@0.1.4 checking installable status
+24 http fetch GET 200 https://registry.npmjs.org/@firebase%2fapp 2065ms
+25 http fetch GET 200 https://registry.npmjs.org/@firebase/auth-compat/-/auth-compat-0.1.6.tgz 1731ms
+26 silly pacote version manifest for @firebase/auth-compat@0.1.6 fetched in 2230ms
+27 silly resolveWithNewModule @firebase/auth-compat@0.1.6 checking installable status
+28 http fetch GET 200 https://registry.npmjs.org/@firebase/app/-/app-0.7.4.tgz 169ms
+29 silly pacote version manifest for @firebase/app@0.7.4 fetched in 2289ms
+30 silly resolveWithNewModule @firebase/app@0.7.4 checking installable status
+31 http fetch GET 200 https://registry.npmjs.org/@firebase%2ffunctions-compat 538ms
+32 http fetch GET 200 https://registry.npmjs.org/@firebase%2fapp-compat 2390ms
+33 http fetch GET 200 https://registry.npmjs.org/@firebase/database-compat/-/database-compat-0.1.2.tgz 1806ms
+34 silly pacote version manifest for @firebase/database-compat@0.1.2 fetched in 2565ms
+35 silly resolveWithNewModule @firebase/database-compat@0.1.2 checking installable status
+36 http fetch GET 200 https://registry.npmjs.org/@firebase%2fauth 3127ms
+37 http fetch GET 200 https://registry.npmjs.org/@firebase%2fmessaging-compat 678ms
+38 http fetch GET 200 https://registry.npmjs.org/@firebase/functions-compat/-/functions-compat-0.1.4.tgz 953ms
+39 silly pacote version manifest for @firebase/functions-compat@0.1.4 fetched in 1499ms
+40 silly resolveWithNewModule @firebase/functions-compat@0.1.4 checking installable status
+41 http fetch GET 200 https://registry.npmjs.org/@firebase/app-compat/-/app-compat-0.1.5.tgz 940ms
+42 silly pacote version manifest for @firebase/app-compat@0.1.5 fetched in 3341ms
+43 silly resolveWithNewModule @firebase/app-compat@0.1.5 checking installable status
+44 http fetch GET 200 https://registry.npmjs.org/@firebase/messaging-compat/-/messaging-compat-0.1.2.tgz 1007ms
+45 silly pacote version manifest for @firebase/messaging-compat@0.1.2 fetched in 1694ms
+46 silly resolveWithNewModule @firebase/messaging-compat@0.1.2 checking installable status
+47 http fetch GET 200 https://registry.npmjs.org/@firebase%2fstorage-compat 500ms
+48 http fetch GET 200 https://registry.npmjs.org/@firebase/storage-compat/-/storage-compat-0.1.4.tgz 316ms
+49 silly pacote version manifest for @firebase/storage-compat@0.1.4 fetched in 824ms
+50 silly resolveWithNewModule @firebase/storage-compat@0.1.4 checking installable status
+51 http fetch GET 200 https://registry.npmjs.org/@firebase%2fmessaging 3305ms
+52 http fetch GET 200 https://registry.npmjs.org/@firebase/auth/-/auth-0.18.3.tgz 2719ms
+53 silly pacote version manifest for @firebase/auth@0.18.3 fetched in 5882ms
+54 silly resolveWithNewModule @firebase/auth@0.18.3 checking installable status
+55 http fetch GET 200 https://registry.npmjs.org/@firebase%2fperformance-compat 247ms
+56 http fetch GET 200 https://registry.npmjs.org/@firebase/performance-compat/-/performance-compat-0.1.2.tgz 174ms
+57 silly pacote version manifest for @firebase/performance-compat@0.1.2 fetched in 427ms
+58 silly resolveWithNewModule @firebase/performance-compat@0.1.2 checking installable status
+59 http fetch GET 200 https://registry.npmjs.org/@firebase/messaging/-/messaging-0.9.2.tgz 1111ms
+60 silly pacote version manifest for @firebase/messaging@0.9.2 fetched in 4455ms
+61 silly resolveWithNewModule @firebase/messaging@0.9.2 checking installable status
+62 http fetch GET 200 https://registry.npmjs.org/@firebase%2fremote-config-compat 484ms
+63 http fetch GET 200 https://registry.npmjs.org/@firebase%2fapp-types 7476ms
+64 http fetch GET 200 https://registry.npmjs.org/@firebase/app-types/-/app-types-0.7.0.tgz 225ms
+65 silly pacote version manifest for @firebase/app-types@0.7.0 fetched in 7726ms
+66 silly resolveWithNewModule @firebase/app-types@0.7.0 checking installable status
+67 http fetch GET 200 https://registry.npmjs.org/@firebase/remote-config-compat/-/remote-config-compat-0.1.2.tgz 1101ms
+68 silly pacote version manifest for @firebase/remote-config-compat@0.1.2 fetched in 1592ms
+69 silly resolveWithNewModule @firebase/remote-config-compat@0.1.2 checking installable status
+70 http fetch GET 200 https://registry.npmjs.org/@firebase%2fdatabase 8746ms
+71 http fetch GET 200 https://registry.npmjs.org/@firebase%2fanalytics-compat 518ms
+72 http fetch GET 200 https://registry.npmjs.org/@firebase%2fpolyfill 6480ms
+73 http fetch GET 200 https://registry.npmjs.org/@firebase/analytics-compat/-/analytics-compat-0.1.3.tgz 1000ms
+74 silly pacote version manifest for @firebase/analytics-compat@0.1.3 fetched in 1526ms
+75 silly resolveWithNewModule @firebase/analytics-compat@0.1.3 checking installable status
+76 http fetch GET 200 https://registry.npmjs.org/@firebase/polyfill/-/polyfill-0.3.36.tgz 180ms
+77 silly pacote version manifest for @firebase/polyfill@0.3.36 fetched in 6687ms
+78 silly resolveWithNewModule @firebase/polyfill@0.3.36 checking installable status
+79 http fetch GET 200 https://registry.npmjs.org/@firebase%2fapp-check 581ms
+80 http fetch GET 200 https://registry.npmjs.org/@firebase/app-check/-/app-check-0.4.2.tgz 1033ms
+81 silly pacote version manifest for @firebase/app-check@0.4.2 fetched in 1627ms
+82 silly resolveWithNewModule @firebase/app-check@0.4.2 checking installable status
+83 http fetch GET 200 https://registry.npmjs.org/@firebase%2fremote-config 5681ms
+84 http fetch GET 200 https://registry.npmjs.org/@firebase/remote-config/-/remote-config-0.3.1.tgz 585ms
+85 http fetch GET 200 https://registry.npmjs.org/@firebase%2fapp-check-compat 2657ms
+86 http fetch GET 200 https://registry.npmjs.org/@firebase/database/-/database-0.12.2.tgz 3824ms
+87 http fetch GET 200 https://registry.npmjs.org/@firebase%2finstallations 10383ms
+88 http fetch GET 200 https://registry.npmjs.org/@firebase%2fstorage 9304ms
+89 silly pacote version manifest for @firebase/database@0.12.2 fetched in 12682ms
+90 silly resolveWithNewModule @firebase/database@0.12.2 checking installable status
+91 silly pacote version manifest for @firebase/remote-config@0.3.1 fetched in 6373ms
+92 silly resolveWithNewModule @firebase/remote-config@0.3.1 checking installable status
+93 http fetch GET 200 https://registry.npmjs.org/@firebase/app-check-compat/-/app-check-compat-0.1.3.tgz 171ms
+94 silly pacote version manifest for @firebase/app-check-compat@0.1.3 fetched in 2841ms
+95 silly resolveWithNewModule @firebase/app-check-compat@0.1.3 checking installable status
+96 http fetch GET 200 https://registry.npmjs.org/@firebase/installations/-/installations-0.5.2.tgz 288ms
+97 silly pacote version manifest for @firebase/installations@0.5.2 fetched in 10709ms
+98 silly resolveWithNewModule @firebase/installations@0.5.2 checking installable status
+99 http fetch GET 200 https://registry.npmjs.org/@firebase%2ffunctions 13444ms
+100 http fetch GET 200 https://registry.npmjs.org/@firebase%2futil 2409ms
+101 http fetch GET 200 https://registry.npmjs.org/@firebase/functions/-/functions-0.7.3.tgz 432ms
+102 silly pacote version manifest for @firebase/functions@0.7.3 fetched in 13952ms
+103 silly resolveWithNewModule @firebase/functions@0.7.3 checking installable status
+104 http fetch GET 200 https://registry.npmjs.org/@firebase/storage/-/storage-0.8.4.tgz 1644ms
+105 silly pacote version manifest for @firebase/storage@0.8.4 fetched in 10989ms
+106 silly resolveWithNewModule @firebase/storage@0.8.4 checking installable status
+107 http fetch GET 200 https://registry.npmjs.org/@firebase/util/-/util-1.4.0.tgz 599ms
+108 silly pacote version manifest for @firebase/util@1.4.0 fetched in 3039ms
+109 silly resolveWithNewModule @firebase/util@1.4.0 checking installable status
+110 http fetch GET 200 https://registry.npmjs.org/@firebase%2fanalytics 6822ms
+111 http fetch GET 200 https://registry.npmjs.org/@firebase/analytics/-/analytics-0.7.2.tgz 537ms
+112 silly pacote version manifest for @firebase/analytics@0.7.2 fetched in 7387ms
+113 silly resolveWithNewModule @firebase/analytics@0.7.2 checking installable status
+114 http fetch GET 200 https://registry.npmjs.org/@firebase%2fperformance 10072ms
+115 http fetch GET 200 https://registry.npmjs.org/@firebase%2ffirestore 15273ms
+116 http fetch GET 200 https://registry.npmjs.org/@firebase/performance/-/performance-0.5.2.tgz 1107ms
+117 silly pacote version manifest for @firebase/performance@0.5.2 fetched in 11212ms
+118 silly resolveWithNewModule @firebase/performance@0.5.2 checking installable status
+119 http fetch GET 200 https://registry.npmjs.org/@firebase/firestore/-/firestore-3.1.1.tgz 2095ms
+120 silly pacote version manifest for @firebase/firestore@3.1.1 fetched in 17416ms
+121 silly resolveWithNewModule @firebase/firestore@3.1.1 checking installable status
+122 http fetch GET 200 https://registry.npmjs.org/@firebase%2flogger 1446ms
+123 http fetch GET 200 https://registry.npmjs.org/@firebase/logger/-/logger-0.3.0.tgz 121ms
+124 silly pacote version manifest for @firebase/logger@0.3.0 fetched in 1598ms
+125 silly resolveWithNewModule @firebase/logger@0.3.0 checking installable status
+126 http fetch GET 200 https://registry.npmjs.org/@firebase%2fcomponent 2963ms
+127 http fetch GET 200 https://registry.npmjs.org/@firebase/component/-/component-0.5.7.tgz 102ms
+128 silly pacote version manifest for @firebase/component@0.5.7 fetched in 3083ms
+129 silly resolveWithNewModule @firebase/component@0.5.7 checking installable status
+130 http fetch GET 200 https://registry.npmjs.org/idb 114ms
+131 http fetch GET 200 https://registry.npmjs.org/idb/-/idb-3.0.2.tgz 128ms
+132 silly pacote version manifest for idb@3.0.2 fetched in 251ms
+133 silly resolveWithNewModule idb@3.0.2 checking installable status
+134 http fetch GET 200 https://registry.npmjs.org/@firebase%2fanalytics-types 2333ms
+135 http fetch GET 200 https://registry.npmjs.org/@firebase/analytics-types/-/analytics-types-0.7.0.tgz 98ms
+136 silly pacote version manifest for @firebase/analytics-types@0.7.0 fetched in 2480ms
+137 silly resolveWithNewModule @firebase/analytics-types@0.7.0 checking installable status
+138 http fetch GET 200 https://registry.npmjs.org/selenium-webdriver 73ms
+139 http fetch GET 200 https://registry.npmjs.org/node-fetch 170ms
+140 http fetch GET 200 https://registry.npmjs.org/selenium-webdriver/-/selenium-webdriver-4.0.0-rc-1.tgz 117ms
+141 silly pacote version manifest for selenium-webdriver@4.0.0-rc-1 fetched in 197ms
+142 silly resolveWithNewModule selenium-webdriver@4.0.0-rc-1 checking installable status
+143 http fetch GET 200 https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.5.tgz 116ms
+144 silly pacote version manifest for node-fetch@2.6.5 fetched in 293ms
+145 silly resolveWithNewModule node-fetch@2.6.5 checking installable status
+146 http fetch GET 200 https://registry.npmjs.org/whatwg-url 65ms
+147 http fetch GET 200 https://registry.npmjs.org/whatwg-url/-/whatwg-url-5.0.0.tgz 68ms
+148 silly pacote range manifest for whatwg-url@^5.0.0 fetched in 145ms
+149 silly resolveWithNewModule whatwg-url@5.0.0 checking installable status
+150 http fetch GET 200 https://registry.npmjs.org/tr46 66ms
+151 http fetch GET 200 https://registry.npmjs.org/webidl-conversions 73ms
+152 http fetch GET 200 https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz 57ms
+153 silly pacote range manifest for webidl-conversions@^3.0.0 fetched in 139ms
+154 silly resolveWithNewModule webidl-conversions@3.0.1 checking installable status
+155 http fetch GET 200 https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz 76ms
+156 silly pacote range manifest for tr46@~0.0.3 fetched in 150ms
+157 silly resolveWithNewModule tr46@0.0.3 checking installable status
+158 http fetch GET 200 https://registry.npmjs.org/tmp 68ms
+159 http fetch GET 304 https://registry.npmjs.org/ws 73ms (from cache)
+160 http fetch GET 200 https://registry.npmjs.org/tmp/-/tmp-0.2.1.tgz 9ms (from cache)
+161 silly pacote range manifest for tmp@^0.2.1 fetched in 82ms
+162 silly resolveWithNewModule tmp@0.2.1 checking installable status
+163 http fetch GET 200 https://registry.npmjs.org/ws/-/ws-8.2.3.tgz 67ms
+164 silly pacote range manifest for ws@>=7.4.6 fetched in 148ms
+165 silly resolveWithNewModule ws@8.2.3 checking installable status
+166 http fetch GET 200 https://registry.npmjs.org/selenium-webdriver/-/selenium-webdriver-4.0.0.tgz 122ms
+167 silly pacote range manifest for selenium-webdriver@^4.0.0-beta.2 fetched in 127ms
+168 silly resolveWithNewModule selenium-webdriver@4.0.0 checking installable status
+169 http fetch GET 200 https://registry.npmjs.org/@firebase%2fauth-types 3120ms
+170 http fetch GET 200 https://registry.npmjs.org/@firebase/auth-types/-/auth-types-0.11.0.tgz 404ms
+171 silly pacote version manifest for @firebase/auth-types@0.11.0 fetched in 3550ms
+172 silly resolveWithNewModule @firebase/auth-types@0.11.0 checking installable status
+173 silly pacote range manifest for tmp@^0.2.1 fetched in 1ms
+174 silly resolveWithNewModule tmp@0.2.1 checking installable status
+175 silly pacote range manifest for ws@>=7.4.6 fetched in 2ms
+176 silly resolveWithNewModule ws@8.2.3 checking installable status
+177 http fetch GET 200 https://registry.npmjs.org/@firebase%2fauth-interop-types 888ms
+178 http fetch GET 200 https://registry.npmjs.org/@firebase/auth-interop-types/-/auth-interop-types-0.1.6.tgz 885ms
+179 silly pacote version manifest for @firebase/auth-interop-types@0.1.6 fetched in 1790ms
+180 silly resolveWithNewModule @firebase/auth-interop-types@0.1.6 checking installable status
+181 http fetch GET 200 https://registry.npmjs.org/@firebase%2fdatabase-types 1001ms
+182 http fetch GET 200 https://registry.npmjs.org/@firebase/database-types/-/database-types-0.9.1.tgz 94ms
+183 silly pacote version manifest for @firebase/database-types@0.9.1 fetched in 1158ms
+184 silly resolveWithNewModule @firebase/database-types@0.9.1 checking installable status
+185 http fetch GET 200 https://registry.npmjs.org/@grpc%2fproto-loader 116ms
+186 http fetch GET 200 https://registry.npmjs.org/@grpc/proto-loader/-/proto-loader-0.6.6.tgz 101ms
+187 silly pacote range manifest for @grpc/proto-loader@^0.6.0 fetched in 223ms
+188 silly resolveWithNewModule @grpc/proto-loader@0.6.6 checking installable status
+189 http fetch GET 200 https://registry.npmjs.org/@firebase%2fwebchannel-wrapper 953ms
+190 http fetch GET 200 https://registry.npmjs.org/@grpc%2fgrpc-js 1836ms
+191 http fetch GET 200 https://registry.npmjs.org/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.6.0.tgz 1422ms
+192 silly pacote version manifest for @firebase/webchannel-wrapper@0.6.0 fetched in 2403ms
+193 silly resolveWithNewModule @firebase/webchannel-wrapper@0.6.0 checking installable status
+194 http fetch GET 200 https://registry.npmjs.org/@grpc/grpc-js/-/grpc-js-1.4.1.tgz 709ms
+195 silly pacote range manifest for @grpc/grpc-js@^1.3.2 fetched in 2554ms
+196 silly resolveWithNewModule @grpc/grpc-js@1.4.1 checking installable status
+197 http fetch GET 200 https://registry.npmjs.org/lodash.camelcase 57ms
+198 http fetch GET 200 https://registry.npmjs.org/long 75ms
+199 http fetch GET 304 https://registry.npmjs.org/yargs 79ms (from cache)
+200 http fetch GET 200 https://registry.npmjs.org/@types%2flong 88ms
+201 silly pacote range manifest for yargs@^16.1.1 fetched in 87ms
+202 silly resolveWithNewModule yargs@16.2.0 checking installable status
+203 http fetch GET 200 https://registry.npmjs.org/protobufjs 103ms
+204 http fetch GET 200 https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz 74ms
+205 silly pacote range manifest for lodash.camelcase@^4.3.0 fetched in 138ms
+206 silly resolveWithNewModule lodash.camelcase@4.3.0 checking installable status
+207 http fetch GET 200 https://registry.npmjs.org/long/-/long-4.0.0.tgz 89ms
+208 silly pacote range manifest for long@^4.0.0 fetched in 170ms
+209 silly resolveWithNewModule long@4.0.0 checking installable status
+210 http fetch GET 200 https://registry.npmjs.org/@types/long/-/long-4.0.1.tgz 102ms
+211 silly pacote range manifest for @types/long@^4.0.1 fetched in 199ms
+212 silly resolveWithNewModule @types/long@4.0.1 checking installable status
+213 http fetch GET 200 https://registry.npmjs.org/protobufjs/-/protobufjs-6.11.2.tgz 446ms
+214 silly pacote range manifest for protobufjs@^6.10.0 fetched in 560ms
+215 silly resolveWithNewModule protobufjs@6.11.2 checking installable status
+216 http fetch GET 200 https://registry.npmjs.org/@protobufjs%2finquire 81ms
+217 http fetch GET 200 https://registry.npmjs.org/@protobufjs%2ffloat 82ms
+218 http fetch GET 200 https://registry.npmjs.org/@protobufjs%2ffetch 96ms
+219 http fetch GET 200 https://registry.npmjs.org/@protobufjs%2faspromise 101ms
+220 http fetch GET 200 https://registry.npmjs.org/@protobufjs%2fpool 100ms
+221 http fetch GET 200 https://registry.npmjs.org/@protobufjs%2fpath 101ms
+222 http fetch GET 200 https://registry.npmjs.org/@protobufjs%2feventemitter 111ms
+223 http fetch GET 200 https://registry.npmjs.org/@protobufjs/inquire/-/inquire-1.1.0.tgz 78ms
+224 silly pacote range manifest for @protobufjs/inquire@^1.1.0 fetched in 165ms
+225 silly resolveWithNewModule @protobufjs/inquire@1.1.0 checking installable status
+226 http fetch GET 200 https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.1.2.tgz 80ms
+227 silly pacote range manifest for @protobufjs/aspromise@^1.1.2 fetched in 190ms
+228 silly resolveWithNewModule @protobufjs/aspromise@1.1.2 checking installable status
+229 http fetch GET 200 https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.1.0.tgz 322ms
+230 http fetch GET 200 https://registry.npmjs.org/@protobufjs/path/-/path-1.1.2.tgz 316ms
+231 http fetch GET 200 https://registry.npmjs.org/@protobufjs%2fcodegen 423ms
+232 http fetch GET 200 https://registry.npmjs.org/@protobufjs%2futf8 424ms
+233 silly pacote range manifest for @protobufjs/fetch@^1.1.0 fetched in 431ms
+234 silly resolveWithNewModule @protobufjs/fetch@1.1.0 checking installable status
+235 silly pacote range manifest for @protobufjs/path@^1.1.2 fetched in 431ms
+236 silly resolveWithNewModule @protobufjs/path@1.1.2 checking installable status
+237 http fetch GET 200 https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.1.0.tgz 102ms
+238 silly pacote range manifest for @protobufjs/utf8@^1.1.0 fetched in 533ms
+239 silly resolveWithNewModule @protobufjs/utf8@1.1.0 checking installable status
+240 http fetch GET 200 https://registry.npmjs.org/@protobufjs/codegen/-/codegen-2.0.4.tgz 119ms
+241 silly pacote range manifest for @protobufjs/codegen@^2.0.4 fetched in 549ms
+242 silly resolveWithNewModule @protobufjs/codegen@2.0.4 checking installable status
+243 http fetch GET 200 https://registry.npmjs.org/@types%2fnode 408ms
+244 http fetch GET 200 https://registry.npmjs.org/@protobufjs/float/-/float-1.0.2.tgz 991ms
+245 silly pacote range manifest for @protobufjs/float@^1.0.2 fetched in 1151ms
+246 silly resolveWithNewModule @protobufjs/float@1.0.2 checking installable status
+247 http fetch GET 200 https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.1.0.tgz 1040ms
+248 http fetch GET 200 https://registry.npmjs.org/@protobufjs/pool/-/pool-1.1.0.tgz 1050ms
+249 silly pacote range manifest for @protobufjs/eventemitter@^1.1.0 fetched in 1158ms
+250 silly resolveWithNewModule @protobufjs/eventemitter@1.1.0 checking installable status
+251 silly pacote range manifest for @protobufjs/pool@^1.1.0 fetched in 1158ms
+252 silly resolveWithNewModule @protobufjs/pool@1.1.0 checking installable status
+253 http fetch GET 200 https://registry.npmjs.org/@types/node/-/node-16.11.4.tgz 1072ms
+254 silly pacote range manifest for @types/node@>=13.7.0 fetched in 1494ms
+255 silly resolveWithNewModule @types/node@16.11.4 checking installable status
+256 http fetch GET 200 https://registry.npmjs.org/@protobufjs%2fbase64 1705ms
+257 http fetch GET 200 https://registry.npmjs.org/@protobufjs/base64/-/base64-1.1.2.tgz 1148ms
+258 silly pacote range manifest for @protobufjs/base64@^1.1.2 fetched in 2860ms
+259 silly resolveWithNewModule @protobufjs/base64@1.1.2 checking installable status
+260 http fetch GET 304 https://registry.npmjs.org/cliui 94ms (from cache)
+261 http fetch GET 304 https://registry.npmjs.org/y18n 94ms (from cache)
+262 silly pacote range manifest for cliui@^7.0.2 fetched in 97ms
+263 silly resolveWithNewModule cliui@7.0.4 checking installable status
+264 silly pacote range manifest for y18n@^5.0.5 fetched in 99ms
+265 silly resolveWithNewModule y18n@5.0.8 checking installable status
+266 http fetch GET 304 https://registry.npmjs.org/yargs-parser 897ms (from cache)
+267 silly pacote range manifest for yargs-parser@^20.2.2 fetched in 900ms
+268 silly resolveWithNewModule yargs-parser@20.2.9 checking installable status
+269 http fetch GET 304 https://registry.npmjs.org/wrap-ansi 63ms (from cache)
+270 silly pacote range manifest for wrap-ansi@^7.0.0 fetched in 66ms
+271 silly resolveWithNewModule wrap-ansi@7.0.0 checking installable status
+272 http fetch GET 304 https://registry.npmjs.org/ansi-styles 70ms (from cache)
+273 silly pacote range manifest for ansi-styles@^4.0.0 fetched in 74ms
+274 silly resolveWithNewModule ansi-styles@4.3.0 checking installable status
+275 http fetch GET 304 https://registry.npmjs.org/color-convert 70ms (from cache)
+276 silly pacote range manifest for color-convert@^2.0.1 fetched in 72ms
+277 silly resolveWithNewModule color-convert@2.0.1 checking installable status
+278 http fetch GET 304 https://registry.npmjs.org/color-name 65ms (from cache)
+279 silly pacote range manifest for color-name@~1.1.4 fetched in 66ms
+280 silly resolveWithNewModule color-name@1.1.4 checking installable status
+281 http fetch GET 200 https://registry.npmjs.org/@firebase%2ffirestore-types 875ms
+282 http fetch GET 200 https://registry.npmjs.org/@firebase/firestore-types/-/firestore-types-2.5.0.tgz 1205ms
+283 silly pacote version manifest for @firebase/firestore-types@2.5.0 fetched in 2106ms
+284 silly resolveWithNewModule @firebase/firestore-types@2.5.0 checking installable status
+285 http fetch GET 200 https://registry.npmjs.org/@firebase%2fapp-check-interop-types 280ms
+286 http fetch GET 200 https://registry.npmjs.org/@firebase%2fmessaging-interop-types 315ms
+287 http fetch GET 200 https://registry.npmjs.org/@firebase/app-check-interop-types/-/app-check-interop-types-0.1.0.tgz 887ms
+288 silly pacote version manifest for @firebase/app-check-interop-types@0.1.0 fetched in 1176ms
+289 silly resolveWithNewModule @firebase/app-check-interop-types@0.1.0 checking installable status
+290 http fetch GET 200 https://registry.npmjs.org/@firebase/messaging-interop-types/-/messaging-interop-types-0.1.0.tgz 901ms
+291 silly pacote version manifest for @firebase/messaging-interop-types@0.1.0 fetched in 1221ms
+292 silly resolveWithNewModule @firebase/messaging-interop-types@0.1.0 checking installable status
+293 http fetch GET 200 https://registry.npmjs.org/@firebase%2ffunctions-types 2617ms
+294 http fetch GET 200 https://registry.npmjs.org/@firebase/functions-types/-/functions-types-0.5.0.tgz 85ms
+295 silly pacote version manifest for @firebase/functions-types@0.5.0 fetched in 2726ms
+296 silly resolveWithNewModule @firebase/functions-types@0.5.0 checking installable status
+297 timing npm Completed in 56565ms
+298 error cb() never called!
+299 error This is an error with npm itself. Please report this error at:
+300 error <https://npm.community>
