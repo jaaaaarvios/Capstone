@@ -1,18 +1,83 @@
 @media (min-width: 820px)
 {
-.mat-toolbar{
-    background-color: #D62828;
-    width: 100%;
-}
-.ayosgamit
-{
-  font-family: 'Candara';
-  font-size: 30px;
-  margin-left: 10px;
-  color: #FFFFFF;
+    body
+    {
+        background-image: url('../../assets/homebg.jpg');
+        background-size: cover;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        background-attachment: fixed;
+    }
+    .mat-toolbar{
+        background-color: #D62828;
+        width: 100%;
+      }
+    
+      .ayosgamit
+      {
+        font-family: 'Candara';
+        font-size: 30px;
+        position: center;
+        color: #FFFFFF;
+      }
+      .pricingBtn
+      {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          color: #FFFFFF;
+          font-size: 17px;
+          float: left;
+          margin-left: 100px;
+          margin-top: 80px;
+          margin-top: 0;
+          
+      }
+      
+      .contactUsBtn
+      {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          color: #FFFFFF;
+          font-size: 17px;
+          float: left;
+          margin-left: 100px;
+          margin-top: 0;
+      }
+      
+      .aboutusBtn
+      {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          color: #FFFFFF;
+          font-size: 17px;
+          float: left;
+          margin-left: 100px;
+          margin-top: 0;
+      }
+      
+      .menuBtn
+      {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          color: #FFFFFF;
+          font-size: 17px;
+          float: left;
+          margin-left: 100px;
+          margin-top: 0;
+      }
+      .spacer{
+          flex: 1 1 auto;
+        }
+        .navLogin{
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          color: #FFFFFF;
+          font-size: 17px;
+        }
+.card{
+    background-color: #FFFFFF;
+    width: 40%;
+    height: fit-content;
+    margin: auto;
+    margin-top: 20px;
 }
 .container{
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,32 +101,29 @@
     width: 70%;
     height: 50%;
     border-radius: 20px;
-    
     background-color: #fffade;
     justify-content: center;
     opacity: 1;
-   
 }
 
 .mat-tab-group
 {
-    margin-top: 40px;
-    width: 30%;
+    width: 320px;
     text-align: center;
-   
+    margin-top: 20px;
+}
+.mat-tab-label {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .logo
 {
-    height: 10%;
-    width: 10%;
+    height: 30%;
+    width: 30%;
     justify-content: center;
-    margin-left: 45%;
-    margin-right: 45%;
-    margin-top: 40px;
-   
-    
-   
+    margin: auto;
 }
 .login-emailfield
 {
@@ -84,7 +146,6 @@
     min-height: 40px;
     width: 300px;
     margin-left: 10px;
-    margin-top: 50px;
 }
 .signup-lnamefield
 {
@@ -183,6 +244,15 @@ h1
 
 @media (max-width: 576px)
 {
+    body
+    {
+        background-image: url('../../assets/homebg.jpg');
+        background-size: cover;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        background-attachment: fixed;
+    }
    
     .mat-toolbar{
         background-color: #D62828;
@@ -227,15 +297,13 @@ h1
        
     }
     
-    mat-tab-group
+    .mat-tab-group
     {
         margin-top: 20px;
-        width: fit-content;
+        width: 190px;
         text-align: center !important;
-       
     }
     
-   
     .logo
     {
         height: 40%;

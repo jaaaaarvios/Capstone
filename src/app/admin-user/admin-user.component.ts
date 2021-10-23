@@ -16,7 +16,7 @@ import { MyErrorStateMatcher } from '../app.component';
 export class AdminUserComponent implements OnInit {
 
   users =[];
-
+  email="";
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
@@ -43,7 +43,8 @@ export class AdminUserComponent implements OnInit {
       data = this.http.get('http://localhost:3000/CredentialDB');
       data.subscribe(result => {
         this.users = result
-        console.log(this.users)
+        this.email = result.email
+        console.log(this.email)
       });
   }
 

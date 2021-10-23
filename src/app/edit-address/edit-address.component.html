@@ -71,7 +71,7 @@
           <mat-form-field class="textfields" appearance="outline">
             <mat-label>Property Type</mat-label>
             <mat-select [errorStateMatcher]="matcher">
-              <mat-option *ngFor="let ptype of property_type" [value]="ptype">
+              <mat-option *ngFor="let ptype of property" [value]="ptype">
                 {{ptype}}
               </mat-option>
             </mat-select>

@@ -22,7 +22,7 @@
       </div>
       <div class="profileside">
         <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">face</mat-icon>
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">perm_identity</mat-icon>
           <a class="profile-btn" routerLink="/user">Users</a>
         </mat-list-item>
       </div>
@@ -71,14 +71,14 @@
           </thead>
           <tbody class="body">
             <tr *ngFor="let user of users">
-              <th scope="row">{{user._id}}</th>
+              <th scope="row">{{user._id | slice:0:7}}</th>
               <td>{{user.first_name}}</td>
               <td>{{user.last_name}}</td>
               <td>{{user.email}}</td>
               <td>{{user.number}}</td>
               <td>{{user.service_address}}</td>
               <td>{{user.property_type}}</td>
-              <td>{{user.createdDate | date}}</td>
+              <td>{{user.createdDate | date:'longDate'}}</td>
             </tr>
           </tbody>
         </table>

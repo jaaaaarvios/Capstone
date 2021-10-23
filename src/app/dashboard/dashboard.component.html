@@ -31,7 +31,7 @@
         <mat-list-item (click)="closeSideNav()">
           <mat-icon class="nav-icon">exit_to_app</mat-icon>
           <a class="logout-btn" routerLink="/home">Logout</a>
-          
+
         </mat-list-item>
       </div>
     </mat-nav-list>
@@ -68,7 +68,6 @@
     </div>
 
     <mat-tab-group class="tab">
-
       <mat-tab label="Pending Requests">
         <mat-card class="pendingcard">
           <h2 class="request">Pending Requests</h2>
@@ -78,12 +77,33 @@
             </mat-label>
             <input matInput>
           </mat-form-field>
+          <div class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col" class="header">Service ID</th>
+                  <th scope="col" class="header">Appliance</th>
+                  <th scope="col" class="header">Service Type</th>
+                  <th scope="col" class="header">Status</th>
+                </tr>
+              </thead>
+              <tbody class="body">
+                <tr *ngFor="let sr of service_request">
+                  <td><b>{{sr._id | slice:0:7}}</b></td>
+                  <td>{{sr.service_appliance}}</td>
+                  <td>{{sr.service_type}}</td>
+                  <td>{{sr.status}}</td>
+                  <td><button mat-raised-button>Details</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </mat-card>
       </mat-tab>
 
       <mat-tab label="Completed Requests">
         <mat-card class="pendingcard">
-          <h2 class="request">Pending Requests</h2>
+          <h2 class="request">Completed Requests</h2>
           <mat-form-field class="searchfield" appearance="outline">
             <mat-label>
               <mat-icon>find_in_page</mat-icon>Search..
@@ -96,7 +116,7 @@
 
       <mat-tab label="Cancelled Requests">
         <mat-card class="pendingcard">
-          <h2 class="request">Pending Requests</h2>
+          <h2 class="request">Cancelled Requests</h2>
           <mat-form-field class="searchfield" appearance="outline">
             <mat-label>
               <mat-icon>find_in_page</mat-icon>Search..

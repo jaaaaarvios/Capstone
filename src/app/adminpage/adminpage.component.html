@@ -22,7 +22,7 @@
       </div>
       <div class="profileside">
         <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">face</mat-icon>
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">perm_identity</mat-icon>
           <a class="profile-btn" routerLink="/user">Users</a>
         </mat-list-item>
       </div>
@@ -73,19 +73,26 @@
               <table>
                 <thead class="head">
                   <tr>
-                    <th scope="col">Service ID</th>
-                    <th scope="col" class="header">Service Appliance</th>
+                    <!-- <th scope="col" class="header">Service ID</th> -->
+                    <th scope="col" class="header">Appliance</th>
                     <th scope="col" class="header">Service Type</th>
-                    <th scope="col" class="header">Status</th>
+                    <th scope="col" class="header">Date</th>
+                    <th scope="col" class="header">TimeSlot</th>
+                    <th scope="col" class="header">Service Address</th>
                   </tr>
                 </thead>
                 <tbody class="body">
                   <tr *ngFor="let sr of service_request">
-                    <th scope="row">{{sr._id}}</th>
+                    <!-- <td><b>{{sr._id | slice:0:7}}</b></td> -->
                     <td>{{sr.service_appliance}}</td>
                     <td>{{sr.service_type}}</td>
-                    <td>{{sr.status}}</td>
-                    <td><button mat-raised-button class="detailsBtn">Accept</button></td>
+                    <td>{{sr.service_date | date }}</td>
+                    <td>{{sr.service_timeslot}}</td>
+                    <td>{{sr.service_address}}</td>
+                    <td><button mat-raised-button class="acceptBtn">Accept</button>
+                      <button mat-raised-button class="rejectBtn">Reject</button>
+                      <button mat-raised-button class="detailsBtn">Details</button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -105,7 +112,7 @@
               <table>
                 <thead class="head">
                   <tr>
-                    <th scope="col">Service ID</th>
+                    <th scope="col" class="header">Service ID</th>
                     <th scope="col" class="header">Service Appliance</th>
                     <th scope="col" class="header">Service Type</th>
                     <th scope="col" class="header">Status</th>
@@ -113,11 +120,10 @@
                 </thead>
                 <tbody class="body">
                   <tr *ngFor="let sr of service_request">
-                    <th scope="row">{{sr._id}}</th>
+                    <td><b>{{sr._id | slice:0:7}}</b></td>
                     <td>{{sr.service_appliance}}</td>
                     <td>{{sr.service_type}}</td>
                     <td>{{sr.status}}</td>
-                    <button mat-raised-button class="detailsBtn">Accept</button>
                   </tr>
                 </tbody>
               </table>
@@ -138,7 +144,7 @@
               <table>
                 <thead class="head">
                   <tr>
-                    <th scope="col">Service ID</th>
+                    <th scope="col" class="header">Service ID</th>
                     <th scope="col" class="header">Service Appliance</th>
                     <th scope="col" class="header">Service Type</th>
                     <th scope="col" class="header">Status</th>
@@ -146,11 +152,10 @@
                 </thead>
                 <tbody class="body">
                   <tr *ngFor="let sr of service_request">
-                    <th scope="row">{{sr._id}}</th>
+                    <td><b>{{sr._id | slice:0:7}}</b></td>
                     <td>{{sr.service_appliance}}</td>
                     <td>{{sr.service_type}}</td>
                     <td>{{sr.status}}</td>
-                    <button mat-raised-button class="detailsBtn">Accept</button>
                   </tr>
                 </tbody>
               </table>
@@ -171,7 +176,7 @@
               <table>
                 <thead class="head">
                   <tr>
-                    <th scope="col">Service ID</th>
+                    <th scope="col" class="header">Service ID</th>
                     <th scope="col" class="header">Service Appliance</th>
                     <th scope="col" class="header">Service Type</th>
                     <th scope="col" class="header">Status</th>
@@ -179,11 +184,10 @@
                 </thead>
                 <tbody class="body">
                   <tr *ngFor="let sr of service_request">
-                    <th scope="row">{{sr._id}}</th>
+                    <td><b>{{sr._id | slice:0:7}}</b></td>
                     <td>{{sr.service_appliance}}</td>
                     <td>{{sr.service_type}}</td>
                     <td>{{sr.status}}</td>
-                    <button mat-raised-button class="detailsBtn">Accept</button>
                   </tr>
                 </tbody>
               </table>
