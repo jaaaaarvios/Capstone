@@ -55,14 +55,22 @@
 }
 
 .menuBtn
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 17px;
-    float: left;
-    margin-left: 100px;
-    margin-top: 0;
-}
+  {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FFFFFF;
+      font-size: 17px;
+      float: left;
+      margin-left: 100px;
+      margin-top: 0;
+  }
+  .spacer{
+      flex: 1 1 auto;
+    }
+    .navLogin{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FFFFFF;
+      font-size: 17px;
+    }
 .mat-card
 {
     width: 1000px;

@@ -48,36 +48,45 @@
       <span class="spacer"></span>
     </mat-toolbar>
     <div class="container">
-      <div class="card">
-        <h1 class="infoLbl">Edit Address</h1>
-        <p>
-          <mat-form-field class="textfields" appearance="outline">
-            <mat-label>Service Address</mat-label>
-            <input matInput [errorStateMatcher]="matcher" autocomplete="off">
-          </mat-form-field>
-        </p>
-        <p>
-          <mat-form-field class="textfields" appearance="outline">
-            <mat-label>Service Address Details</mat-label>
-            <input matInput [errorStateMatcher]="matcher" autocomplete="off">
-          </mat-form-field>
-        </p>
-        <p>
-          <mat-form-field class="textfields" appearance="outline">
-            <mat-label>Property Type</mat-label>
-            <mat-select [errorStateMatcher]="matcher">
-              <mat-option *ngFor="let ptype of property_type" [value]="ptype">
-                {{ptype}}
-              </mat-option>
-            </mat-select>
-            <!-- <mat-error *ngIf="locationForm.get('service_property_type').hasError('required')">
+      <form [formGroup]="serviceInfoForm" (ngSubmit)="serviceInfoSubmit()">
+        <div class="card">
+          <h1 class="infoLbl">Edit Address</h1>
+          <p>
+            <mat-form-field class="textfields" appearance="outline">
+              <mat-label>Service Address</mat-label>
+              <input matInput formControlName="address" [errorStateMatcher]="matcher" autocomplete="off">
+              <mat-error *ngIf="serviceInfoForm.get('address').hasError('required')">
+                Service Address is Required.
+              </mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="textfields" appearance="outline">
+              <mat-label>Service Address Details</mat-label>
+              <input matInput formControlName="addressDetails" [errorStateMatcher]="matcher" autocomplete="off">
+              <mat-hint>unit no., floor no., building name, block no.</mat-hint>
+              <mat-error *ngIf="serviceInfoForm.get('addressDetails').hasError('required')">
+                Service Address Details is Required.
+              </mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="textfields" appearance="outline">
+              <mat-label>Property Type</mat-label>
+              <mat-select formControlName="property_type" [errorStateMatcher]="matcher">
+                <mat-option *ngFor="let ptype of property" [value]="ptype">
+                  {{ptype}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="serviceInfoForm.get('property_type').hasError('required')">
                   You must make a selection
-                </mat-error> -->
-          </mat-form-field>
-        </p>
-      </div>
-      <button class="backBtn" mat-raised-button routerLink="/profile"> Back </button>
-      <button class="saveBtn" mat-raised-button> Save </button>
+                </mat-error>
+            </mat-form-field>
+          </p>
+        </div>
+        <button class="backBtn" mat-raised-button routerLink="/profile"> Back </button>
+        <button class="saveBtn" type="submit" mat-raised-button> Save </button>
+      </form>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

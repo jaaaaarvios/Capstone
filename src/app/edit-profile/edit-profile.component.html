@@ -48,39 +48,68 @@
             <span class="spacer"></span>
         </mat-toolbar>
         <div class="container">
-            <div class="card">
-                <h1 class="infoLbl">Edit Information</h1>
-                <p>
-                    <mat-form-field class="textfields" appearance="outline">
-                        <mat-label>First Name</mat-label>
-                        <input matInput id="fname" type="text" ngModel firstName="true" placeholder="Enter first name"
-                            required>
-                    </mat-form-field>
-                </p>
-                <p>
-                    <mat-form-field class="textfields" appearance="outline">
-                        <mat-label>Last Name</mat-label>
-                        <input matInput id="lname" type="text" ngModel lastName="true" placeholder="Enter last name"
-                            required>
-                    </mat-form-field>
-                </p>
-                <p>
-                    <mat-form-field class="textfields" appearance="outline">
-                        <mat-label>Email Address</mat-label>
-                        <input matInput id="signup_email" type="email" ngModel signup_email="true"
-                            placeholder="yourname@example.com" required>
-                    </mat-form-field>
-                </p>
-                <p>
-                    <mat-form-field class="textfields" appearance="outline">
-                        <mat-label>Contact Number</mat-label>
-                        <input matInput id="signup_email" type="email" ngModel signup_email="true"
-                            placeholder="yourname@example.com" required>
-                    </mat-form-field>
-                </p>
-            </div>
-            <button class="backBtn" mat-raised-button routerLink="/profile"> Back </button>
-            <button class="saveBtn" mat-raised-button> Save </button>
+            <form [formGroup]="personalInfoForm" (ngSubmit)="personalInfoSubmit()">
+                <div class="card">
+                    <h1 class="infoLbl">Edit Information</h1>
+                    <p>
+                        <mat-form-field class="textfields" appearance="outline">
+                            <mat-label>First Name</mat-label>
+                            <input matInput formControlName="firstname" id="fname" type="text" ngModel firstName="true"
+                                placeholder="Enter first name">
+                            <mat-error *ngIf="personalInfoForm.get('firstname').hasError('required')"> First name is required
+                            </mat-error>
+                            <mat-error *ngIf="personalInfoForm.get('firstname').hasError('pattern')"> Invalid Name
+                            </mat-error>
+                            <mat-error *ngIf="personalInfoForm.get('firstname').hasError('maxlength')">Name contains
+                                maximum of 15
+                                characters</mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field class="textfields" appearance="outline">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput formControlName="lastname" id="lname" type="text" ngModel lastName="true"
+                                placeholder="Enter last name">
+                            <mat-error *ngIf="personalInfoForm.get('lastname').hasError('required')"> Last name is
+                                required
+                            </mat-error>
+                            <mat-error *ngIf="personalInfoForm.get('lastname').hasError('pattern')"> Invalid Name
+                            </mat-error>
+                            <mat-error *ngIf="personalInfoForm.get('lastname').hasError('maxlength')">Name contains
+                                maximum of 15
+                                characters</mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field class="textfields" appearance="outline">
+                            <mat-label>Email Address</mat-label>
+                            <input matInput formControlName="email" ngModel [email]="true" type="email"
+                                placeholder="user@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$">
+                            <mat-error *ngIf="personalInfoForm.get('email').hasError('required')"> Email is required
+                            </mat-error>
+                            <mat-error *ngIf="personalInfoForm.get('email').hasError('pattern')"> Please enter a valid
+                                email address </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field class="textfields" appearance="outline">
+                            <mat-label>Contact Number</mat-label>
+                            <input matInput pattern="(09)[0-9]{9}" formControlName="number"
+                                [errorStateMatcher]="matcher" #input maxlength="11" placeholder="09XXXXXXXXX"
+                                autocomplete="off">
+                            <mat-hint>{{input.value?.length || 0}}/11</mat-hint>
+                            <mat-error *ngIf="personalInfoForm.get('number').hasError('required')">
+                                Enter a valid phone number
+                            </mat-error>
+                            <mat-error *ngIf="personalInfoForm.get('number').hasError('pattern')">
+                                Invalid phone number
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                </div>
+                <button class="backBtn" mat-raised-button routerLink="/profile"> Back </button>
+                <button class="saveBtn" type="submit" mat-raised-button> Save </button>
+            </form>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

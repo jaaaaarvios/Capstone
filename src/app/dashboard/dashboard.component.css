@@ -218,9 +218,8 @@ color: #FFFFFF;
 
 .pendingcard
 {
-  width: fit-content;
-  height: fit-content;
-  margin-left: 20px;
+  width: 1000px;
+  height: 500px;
   margin-top: 15px;
   border: solid 1px grey;
 }
@@ -273,7 +272,7 @@ color: #FFFFFF;
   margin-top: 50px;
 }
 table{
-  width: 800px;
+  width: 900px;
 }
 .header, td{
   text-align: center;

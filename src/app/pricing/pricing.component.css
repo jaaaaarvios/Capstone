@@ -15,56 +15,68 @@
     width: 100%;
   }
 
-.ayosgamit
-{
-  font-family: 'Candara';
-  font-size: 30px;
-  position: center;
-  color: #FFFFFF;
-}
+  .mat-toolbar{
+    background-color: #D62828;
+    width: 100%;
+  }
 
-
-.pricingBtn
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  .ayosgamit
+  {
+    font-family: 'Candara';
+    font-size: 30px;
+    position: center;
     color: #FFFFFF;
-    font-size: 17px;
-    float: left;
-    margin-left: 100px;
-    margin-top: 80px;
-    margin-top: 0;
-    
-}
-
-.contactUsBtn
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 17px;
-    float: left;
-    margin-left: 100px;
-    margin-top: 0;
-}
-
-.aboutusBtn
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 17px;
-    float: left;
-    margin-left: 100px;
-    margin-top: 0;
-}
-
-.menuBtn
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 17px;
-    float: left;
-    margin-left: 100px;
-    margin-top: 0;
-}
+  }
+  
+  
+  .pricingBtn
+  {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FFFFFF;
+      font-size: 17px;
+      float: left;
+      margin-left: 100px;
+      margin-top: 80px;
+      margin-top: 0;
+      
+  }
+  
+  .contactUsBtn
+  {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FFFFFF;
+      font-size: 17px;
+      float: left;
+      margin-left: 100px;
+      margin-top: 0;
+  }
+  
+  .aboutusBtn
+  {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FFFFFF;
+      font-size: 17px;
+      float: left;
+      margin-left: 100px;
+      margin-top: 0;
+  }
+  .menuBtn
+  {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FFFFFF;
+      font-size: 17px;
+      float: left;
+      margin-left: 100px;
+      margin-top: 0;
+  }
+  .spacer{
+      flex: 1 1 auto;
+    }
+    .navLogin{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FFFFFF;
+      font-size: 17px;
+    }
 
 .title
 {

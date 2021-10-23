@@ -3,7 +3,7 @@
         <h1 class="ayosgamit" routerLink="/home">Ayosgamit</h1>
         <div>
             <button mat-button class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon>
-                </button>
+            </button>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
                 <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
@@ -16,6 +16,11 @@
             <button mat-button class="pricingBtn1" routerLink="/pricing">Pricing</button>
             <button mat-button class="contactUsBtn1" routerLink="/contact_us">Contact Us</button>
             <button mat-button class="aboutusBtn1" routerLink="/about_us">About Us</button>
+        </div>
+        <span class="spacer"></span>
+        <div>
+            <button mat-button class="navLogin" routerLink="/login">Sign In</button>
+            <button mat-button class="navLogin" routerLink="/login">Sign Up</button>
         </div>
     </mat-toolbar>
 

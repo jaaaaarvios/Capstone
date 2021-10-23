@@ -92,12 +92,9 @@ export class LoginformComponent implements OnInit {
           console.log(result);
           alert(result.message);
           this.router.navigate(['/dashboard'])
-        } else {
-          alert("Invalid Informations")
         }
       }), error => {
         console.log(error);
-        alert("Invalid Informations")
       }
     }
     else if (val.email == "admin" && val.password == "admin") {
