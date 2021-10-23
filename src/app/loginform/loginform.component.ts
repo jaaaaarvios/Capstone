@@ -102,7 +102,7 @@ export class LoginformComponent implements OnInit {
           localStorage.setItem("last_name", JSON.stringify(result.last_name));
           console.log(result);
           alert(result.message);
-          this.router.navigate(['/dashboard'])
+          this.router.navigate(['/profile'])
         }
       }), error => {
         console.log(error);

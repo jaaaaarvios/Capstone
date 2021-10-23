@@ -3,53 +3,46 @@
 </mat-toolbar>
 <div class="container">
 
-<mat-card class="header">
-  <div>
-    <img class="pendingvector" mat-card-image src="../../assets/pendingvector.png">
-  </div>
+  <mat-card class="header">
+    <div>
+      <img class="pendingvector" mat-card-image src="../../assets/pendingvector.png">
+    </div>
 
-  <div class="pending">
-    <h1 class="pendingtxt">Booking details confirmed!</h1>
-  </div>
+    <div class="pending">
+      <h1 class="pendingtxt">Booking details confirmed!</h1>
+    </div>
 
-  <div class="description">
-    <p class="description1">The technician will contact you before </p>
-    <p class="description2">going to site. To get your service ID, </p>
-    <p class="description3">kindly choose a payment method.</p>
-    
-  </div>
-</mat-card>
+    <div class="description">
+      <p class="description1">The technician will contact you before </p>
+      <p class="description2">going to site. To get your service ID, </p>
+      <p class="description3">kindly choose a payment method.</p>
+
+    </div>
+  </mat-card>
 
 
-<mat-card class="payment">
-  <div>
-    <h1 class="paymentinfotxt">Payment Summary</h1>
-  </div>
-    <!-- <table class="table" *ngFor="let sr of service_request">
+  <mat-card class="payment">
+    <div>
+      <h1 class="paymentinfotxt">Payment Summary</h1>
+    </div>
+    <table class="table" *ngFor="let sr of service_request">
       <thead>
         <tr>
-          <th>Appliance</th>
-          <th>Service</th>
-          <th>Brand</th>
-          <th>Unit Type</th>
+          <th>Check Up Fee</th>
         </tr>
       </thead>
 
       <tbody>
         <tr>
-          <td>{{sr.service_appliance}}</td>
-          <td>{{sr.service_type}}</td>
-          <td>{{sr.service_brand}}</td>
-          <td>{{sr.service_unitType}}</td>
+          <td>{{sr.checkupfee}}</td>
         </tr>
       </tbody>
-</table> -->
+    </table>
 
-<div>
-  <button mat-raised-button class="payBtn" routerLink="/paymentthankyou">Pay with Cash</button>
-  <h1 class="ortxt">OR</h1>
-  <div class="paypalBtn" id="myPaypalButtons"></div>
-</div>
+    <div>
+      <button mat-raised-button class="payBtn" routerLink="/paymentthankyou">Pay with Cash</button>
+      <h1 class="ortxt">OR</h1>
+      <div class="paypalBtn" id="myPaypalButtons"></div>
+    </div>
 
-</mat-card>
-
+  </mat-card>
