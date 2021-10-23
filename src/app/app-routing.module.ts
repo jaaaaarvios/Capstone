@@ -49,6 +49,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { RescheduleComponent } from './reschedule/reschedule.component';
 import { PaymentformComponent } from '../app/paymentform/paymentform.component';
 import { PaymentsuccessComponent } from './paymentsuccess/paymentsuccess.component';
+import { PaymentthankyouComponent } from './paymentthankyou/paymentthankyou.component';
 
 
 const routes: Routes = [
@@ -104,6 +105,7 @@ const routes: Routes = [
   { path: 'reschedule', component: RescheduleComponent },
   { path: 'payment', component: PaymentformComponent },
   { path: 'paymentsuccess', component: PaymentsuccessComponent },
+  { path: 'paymentthankyou', component: PaymentthankyouComponent },
 ];
 
 @NgModule({

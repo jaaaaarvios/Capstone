@@ -54,12 +54,6 @@ export class PaymentformComponent implements OnInit {
       }
   }
 
-
-
-  signOut() {
-    this.router.navigate(['/home'])
-  }
-
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();
