@@ -33,8 +33,8 @@
         <!-- SIGNIN TAB------------------------------------------------------------ -->
         <mat-tab class="loginTab" label="Sign In">
           <form [formGroup]="userForm" (ngSubmit)="onClickSubmit()">
-            <!-- <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true"></div>  -->
-            <h1>OR</h1>
+            <!--<div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true"></div>
+            <h1>OR</h1>-->
             <mat-form-field class="login-emailfield" appearance="outline">
               <mat-label>Email Address</mat-label>
               <input matInput formControlName="email" ngModel [email]="true" type="email" placeholder="user@example.com"

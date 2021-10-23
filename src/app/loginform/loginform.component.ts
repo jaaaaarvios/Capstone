@@ -97,7 +97,7 @@ export class LoginformComponent implements OnInit {
       this.auth.login(val).subscribe(result => {
         if(result) {
           localStorage.setItem("id", JSON.stringify(result._id));
-          localStorage.setItem("password", JSON.stringify(result.password));
+          //localStorage.setItem("password", JSON.stringify(result.password));
           localStorage.setItem("first_name", JSON.stringify(result.first_name));
           localStorage.setItem("last_name", JSON.stringify(result.last_name));
           console.log(result);
