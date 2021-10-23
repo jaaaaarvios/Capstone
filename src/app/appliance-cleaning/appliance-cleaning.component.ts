@@ -31,8 +31,14 @@ export class ApplianceCleaningComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this.shared.currentAppliance.subscribe(service_appliance => this.service_appliance = service_appliance);
+    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+      this.router.navigate(['/home'])
+    }
   }
-
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
   AirconOpen(){
     this.shared.changeAppliance(this.ac);
     this.router.navigate(['/aircon-cleaning']);

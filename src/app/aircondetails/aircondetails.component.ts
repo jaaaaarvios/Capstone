@@ -50,8 +50,8 @@ export class AircondetailsComponent implements OnInit {
   service_type = "";
   service_aptype = "";
   service_brand = "";
-  service_unitType="";
-  service_unitProb="";
+  service_unitType = "";
+  service_unitProb = "";
   service_city = "";
   service_property_type = "";
   service_zipcode = null;
@@ -78,19 +78,26 @@ export class AircondetailsComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog, 
+  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog,
     private shared: SharedService, private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
-    openDialog() {
-      const dialogRef = this.dialog.open(RepairFeeComponent);
-  
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
-    }
-  
+  openDialog() {
+    const dialogRef = this.dialog.open(RepairFeeComponent);
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
+  
   ngOnInit(): void {
+    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+      this.router.navigate(['/home'])
+    }
     //Sending data to the service
     this.subscription = this.shared.currentAppliance.subscribe(service_appliance => this.service_appliance = service_appliance);
     this.subscription = this.shared.currentServiceType.subscribe(service_type => this.service_type = service_type);
@@ -208,7 +215,7 @@ export class AircondetailsComponent implements OnInit {
   labelPosition: 'before' | 'after' = 'after';
   disabled = false;
 
-  unitdetailsSubmit(){
+  unitdetailsSubmit() {
     if (this.unitdetailsForm.valid) {
       this.shared.changeACType(this.unitdetailsForm.value.service_aptype);
       this.shared.changeACBrand(this.unitdetailsForm.value.service_brand);
@@ -239,47 +246,51 @@ export class AircondetailsComponent implements OnInit {
   }
 
   contactDetailsSubmit() {
-    const unit = this.unitdetailsForm.value;
-    const loc = this.locationForm.value;
-    const sched = this.scheduleForm.value;
-    const contact = this.contactDetialsForm.value;
-    let body = {
-      "service_type": "Installation",
-      "service_appliance": "Aircon",
-      "service_aptype": unit.service_aptype,
-      "service_brand": unit.service_brand,
-      "service_unitType": unit.service_unitType,
-      "service_unitProb": this.service_unitProb,
-      "service_city": loc.service_city,
-      "service_property_type": loc.service_property_type,
-      "service_zipcode": loc.service_zipcode,
-      "service_date": sched.service_date,
-      "service_timeslot": sched.service_timeslot,
-      "service_address": contact.service_address,
-      "service_firstname": contact.service_firstname,
-      "service_lastname": contact.service_lastname,
-      "service_phoneNumber": contact.service_phoneNumber,
-      "service_addressDetails": contact.service_addressDetails,
-      "service_instruction": contact.service_instruction,
-      "status": "Pending"
-    }
+    var retVal = confirm("Are you sure you want to proceed ?");
+    if (retVal == true) {
+      const unit = this.unitdetailsForm.value;
+      const loc = this.locationForm.value;
+      const sched = this.scheduleForm.value;
+      const contact = this.contactDetialsForm.value;
+      let body = {
+        "service_type": "Installation",
+        "service_appliance": "Aircon",
+        "service_aptype": unit.service_aptype,
+        "service_brand": unit.service_brand,
+        "service_unitType": unit.service_unitType,
+        "service_unitProb": this.service_unitProb,
+        "service_city": loc.service_city,
+        "service_property_type": loc.service_property_type,
+        "service_zipcode": loc.service_zipcode,
+        "service_date": sched.service_date,
+        "service_timeslot": sched.service_timeslot,
+        "service_address": contact.service_address,
+        "service_firstname": contact.service_firstname,
+        "service_lastname": contact.service_lastname,
+        "service_phoneNumber": contact.service_phoneNumber,
+        "service_addressDetails": contact.service_addressDetails,
+        "service_instruction": contact.service_instruction,
+        "status": "Pending",
+        "checkupfee": "200.00php"
+      }
 
-    if (this.contactDetialsForm.valid) {
-      this.http.post("http://localhost:3000/NewServiceRequest", body)
-        .subscribe(data => {
-          console.log(data, 'Booking Success');
-          alert("Booking Success");
-          this.router.navigate(['/summary'])
-        }, error => {
-          console.log(error);
-          alert(error);
-        });
+      if (this.contactDetialsForm.valid) {
+        this.http.post("http://localhost:3000/NewServiceRequest/repair", body)
+          .subscribe(data => {
+            console.log(data, 'Booking Success');
+            this.router.navigate(['/summary'])
+          }, error => {
+            console.log(error);
+            alert(error);
+          });
+      }
+      else {
+        return;
+      }
+      return true;
+    } else {
+      return false;
     }
-    else {
-      return;
-    }
-
-
   }
 
   closeSideNav() {
@@ -287,25 +298,4 @@ export class AircondetailsComponent implements OnInit {
       this.drawer.close();
     }
   }
-
-  // getServiceDetails(){
-  //   serviceDetails:[ 
-  //     this.service_appliance,
-  //     this.service_aptype,
-  //     this.service_brand,
-  //     this.service_unitType,
-  //     this.service_unitProb,
-  //     this.service_city,
-  //     this.service_property_type,
-  //     this.service_zipcode ,
-  //     this.service_date ,
-  //     this.service_timeslot,
-  //     this.service_address,
-  //     this.service_firstname,
-  //     this.service_lastname,
-  //     this.service_phoneNumber,
-  //     this.service_addressDetails,
-  //     this.service_instruction,
-  //   ]
-  // }
 }

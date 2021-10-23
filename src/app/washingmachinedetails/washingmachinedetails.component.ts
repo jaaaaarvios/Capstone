@@ -81,8 +81,14 @@ export class WashingmachinedetailsComponent implements OnInit {
         console.log(`Dialog result: ${result}`);
       });
     }
-    
+    logout(){
+      localStorage.clear();
+      this.router.navigate(['/home'])
+    }
   ngOnInit(): void {
+    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+      this.router.navigate(['/home'])
+    }
     //Sending data to the service
     this.subscription = this.shared.currentACType.subscribe(service_aptype => this.service_aptype = service_aptype);
     this.subscription = this.shared.currentACBrand.subscribe(service_brand => this.service_brand = service_brand);
@@ -228,12 +234,14 @@ export class WashingmachinedetailsComponent implements OnInit {
   }
 
   contactDetailsSubmit() {
-    const unit = this.unitdetailsForm.value;
-    const loc = this.locationForm.value;
-    const sched = this.scheduleForm.value;
-    const contact = this.contactDetialsForm.value;
-    let body = {
-      "service_type": "Repair",
+    var retVal = confirm("Are you sure you want to proceed ?");
+    if( retVal == true ) {
+      const unit = this.unitdetailsForm.value;
+      const loc = this.locationForm.value;
+      const sched = this.scheduleForm.value;
+      const contact = this.contactDetialsForm.value;
+      let body = {
+        "service_type": "Repair",
       "service_appliance": "Washing Machine",
       "service_aptype": unit.service_aptype,
       "service_brand": unit.service_brand,
@@ -250,22 +258,26 @@ export class WashingmachinedetailsComponent implements OnInit {
       "service_phoneNumber": contact.service_phoneNumber,
       "service_addressDetails": contact.service_addressDetails,
       "service_instruction": contact.service_instruction,
-      "status": "Pending"
-    }
-
-    if (this.contactDetialsForm.valid) {
-      this.http.post("http://localhost:3000/NewServiceRequest", body)
-        .subscribe(data => {
-          console.log(data, 'Booking Success');
-          alert("Booking Success");
-          this.router.navigate(['/summary'])
-        }, error => {
-          console.log(error);
-          alert(error);
-        });
-    }
-    else {
-      return;
+      "status": "Pending",
+      "checkupfee": "200.00php"
+      }
+  
+      if (this.contactDetialsForm.valid) {
+        this.http.post("http://localhost:3000/NewServiceRequest/repair", body)
+          .subscribe(data => {
+            console.log(data, 'Booking Success');
+            this.router.navigate(['/summary'])
+          }, error => {
+            console.log(error);
+            alert(error);
+          });
+      }
+      else {
+        return;
+      }
+       return true;
+    } else {
+       return false;
     }
   }
   
@@ -274,5 +286,7 @@ export class WashingmachinedetailsComponent implements OnInit {
       this.drawer.close();
     }
   }
+
+  
 
 }

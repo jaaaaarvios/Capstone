@@ -16,7 +16,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
 export class BookingsummaryComponent implements OnInit {
   subscription: any;
-
+  // fname=JSON.parse(localStorage.getItem('first_name'));
+  // lname=JSON.parse(localStorage.getItem('first_name'));
   service_request = []
 
   checked = false;
@@ -42,6 +43,10 @@ export class BookingsummaryComponent implements OnInit {
         this.service_request = result
         console.log(this.service_request)
       });
+
+      if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+        this.router.navigate(['/home'])
+      }
   }
 
   cancelRequest(){
@@ -52,5 +57,14 @@ export class BookingsummaryComponent implements OnInit {
       this.drawer.close();
     }
   }
+  getConfirmation() {
+    var retVal = confirm("Do you really want to cancel ?");
+    if( retVal == true ) {
+       this.router.navigate(['/dashboard'])
+       return true;
+    } else {
+       return false;
+    }
+ }
 
 }

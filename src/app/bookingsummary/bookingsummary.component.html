@@ -1,7 +1,7 @@
 
   <!--HEADER------------------------------------------------>
   <mat-toolbar>
-    <h1 class="ayosgamit" routerLink="/home">Ayosgamit</h1>
+    <h1 class="ayosgamit">Ayosgamit</h1>
   </mat-toolbar>
   <div class="container">
     <!--REQUEST SUMMARY------------------------------------------------>
@@ -84,15 +84,34 @@
           </tr>
         </tbody>
       </table>
+    </mat-card>
+  </div>
+    <!--PAYMENT SUMMARY------------------------------------------------>
+    <div>
+      <div class="pending">
+        <h1 class="pendingtxt">Your request is pending</h1>
+      </div>
+
+      <div class="description">
+        <p class="description1">Your service request is now on pending.</p>
+        <p class="description2">Choose a payment option
+          to grant your</p>
+        <p class="description3">service request.</p>
+        <button mat-raised-button (click)="getConfirmation()" class="cancelBtn">Cancel Request</button>
+        <button mat-stroked-button class="reschedBtn" routerLink="/reschedule">Reschedule Request</button>
+      </div>
+
+      <div class="pendingvector1">
+        <img class="pendingvector" mat-card-image src="../../assets/pendingvector.png">
+      </div>
 
       <div class="termschkbox">
       <mat-checkbox [(ngModel)]="checked">I agree to Ayosgamit <b>Terms and Conditions.</b></mat-checkbox>
     </div>
 
     <div>
-      <button mat-raised-button class="proceedBtn" routerLink="/paymentform">Proceed</button>
+      <button mat-raised-button class="proceedBtn" routerLink="/payment">Proceed</button>
     </div>
-    </mat-card>
   </div>
     <!--PAYMENT SUMMARY------------------------------------------------>
     

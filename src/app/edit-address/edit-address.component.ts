@@ -16,6 +16,7 @@ export class EditAddressComponent implements OnInit {
 
   serviceInfoForm: FormGroup;
   matcher = new MyErrorStateMatcher();
+  id=JSON.parse(localStorage.getItem('id'));
   property: any[] = ["Condo", "Apartment", "House", "Store", "Office Building", "Warehouse or Storage"];
 
   @ViewChild('drawer') drawer: any;
@@ -33,9 +34,14 @@ export class EditAddressComponent implements OnInit {
       addressDetails: ['', Validators.required],
       property_type: ['', Validators.required],
     });
+
+    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+      this.router.navigate(['/home'])
+    }
   }
 
-  signOut() {
+  logout(){
+    localStorage.clear();
     this.router.navigate(['/home'])
   }
 
@@ -49,10 +55,11 @@ export class EditAddressComponent implements OnInit {
     }
 
     if (this.serviceInfoForm.valid) {
-      this.http.patch("http://localhost:3000/CredentialDB/service/:id", body)
+      this.http.patch("http://localhost:3000/CredentialDB/service/"+this.id, body)
         .subscribe(data => {
           console.log(data, 'Update Success');
           alert("Update Success");
+          this.serviceInfoForm.reset();
         }, error => {
           console.log(error);
           alert(error);

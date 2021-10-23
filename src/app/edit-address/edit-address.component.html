@@ -32,7 +32,7 @@
       <div class="logoutside">
         <mat-list-item (click)="closeSideNav()">
           <mat-icon class="nav-icon">exit_to_app</mat-icon>
-          <a class="logout-btn" routerLink="/home">Logout</a>
+          <a class="logout-btn" (click)="logout()">Logout</a>
         </mat-list-item>
       </div>
     </mat-nav-list>
@@ -52,37 +52,42 @@
     <h1 class="backBtn" routerLink="/profile">
       <mat-icon><b>keyboard_return</b></mat-icon>Back to Profile
       </h1>
-
+      <form [formGroup]="serviceInfoForm" (ngSubmit)="serviceInfoSubmit()">
     <mat-card class="card">
         <h1 class="infoLbl">Edit Address</h1>
         <p>
           <mat-form-field class="addtextfields" appearance="outline">
             <mat-label>Service Address</mat-label>
-            <input matInput [errorStateMatcher]="matcher" autocomplete="off">
+            <input matInput formControlName="address" [errorStateMatcher]="matcher" autocomplete="off">
+            <mat-error *ngIf="serviceInfoForm.get('address').hasError('required')">
+              Service Adresss is required.
+            </mat-error>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field class="textfields" appearance="outline">
             <mat-label>Service Address Details</mat-label>
-            <input matInput [errorStateMatcher]="matcher" autocomplete="off">
+            <input matInput formControlName="addressDetails" [errorStateMatcher]="matcher" autocomplete="off">
+            <mat-error *ngIf="serviceInfoForm.get('addressDetails').hasError('required')">
+              Service Adresss Details is required.
+            </mat-error>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field class="textfields" appearance="outline">
             <mat-label>Property Type</mat-label>
-            <mat-select [errorStateMatcher]="matcher">
+            <mat-select formControlName="property_type" [errorStateMatcher]="matcher">
               <mat-option *ngFor="let ptype of property" [value]="ptype">
                 {{ptype}}
               </mat-option>
             </mat-select>
-            <!-- <mat-error *ngIf="locationForm.get('service_property_type').hasError('required')">
-                  You must make a selection
-                </mat-error> -->
+            <mat-error *ngIf="serviceInfoForm.get('property_type').hasError('required')">
+              You must make a selection
+            </mat-error>
           </mat-form-field>
         </p>
-      
-      
-      <button class="saveBtn" mat-raised-button> Save </button>
+      <button class="saveBtn" type="submit"mat-raised-button> Save </button>
     </mat-card>
+  </form>
   </mat-sidenav-content>
 </mat-sidenav-container>

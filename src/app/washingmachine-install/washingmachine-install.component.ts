@@ -56,7 +56,7 @@ export class WashingmachineInstallComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-  wm_type: any[] = ["Top Load", "Front Load", "Twin Tub","I don't know"];
+  wm_type: any[] = ["Top Load", "Front Load", "Twin Tub", "I don't know"];
 
   wm_brand: any[] = ["Aiwa", "American Home", "Asahi", "Camel",
     "Carrier", "Coldfront", "Condura", "Daikin", "Everest",
@@ -66,18 +66,24 @@ export class WashingmachineInstallComponent implements OnInit {
     "Panasonic", "Samsung", "Sanyo", "Sharp", "TCLSSSS", "Union", "Xtreme",
     "York", "Other"];
 
-  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog, 
+  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog,
     private shared: SharedService, private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
-    openDialog() {
-      const dialogRef = this.dialog.open(InstallFeeWashingComponent);
-  
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
-    }
-    
+  openDialog() {
+    const dialogRef = this.dialog.open(InstallFeeWashingComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
   ngOnInit(): void {
+    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+      this.router.navigate(['/home'])
+    }
     //Sending data to the service
     this.subscription = this.shared.currentACType.subscribe(service_aptype => this.service_aptype = service_aptype);
     this.subscription = this.shared.currentACBrand.subscribe(service_brand => this.service_brand = service_brand);
@@ -162,7 +168,7 @@ export class WashingmachineInstallComponent implements OnInit {
     });
     this.watchPosition();
   }
-  
+
   watchPosition() {
     let desLat = 0;
     let desLon = 0;
@@ -191,7 +197,7 @@ export class WashingmachineInstallComponent implements OnInit {
   labelPosition: 'before' | 'after' = 'after';
   disabled = false;
 
-  unitdetailsSubmit(){
+  unitdetailsSubmit() {
     if (this.unitdetailsForm.valid) {
       this.shared.changeACType(this.unitdetailsForm.value.service_aptype);
       this.shared.changeACBrand(this.unitdetailsForm.value.service_brand);
@@ -220,47 +226,52 @@ export class WashingmachineInstallComponent implements OnInit {
   }
 
   contactDetailsSubmit() {
-    const unit = this.unitdetailsForm.value;
-    const loc = this.locationForm.value;
-    const sched = this.scheduleForm.value;
-    const contact = this.contactDetialsForm.value;
-    let body = {
-      "service_type": "Installation",
-      "service_appliance": "Washing Machine",
-      "service_aptype": unit.service_aptype,
-      "service_brand": unit.service_brand,
-      "service_unitType": this.service_unitType,
-      "service_unitProb": this.service_unitProb,
-      "service_city": loc.service_city,
-      "service_property_type": loc.service_property_type,
-      "service_zipcode": loc.service_zipcode,
-      "service_date": sched.service_date,
-      "service_timeslot": sched.service_timeslot,
-      "service_address": contact.service_address,
-      "service_firstname": contact.service_firstname,
-      "service_lastname": contact.service_lastname,
-      "service_phoneNumber": contact.service_phoneNumber,
-      "service_addressDetails": contact.service_addressDetails,
-      "service_instruction": contact.service_instruction,
-      "status": "Pending"
-    }
+    var retVal = confirm("Are you sure you want to proceed ?");
+    if (retVal == true) {
+      const unit = this.unitdetailsForm.value;
+      const loc = this.locationForm.value;
+      const sched = this.scheduleForm.value;
+      const contact = this.contactDetialsForm.value;
+      let body = {
+        "service_type": "Installation",
+        "service_appliance": "Washing Machine",
+        "service_aptype": unit.service_aptype,
+        "service_brand": unit.service_brand,
+        "service_unitType": this.service_unitType,
+        "service_unitProb": this.service_unitProb,
+        "service_city": loc.service_city,
+        "service_property_type": loc.service_property_type,
+        "service_zipcode": loc.service_zipcode,
+        "service_date": sched.service_date,
+        "service_timeslot": sched.service_timeslot,
+        "service_address": contact.service_address,
+        "service_firstname": contact.service_firstname,
+        "service_lastname": contact.service_lastname,
+        "service_phoneNumber": contact.service_phoneNumber,
+        "service_addressDetails": contact.service_addressDetails,
+        "service_instruction": contact.service_instruction,
+        "status": "Pending"
+      }
 
-    if (this.contactDetialsForm.valid) {
-      this.http.post("http://localhost:3000/NewServiceRequest", body)
-        .subscribe(data => {
-          console.log(data, 'Booking Success');
-          alert("Booking Success");
-          this.router.navigate(['/summary'])
-        }, error => {
-          console.log(error);
-          alert(error);
-        });
-    }
-    else {
-      return;
+      if (this.contactDetialsForm.valid) {
+        this.http.post("http://localhost:3000/NewServiceRequest", body)
+          .subscribe(data => {
+            console.log(data, 'Booking Success');
+            this.router.navigate(['/summary'])
+          }, error => {
+            console.log(error);
+            alert(error);
+          });
+      }
+      else {
+        return;
+      }
+      return true;
+    } else {
+      return false;
     }
   }
-  
+
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();

@@ -25,7 +25,6 @@ export class PaymentformComponent implements OnInit {
     service_request = []
 
 
-
   constructor(private router: Router, private breakpointObserver: BreakpointObserver,
     private http: HttpClient) { 
 
@@ -49,6 +48,10 @@ export class PaymentformComponent implements OnInit {
         this.service_request = result
         console.log(this.service_request)
       });
+
+      if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+        this.router.navigate(['/home'])
+      }
   }
 
 

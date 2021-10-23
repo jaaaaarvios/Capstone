@@ -9,7 +9,6 @@ import {ServicedetailsComponent} from '../app/servicedetails/servicedetails.comp
 import {ProfileformComponent} from '../app/profileform/profileform.component';
 import{ConfirmcancelComponent} from '../app/confirmcancel/confirmcancel.component';
 import {RequestdetailsComponent} from '../app/requestdetails/requestdetails.component';
-import {PaymentformComponent} from '../app/paymentform/paymentform.component';
 import {AdminpageComponent} from '../app/adminpage/adminpage.component';
 import {TechniciansComponent} from '../app/technicians/technicians.component';
 import {TechprofileComponent} from '../app/techprofile/techprofile.component';
@@ -47,9 +46,9 @@ import { AdminUserComponent } from './admin-user/admin-user.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { PrivacytermsComponent } from './privacyterms/privacyterms.component';
 import { FeedbackComponent } from './feedback/feedback.component';
-import { RepairFeeComponent } from './repair-fee/repair-fee.component';
-import { CleaningFeeComponent } from './cleaning-fee/cleaning-fee.component';
-import { InstallFeeComponent } from './install-fee/install-fee.component';
+import { RescheduleComponent } from './reschedule/reschedule.component';
+import { PaymentformComponent } from '../app/paymentform/paymentform.component';
+import { PaymentsuccessComponent } from './paymentsuccess/paymentsuccess.component';
 
 
 const routes: Routes = [
@@ -102,8 +101,9 @@ const routes: Routes = [
   { path: 'pricing', component: PricingComponent },
   { path: 'privacy_terms', component: PrivacytermsComponent },
   { path: 'feedback', component: FeedbackComponent },
-  { path: 'repair-fee', component: RepairFeeComponent },
-  { path: 'cleaning-fee', component: CleaningFeeComponent }
+  { path: 'reschedule', component: RescheduleComponent },
+  { path: 'payment', component: PaymentformComponent },
+  { path: 'paymentsuccess', component: PaymentsuccessComponent },
 ];
 
 @NgModule({
