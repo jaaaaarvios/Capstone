@@ -58,9 +58,9 @@ export class RescheduleComponent implements OnInit {
     }
   }
   getConfirmation() {
-    var retVal = confirm("Do you really want to cancel ?");
+    var retVal = confirm("Are you sure you want to cancel?");
     if( retVal == true ) {
-       this.router.navigate(['/dashboard'])
+       this.router.navigate(['/summary'])
        return true;
     } else {
        return false;
