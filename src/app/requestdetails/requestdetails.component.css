@@ -1,190 +1,530 @@
-.details
+@media (min-width: 820px)
 {
-    width: 750px;
-}
-.title
-{
-    color: #14213D;
-    font-size: 25px;
-    font-family: 'Trebuchet MS';
-}
 
-.titletech
-{
-    color: #FCA311;
-    margin-top: 60px;
-    font-size: 15px;
-    font-family: 'Trebuchet MS';
+.sidenav-container {
+  height: 100%;
+}
+.sidenav{
+  width: fit-content;
+  width: 280px;
+  background-color: #EAE2B7;
+}
+.mat-sidenav-content{
+   height: 910px;
+   background-color: white;
 }
 
-
-
-.reschedBtn
-{
-    background-color: #14213D;
-    color: white; 
-    font-size: 15px;
-    font-family: 'Trebuchet MS';
-    float: right;
-    margin-right: 20px;
-    margin-top: -120px;
+.logo{
+  width: 180px;
+  height: 150px;
+  padding-top: 40px;
+  margin-left: 55px;
 }
 
-.mat-icon
+.mat-toolbar{
+  background-color: #D62828;
+  width: 100%;
+}
+.ayosgamit
 {
- margin-top: 10px;
-  font-size: 100px;
+font-family: 'Candara';
+font-size: 30px;
+float: left;
+color: #FFFFFF;
 }
 
-.techname
+
+.dashtitle
 {
-    color: #14213D;
-    font-size: 20px;
-    margin-top: -70px;
-    margin-left: 170px;
-    font-family: 'Trebuchet MS';
+  color: #003049;
+  font-size: 25px;
+  margin-left: 80px;
+  margin-top: 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
-.ratings
+.dashvector
 {
-    color: #14213D;
-    font-size: 15px;
-    margin-top: -10px;
-    margin-left: 170px;
-    font-family: 'Trebuchet MS';
+  width: 360px;
+  height: 250px;
+  margin-left: 620px;
+  margin-top: -60px;
 }
 
-.servicedets
-{
-    color: #14213D;
-    font-size: 18px;
-    margin-top: 60px;
-   
-    font-family: 'Trebuchet MS';
+.nav-icon{
+  color: #003049;
+  font-size: 35px;
+  margin-left: 25px;
+  margin-top: -12px;
 }
 
-.serviceid
+.dashboardside{
+  margin-left: 0px;
+  margin-top: 30px;
+  text-align: justify;
+}
+
+.dashboardside:hover
 {
-    color: grey;
-    font-size: 15px;
-    margin-top: 10px;
+    background-color: #c8c19c;
     
-    font-family: 'Trebuchet MS';
+    width: 100%;
+    height: 70px;
+    margin-left: 0;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+.dashboard-btn{
+  color: #003049;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 25px;
+  text-decoration: none;
+}
+
+.bookingside{
+  margin-left: 0px;
+  margin-top: 30px;
+  text-align: justify;
+}
+
+.bookingside:hover
+{
+    background-color: #c8c19c;
+    width: 100%;
+    height: 70px;
+    margin-left: 0;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+.booking-btn{
+  color: #003049;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 25px;
+}
+
+.profileside{
+  margin-left: 0px;
+  margin-top: 30px;
+  text-align: justify;
+}
+
+.profileside:hover
+{
+    background-color: #c8c19c;
+    width: 100%;
+    height: 70px;
+    margin-left: 0;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+.profile-btn
+{
+  color: #003049;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-left: 25px;
+}
+.spacer{
+  flex: 1 1 auto;
+}
+.inboxicon
+{
+  font-size: 30px;
+  color: #14213D;
+  margin-right: 20px;
+}
+.logoutBtn
+{
+  font-size: 20px;
+  color: antiquewhite;
+}
+.logoutBtn:hover{
+  background-color: black;
+}
+
+
+.container{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 50px;
+}
+.backtxt
+{
+color: #003049;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: 13px;
+margin-top: -25px;
+margin-left: 50px;
+
 }
 
 .servicetype
 {
-    color: grey;
-    font-size: 15px;
-    margin-top: -25px;
-    margin-left: 200px;
-    font-family: 'Trebuchet MS';
+  color: #FFFFFF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  position: center;
+  margin: auto;
+  
 }
 
-.date
+.header
 {
-    color: grey;
-    font-size: 15px;
-    margin-top: -25px;
-    margin-left: 400px;
-    font-family: 'Trebuchet MS';
+  width: 750px;
+  height: 200px;
+  margin-top: -10px !important;
+  position: center !important;
+  margin: auto;
+  
+}
+.summary
+{
+  width: 750px;
+  height: 700px;
+  margin-top: 50px !important;
+  position: center !important;
+  margin: auto;
+  
+}
+.title
+{
+  color: #003049;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  margin-top: -25px;
+  margin-left: 40px;
 }
 
-.sched
+.icon
 {
-    color: grey;
-    font-size: 15px;
-    margin-top: -25px;
-    margin-left: 600px;
-    font-family: 'Trebuchet MS';
+  color: #003049;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-left: 20px;
 }
 
-.serviceidr
+.personalinfotxt
 {
-    color: grey;
-    font-size: 12px;
-    margin-top: 5px;
-    margin-left: 20px;
-    font-family: 'Trebuchet MS';
+  color: #003049;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-top: 25px;
 }
 
-.servicetyper
+.fname
 {
-    color: grey;
-    font-size: 12px;
-    margin-top: -25px;
-    margin-left: 200px;
-    font-family: 'Trebuchet MS';
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
-.dater
+.fname2
 {
-    color: grey;
-    font-size: 12px;
-    margin-top: -20px;
-    margin-left: 420px;
-    font-family: 'Trebuchet MS';
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 15px;
 }
 
-.schedr
+.lname
 {
-    color: grey;
-    font-size: 10px;
-    margin-top: -18px;
-    margin-left: 600px;
-    font-family: 'Trebuchet MS';
+  margin-left: 170px;
+  margin-top: -67px;
+
 }
 
-.serviceadd
+.lname2
 {
-    color: #14213D;
-    font-size: 18px;
-    margin-top: 38px;
-    font-family: 'Trebuchet MS';
+  margin-left: 170px;
+  margin-top: 10px;
+  font-size: 15px;
 }
 
-.serviceidr
+.number
 {
-    color: grey;
-    font-size: 12px;
-    margin-top: 5px;
-    margin-left: 20px;
-    font-family: 'Trebuchet MS';
+  float: right;
+  margin-right: 100px;
+  margin-top: -67px;
 }
 
-.servicect
+.number2
 {
-    color: grey;
-    font-size: 12px;
-    margin-top: 15px;
-    margin-left: 12px;
-    font-family: 'Trebuchet MS';
+  float: right;
+  margin-right: 145px;
+  margin-top: -33px;
+  font-size: 15px;
+}
+
+.addressinfo
+{
+  margin-top: 70px;
+}
+
+.address
+{
+  margin-left: 20px;
+  margin-top: -40px;
+}
+
+.address2
+{
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.city
+{
+  margin-left: 170px;
+  margin-top: -70px;
+}
+
+.city2
+{
+  margin-left: 170px;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.property
+{
+  float: right;
+  margin-right: 160px;
+  margin-top: -70px;
+}
+
+.property2
+{
+  float: right;
+  margin-right: 200px;
+  margin-top: -35px;
+  font-size: 15px;
 }
 
 .zipcode
 {
-    color: grey;
-    font-size: 12px;
-    margin-top: -20px;
-    margin-left: 200px;
-    font-family: 'Trebuchet MS';
+  float: right;
+  margin-right: 20px;
+  margin-top: -70px;
 }
 
-.add
+.zipcode2
 {
-    color: grey;
-    font-size: 10px;
-    margin-top: -18px;
-    margin-left: 405px;
-    font-family: 'Trebuchet MS';
+  float: right;
+  margin-right: 40px;
+  margin-top: -35px;
+  font-size: 15px;
 }
 
-.ins
+
+.serviceinfotxt
 {
-    color: grey;
-    font-size: 10px;
-    margin-top: -18px;
-    margin-left: 600px;
-    font-family: 'Trebuchet MS';
+  color: #003049;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-top: 20px;
 }
 
+.appliance
+{
+  margin-left: 20px;
+}
+
+.appliance2
+{
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.brand
+{
+  margin-left: 170px;
+  margin-top: -70px;
+}
+
+.brand2
+{
+  margin-left: 170px;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+
+.unittype
+{
+  float: right;
+  margin-right: 190px;
+  margin-top: -70px;
+}
+
+.unittype2
+{
+  
+  float: right;
+  margin-right: 205px;
+  margin-top: -33px;
+  font-size: 15px;
+}
+
+
+.unitprob
+{
+  margin-top: 70px;
+}
+
+.unitproblem
+{
+  margin-left: 20px;
+  margin-top: -35px;
+  
+}
+
+.unitproblem2
+{
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.datetimeinfo
+{
+  margin-top: 30px;
+}
+
+
+.date
+{
+  margin-left: 20px;
+}
+
+.date2
+{
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.time
+{
+  margin-left: 180px;
+  margin-top: -68px;
+}
+
+.time2
+{
+  margin-left: 180px;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.termschkbox
+{
+  color: #003049;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  float: left;
+  margin-left: 200px;
+  
+  
+}
+
+.reschedBtn
+{
+  width: 160px;
+  height: 40px;
+  background-color: #F77F00;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  float: right;
+  margin-right: 15px;
+  
+  
+}
+
+.cancelBtn
+{
+  width: 120px;
+  height: 40px;
+  background-color: #D62828;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  float: right;
+  margin: 5px;
+  margin-top: 1px;
+  
+;
+}
+.pending{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+.pendingtxt
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 23px;
+  color: #F77F00;
+  float: right;
+  margin-right: 740px;
+}
+
+.description
+{
+  float: left;
+  margin-left: 33px;
+  margin-top: 20px;
+}
+
+.description1
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  color: grey;
+}
+.description2
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  color: grey;
+  margin-top: -15px;
+}
+.description3
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  color: grey;
+  margin-top: -15px;
+}
+
+.serviceinfotxt{
+  font-size: 15px;
+
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+}
+
+.proceedBtn
+{
+  width: 100px;
+  height: 40px;
+  background-color: #F77F00;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  float: left;
+  margin-left: 300px;
+  margin-top: 10px;
+}
+}
