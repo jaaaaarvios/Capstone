@@ -89,6 +89,7 @@ import { RepairFeeComponent } from './repair-fee/repair-fee.component';
 import { CleaningFeeComponent } from './cleaning-fee/cleaning-fee.component';
 import { InstallFeeComponent } from './install-fee/install-fee.component';
 import { InstallFeeWashingComponent } from './install-fee-washing/install-fee-washing.component';
+import { PaymentsuccessComponent } from './paymentsuccess/paymentsuccess.component';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -156,6 +157,7 @@ import { InstallFeeWashingComponent } from './install-fee-washing/install-fee-wa
          CleaningFeeComponent,
          InstallFeeComponent,
          InstallFeeWashingComponent,
+         PaymentsuccessComponent,
 
   ],
   imports: [

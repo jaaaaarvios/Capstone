@@ -47,16 +47,21 @@
             <h1 class="ayosgamit">Ayosgamit</h1>
             <span class="spacer"></span>
         </mat-toolbar>
-        <div class="container">
-            <form [formGroup]="personalInfoForm" (ngSubmit)="personalInfoSubmit()">
-                <div class="card">
+
+        <h1 class="backBtn" routerLink="/profile">
+            <mat-icon><b>keyboard_return</b></mat-icon>Back to Profile
+        </h1>
+        <form [formGroup]="personalInfoForm" (ngSubmit)="personalInfoSubmit()">
+            <mat-card class="card">
+                <div>
                     <h1 class="infoLbl">Edit Information</h1>
                     <p>
-                        <mat-form-field class="textfields" appearance="outline">
+                        <mat-form-field class="fnametextfields" appearance="outline">
                             <mat-label>First Name</mat-label>
-                            <input matInput formControlName="firstname" id="fname" type="text" ngModel firstName="true"
-                                placeholder="Enter first name">
-                            <mat-error *ngIf="personalInfoForm.get('firstname').hasError('required')"> First name is required
+                            <input matInput formControlName="firstname" type="text" ngModel
+                                placeholder="Enter first name" required>
+                            <mat-error *ngIf="personalInfoForm.get('firstname').hasError('required')"> First name is
+                                required
                             </mat-error>
                             <mat-error *ngIf="personalInfoForm.get('firstname').hasError('pattern')"> Invalid Name
                             </mat-error>
@@ -68,9 +73,9 @@
                     <p>
                         <mat-form-field class="textfields" appearance="outline">
                             <mat-label>Last Name</mat-label>
-                            <input matInput formControlName="lastname" id="lname" type="text" ngModel lastName="true"
-                                placeholder="Enter last name">
-                            <mat-error *ngIf="personalInfoForm.get('lastname').hasError('required')"> Last name is
+                            <input matInput formControlName="lastname" type="text" ngModel
+                                placeholder="Enter first name" required>
+                            <mat-error *ngIf="personalInfoForm.get('lastname').hasError('required')"> First name is
                                 required
                             </mat-error>
                             <mat-error *ngIf="personalInfoForm.get('lastname').hasError('pattern')"> Invalid Name
@@ -83,33 +88,36 @@
                     <p>
                         <mat-form-field class="textfields" appearance="outline">
                             <mat-label>Email Address</mat-label>
-                            <input matInput formControlName="email" ngModel [email]="true" type="email"
-                                placeholder="user@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$">
+                            <input matInput formControlName="email" [email]="true" type="email" ngModel
+                                placeholder="yourname@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$"
+                                autocomplete="off">
                             <mat-error *ngIf="personalInfoForm.get('email').hasError('required')"> Email is required
                             </mat-error>
                             <mat-error *ngIf="personalInfoForm.get('email').hasError('pattern')"> Please enter a valid
-                                email address </mat-error>
+                                email address
+                            </mat-error>
                         </mat-form-field>
                     </p>
                     <p>
                         <mat-form-field class="textfields" appearance="outline">
                             <mat-label>Contact Number</mat-label>
                             <input matInput pattern="(09)[0-9]{9}" formControlName="number"
-                                [errorStateMatcher]="matcher" #input maxlength="11" placeholder="09XXXXXXXXX"
-                                autocomplete="off">
-                            <mat-hint>{{input.value?.length || 0}}/11</mat-hint>
-                            <mat-error *ngIf="personalInfoForm.get('number').hasError('required')">
-                                Enter a valid phone number
-                            </mat-error>
-                            <mat-error *ngIf="personalInfoForm.get('number').hasError('pattern')">
-                                Invalid phone number
-                            </mat-error>
+                            [errorStateMatcher]="matcher" #input maxlength="11" placeholder="09XXXXXXXXX" autocomplete="off"
+                            required>
+                          <mat-hint>{{input.value?.length || 0}}/11</mat-hint>
+                          <mat-error *ngIf="personalInfoForm.get('number').hasError('required')">
+                            Enter a valid phone number
+                          </mat-error>
+                          <mat-error *ngIf="personalInfoForm.get('number').hasError('pattern')">
+                            Invalid phone number
+                          </mat-error>
                         </mat-form-field>
                     </p>
+
+
+                    <button class="saveBtn" mat-raised-button> Save </button>
                 </div>
-                <button class="backBtn" mat-raised-button routerLink="/profile"> Back </button>
-                <button class="saveBtn" type="submit" mat-raised-button> Save </button>
-            </form>
-        </div>
+            </mat-card>
+        </form>
     </mat-sidenav-content>
 </mat-sidenav-container>

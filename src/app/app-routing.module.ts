@@ -9,7 +9,6 @@ import {ServicedetailsComponent} from '../app/servicedetails/servicedetails.comp
 import {ProfileformComponent} from '../app/profileform/profileform.component';
 import{ConfirmcancelComponent} from '../app/confirmcancel/confirmcancel.component';
 import {RequestdetailsComponent} from '../app/requestdetails/requestdetails.component';
-import {PaymentformComponent} from '../app/paymentform/paymentform.component';
 import {AdminpageComponent} from '../app/adminpage/adminpage.component';
 import {TechniciansComponent} from '../app/technicians/technicians.component';
 import {TechprofileComponent} from '../app/techprofile/techprofile.component';
@@ -48,6 +47,8 @@ import { PricingComponent } from './pricing/pricing.component';
 import { PrivacytermsComponent } from './privacyterms/privacyterms.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { RescheduleComponent } from './reschedule/reschedule.component';
+import { PaymentformComponent } from '../app/paymentform/paymentform.component';
+import { PaymentsuccessComponent } from './paymentsuccess/paymentsuccess.component';
 
 
 const routes: Routes = [
@@ -101,6 +102,8 @@ const routes: Routes = [
   { path: 'privacy_terms', component: PrivacytermsComponent },
   { path: 'feedback', component: FeedbackComponent },
   { path: 'reschedule', component: RescheduleComponent },
+  { path: 'payment', component: PaymentformComponent },
+  { path: 'paymentsuccess', component: PaymentsuccessComponent },
 ];
 
 @NgModule({

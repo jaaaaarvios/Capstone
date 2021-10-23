@@ -21,6 +21,8 @@ declare const L: any;
 
 export class AircondetailsComponent implements OnInit {
 
+
+  
   ac_type: any[] = ["Split Type", "Window Type", "Tower", "Cassette",
     "Suspended", "Concealed"];
 
