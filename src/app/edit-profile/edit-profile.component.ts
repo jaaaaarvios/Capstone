@@ -35,6 +35,10 @@ export class EditProfileComponent implements OnInit {
       email: ['', Validators.required],
       number: ['', Validators.required],
     });
+
+    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+      this.router.navigate(['/home'])
+    }
   }
 
   signOut() {

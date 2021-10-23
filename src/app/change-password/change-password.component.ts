@@ -38,9 +38,13 @@ export class ChangePasswordComponent implements OnInit {
       newPassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw), Validators.maxLength(this.maxPw)]),
     });
 
+    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+      this.router.navigate(['/home'])
+    }
   }
 
-  signOut() {
+  logout(){
+    localStorage.clear();
     this.router.navigate(['/home'])
   }
 

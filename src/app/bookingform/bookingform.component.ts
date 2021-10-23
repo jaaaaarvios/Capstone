@@ -44,12 +44,16 @@ export class BookingformComponent implements OnInit {
     this.router.navigate(['/installation'])
   }
 
-  signOut() {
+  logout(){
+    localStorage.clear();
     this.router.navigate(['/home'])
   }
 
   ngOnInit() {
     this.subscription = this.shared.currentServiceType.subscribe(service_type => this.service_type = service_type);
+    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+      this.router.navigate(['/home'])
+    }
   }
 
   closeSideNav() {

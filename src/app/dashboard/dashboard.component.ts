@@ -64,7 +64,7 @@ export class DashboardComponent implements OnInit {
   });
   }
   
-  logut(){
+  logout(){
     localStorage.clear();
     this.router.navigate(['/home'])
   }

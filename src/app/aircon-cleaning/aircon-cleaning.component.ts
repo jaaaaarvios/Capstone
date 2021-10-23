@@ -79,8 +79,15 @@ export class AirconCleaningComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
 
   ngOnInit(): void {
+    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+      this.router.navigate(['/home'])
+    }
     //Sending data to the service
     this.subscription = this.shared.currentACType.subscribe(service_aptype => this.service_aptype = service_aptype);
     this.subscription = this.shared.currentACBrand.subscribe(service_brand => this.service_brand = service_brand);

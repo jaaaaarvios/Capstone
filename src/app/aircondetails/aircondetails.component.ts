@@ -89,8 +89,15 @@ export class AircondetailsComponent implements OnInit {
     });
   }
 
-
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
+  
   ngOnInit(): void {
+    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+      this.router.navigate(['/home'])
+    }
     //Sending data to the service
     this.subscription = this.shared.currentAppliance.subscribe(service_appliance => this.service_appliance = service_appliance);
     this.subscription = this.shared.currentServiceType.subscribe(service_type => this.service_type = service_type);
@@ -263,11 +270,12 @@ export class AircondetailsComponent implements OnInit {
         "service_phoneNumber": contact.service_phoneNumber,
         "service_addressDetails": contact.service_addressDetails,
         "service_instruction": contact.service_instruction,
-        "status": "Pending"
+        "status": "Pending",
+        "checkupfee": "200.00php"
       }
 
       if (this.contactDetialsForm.valid) {
-        this.http.post("http://localhost:3000/NewServiceRequest", body)
+        this.http.post("http://localhost:3000/NewServiceRequest/repair", body)
           .subscribe(data => {
             console.log(data, 'Booking Success');
             this.router.navigate(['/summary'])
