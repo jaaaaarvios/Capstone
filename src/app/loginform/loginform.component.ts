@@ -80,6 +80,13 @@ export class LoginformComponent implements OnInit {
       user_spassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw), Validators.maxLength(this.maxPw)]),
     });
 
+    let data:Observable<any>;
+      data = this.http.get('http://localhost:3000/CredentialDB');
+      data.subscribe(result => {
+        this.items = result
+        console.log(this.items)
+      });
+
   }
 
   onClickSubmit() {
@@ -89,6 +96,10 @@ export class LoginformComponent implements OnInit {
     if(this.userForm.valid){
       this.auth.login(val).subscribe(result => {
         if(result) {
+          localStorage.setItem("id", JSON.stringify(result._id));
+          localStorage.setItem("password", JSON.stringify(result.password));
+          localStorage.setItem("first_name", JSON.stringify(result.first_name));
+          localStorage.setItem("last_name", JSON.stringify(result.last_name));
           console.log(result);
           alert(result.message);
           this.router.navigate(['/dashboard'])
@@ -97,7 +108,7 @@ export class LoginformComponent implements OnInit {
         console.log(error);
       }
     }
-    else if (val.email == "admin" && val.password == "admin") {
+    else if (val.email == "admin@gmail.com" && val.password == "admin@gmail.com") {
       alert("Login Successfully");
       this.router.navigate(['/admin']);
     }

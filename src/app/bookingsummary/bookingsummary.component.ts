@@ -44,5 +44,14 @@ export class BookingsummaryComponent implements OnInit {
       this.drawer.close();
     }
   }
+  getConfirmation() {
+    var retVal = confirm("Do you really want to cancel ?");
+    if( retVal == true ) {
+       this.router.navigate(['/dashboard'])
+       return true;
+    } else {
+       return false;
+    }
+ }
 
 }

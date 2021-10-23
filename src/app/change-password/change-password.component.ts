@@ -18,7 +18,7 @@ export class ChangePasswordComponent implements OnInit {
   minPw = 8;
   maxPw = 15;
   matcher = new MyErrorStateMatcher();
-
+  id = JSON.parse(localStorage.getItem('id'));
   changePassForm: FormGroup;
 
   public showPassword: boolean;
@@ -58,10 +58,11 @@ export class ChangePasswordComponent implements OnInit {
     }
 
     if (this.changePassForm.valid) {
-      this.http.patch("http://localhost:3000/CredentialDB/password/:id", body)
+      this.http.patch("http://localhost:3000/CredentialDB/password/"+this.id, body)
         .subscribe(data => {
           console.log(data, 'Update Success');
           alert("Update Success");
+          this.changePassForm.reset();
         }, error => {
           console.log(error);
           alert(error);

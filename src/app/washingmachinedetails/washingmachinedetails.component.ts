@@ -228,12 +228,14 @@ export class WashingmachinedetailsComponent implements OnInit {
   }
 
   contactDetailsSubmit() {
-    const unit = this.unitdetailsForm.value;
-    const loc = this.locationForm.value;
-    const sched = this.scheduleForm.value;
-    const contact = this.contactDetialsForm.value;
-    let body = {
-      "service_type": "Repair",
+    var retVal = confirm("Are you sure you want to proceed ?");
+    if( retVal == true ) {
+      const unit = this.unitdetailsForm.value;
+      const loc = this.locationForm.value;
+      const sched = this.scheduleForm.value;
+      const contact = this.contactDetialsForm.value;
+      let body = {
+        "service_type": "Repair",
       "service_appliance": "Washing Machine",
       "service_aptype": unit.service_aptype,
       "service_brand": unit.service_brand,
@@ -251,21 +253,24 @@ export class WashingmachinedetailsComponent implements OnInit {
       "service_addressDetails": contact.service_addressDetails,
       "service_instruction": contact.service_instruction,
       "status": "Pending"
-    }
-
-    if (this.contactDetialsForm.valid) {
-      this.http.post("http://localhost:3000/NewServiceRequest", body)
-        .subscribe(data => {
-          console.log(data, 'Booking Success');
-          alert("Booking Success");
-          this.router.navigate(['/summary'])
-        }, error => {
-          console.log(error);
-          alert(error);
-        });
-    }
-    else {
-      return;
+      }
+  
+      if (this.contactDetialsForm.valid) {
+        this.http.post("http://localhost:3000/NewServiceRequest", body)
+          .subscribe(data => {
+            console.log(data, 'Booking Success');
+            this.router.navigate(['/summary'])
+          }, error => {
+            console.log(error);
+            alert(error);
+          });
+      }
+      else {
+        return;
+      }
+       return true;
+    } else {
+       return false;
     }
   }
   
@@ -274,5 +279,7 @@ export class WashingmachinedetailsComponent implements OnInit {
       this.drawer.close();
     }
   }
+
+  
 
 }

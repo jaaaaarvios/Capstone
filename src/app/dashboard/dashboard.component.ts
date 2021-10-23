@@ -19,8 +19,8 @@ import { AuthService } from '../auth.service';
 
 export class DashboardComponent implements OnInit {
 
-  user_fname="";
-  user_lname="";
+  fname=JSON.parse(localStorage.getItem('first_name'));
+  lname=JSON.parse(localStorage.getItem('last_name'));
   date: Date;
   subscription: any;
   service_request = []
@@ -41,8 +41,6 @@ export class DashboardComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    this.subscription = this.shared.currentUserFname.subscribe(user_fname => this.user_fname = user_fname);
-    this.subscription = this.shared.currentUserLname.subscribe(user_lname => this.user_lname = user_lname);
 
     let data:Observable<any>;
       data = this.http.get('http://localhost:3000/NewServiceRequest');
@@ -50,6 +48,10 @@ export class DashboardComponent implements OnInit {
         this.service_request = result
         console.log(this.service_request)
       });
+
+      if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+        this.router.navigate(['/home'])
+      }
   }
 
   images = [];
@@ -61,6 +63,12 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/home'])
   });
   }
+  
+  logut(){
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
+  
   
   openDialog() {
     const dialogRef = this.dialog.open(RequestdetailsComponent);

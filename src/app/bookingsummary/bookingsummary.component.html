@@ -1,7 +1,7 @@
 <body>
   <!--HEADER------------------------------------------------>
   <mat-toolbar>
-    <h1 class="ayosgamit" routerLink="/home">Ayosgamit</h1>
+    <h1 class="ayosgamit">Ayosgamit</h1>
   </mat-toolbar>
   <div class="container">
     <!--REQUEST SUMMARY------------------------------------------------>
@@ -95,8 +95,8 @@
         <p class="description2">Choose a payment option
           to grant your</p>
         <p class="description3">service request.</p>
-        <button mat-raised-button (click)="cancelRequest()" class="cancelBtn">Cancel Request</button>
-        <button mat-stroked-button class="reschedBtn">Reschedule Request</button>
+        <button mat-raised-button (click)="getConfirmation()" class="cancelBtn">Cancel Request</button>
+        <button mat-stroked-button class="reschedBtn" routerLink="/reschedule">Reschedule Request</button>
       </div>
 
       <div class="pendingvector1">

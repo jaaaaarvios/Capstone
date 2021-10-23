@@ -17,6 +17,8 @@ export class EditProfileComponent implements OnInit {
   personalInfoForm: FormGroup;
   matcher = new MyErrorStateMatcher();
 
+  id=JSON.parse(localStorage.getItem('id'));
+
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
@@ -56,10 +58,11 @@ export class EditProfileComponent implements OnInit {
     }
 
     if (this.personalInfoForm.valid) {
-      this.http.patch("http://localhost:3000/CredentialDB/personal/:id", body)
+      this.http.patch("http://localhost:3000/CredentialDB/personal/"+this.id, body)
         .subscribe(data => {
           console.log(data, 'Update Success');
           alert("Update Success");
+          this.personalInfoForm.reset();
         }, error => {
           console.log(error);
           alert(error);

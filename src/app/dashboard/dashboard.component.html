@@ -30,7 +30,7 @@
       <div class="logoutside">
         <mat-list-item (click)="closeSideNav()">
           <mat-icon class="nav-icon">exit_to_app</mat-icon>
-          <a class="logout-btn" routerLink="/home">Logout</a>
+          <a class="logout-btn" (click)="logut()">Logout</a>
 
         </mat-list-item>
       </div>
@@ -46,7 +46,7 @@
       <h1 class="ayosgamit">Ayosgamit</h1>
       <span class="spacer"></span>
 
-      <h2 class="welcome">Welcome, {{user_fname}}!</h2>
+      <h2 class="welcome">Welcome, {{fname}} {{lname}}!</h2>
 
     </mat-toolbar>
 
@@ -110,7 +110,27 @@
             </mat-label>
             <input matInput>
           </mat-form-field>
-
+          <div class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col" class="header">Service ID</th>
+                  <th scope="col" class="header">Appliance</th>
+                  <th scope="col" class="header">Service Type</th>
+                  <th scope="col" class="header">Status</th>
+                </tr>
+              </thead>
+              <tbody class="body">
+                <tr *ngFor="let sr of service_request">
+                  <td><b>{{sr._id | slice:0:7}}</b></td>
+                  <td>{{sr.service_appliance}}</td>
+                  <td>{{sr.service_type}}</td>
+                  <td>{{sr.status}}</td>
+                  <td><button mat-raised-button>Details</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </mat-card>
       </mat-tab>
 
@@ -123,7 +143,27 @@
             </mat-label>
             <input matInput>
           </mat-form-field>
-
+          <div class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col" class="header">Service ID</th>
+                  <th scope="col" class="header">Appliance</th>
+                  <th scope="col" class="header">Service Type</th>
+                  <th scope="col" class="header">Status</th>
+                </tr>
+              </thead>
+              <tbody class="body">
+                <tr *ngFor="let sr of service_request">
+                  <td><b>{{sr._id | slice:0:7}}</b></td>
+                  <td>{{sr.service_appliance}}</td>
+                  <td>{{sr.service_type}}</td>
+                  <td>{{sr.status}}</td>
+                  <td><button mat-raised-button>Details</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </mat-card>
       </mat-tab>
     </mat-tab-group>
