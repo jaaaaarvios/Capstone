@@ -256,11 +256,12 @@ export class AirconCleaningComponent implements OnInit {
         "service_phoneNumber": contact.service_phoneNumber,
         "service_addressDetails": contact.service_addressDetails,
         "service_instruction": contact.service_instruction,
-        "status": "Pending"
+        "status": "Pending",
+        "checkupfee": "200.0"
       }
 
       if (this.contactDetialsForm.valid) {
-        this.http.post("http://localhost:3000/NewServiceRequest", body)
+        this.http.post("http://localhost:3000/NewServiceRequest/repair", body)
           .subscribe(data => {
             console.log(data, 'Booking Success');
             this.router.navigate(['/summary'])
