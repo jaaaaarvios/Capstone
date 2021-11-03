@@ -63,15 +63,16 @@ export class AddtechComponent implements OnInit {
       "fullname": val.tech_name,
       "specialization": val.tech_specialization,
       "number": val.tech_number,
-      "address": val.tech_address
+      "address": val.tech_address,
+      "active": "1"
     }
     if (this.addTech.valid) {
       console.log(this.addTech.value);
-      alert("Added Successfully!");
       this.http.post("http://localhost:3000/technician", body)
         .subscribe(data => {
           console.log(data, 'success');
           this.router.navigate(['/technicians']);
+          alert("Added Successfully!");
         }, error => {
           console.log(error)
         });

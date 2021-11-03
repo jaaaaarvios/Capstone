@@ -16,6 +16,9 @@ export class EditAddressComponent implements OnInit {
 
   serviceInfoForm: FormGroup;
   matcher = new MyErrorStateMatcher();
+  address = "";
+  addressDetails = "";
+  property_type = "";
   id=JSON.parse(localStorage.getItem('id'));
   property: any[] = ["Condo", "Apartment", "House", "Store", "Office Building", "Warehouse or Storage"];
 
@@ -38,7 +41,18 @@ export class EditAddressComponent implements OnInit {
     if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
       this.router.navigate(['/home'])
     }
+
+    let data:Observable<any>;
+      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id);
+      data.subscribe(result => {
+        this.serviceInfoForm.setValue({
+          address: result.service_address,
+          addressDetails: result.service_addressDetails,
+          property_type: result.property_type
+        });
+      });
   }
+  
 
   logout(){
     localStorage.clear();
@@ -60,6 +74,10 @@ export class EditAddressComponent implements OnInit {
           console.log(data, 'Update Success');
           alert("Update Success");
           this.serviceInfoForm.reset();
+          Object.keys(this.serviceInfoForm.controls).forEach(key => {
+            this.serviceInfoForm.get(key).setErrors(null);
+            this.router.navigate(['/profile']);
+          });
         }, error => {
           console.log(error);
           alert(error);

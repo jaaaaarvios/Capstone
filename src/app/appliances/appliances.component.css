@@ -283,6 +283,19 @@ color: #FFFFFF;
   text-align: center;
   margin-top: -10px;
 }
+.backBtn{
+  font-size: 20px;
+  float: left;
+  margin-top: 50px;
+  margin-left: 100px;
+  color: #003049;
+}
+.returnIcon
+{
+  font-size: 20px;
+  top: 10;
+  color: #003049;
+}
 }
 
 @media (max-width: 576px)

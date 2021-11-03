@@ -39,6 +39,17 @@ export class EditProfileComponent implements OnInit {
     if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
       this.router.navigate(['/home'])
     }
+
+    let data:Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/'+this.id);
+    data.subscribe(result => {
+      this.personalInfoForm.setValue({
+        firstname: result.first_name,
+        lastname: result.last_name,
+        email: result.email,
+        number: result.number
+      });
+    });
   }
 
   signOut() {
@@ -67,6 +78,10 @@ export class EditProfileComponent implements OnInit {
           console.log(data, 'Update Success');
           alert("Update Success");
           this.personalInfoForm.reset();
+          Object.keys(this.personalInfoForm.controls).forEach(key => {
+            this.personalInfoForm.get(key).setErrors(null);
+            this.router.navigate(['/profile']);
+          });
         }, error => {
           console.log(error);
           alert(error);

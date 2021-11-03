@@ -62,9 +62,6 @@
             </div>
             </mat-card>
 
-
-
-
             <mat-card class="unitdetailscard">
               <div>
                 <h1 class="unitdetails">Unit Details</h1>
@@ -126,9 +123,9 @@
           </div> -->
 
             <!--Back and Next Button-->
+            <button class="backBtn" mat-button routerLink="/appliance">Back</button>
             <button class="nextBtn" type="submit" [disabled]="!unitdetailsForm.valid" mat-button
-              matStepperNext>Next</button><br><br><br><br>
-            <br><br>
+              matStepperNext>Next</button>
           </form>
         </div>
       </mat-step>
@@ -187,7 +184,7 @@
             <!--Back and Next Button-->
             <button class="backBtn" mat-button matStepperPrevious>Back</button>
             <button class="nextBtn" type="submit" [disabled]="!locationForm.valid" mat-button
-              matStepperNext>Next</button><br><br><br><br>
+              matStepperNext>Next</button>
             <br><br>
           </form>
         </div>
@@ -215,8 +212,6 @@
                       You must make a selection
                     </mat-error>
                   </mat-form-field>
-
-                  
                   <button mat-raised-button class="dateBtn" (click)="picker.open()">Pick a date</button>
                 </div>
 

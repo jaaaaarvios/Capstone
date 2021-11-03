@@ -71,7 +71,7 @@
           </thead>
           <tbody class="body">
             <tr *ngFor="let user of users">
-              <th scope="row">{{user._id | slice:0:7}}</th>
+              <th scope="row">{{user._id | slice:0:9}}</th>
               <td>{{user.first_name}}</td>
               <td>{{user.last_name}}</td>
               <td>{{user.email}}</td>

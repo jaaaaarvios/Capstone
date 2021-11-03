@@ -45,10 +45,11 @@
       </button>
       <h1 class="ayosgamit">Ayosgamit</h1>
       <span class="spacer"></span>
-      
-      
-      
     </mat-toolbar>
+
+    <h1 class="backBtn" routerLink="/dashboard">
+      <mat-icon class="returnIcon"><b>keyboard_return</b></mat-icon>Go to Dashboard
+  </h1>
     <!--Appliances Repair-->
       <h1 class="h1serviceneed">What service do you need?</h1>
     <div class="allservices">
@@ -60,7 +61,7 @@
         </mat-card-content>
       </mat-card>
 
-      <!--Electrical Repair-->
+      <!--Appliances Cleaning-->
       <mat-card class="cleaningcard">
         <img class="cleaningimg" mat-button (click)="CleaningOpen()" mat-card-image
           src="../../assets/cleaning.png" mat-dialog-close>
@@ -69,7 +70,7 @@
         </mat-card-content>
       </mat-card>
 
-      <!--House Cleaning-->
+      <!--Appliances Installation-->
       <mat-card class="installcard">
         <img class="installimg" mat-button (click)="InstallationOpen()" mat-card-image
           src="../../assets/installation.png" mat-dialog-close>

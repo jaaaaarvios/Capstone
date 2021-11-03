@@ -34,7 +34,6 @@
             </div>
         </mat-nav-list>
     </mat-sidenav>
-
     <mat-sidenav-content>
         <mat-toolbar>
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
@@ -44,6 +43,9 @@
             <h1 class="ayosgamit">Ayosgamit</h1>
             <span class="spacer"></span>
         </mat-toolbar>
+        <h1 class="backBtn" routerLink="/booking">
+            <mat-icon class="returnIcon"><b>keyboard_return</b></mat-icon>Back to Services
+        </h1>
         <h1 class="h1title">Appliance to Install</h1>
         <hr>
         <div class="allservices">
@@ -53,9 +55,6 @@
                     <h1 class="aircontxt" mat-button mat-dialog-close>Aircon</h1>
                 </mat-card-content>
             </mat-card>
-
-    
-
             <mat-card class="washingcard">
                 <mat-card-content (click)="WashingmachineOpen()">
                     <img class="washingimg" mat-button mat-card-image src="../../assets/washingicon.png"
@@ -63,8 +62,6 @@
                     <h1 class="washingtxt" mat-button mat-dialog-close>Washing Machine</h1>
                 </mat-card-content>
             </mat-card>
-
-         
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

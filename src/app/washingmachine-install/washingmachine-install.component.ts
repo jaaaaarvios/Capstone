@@ -41,6 +41,7 @@ export class WashingmachineInstallComponent implements OnInit {
   service_phoneNumber = null;
   service_addressDetails = "";
   service_instruction = "";
+  id=JSON.parse(localStorage.getItem('id'));
 
   matcher = new MyErrorStateMatcher();
 
@@ -84,22 +85,6 @@ export class WashingmachineInstallComponent implements OnInit {
     if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
       this.router.navigate(['/home'])
     }
-    //Sending data to the service
-    this.subscription = this.shared.currentACType.subscribe(service_aptype => this.service_aptype = service_aptype);
-    this.subscription = this.shared.currentACBrand.subscribe(service_brand => this.service_brand = service_brand);
-    this.subscription = this.shared.currentACUType.subscribe(service_unitType => this.service_unitType = service_unitType);
-    this.subscription = this.shared.currentACUProb.subscribe(service_unitProb => this.service_unitProb = service_unitProb);
-    this.subscription = this.shared.currentCity.subscribe(service_city => this.service_city = service_city);
-    this.subscription = this.shared.currentPropertyType.subscribe(service_property_type => this.service_property_type = service_property_type);
-    this.subscription = this.shared.currentZipcode.subscribe(service_zipcode => this.service_zipcode = service_zipcode);
-    this.subscription = this.shared.currentDate.subscribe(service_date => this.service_date = service_date);
-    this.subscription = this.shared.currentTimeslot.subscribe(service_timeslot => this.service_timeslot = service_timeslot);
-    this.subscription = this.shared.currentAddress.subscribe(service_address => this.service_address = service_address);
-    this.subscription = this.shared.currentFirstname.subscribe(service_firstname => this.service_firstname = service_firstname);
-    this.subscription = this.shared.currentLastname.subscribe(service_lastname => this.service_lastname = service_lastname);
-    this.subscription = this.shared.currentPhoneNumber.subscribe(service_phoneNumber => this.service_phoneNumber = service_phoneNumber);
-    this.subscription = this.shared.currentAddressDetails.subscribe(service_addressDetails => this.service_addressDetails = service_addressDetails);
-    this.subscription = this.shared.currentInstruction.subscribe(service_instruction => this.service_instruction = service_instruction);
 
     this.unitdetailsForm = this._formBuilder.group({
       service_aptype: ['', Validators.required],
@@ -125,6 +110,18 @@ export class WashingmachineInstallComponent implements OnInit {
       service_addressDetails: ['', Validators.required],
       service_instruction: ['', Validators.required],
     });
+    let data:Observable<any>;
+      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id);
+      data.subscribe(result => {
+        this.contactDetialsForm.setValue({
+          service_address: result.service_address,
+          service_firstname: result.first_name,
+          service_lastname: result.last_name,
+          service_phoneNumber: result.number ,
+          service_addressDetails: result.service_addressDetails,
+          service_instruction: ""
+        });
+      });
 
     if (!navigator.geolocation) {
       console.log('location is not supported');
