@@ -93,7 +93,7 @@
                   <td>{{sr.service_appliance}}</td>
                   <td>{{sr.service_type}}</td>
                   <td>{{sr.status}}</td>
-                  <td><button mat-raised-button routerLink="/requestdetails">Details</button></td>
+                  <td><button mat-raised-button [routerLink]="['/requestdetails/' + sr._id]">Details</button></td>
                 </tr>
               </tbody>
             </table>

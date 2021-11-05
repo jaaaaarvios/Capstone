@@ -18,7 +18,7 @@
         </mat-icon>
       </div>
       <h1 class="personalinfotxt">Personal Information</h1>
-      <table class="table" *ngFor="let sr of service_request">
+      <table class="table">
         <thead>
           <tr>
             <th>First Name</th>
@@ -29,10 +29,10 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{sr.service_firstname}}</td>
-            <td>{{sr.service_lastname}}</td>
-            <td>{{sr.service_phoneNumber}}</td>
-            <td>{{sr.service_address}}</td>
+            <td>{{data.service_firstname}}</td>
+            <td>{{data.service_lastname}}</td>
+            <td>{{data.service_phoneNumber}}</td>
+            <td>{{data.service_address}}</td>
           </tr>
         </tbody>
         <thead>
@@ -45,16 +45,16 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{sr.service_addressDetails}}</td>
-            <td>{{sr.service_city}}</td>
-            <td>{{sr.service_property_type}}</td>
-            <td>{{sr.service_zipcode}}</td>
+            <td>{{data.service_addressDetails}}</td>
+            <td>{{data.service_city}}</td>
+            <td>{{data.service_property_type}}</td>
+            <td>{{data.service_zipcode}}</td>
           </tr>
         </tbody>
       </table>
 
       <h1 class="serviceinfotxt">Service Information</h1>
-      <table class="table" *ngFor="let sr of service_request">
+      <table class="table">
         <thead>
           <tr>
             <th>Appliance</th>
@@ -65,10 +65,10 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{sr.service_appliance}}</td>
-            <td>{{sr.service_type}}</td>
-            <td>{{sr.service_brand}}</td>
-            <td>{{sr.service_unitType}}</td>
+            <td>{{data.service_appliance}}</td>
+            <td>{{data.service_type}}</td>
+            <td>{{data.service_brand}}</td>
+            <td>{{data.service_unitType}}</td>
           </tr>
         </tbody>
         <thead>
@@ -81,10 +81,10 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{sr.service_unitProb}}</td>
-            <td>{{sr.service_date | date}}</td>
-            <td>{{sr.service_timeslot}}</td>
-            <td>{{sr.service_instruction}}</td>
+            <td>{{data.service_unitProb}}</td>
+            <td>{{data.service_date | date}}</td>
+            <td>{{data.service_timeslot}}</td>
+            <td>{{data.service_instruction}}</td>
           </tr>
         </tbody>
       </table>

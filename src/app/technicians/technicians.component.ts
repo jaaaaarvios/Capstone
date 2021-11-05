@@ -3,7 +3,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
-import { TechprofileComponent } from '../techprofile/techprofile.component';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -24,14 +23,6 @@ export class TechniciansComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver
     ,private router: Router, private http: HttpClient) { }
-
-  TechprofileOpenDialog() {
-    const dialogRef = this.dialog.open(TechprofileComponent);
-    
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
 
   AddtechOpenDialog() {
     this.router.navigate(['/add_technician']);

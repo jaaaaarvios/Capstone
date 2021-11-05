@@ -44,21 +44,9 @@ export class ElectricfandetailsComponent implements OnInit {
   subscription: Subscription;
 
   service_appliance = "Electric Fan";
-  service_aptype = "";
-  service_brand = "";
-  service_unitType = "";
-  service_unitProb = "";
-  service_city = "";
-  service_property_type = "";
-  service_zipcode = null;
-  service_date = "";
-  service_timeslot = "";
-  service_address = "";
-  service_firstname = "";
-  service_lastname = "";
-  service_phoneNumber = null;
-  service_addressDetails = "";
-  service_instruction = "";
+  service_type = "Repair";
+  status = "Pending";
+  chupfee = "200.00";
   id=JSON.parse(localStorage.getItem('id'));
 
   matcher = new MyErrorStateMatcher();
@@ -245,8 +233,8 @@ export class ElectricfandetailsComponent implements OnInit {
       const sched = this.scheduleForm.value;
       const contact = this.contactDetialsForm.value;
       let body = {
-        "service_type": "Repair",
-        "service_appliance": "Electric Fan",
+        "service_type": this.service_type,
+        "service_appliance": this.service_appliance,
         "service_aptype": unit.service_aptype,
         "service_brand": unit.service_brand,
         "service_unitType": unit.service_unitType,
@@ -262,8 +250,8 @@ export class ElectricfandetailsComponent implements OnInit {
         "service_phoneNumber": contact.service_phoneNumber,
         "service_addressDetails": contact.service_addressDetails,
         "service_instruction": contact.service_instruction,
-        "status": "Pending",
-        "checkupfee": "200.00php"
+        "status": this.status,
+        "checkupfee": this.chupfee
       }
 
       if (this.contactDetialsForm.valid) {

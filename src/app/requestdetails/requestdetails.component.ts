@@ -1,12 +1,13 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SharedService } from '../shared/shared.service';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { RescheduleComponent } from '../reschedule/reschedule.component';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-requestdetails',
@@ -14,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./requestdetails.component.css']
 })
 export class RequestdetailsComponent implements OnInit {
-  
+
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
@@ -25,28 +26,36 @@ export class RequestdetailsComponent implements OnInit {
   indeterminate = false;
   labelPosition: 'before' | 'after' = 'after';
   disabled = false;
-  service_request = []
+  id: any;
+  data: any;
 
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver, private router: Router
-    ,private http: HttpClient) { }
+    , private http: HttpClient, private route: ActivatedRoute, private auth: AuthService) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+    if (localStorage.getItem("first_name") == null || localStorage.getItem("last_name") == null) {
       this.router.navigate(['/home'])
     }
 
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/NewServiceRequest');
-      data.subscribe(result => {
-        this.service_request = result
-        console.log(this.service_request)
-      });
+    this.id = this.route.snapshot.params['id'];
+    this.getOne();
   }
 
-  logout(){
+  getOne() {
+    this.auth.getOne(this.id).subscribe(data => {
+      this.data = data
+    })
+  }
+  deleteOne() {
+    this.auth.deleteOne(this.id).subscribe(data => {
+      this.data = data
+    })
+  }
+
+  logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
-  } 
+  }
   openDialog() {
     const dialogRef = this.dialog.open(RescheduleComponent);
 
@@ -61,13 +70,14 @@ export class RequestdetailsComponent implements OnInit {
   }
   getConfirmation() {
     var retVal = confirm("Do you really want to cancel ?");
-    if( retVal == true ) {
-       this.router.navigate(['/dashboard'])
-       return true;
+    if (retVal == true) {
+      this.deleteOne()
+      this.router.navigate(['/dashboard'])
+      return true;
     } else {
-       return false;
+      return false;
     }
- }
+  }
 }
- 
+
 
