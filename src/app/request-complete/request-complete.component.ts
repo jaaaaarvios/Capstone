@@ -4,16 +4,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
-import { RescheduleComponent } from '../reschedule/reschedule.component';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-requestdetails',
-  templateUrl: './requestdetails.component.html',
-  styleUrls: ['./requestdetails.component.css']
+  selector: 'app-request-complete',
+  templateUrl: './request-complete.component.html',
+  styleUrls: ['./request-complete.component.css']
 })
-export class RequestdetailsComponent implements OnInit {
+export class RequestCompleteComponent implements OnInit {
 
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -50,33 +49,26 @@ export class RequestdetailsComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
-  openDialog() {
-    const dialogRef = this.dialog.open(RescheduleComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();
     }
   }
-  getConfirmation() {
-    var retVal = confirm("Do you really want to cancel ?");
+  completeRequest() {
+    var retVal = confirm("Request Complete ?");
     if (retVal == true) {
       let body = {
-        "status": "Cancelled",
+        "status": "Completed",
       }
       this.http.patch("http://localhost:3000/NewServiceRequest/status/" + this.id, body)
         .subscribe(data => {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/admin']);
         }, error => {
           console.log(error);
           alert(error);
         });
     }
   }
+
 }
-
-

@@ -2,13 +2,14 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
 import { SharedService } from '../shared/shared.service';
 import { RepairFeeComponent } from '../repair-fee/repair-fee.component';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 
 declare const L: any;
@@ -64,8 +65,8 @@ export class AircondetailsComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog,
-    private shared: SharedService, private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
+  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog,private route: ActivatedRoute,
+    private auth: AuthService, private shared: SharedService, private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
   openDialog() {
     const dialogRef = this.dialog.open(RepairFeeComponent);

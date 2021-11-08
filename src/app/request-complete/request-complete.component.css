@@ -512,18 +512,6 @@ margin-left: 50px;
   height: 100%;
 }
 
-.proceedBtn
-{
-  width: 100px;
-  height: 40px;
-  background-color: #F77F00;
-  color: #FFFFFF;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
-  float: left;
-  margin-left: 300px;
-  margin-top: 10px;
-}
 .backBtn{
   font-size: 20px;
   float: left;

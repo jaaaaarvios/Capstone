@@ -2,6 +2,9 @@
   <h1 class="ayosgamit" routerLink="/home">Ayosgamit</h1>
 </mat-toolbar>
 
+<h1 class="backBtn" routerLink="/dashboard">
+  <mat-icon class="back"><b>keyboard_return</b></mat-icon>Back to Dashboard
+</h1>
 <mat-card>
   
   <form [formGroup]="scheduleForm" (ngSubmit)="schedSubmit()">
@@ -52,7 +55,6 @@
 
   <div>
     <button mat-raised-button class="reschedBtn" type="submit" [disabled]="!scheduleForm.valid">Reschedule Request</button>
-    <button mat-raised-button class="cancelBtn" (click)="getConfirmation()">Back</button>
   </div>
 </form>
 </mat-card>

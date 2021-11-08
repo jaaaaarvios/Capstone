@@ -1,206 +1,201 @@
 <body>
     <mat-toolbar>
-        <h1 class="ayosgamit" routerLink="/home">Ayosgamit</h1>
-
-        <div>
-            <button mat-button class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon>
+        <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
+        <button mat-button class="toolbarBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon>
             </button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
-                <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
-                <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
-                <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
-                <button mat-menu-item routerLink="/menu_tv">Television</button>
-            </mat-menu>
-        </div>
-        <div>
-            <button mat-button class="pricingBtn" routerLink="/pricing">Pricing</button>
-            <button mat-button class="contactUsBtn" routerLink="/contact_us">Contact Us</button>
-            <button mat-button class="aboutusBtn" routerLink="/about_us">About Us</button>
-        </div>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
+            <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
+            <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
+            <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
+            <button mat-menu-item routerLink="/menu_tv">Television</button>
+        </mat-menu>
+
+        <button mat-button class="toolbarBtn" routerLink="/pricing">Pricing</button>
+        <button mat-button class="toolbarBtn" routerLink="/contact_us">Contact Us</button>
+        <button mat-button class="toolbarBtn" routerLink="/about_us">About Us</button>
+
         <span class="spacer"></span>
-        <div>
-            <button mat-button class="navLogin" routerLink="/login">Sign In</button>
-            <button mat-button class="navLogin" routerLink="/login">Sign Up</button>
-        </div>
+
+        <button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button>
     </mat-toolbar>
-        <h1 class="title">Pricing </h1>
-        <mat-tab-group>
-            <!--AIRCON------------------------------------------------------------------>
-            <mat-tab label="Aircon">
+    <h1 class="title">Pricing </h1>
+    <mat-tab-group>
+        <!--AIRCON------------------------------------------------------------------>
+        <mat-tab label="Aircon">
 
-                <mat-card class="repaircard">
-                    <div>
-                        <h1 class="airconrepair">Aircon Repair</h1>
-                        <h2 class="airconfee">Checkup Fee: Php 200</h2>
-                        <p class="aircondescrip">Technician diagnoses the problem
-                            and quotes you a final repair price. No hidden or extra fees.</p>
-                        <p class="aircondescrip2">If you decide to proceed with the repair,
-                            your total costs will include the checkup fee and labor. If you
-                            decline the repair, please pay our technician this checkup fee.</p>
-                        <h1 class="repairservice1">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
-                        </h1>
-                        <h1 class="repairservice1">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> Full on-site repair quotation
-                        </h1>
-                    </div>
-                </mat-card>
-                <mat-card class="cleaningcard">
-                    <div>
-                        <h1 class="airconrepair">Aircon Cleaning</h1>
-                        <h2 class="airconfee">Window Type: Php 600</h2>
-                        <h2 class="airconfee">Split Type: Php 1,200</h2>
-                        <h2 class="airconfee">Tower Type: Php 1,900</h2>
-                        <h2 class="airconfee">Cassette Type: Php 2,800</h2>
-                        <h2 class="airconfee">Suspended Type: Php 2,800</h2>
-                        <h2 class="airconfee">Concealed Type: Php 2,200</h2>
-                        <h1 class="cleaningservice1">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon>Pressure washing of the unit
-                        </h1>
-                        <h1 class="cleaningservice2">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> Condenser and filter cleaning
-                        </h1>
-                        <h1 class="cleaningservice2">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> Cooling coils and fan inspection
-                        </h1>
-                    </div>
-                </mat-card>
-                <mat-card class="installcard">
-                    <div>
-                        <h1 class="airconrepair">Aircon Installation and Dismantling</h1>
-                        <h2 class="airconfee">Window Type: Php 1,100</h2>
-                        <h2 class="airconfee">Split Type: Php 8,500</h2>
-                        <h2 class="airconfee">Tower Type: Php 10,500</h2>
-                        <h2 class="airconfee">Cassette Type: Php 11,500</h2>
-                        <h2 class="airconfee">Suspended Type: Php 11,500</h2>
-                        <h2 class="airconfee">Concealed Type: Php 11,500</h2>
-                        <h1 class="cleaningservice1">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> New bracket/platform (up to 6ft height)
-                        </h1>
-                        <h1 class="cleaningservice2">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> New circuit breaker & electrical wire
-                            from
-                            Indoor to Outdoor unit
-                        </h1>
-                        <h1 class="cleaningservice2">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> Free 10ft copper piping (+Php 450 per
-                            additional foot, 5ft min)
-                        </h1>
-                    </div>
-                </mat-card>
-            </mat-tab>
+            <mat-card class="repaircard">
+                <div>
+                    <h1 class="airconrepair">Aircon Repair</h1>
+                    <h2 class="airconfee">Checkup Fee: Php 200</h2>
+                    <p class="aircondescrip">Technician diagnoses the problem
+                        and quotes you a final repair price. No hidden or extra fees.</p>
+                    <p class="aircondescrip2">If you decide to proceed with the repair,
+                        your total costs will include the checkup fee and labor. If you
+                        decline the repair, please pay our technician this checkup fee.</p>
+                    <h1 class="repairservice1">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
+                    </h1>
+                    <h1 class="repairservice1">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Full on-site repair quotation
+                    </h1>
+                </div>
+            </mat-card>
+            <mat-card class="cleaningcard">
+                <div>
+                    <h1 class="airconrepair">Aircon Cleaning</h1>
+                    <h2 class="airconfee">Window Type: Php 600</h2>
+                    <h2 class="airconfee">Split Type: Php 1,200</h2>
+                    <h2 class="airconfee">Tower Type: Php 1,900</h2>
+                    <h2 class="airconfee">Cassette Type: Php 2,800</h2>
+                    <h2 class="airconfee">Suspended Type: Php 2,800</h2>
+                    <h2 class="airconfee">Concealed Type: Php 2,200</h2>
+                    <h1 class="cleaningservice1">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon>Pressure washing of the unit
+                    </h1>
+                    <h1 class="cleaningservice2">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Condenser and filter cleaning
+                    </h1>
+                    <h1 class="cleaningservice2">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Cooling coils and fan inspection
+                    </h1>
+                </div>
+            </mat-card>
+            <mat-card class="installcard">
+                <div>
+                    <h1 class="airconrepair">Aircon Installation and Dismantling</h1>
+                    <h2 class="airconfee">Window Type: Php 1,100</h2>
+                    <h2 class="airconfee">Split Type: Php 8,500</h2>
+                    <h2 class="airconfee">Tower Type: Php 10,500</h2>
+                    <h2 class="airconfee">Cassette Type: Php 11,500</h2>
+                    <h2 class="airconfee">Suspended Type: Php 11,500</h2>
+                    <h2 class="airconfee">Concealed Type: Php 11,500</h2>
+                    <h1 class="cleaningservice1">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> New bracket/platform (up to 6ft height)
+                    </h1>
+                    <h1 class="cleaningservice2">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> New circuit breaker & electrical wire
+                        from
+                        Indoor to Outdoor unit
+                    </h1>
+                    <h1 class="cleaningservice2">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Free 10ft copper piping (+Php 450 per
+                        additional foot, 5ft min)
+                    </h1>
+                </div>
+            </mat-card>
+        </mat-tab>
 
-            <!--REFRIGERATOR------------------------------------------------------------------>
-            <mat-tab label="Refrigerator">
-                <mat-card class="refrepaircard">
-                    <div>
-                        <h1 class="airconrepair">Refrigerator Repair</h1>
-                        <h2 class="airconfee">Checkup Fee: Php 200</h2>
-                        <p class="aircondescrip">Technician diagnoses the problem
-                            and quotes you a final repair price. No hidden or extra fees.</p>
-                        <p class="aircondescrip2">If you decide to proceed with the repair,
-                            your total costs will include the checkup fee and labor. If you
-                            decline the repair, please pay our technician this checkup fee.</p>
-                        <h1 class="repairservice1">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
-                        </h1>
-                        <h1 class="repairservice1">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> Full on-site repair quotation
-                        </h1>
-                    </div>
-                </mat-card>
-            </mat-tab>
+        <!--REFRIGERATOR------------------------------------------------------------------>
+        <mat-tab label="Refrigerator">
+            <mat-card class="refrepaircard">
+                <div>
+                    <h1 class="airconrepair">Refrigerator Repair</h1>
+                    <h2 class="airconfee">Checkup Fee: Php 200</h2>
+                    <p class="aircondescrip">Technician diagnoses the problem
+                        and quotes you a final repair price. No hidden or extra fees.</p>
+                    <p class="aircondescrip2">If you decide to proceed with the repair,
+                        your total costs will include the checkup fee and labor. If you
+                        decline the repair, please pay our technician this checkup fee.</p>
+                    <h1 class="repairservice1">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
+                    </h1>
+                    <h1 class="repairservice1">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Full on-site repair quotation
+                    </h1>
+                </div>
+            </mat-card>
+        </mat-tab>
 
-            <!--WASHING MACHINE----------------------------------------------------------------->
-            <mat-tab label="Washing Machine">
+        <!--WASHING MACHINE----------------------------------------------------------------->
+        <mat-tab label="Washing Machine">
 
-                <mat-card class="washingrepaircard">
-                    <div>
-                        <h1 class="airconrepair">Washing Machine Repair</h1>
-                        <h2 class="airconfee">Checkup Fee: Php 200</h2>
-                        <p class="aircondescrip">Technician diagnoses the problem
-                            and quotes you a final repair price. No hidden or extra fees.</p>
-                        <p class="aircondescrip2">If you decide to proceed with the repair,
-                            your total costs will include the checkup fee and labor. If you
-                            decline the repair, please pay our technician this checkup fee.</p>
-                        <h1 class="repairservice1">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
-                        </h1>
-                        <h1 class="repairservice1">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> Full on-site repair quotation
-                        </h1>
-                    </div>
-                </mat-card>
-                <mat-card class="washinginstallcard">
-                    <div>
-                        <h1 class="airconrepair">Washing Machine Installation</h1>
-                        <h2 class="airconfee">Checkup Fee: Php 200</h2>
-                        <h2 class="airconfee">Top Load: Php 950</h2>
-                        <h2 class="airconfee">Front Load: Php 950</h2>
-                        <h2 class="airconfee">Twin Tub: Php 950</h2>
-                        <h1 class="cleaningservice1">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> Set unit in your preferred location
-                        </h1>
-                        <h1 class="cleaningservice2">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> Remove manufacturer loading screws
-                        </h1>
-                        <h1 class="cleaningservice2">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> Adjust leveling feet
-                        </h1>
-                        <h1 class="cleaningservice2">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> Connect plumbing and water hose
-                        </h1>
-                        <h1 class="cleaningservice2">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> Setup drain hose and drain pan
-                        </h1>
-                    </div>
-                </mat-card>
-            </mat-tab>
-            <!--ELECTRIC FAN------------------------------------------------------------------>
-            <mat-tab label="Electric Fan">
-                <mat-card class="refrepaircard">
-                    <div>
-                        <h1 class="airconrepair">Electric Fan Repair</h1>
-                        <h2 class="airconfee">Checkup Fee: Php 200</h2>
-                        <p class="aircondescrip">Technician diagnoses the problem
-                            and quotes you a final repair price. No hidden or extra fees.</p>
-                        <p class="aircondescrip2">If you decide to proceed with the repair,
-                            your total costs will include the checkup fee and labor. If you
-                            decline the repair, please pay our technician this checkup fee.</p>
-                        <h1 class="repairservice1">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
-                        </h1>
-                        <h1 class="repairservice1">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> Full on-site repair quotation
-                        </h1>
-                    </div>
-                </mat-card>
-            </mat-tab>
+            <mat-card class="washingrepaircard">
+                <div>
+                    <h1 class="airconrepair">Washing Machine Repair</h1>
+                    <h2 class="airconfee">Checkup Fee: Php 200</h2>
+                    <p class="aircondescrip">Technician diagnoses the problem
+                        and quotes you a final repair price. No hidden or extra fees.</p>
+                    <p class="aircondescrip2">If you decide to proceed with the repair,
+                        your total costs will include the checkup fee and labor. If you
+                        decline the repair, please pay our technician this checkup fee.</p>
+                    <h1 class="repairservice1">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
+                    </h1>
+                    <h1 class="repairservice1">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Full on-site repair quotation
+                    </h1>
+                </div>
+            </mat-card>
+            <mat-card class="washinginstallcard">
+                <div>
+                    <h1 class="airconrepair">Washing Machine Installation</h1>
+                    <h2 class="airconfee">Checkup Fee: Php 200</h2>
+                    <h2 class="airconfee">Top Load: Php 950</h2>
+                    <h2 class="airconfee">Front Load: Php 950</h2>
+                    <h2 class="airconfee">Twin Tub: Php 950</h2>
+                    <h1 class="cleaningservice1">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Set unit in your preferred location
+                    </h1>
+                    <h1 class="cleaningservice2">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Remove manufacturer loading screws
+                    </h1>
+                    <h1 class="cleaningservice2">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Adjust leveling feet
+                    </h1>
+                    <h1 class="cleaningservice2">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Connect plumbing and water hose
+                    </h1>
+                    <h1 class="cleaningservice2">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Setup drain hose and drain pan
+                    </h1>
+                </div>
+            </mat-card>
+        </mat-tab>
+        <!--ELECTRIC FAN------------------------------------------------------------------>
+        <mat-tab label="Electric Fan">
+            <mat-card class="refrepaircard">
+                <div>
+                    <h1 class="airconrepair">Electric Fan Repair</h1>
+                    <h2 class="airconfee">Checkup Fee: Php 200</h2>
+                    <p class="aircondescrip">Technician diagnoses the problem
+                        and quotes you a final repair price. No hidden or extra fees.</p>
+                    <p class="aircondescrip2">If you decide to proceed with the repair,
+                        your total costs will include the checkup fee and labor. If you
+                        decline the repair, please pay our technician this checkup fee.</p>
+                    <h1 class="repairservice1">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
+                    </h1>
+                    <h1 class="repairservice1">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Full on-site repair quotation
+                    </h1>
+                </div>
+            </mat-card>
+        </mat-tab>
 
-            <mat-tab label="Television">
-                <mat-card class="refrepaircard">
-                    <div>
-                        <h1 class="airconrepair">Television Repair</h1>
-                        <h2 class="airconfee">Checkup Fee: Php 200</h2>
+        <mat-tab label="Television">
+            <mat-card class="refrepaircard">
+                <div>
+                    <h1 class="airconrepair">Television Repair</h1>
+                    <h2 class="airconfee">Checkup Fee: Php 200</h2>
 
-                        <p class="aircondescrip">Technician diagnoses the problem
-                            and quotes you a final repair price. No hidden or extra fees.</p>
+                    <p class="aircondescrip">Technician diagnoses the problem
+                        and quotes you a final repair price. No hidden or extra fees.</p>
 
-                        <p class="aircondescrip2">If you decide to proceed with the repair,
-                            your total costs will include the checkup fee and labor. If you
-                            decline the repair, please pay our technician this checkup fee.</p>
+                    <p class="aircondescrip2">If you decide to proceed with the repair,
+                        your total costs will include the checkup fee and labor. If you
+                        decline the repair, please pay our technician this checkup fee.</p>
 
-                        <h1 class="repairservice1">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
-                        </h1>
+                    <h1 class="repairservice1">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
+                    </h1>
 
-                        <h1 class="repairservice1">
-                            <mat-icon class="text_icon"><b>done</b></mat-icon> Full on-site repair quotation
-                        </h1>
-                    </div>
-                </mat-card>
-            </mat-tab>
-        </mat-tab-group>
+                    <h1 class="repairservice1">
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Full on-site repair quotation
+                    </h1>
+                </div>
+            </mat-card>
+        </mat-tab>
+    </mat-tab-group>
 </body>
 <footer class="footer">© 2021 Ayosgamit - All Rights Reserved</footer>

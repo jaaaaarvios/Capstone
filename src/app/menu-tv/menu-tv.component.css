@@ -10,67 +10,49 @@
         background-attachment: fixed;
         
     }
-  .mat-toolbar{
-    background-color: #D62828;
-    width: 100%;
-  }
+    .logo{
 
-  .ayosgamit
-{
-  font-family: 'Candara';
-  font-size: 30px;
-  position: center;
-  color: #FFFFFF;
-}
-.pricingBtn1
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 17px;
-    float: left;
-    margin-left: 100px;
-    margin-top: 80px;
-    margin-top: 0;
+        width: 300px !important;
+        height: 110px !important;
+        margin-top: 25px !important;
+      }
+      .spacer{
+        flex: 1 1 auto;
+      }
+    .mat-toolbar{
+        width: 100%;
+    }
+    .toolbarBtn
+    {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #003049;
+        font-size: 17px;
+        margin: 25px;
+        margin-top: 30px;
+    }
     
-}
-
-.contactUsBtn1
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 17px;
-    float: left;
-    margin-left: 100px;
-    margin-top: 0;
-}
-
-.aboutusBtn1
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 17px;
-    float: left;
-    margin-left: 100px;
-    margin-top: 0;
-}
-
-.menuBtn
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 17px;
-    float: left;
-    margin-left: 100px;
-    margin-top: 0;
-}
-.spacer{
-    flex: 1 1 auto;
-  }
-  .navLogin{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFFFFF;
-    font-size: 17px;
-  }
+    .toolbarBtn:hover, .toolbarBtn:active {
+        color:#dd0346;
+    }
+    
+    .loginBtn
+    {
+        float: right !important;
+        width: 140px;
+        height: 40px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #dd0346;
+        color: #FFFFFF;
+        font-size: 15px;
+    }
+    
+    .loginBtn:hover, .loginBtn:active {
+        color:#f9dcc4;
+    }
+    .mat-icon
+    {
+        font-size: 20px;
+    }
 .mat-card
 {
     width: 1000px;

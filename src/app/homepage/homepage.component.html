@@ -1,12 +1,7 @@
 <body>
-   
     <mat-toolbar>
-        <div>
-            <img class="logo" mat-card-image src="../../assets/mainlogo.png">
-        </div>
-            
-        <div>
-            <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label> 
+            <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
+            <button mat-button class="toolbarBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></button> 
                 <mat-menu #menu="matMenu">
                   <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
                   <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
@@ -14,14 +9,14 @@
                   <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
                   <button mat-menu-item routerLink="/menu_tv">Television</button>
                 </mat-menu>
-          </div>      
-          <div>
-              <label class="pricingBtn" routerLink="/pricing">Pricing</label>
-              <label class="contactUsBtn" routerLink="/contact_us">Contact Us</label>
-              <label class="aboutusBtn" routerLink="/about_us">About Us</label>
 
-              <button mat-raised-button class="loginBtn">Login / Sign Up</button>
-          </div>                          
+              <button mat-button class="toolbarBtn" routerLink="/pricing">Pricing</button>
+              <button mat-button class="toolbarBtn" routerLink="/contact_us">Contact Us</button>
+              <button mat-button class="toolbarBtn" routerLink="/about_us">About Us</button>
+              
+              <span class="spacer"></span>
+
+              <button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button>                        
       </mat-toolbar>        
         
       <div class="content">
