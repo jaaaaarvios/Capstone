@@ -27,11 +27,11 @@ export class WashingmachinedetailsComponent implements OnInit {
 
   service_appliance = "Washing Machine";
   service_type = "Repair";
-  service_unitType="None";
+  service_unitType = "None";
   status = "Pending";
   chupfee = "200.00";
 
-  id=JSON.parse(localStorage.getItem('id'));
+  id = JSON.parse(localStorage.getItem('id'));
 
   matcher = new MyErrorStateMatcher();
 
@@ -47,7 +47,7 @@ export class WashingmachinedetailsComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-  wm_type: any[] = ["Top Load", "Front Load", "Twin Tub","I don't know"];
+  wm_type: any[] = ["Top Load", "Front Load", "Twin Tub", "I don't know"];
 
   wm_brand: any[] = ["Aiwa", "American Home", "Asahi", "Camel",
     "Carrier", "Coldfront", "Condura", "Daikin", "Everest",
@@ -57,27 +57,27 @@ export class WashingmachinedetailsComponent implements OnInit {
     "Panasonic", "Samsung", "Sanyo", "Sharp", "TCLSSSS", "Union", "Xtreme",
     "York", "Other"];
 
-    wm_unitProblem: any[] = ["Does not start or stop", "Leaking water",
+  wm_unitProblem: any[] = ["Does not start or stop", "Leaking water",
     "Not draining water", "Continuously Spinning", "Does not spin or agitate",
-    "Vibrating or shaking", "Fills water slowly", "Making noise","Washer is overflowing",
+    "Vibrating or shaking", "Fills water slowly", "Making noise", "Washer is overflowing",
     "Door or lid does not lock", "Stops mid-cycle", "Other", "I don't know"];
 
-  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog, 
+  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog,
     private shared: SharedService, private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
-    openDialog() {
-      const dialogRef = this.dialog.open(RepairFeeComponent);
-  
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
-    }
-    logout(){
-      localStorage.clear();
-      this.router.navigate(['/home'])
-    }
+  openDialog() {
+    const dialogRef = this.dialog.open(RepairFeeComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
   ngOnInit(): void {
-    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+    if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
 
@@ -106,18 +106,18 @@ export class WashingmachinedetailsComponent implements OnInit {
       service_addressDetails: ['', Validators.required],
       service_instruction: ['', Validators.required],
     });
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id);
-      data.subscribe(result => {
-        this.contactDetialsForm.setValue({
-          service_address: result.service_address,
-          service_firstname: result.first_name,
-          service_lastname: result.last_name,
-          service_phoneNumber: result.number ,
-          service_addressDetails: result.service_addressDetails,
-          service_instruction: ""
-        });
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id);
+    data.subscribe(result => {
+      this.contactDetialsForm.setValue({
+        service_address: result.service_address,
+        service_firstname: result.first_name,
+        service_lastname: result.last_name,
+        service_phoneNumber: result.number,
+        service_addressDetails: result.service_addressDetails,
+        service_instruction: ""
       });
+    });
 
     if (!navigator.geolocation) {
       console.log('location is not supported');
@@ -161,7 +161,7 @@ export class WashingmachinedetailsComponent implements OnInit {
     });
     this.watchPosition();
   }
-  
+
   watchPosition() {
     let desLat = 0;
     let desLon = 0;
@@ -190,7 +190,7 @@ export class WashingmachinedetailsComponent implements OnInit {
   labelPosition: 'before' | 'after' = 'after';
   disabled = false;
 
-  unitdetailsSubmit(){
+  unitdetailsSubmit() {
     if (this.unitdetailsForm.valid) {
       this.shared.changeACType(this.unitdetailsForm.value.service_aptype);
       this.shared.changeACBrand(this.unitdetailsForm.value.service_brand);
@@ -222,33 +222,33 @@ export class WashingmachinedetailsComponent implements OnInit {
 
   contactDetailsSubmit() {
     var retVal = confirm("Are you sure you want to proceed ?");
-    if( retVal == true ) {
+    if (retVal == true) {
       const unit = this.unitdetailsForm.value;
       const loc = this.locationForm.value;
       const sched = this.scheduleForm.value;
       const contact = this.contactDetialsForm.value;
       let body = {
-      "service_type": this.service_type,
-      "service_appliance": this.service_appliance,
-      "service_aptype": unit.service_aptype,
-      "service_brand": unit.service_brand,
-      "service_unitType": this.service_unitType,
-      "service_unitProb": unit.service_unitProb,
-      "service_city": loc.service_city,
-      "service_property_type": loc.service_property_type,
-      "service_zipcode": loc.service_zipcode,
-      "service_date": sched.service_date,
-      "service_timeslot": sched.service_timeslot,
-      "service_address": contact.service_address,
-      "service_firstname": contact.service_firstname,
-      "service_lastname": contact.service_lastname,
-      "service_phoneNumber": contact.service_phoneNumber,
-      "service_addressDetails": contact.service_addressDetails,
-      "service_instruction": contact.service_instruction,
-      "status": this.status,
-      "checkupfee": this.chupfee
+        "service_type": this.service_type,
+        "service_appliance": this.service_appliance,
+        "service_aptype": unit.service_aptype,
+        "service_brand": unit.service_brand,
+        "service_unitType": this.service_unitType,
+        "service_unitProb": unit.service_unitProb,
+        "service_city": loc.service_city,
+        "service_property_type": loc.service_property_type,
+        "service_zipcode": loc.service_zipcode,
+        "service_date": sched.service_date,
+        "service_timeslot": sched.service_timeslot,
+        "service_address": contact.service_address,
+        "service_firstname": contact.service_firstname,
+        "service_lastname": contact.service_lastname,
+        "service_phoneNumber": contact.service_phoneNumber,
+        "service_addressDetails": contact.service_addressDetails,
+        "service_instruction": contact.service_instruction,
+        "status": this.status,
+        "checkupfee": this.chupfee
       }
-  
+
       if (this.contactDetialsForm.valid) {
         this.http.post("http://localhost:3000/NewServiceRequest/repair", body)
           .subscribe(data => {
@@ -262,18 +262,18 @@ export class WashingmachinedetailsComponent implements OnInit {
       else {
         return;
       }
-       return true;
+      return true;
     } else {
-       return false;
+      return false;
     }
   }
-  
+
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();
     }
   }
 
-  
+
 
 }

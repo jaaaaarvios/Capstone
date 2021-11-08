@@ -23,7 +23,7 @@ export class RescheduleComponent implements OnInit {
       service_date: [null, Validators.required],
       service_timeslot: [""]
     });
-    if (localStorage.getItem("first_name") == null || localStorage.getItem("last_name") == null) {
+    if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
     this.id = this.route.snapshot.params['id'];

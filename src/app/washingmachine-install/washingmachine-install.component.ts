@@ -31,7 +31,7 @@ export class WashingmachineInstallComponent implements OnInit {
   service_unitProb = "None";
   status = "Pending";
   chupfee = "200.00";
-  id=JSON.parse(localStorage.getItem('id'));
+  id = JSON.parse(localStorage.getItem('id'));
 
   matcher = new MyErrorStateMatcher();
 
@@ -67,12 +67,12 @@ export class WashingmachineInstallComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  logout(){
+  logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
   ngOnInit(): void {
-    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+    if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
 
@@ -100,18 +100,18 @@ export class WashingmachineInstallComponent implements OnInit {
       service_addressDetails: ['', Validators.required],
       service_instruction: ['', Validators.required],
     });
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id);
-      data.subscribe(result => {
-        this.contactDetialsForm.setValue({
-          service_address: result.service_address,
-          service_firstname: result.first_name,
-          service_lastname: result.last_name,
-          service_phoneNumber: result.number ,
-          service_addressDetails: result.service_addressDetails,
-          service_instruction: ""
-        });
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id);
+    data.subscribe(result => {
+      this.contactDetialsForm.setValue({
+        service_address: result.service_address,
+        service_firstname: result.first_name,
+        service_lastname: result.last_name,
+        service_phoneNumber: result.number,
+        service_addressDetails: result.service_addressDetails,
+        service_instruction: ""
       });
+    });
 
     if (!navigator.geolocation) {
       console.log('location is not supported');

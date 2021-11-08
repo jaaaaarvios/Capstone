@@ -11,7 +11,7 @@ export class PaymentsuccessComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+    if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
   }

@@ -98,8 +98,9 @@ export class LoginformComponent implements OnInit {
         if(result) {
           localStorage.setItem("id", JSON.stringify(result._id));
           // localStorage.setItem("password", JSON.stringify(result.password));
-          localStorage.setItem("first_name", JSON.stringify(result.first_name));
-          localStorage.setItem("last_name", JSON.stringify(result.last_name));
+          // localStorage.setItem("first_name", JSON.stringify(result.first_name));
+          // localStorage.setItem("last_name", JSON.stringify(result.last_name));
+          localStorage.setItem("token", JSON.stringify(result.token));
           console.log(result);
           alert(result.message);
           this.router.navigate(['/profile'])
@@ -107,10 +108,6 @@ export class LoginformComponent implements OnInit {
       }), error => {
         console.log(error);
       }
-    }
-    else if (val.email == "admin@gmail.com" && val.password == "admin@gmail.com") {
-      alert("Login Successfully");
-      this.router.navigate(['/admin']);
     }
     else if (val.email == "" && val.password == "") {
       alert("Invalid Information. Please try again.");

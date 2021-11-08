@@ -79,7 +79,7 @@ export class RefrigeratordetailsComponent implements OnInit {
       this.router.navigate(['/home'])
     }
   ngOnInit(): void {
-    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+    if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
     this.unitdetailsForm = this._formBuilder.group({

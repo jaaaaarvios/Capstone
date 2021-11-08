@@ -19,8 +19,9 @@ import { AuthService } from '../auth.service';
 
 export class DashboardComponent implements OnInit {
 
-  fname = JSON.parse(localStorage.getItem('first_name'));
-  lname = JSON.parse(localStorage.getItem('last_name'));
+  id=JSON.parse(localStorage.getItem('id'));
+  fname="";
+  lname="";
   date: Date;
   subscription: any;
   pending_request = []
@@ -45,6 +46,13 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    let dataa:Observable<any>;
+    dataa = this.http.get('http://localhost:3000/CredentialDB/'+this.id);
+    dataa.subscribe(result => {
+      this.fname = result.first_name;
+      this.lname = result.last_name;
+    });
 
     let data: Observable<any>;
     data = this.http.get('http://localhost:3000/NewServiceRequest');
@@ -76,7 +84,7 @@ export class DashboardComponent implements OnInit {
 
     });
 
-    if (localStorage.getItem("first_name") == null || localStorage.getItem("last_name") == null) {
+    if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
   }

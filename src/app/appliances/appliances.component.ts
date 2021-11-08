@@ -36,7 +36,7 @@ export class AppliancesComponent implements OnInit {
 
   ngOnInit() {
     this.subscription = this.shared.currentAppliance.subscribe(service_appliance => this.service_appliance = service_appliance);
-    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+    if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
   }

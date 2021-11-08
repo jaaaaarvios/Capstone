@@ -32,7 +32,7 @@ export class RequestdetailsComponent implements OnInit {
     , private http: HttpClient, private route: ActivatedRoute, private auth: AuthService) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem("first_name") == null || localStorage.getItem("last_name") == null) {
+    if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
 

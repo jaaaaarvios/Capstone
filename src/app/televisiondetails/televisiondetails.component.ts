@@ -29,7 +29,7 @@ export class TelevisiondetailsComponent implements OnInit {
   service_unitProb = "None";
   status = "Pending";
   chupfee = "200.00";
-  id=JSON.parse(localStorage.getItem('id'));
+  id = JSON.parse(localStorage.getItem('id'));
 
   matcher = new MyErrorStateMatcher();
 
@@ -56,26 +56,26 @@ export class TelevisiondetailsComponent implements OnInit {
     "York", "Other"];
 
   tv_unitProblem: any[] = ["Won’t power up but the power light blinks", "Has sound but no picture", "Has a picture, but no sound",
-    "Multiple vertical lines run across the screen", "Spider lines radiating from a localized point", 
-    "Picture is pixelating or breaking up", "My Flat Screen Plasma, LED, OLED, or QLED has lines or is cracked", 
+    "Multiple vertical lines run across the screen", "Spider lines radiating from a localized point",
+    "Picture is pixelating or breaking up", "My Flat Screen Plasma, LED, OLED, or QLED has lines or is cracked",
     "Video not matching Audio", "Hearing an Echo", "Other", "I don't know"];
   constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog,
     private shared: SharedService, private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
 
-    openDialog() {
-      const dialogRef = this.dialog.open(RepairFeeComponent);
-  
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
-    }
-    logout(){
-      localStorage.clear();
-      this.router.navigate(['/home'])
-    }
+  openDialog() {
+    const dialogRef = this.dialog.open(RepairFeeComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
   ngOnInit(): void {
-    if(localStorage.getItem("first_name") == null ||localStorage.getItem("last_name") == null ){
+    if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
 
@@ -105,19 +105,19 @@ export class TelevisiondetailsComponent implements OnInit {
       service_instruction: ['', Validators.required],
     });
 
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id);
-      data.subscribe(result => {
-        this.contactDetialsForm.setValue({
-          service_address: result.service_address,
-          service_firstname: result.first_name,
-          service_lastname: result.last_name,
-          service_phoneNumber: result.number ,
-          service_addressDetails: result.service_addressDetails,
-          service_instruction: ""
-        });
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id);
+    data.subscribe(result => {
+      this.contactDetialsForm.setValue({
+        service_address: result.service_address,
+        service_firstname: result.first_name,
+        service_lastname: result.last_name,
+        service_phoneNumber: result.number,
+        service_addressDetails: result.service_addressDetails,
+        service_instruction: ""
       });
-    
+    });
+
     if (!navigator.geolocation) {
       console.log('location is not supported');
     }
@@ -219,7 +219,7 @@ export class TelevisiondetailsComponent implements OnInit {
 
   contactDetailsSubmit() {
     var retVal = confirm("Are you sure you want to proceed ?");
-    if( retVal == true ) {
+    if (retVal == true) {
       const unit = this.unitdetailsForm.value;
       const loc = this.locationForm.value;
       const sched = this.scheduleForm.value;
@@ -245,7 +245,7 @@ export class TelevisiondetailsComponent implements OnInit {
         "status": this.status,
         "checkupfee": this.chupfee
       }
-  
+
       if (this.contactDetialsForm.valid) {
         this.http.post("http://localhost:3000/NewServiceRequest/repair", body)
           .subscribe(data => {
@@ -258,12 +258,12 @@ export class TelevisiondetailsComponent implements OnInit {
       else {
         return;
       }
-       return true;
+      return true;
     } else {
-       return false;
+      return false;
     }
   }
-  
+
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();

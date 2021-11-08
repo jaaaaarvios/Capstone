@@ -1,7 +1,7 @@
 <body>
     <mat-toolbar>
             <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
-            <button mat-button class="toolbarBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></button> 
+            <span mat-button class="toolbarBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></span> 
                 <mat-menu #menu="matMenu">
                   <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
                   <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
@@ -10,9 +10,9 @@
                   <button mat-menu-item routerLink="/menu_tv">Television</button>
                 </mat-menu>
 
-              <button mat-button class="toolbarBtn" routerLink="/pricing">Pricing</button>
-              <button mat-button class="toolbarBtn" routerLink="/contact_us">Contact Us</button>
-              <button mat-button class="toolbarBtn" routerLink="/about_us">About Us</button>
+              <span mat-button class="toolbarBtn" routerLink="/pricing">Pricing</span>
+              <span mat-button class="toolbarBtn" routerLink="/contact_us">Contact Us</span>
+              <span mat-button class="toolbarBtn" routerLink="/about_us">About Us</span>
               
               <span class="spacer"></span>
 
