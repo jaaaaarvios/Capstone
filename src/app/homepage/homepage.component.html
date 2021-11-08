@@ -1,41 +1,84 @@
-<mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      </mat-sidenav>
-
 <body>
-    <div>
-        <img class="logo" mat-card-image src="../../assets/mainlogo.png">
-    </div>
-    <div>
-      <button mat-button class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
-            <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
-            <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
-            <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
-            <button mat-menu-item routerLink="/menu_tv">Television</button>
-          </mat-menu>
-    </div>      
-    <div>
-        <button mat-button class="pricingBtn" routerLink="/pricing">Pricing</button>
-        <button mat-button class="contactUsBtn" routerLink="/contact_us">Contact Us</button>
-        <button mat-button class="aboutusBtn" routerLink="/about_us">About Us</button>
-    </div>
-    <div class="content">
+   
+    <mat-toolbar>
+        <div>
+            <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+        </div>
+            
+        <div>
+            <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label> 
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
+                  <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
+                  <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
+                  <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
+                  <button mat-menu-item routerLink="/menu_tv">Television</button>
+                </mat-menu>
+          </div>      
+          <div>
+              <label class="pricingBtn" routerLink="/pricing">Pricing</label>
+              <label class="contactUsBtn" routerLink="/contact_us">Contact Us</label>
+              <label class="aboutusBtn" routerLink="/about_us">About Us</label>
+
+              <button mat-raised-button class="loginBtn">Login / Sign Up</button>
+          </div>                          
+      </mat-toolbar>        
+        
+      <div class="content">
         <h1 class="title1"><b>We provide the service</b></h1>
         <h1 class="title2"><b>you need on your own home.</b></h1>
-    </div>
-  
-    <div>
-      
-        <button mat-raised-button class="inquireBtn">Inquire</button>
+      </div>
+       
+      <div>
         <button mat-raised-button class="bookBtn" routerLink="/login">Book a service</button>
+      </div>
+  
+      <div>
+        <img class="image2" mat-card-image src="../../assets/Untitled3.png">
+      </div> 
+      <div>
+        <img class="image1" mat-card-image src="../../assets/Untitled2.png">
+      </div>
+
+         
+     <div>
+       <h1 class="headertxt">How It Works</h1>
+     </div>
+         
+     <div>
+      <img class="bookimg" mat-card-image src="../../assets/bookimg.png">
+      <img class="connectimg" mat-card-image src="../../assets/connectimg.png">
+      <img class="likeimg" mat-card-image src="../../assets/likeimg.png">
+     </div>
+       
+     <div>
+      <h1 class="booktxt">1. Book a Service</h1>
+      <h1 class="connecttxt">2. Connect with Us</h1>
+      <h1 class="liketxt">3. Enjoy Our Service</h1>
+     </div>
+   
+     <div>
+     <pre class="booklabel">Need a hand? Book a service
+you need at home directly
+    from our website application.</pre>
+
+    <pre class="connectlabel">Depending on the service booked,
+  we will assign you a technician and 
+  quote fixed prices.
+</pre>
+
+<pre class="likelabel">Once the job is done, 
+ Kindly leave us a feedback.
+</pre>
+
     </div>
-  </body>
-  <footer class="footer">© 2021 Ayosgamit - All Rights Reserved</footer>
+
+<div>
+  <h1 class="header2txt">Why people are choosing us</h1>
+</div>
+
+     
+</body>
+  
+
   

@@ -42,7 +42,7 @@ export class RescheduleComponent implements OnInit {
       "service_timeslot": sched.service_timeslot,
     }
 
-    if (this.scheduleForm.valid) {
+  if (this.scheduleForm.valid) {
       this.http.patch("http://localhost:3000/NewServiceRequest/schedule/:id", body)
         .subscribe(data => {
           console.log(data, 'Rescheduled');
