@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { RescheduleComponent } from '../reschedule/reschedule.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -27,6 +27,7 @@ export class RequestdetailsComponent implements OnInit {
   disabled = false;
   id: any;
   data: any;
+  token = JSON.parse(localStorage.getItem('token'));
 
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver, private router: Router
     , private http: HttpClient, private route: ActivatedRoute, private auth: AuthService) { }
@@ -41,6 +42,11 @@ export class RequestdetailsComponent implements OnInit {
   }
 
   getOne() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
     this.auth.getOne(this.id).subscribe(data => {
       this.data = data
     })
@@ -68,7 +74,12 @@ export class RequestdetailsComponent implements OnInit {
       let body = {
         "status": "Cancelled",
       }
-      this.http.patch("http://localhost:3000/NewServiceRequest/status/" + this.id, body)
+      const httpOptions = {
+        headers: new HttpHeaders({
+          "x-access-token": this.token
+        })
+      }
+      this.http.patch("http://localhost:3000/NewServiceRequest/status/" + this.id, body, httpOptions)
         .subscribe(data => {
           this.router.navigate(['/dashboard']);
         }, error => {

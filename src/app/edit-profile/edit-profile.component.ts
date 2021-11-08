@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,6 +18,7 @@ export class EditProfileComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   id=JSON.parse(localStorage.getItem('id'));
+  token = JSON.parse(localStorage.getItem('token'));
 
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -40,8 +41,14 @@ export class EditProfileComponent implements OnInit {
       this.router.navigate(['/home'])
     }
 
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+
     let data:Observable<any>;
-    data = this.http.get('http://localhost:3000/CredentialDB/'+this.id);
+    data = this.http.get('http://localhost:3000/CredentialDB/'+this.id, httpOptions);
     data.subscribe(result => {
       this.personalInfoForm.setValue({
         firstname: result.first_name,
@@ -70,9 +77,13 @@ export class EditProfileComponent implements OnInit {
       "email": pi.email,
       "number": pi.number,
     }
-
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
     if (this.personalInfoForm.valid) {
-      this.http.patch("http://localhost:3000/CredentialDB/personal/"+this.id, body)
+      this.http.patch("http://localhost:3000/CredentialDB/personal/"+this.id, body, httpOptions)
         .subscribe(data => {
           console.log(data, 'Update Success');
           alert("Update Success");

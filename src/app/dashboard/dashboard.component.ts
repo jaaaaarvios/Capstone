@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RequestdetailsComponent } from '../requestdetails/requestdetails.component';
 import { SharedService } from '../shared/shared.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../auth.service';
 
@@ -20,6 +20,7 @@ import { AuthService } from '../auth.service';
 export class DashboardComponent implements OnInit {
 
   id=JSON.parse(localStorage.getItem('id'));
+  token = JSON.parse(localStorage.getItem('token'))
   fname="";
   lname="";
   date: Date;
@@ -47,15 +48,21 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+
     let dataa:Observable<any>;
-    dataa = this.http.get('http://localhost:3000/CredentialDB/'+this.id);
+    dataa = this.http.get('http://localhost:3000/CredentialDB/'+this.id, httpOptions);
     dataa.subscribe(result => {
       this.fname = result.first_name;
       this.lname = result.last_name;
     });
 
     let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/NewServiceRequest');
+    data = this.http.get('http://localhost:3000/NewServiceRequest', httpOptions);
     data.subscribe(result => {
       let completed_request = result.filter(function (status) {
         return status.status == "Completed";
