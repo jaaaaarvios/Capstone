@@ -1,7 +1,7 @@
 <body>
     <mat-toolbar>
-            <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
-            <span mat-button class="toolbarBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></span> 
+      <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
+            <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label> 
                 <mat-menu #menu="matMenu">
                   <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
                   <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
@@ -10,69 +10,30 @@
                   <button mat-menu-item routerLink="/menu_tv">Television</button>
                 </mat-menu>
 
-              <span mat-button class="toolbarBtn" routerLink="/pricing">Pricing</span>
-              <span mat-button class="toolbarBtn" routerLink="/contact_us">Contact Us</span>
-              <span mat-button class="toolbarBtn" routerLink="/about_us">About Us</span>
-              
-              <span class="spacer"></span>
-
-              <button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button>                        
+                <label class="pricingBtn" routerLink="/pricing">Pricing</label>
+                <label class="contactUsBtn" routerLink="/contact_us">Contact Us</label>
+                <label class="aboutusBtn" routerLink="/about_us">About Us</label>
+                
+                <span class="spacer"></span>
+                  <button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button>           
       </mat-toolbar>        
         
+     
       <div class="content">
         <h1 class="title1"><b>We provide the service</b></h1>
         <h1 class="title2"><b>you need on your own home.</b></h1>
+
+        
       </div>
        
       <div>
         <button mat-raised-button class="bookBtn" routerLink="/login">Book a service</button>
       </div>
-  
+
       <div>
-        <img class="image2" mat-card-image src="../../assets/Untitled3.png">
-      </div> 
-      <div>
-        <img class="image1" mat-card-image src="../../assets/Untitled2.png">
+      <img class="image" mat-card-image src="../../assets/Untitled-2.png">
       </div>
 
-         
-     <div>
-       <h1 class="headertxt">How It Works</h1>
-     </div>
-         
-     <div>
-      <img class="bookimg" mat-card-image src="../../assets/bookimg.png">
-      <img class="connectimg" mat-card-image src="../../assets/connectimg.png">
-      <img class="likeimg" mat-card-image src="../../assets/likeimg.png">
-     </div>
-       
-     <div>
-      <h1 class="booktxt">1. Book a Service</h1>
-      <h1 class="connecttxt">2. Connect with Us</h1>
-      <h1 class="liketxt">3. Enjoy Our Service</h1>
-     </div>
-   
-     <div>
-     <pre class="booklabel">Need a hand? Book a service
-you need at home directly
-    from our website application.</pre>
-
-    <pre class="connectlabel">Depending on the service booked,
-  we will assign you a technician and 
-  quote fixed prices.
-</pre>
-
-<pre class="likelabel">Once the job is done, 
- Kindly leave us a feedback.
-</pre>
-
-    </div>
-
-<div>
-  <h1 class="header2txt">Why people are choosing us</h1>
-</div>
-
-     
 </body>
   
 
