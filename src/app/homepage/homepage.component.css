@@ -307,6 +307,36 @@ mat-icon
     color: #003049;
    
 }
+
+.convenientimg
+{
+    width: 10%;
+    height: 20%;
+    float: left;
+    margin-left: 500px;
+    margin-top: 50px;
+    
+}
+
+.protectimg
+{
+    width: 10%;
+    height: 20%;
+    float: left;
+    margin-left: 160px;
+    margin-top: 50px;
+    
+}
+
+.guaranteeimg
+{
+    width: 10%;
+    height: 20%;
+    float: left;
+    margin-left: 150px;
+    margin-top: 50px;
+    
+}
 @media (max-width: 576px)
 {
 
