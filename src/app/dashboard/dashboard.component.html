@@ -88,18 +88,52 @@
                 </tr>
               </thead>
               <tbody class="body">
-                <tr *ngFor="let sr of service_request">
-                  <td><b>{{sr._id | slice:0:9}}</b></td>
-                  <td>{{sr.service_appliance}}</td>
-                  <td>{{sr.service_type}}</td>
-                  <td>{{sr.status}}</td>
-                  <td><button mat-raised-button [routerLink]="['/requestdetails/' + sr._id]">Details</button></td>
+                <tr *ngFor="let pr of pending_request">
+                  <td><b>{{pr._id | slice:0:9}}</b></td>
+                  <td>{{pr.service_appliance}}</td>
+                  <td>{{pr.service_type}}</td>
+                  <td>{{pr.status}}</td>
+                  <td><button mat-raised-button [routerLink]="['/reschedule/' + pr._id]">Reschedule</button></td>
+                  <td><button mat-raised-button [routerLink]="['/requestdetails/' + pr._id]">Details</button></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </mat-card>
       </mat-tab>
+
+        <mat-tab label="Approved Requests">
+          <mat-card class="pendingcard">
+            <h2 class="request">Approved Requests</h2>
+           <!-- <mat-form-field class="searchfield" appearance="outline">
+              <mat-label>
+                <mat-icon>find_in_page</mat-icon>Search..
+              </mat-label>
+              <input matInput>
+            </mat-form-field>-->
+            <div class="table">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col" class="header">Service ID</th>
+                    <th scope="col" class="header">Appliance</th>
+                    <th scope="col" class="header">Service Type</th>
+                    <th scope="col" class="header">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="body">
+                  <tr *ngFor="let ar of approved_request">
+                    <td><b>{{ar._id | slice:0:9}}</b></td>
+                    <td>{{ar.service_appliance}}</td>
+                    <td>{{ar.service_type}}</td>
+                    <td>{{ar.status}}</td>
+                    <td><button mat-raised-button [routerLink]="['/requestdetails/' + ar._id]">Details</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </mat-card>
+        </mat-tab>
 
       <mat-tab label="Completed Requests">
         <mat-card class="pendingcard">
@@ -121,12 +155,11 @@
                 </tr>
               </thead>
               <tbody class="body">
-                <tr *ngFor="let sr of service_request">
-                  <td><b>{{sr._id | slice:0:7}}</b></td>
-                  <td>{{sr.service_appliance}}</td>
-                  <td>{{sr.service_type}}</td>
-                  <td>{{sr.status}}</td>
-                  <td><button mat-raised-button>Details</button></td>
+                <tr *ngFor="let cr of completed_request">
+                  <td><b>{{cr._id | slice:0:9}}</b></td>
+                  <td>{{cr.service_appliance}}</td>
+                  <td>{{cr.service_type}}</td>
+                  <td>{{cr.status}}</td>
                 </tr>
               </tbody>
             </table>
@@ -154,12 +187,43 @@
                 </tr>
               </thead>
               <tbody class="body">
-                <tr *ngFor="let sr of service_request">
-                  <td><b>{{sr._id | slice:0:7}}</b></td>
-                  <td>{{sr.service_appliance}}</td>
-                  <td>{{sr.service_type}}</td>
-                  <td>{{sr.status}}</td>
-                  <td><button mat-raised-button>Details</button></td>
+                <tr *ngFor="let canreq of cancelled_request">
+                  <td><b>{{canreq._id | slice:0:9}}</b></td>
+                  <td>{{canreq.service_appliance}}</td>
+                  <td>{{canreq.service_type}}</td>
+                  <td>{{canreq.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </mat-card>
+      </mat-tab>
+
+      <mat-tab label="Rejected Requests">
+        <mat-card class="pendingcard">
+          <h2 class="request">Rejected Requests</h2>
+           <!-- <mat-form-field class="searchfield" appearance="outline">
+            <mat-label>
+              <mat-icon>find_in_page</mat-icon>Search..
+            </mat-label>
+            <input matInput>
+          </mat-form-field>-->
+          <div class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col" class="header">Service ID</th>
+                  <th scope="col" class="header">Appliance</th>
+                  <th scope="col" class="header">Service Type</th>
+                  <th scope="col" class="header">Status</th>
+                </tr>
+              </thead>
+              <tbody class="body">
+                <tr *ngFor="let rejreq of rejected_request">
+                  <td><b>{{rejreq._id | slice:0:9}}</b></td>
+                  <td>{{rejreq.service_appliance}}</td>
+                  <td>{{rejreq.service_type}}</td>
+                  <td>{{rejreq.status}}</td>
                 </tr>
               </tbody>
             </table>

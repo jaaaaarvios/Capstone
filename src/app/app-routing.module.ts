@@ -50,6 +50,8 @@ import { RescheduleComponent } from './reschedule/reschedule.component';
 import { PaymentformComponent } from '../app/paymentform/paymentform.component';
 import { PaymentsuccessComponent } from './paymentsuccess/paymentsuccess.component';
 import { PaymentthankyouComponent } from './paymentthankyou/paymentthankyou.component';
+import { RequestdetailsAdminComponent } from './requestdetails-admin/requestdetails-admin.component';
+import { RequestCompleteComponent } from './request-complete/request-complete.component';
 
 
 const routes: Routes = [
@@ -102,10 +104,12 @@ const routes: Routes = [
   { path: 'pricing', component: PricingComponent },
   { path: 'privacy_terms', component: PrivacytermsComponent },
   { path: 'feedback', component: FeedbackComponent },
-  { path: 'reschedule', component: RescheduleComponent },
+  { path: 'reschedule/:id', component: RescheduleComponent },
   { path: 'payment', component: PaymentformComponent },
   { path: 'paymentsuccess', component: PaymentsuccessComponent },
   { path: 'paymentthankyou', component: PaymentthankyouComponent },
+  { path: 'requestdetail/:id', component: RequestdetailsAdminComponent },
+  { path: 'completedetail/:id', component: RequestCompleteComponent },
 ];
 
 @NgModule({

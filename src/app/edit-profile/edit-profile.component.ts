@@ -64,7 +64,6 @@ export class EditProfileComponent implements OnInit {
   personalInfoSubmit(){
 
     const pi = this.personalInfoForm.value;
-
     let body = {
       "first_name": pi.firstname,
       "last_name": pi.lastname,
@@ -91,38 +90,5 @@ export class EditProfileComponent implements OnInit {
       alert('Fill up the required textfields with valid information')
     }
   }
-
-  // public addItem(menuID: number, itemToAdd: ItemClass): void { 
-  //   console.log('sending patch request to add an item');
-
-  //   this.http.patch(`example.com/add/{menuId}`, itemToAdd).subscribe(
-  //     res => { 
-  //       console.log('received ok response from patch request');
-  //     },
-  //     error => {
-  //       console.error('There was an error during the request');
-  //       console.log(error);
-  //     });
-
-  //   console.log('request sent. Waiting for response...');
-  // }
-
-  // httpPatchExample() {
-  //   this.http.patch("http://localhost:3000/CredentialDB/personal/:id",
-  //       {
-  //           "description": "Angular Tutorial For Beginners PATCH TEST",
-  //       })
-  //       .subscribe(
-  //           (val) => {
-  //               console.log("PATCH call successful value returned in body", 
-  //                           val);
-  //           },
-  //           response => {
-  //               console.log("PATCH call in error", response);
-  //           },
-  //           () => {
-  //               console.log("The PATCH observable is now completed.");
-  //           });
-  //   }
 
 }
