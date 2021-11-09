@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -18,6 +18,8 @@ export class AdminpageComponent implements OnInit {
   cancelled_request = []
   approved_request = []
   rejected_request = []
+  token = JSON.parse(localStorage.getItem('token'));
+  id: string;
   
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -38,7 +40,6 @@ export class AdminpageComponent implements OnInit {
       }
     }),
   );
-  id: string;
 
   constructor( private breakpointObserver: BreakpointObserver, private http: HttpClient, private router: Router) { 
     setInterval(() => {
@@ -47,8 +48,14 @@ export class AdminpageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
     let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/NewServiceRequest');
+    data = this.http.get('http://localhost:3000/NewServiceRequest', httpOptions);
     data.subscribe(result => {
       let completed_request = result.filter(function (status) {
         return status.status == "Completed";
@@ -77,30 +84,15 @@ export class AdminpageComponent implements OnInit {
     });
   }
 
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
+
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();
     }
-  }
-
-  approvedRequest(){
-    var retVal = confirm("Do you really want to approve the request ?");
-    if (retVal == true) {
-      let body = {
-        "status": "Pending (Approved)",
-      }
-      this.http.patch("http://localhost:3000/NewServiceRequest/status/" + this.id, body)
-        .subscribe(data => {
-          this.router.navigate(['/dashboard']);
-        }, error => {
-          console.log(error);
-          alert(error);
-        });
-    }
-
-  }
-  rejectRequest(){
-
   }
 
 }

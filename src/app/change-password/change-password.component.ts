@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,6 +19,7 @@ export class ChangePasswordComponent implements OnInit {
   maxPw = 15;
   matcher = new MyErrorStateMatcher();
   id = JSON.parse(localStorage.getItem('id'));
+  token = JSON.parse(localStorage.getItem('token'));
   changePassForm: FormGroup;
 
   public showPassword: boolean;
@@ -60,9 +61,14 @@ export class ChangePasswordComponent implements OnInit {
     let body = {
       "password": cp.newPassword,
     }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
 
     if (this.changePassForm.valid) {
-      this.http.patch("http://localhost:3000/CredentialDB/password/"+this.id, body)
+      this.http.patch("http://localhost:3000/CredentialDB/password/"+this.id, body, httpOptions)
         .subscribe(data => {
           console.log(data, 'Update Success');
           alert("Update Success");

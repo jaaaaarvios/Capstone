@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -16,7 +16,8 @@ import { MyErrorStateMatcher } from '../app.component';
 export class AdminUserComponent implements OnInit {
 
   users =[];
-  email="";
+  token = JSON.parse(localStorage.getItem('token'));
+  
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
@@ -38,13 +39,16 @@ export class AdminUserComponent implements OnInit {
     this.router.navigate(['/add_technician']);
   }
   ngOnInit(): void {
-
+    
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
     let data:Observable<any>;
       data = this.http.get('http://localhost:3000/CredentialDB');
       data.subscribe(result => {
         this.users = result
-        this.email = result.email
-        console.log(this.email)
       });
   }
 

@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class PaymentsuccessComponent implements OnInit {
 
+  token = JSON.parse(localStorage.getItem('token'));
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {

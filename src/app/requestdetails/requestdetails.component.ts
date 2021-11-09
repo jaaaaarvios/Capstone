@@ -38,18 +38,17 @@ export class RequestdetailsComponent implements OnInit {
     }
 
     this.id = this.route.snapshot.params['id'];
-    this.getOne();
-  }
 
-  getOne() {
     const httpOptions = {
       headers: new HttpHeaders({
         "x-access-token": this.token
       })
     }
-    this.auth.getOne(this.id).subscribe(data => {
-      this.data = data
-    })
+    let data:Observable<any>;
+      data = this.http.get('http://localhost:3000/NewServiceRequest/'+this.id, httpOptions);
+      data.subscribe(result => {
+        this.data = result;
+      });
   }
 
   logout() {

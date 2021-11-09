@@ -7,7 +7,7 @@ import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
 import { SharedService } from '../shared/shared.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RepairFeeComponent } from '../repair-fee/repair-fee.component';
 import { InstallFeeComponent } from '../install-fee/install-fee.component';
 import { InstallFeeWashingComponent } from '../install-fee-washing/install-fee-washing.component';
@@ -32,7 +32,8 @@ export class WashingmachineInstallComponent implements OnInit {
   status = "Pending";
   chupfee = "200.00";
   id = JSON.parse(localStorage.getItem('id'));
-
+  token = JSON.parse(localStorage.getItem('token'));
+  
   matcher = new MyErrorStateMatcher();
 
   city: any[] = ["Manila City", "Quezon City", "Caloocan City", "Las Piñas City", "Valenzuela City", "Makati City",
@@ -100,8 +101,14 @@ export class WashingmachineInstallComponent implements OnInit {
       service_addressDetails: ['', Validators.required],
       service_instruction: ['', Validators.required],
     });
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
     let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id);
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
     data.subscribe(result => {
       this.contactDetialsForm.setValue({
         service_address: result.service_address,
@@ -240,9 +247,13 @@ export class WashingmachineInstallComponent implements OnInit {
         "status": this.status,
         "checkupfee": this.chupfee
       }
-
+      const httpOptions = {
+        headers: new HttpHeaders({
+          "x-access-token": this.token
+        })
+      }
       if (this.contactDetialsForm.valid) {
-        this.http.post("http://localhost:3000/NewServiceRequest/repair", body)
+        this.http.post("http://localhost:3000/NewServiceRequest/repair", body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Booking Success');
             this.router.navigate(['/summary'])

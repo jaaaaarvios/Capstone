@@ -25,9 +25,6 @@ export class AuthService {
     return this.http.patch("http://localhost:3000/technician/:id", data)
   }
 
-  getOne(_id) {
-    return this.http.get("http://localhost:3000/NewServiceRequest/"+ _id).pipe(map((res: any) => res));
-  }
   deleteOne(_id) {
     return this.http.delete("http://localhost:3000/NewServiceRequest/"+ _id).pipe(map((res: any) => res));
   }
