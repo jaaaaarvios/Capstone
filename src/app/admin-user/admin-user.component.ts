@@ -39,14 +39,18 @@ export class AdminUserComponent implements OnInit {
     this.router.navigate(['/add_technician']);
   }
   ngOnInit(): void {
-    
+
+    if (localStorage.getItem("firstname") == null) {
+      this.router.navigate(['/home'])
+    }
+
     const httpOptions = {
       headers: new HttpHeaders({
         "x-access-token": this.token
       })
     }
     let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB');
+      data = this.http.get('http://localhost:3000/CredentialDB', httpOptions);
       data.subscribe(result => {
         this.users = result
       });

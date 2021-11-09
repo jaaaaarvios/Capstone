@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,9 +18,9 @@ import { AuthService } from '../auth.service';
 export class BookingsummaryComponent implements OnInit {
   subscription: any;
   service_request = []
-  id: any;
   data: any;
-
+  token = JSON.parse(localStorage.getItem('token'));
+  service = JSON.parse(localStorage.getItem('service'));
   checked = false;
   indeterminate = false;
   labelPosition: 'before' | 'after' = 'after';
@@ -38,13 +38,6 @@ export class BookingsummaryComponent implements OnInit {
 
 
   ngOnInit(): void {
-    let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/NewServiceRequest');
-    data.subscribe(result => {
-      this.service_request = result
-      console.log(this.service_request)
-    });
-
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
@@ -52,11 +45,11 @@ export class BookingsummaryComponent implements OnInit {
 
 
 
-  // deleteOne() {
-  //   this.auth.deleteOne(this.id).subscribe(data => {
-  //     this.data = data
-  //   })
-  // }
+  deleteOne() {
+    this.auth.deleteOne(this.service._id).subscribe(data => {
+      this.data = data
+    })
+  }
 
   cancelRequest() {
     this.router.navigate(['/booking']);
@@ -69,7 +62,8 @@ export class BookingsummaryComponent implements OnInit {
   getConfirmation() {
     var retVal = confirm("Do you really want to cancel ?");
     if (retVal == true) {
-      // this.deleteOne()
+      this.deleteOne()
+      localStorage.removeItem("service");
       this.router.navigate(['/dashboard'])
       return true;
     } else {

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class PaymentsuccessComponent implements OnInit {
 
   token = JSON.parse(localStorage.getItem('token'));
+  service = JSON.parse(localStorage.getItem('service'));
 
   constructor(private router: Router) { }
 
@@ -16,6 +17,10 @@ export class PaymentsuccessComponent implements OnInit {
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
+  }
+  onSubmit(){
+    localStorage.removeItem("service");
+    this.router.navigate(['/dashboard']);
   }
 
 }

@@ -19,7 +19,7 @@ declare const L: any;
 })
 export class AirconCleaningComponent implements OnInit {
 
-  ac_type: any[] = ["Split Type", "Window Type", "Tower", "Cassette",
+  ac_type: any[] = ["Split", "Window", "Tower", "Cassette",
     "Suspended", "Concealed"];
 
   ac_brand: any[] = ["Aiwa", "American Home", "Asahi", "Camel",
@@ -42,7 +42,14 @@ export class AirconCleaningComponent implements OnInit {
   service_type = "Cleaning";
   service_unitProb = "None";
   status = "Pending";
-  chupfee = "200.00";
+  chupfee = 200
+  inverter = 200.00
+  window_type = 600.00
+  split_type = 1200.00
+  tower_type = 1900.00
+  cassette_type = 2800.00
+  suspended_type = 2800.00
+  concealed_type = 2200.00
 
   id=JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
@@ -92,7 +99,7 @@ export class AirconCleaningComponent implements OnInit {
     this.locationForm = this._formBuilder.group({
       service_city: ['', Validators.required],
       service_property_type: ['', Validators.required],
-      service_zipcode: [null, Validators.required]
+      service_barangay: [null, Validators.required]
     });
 
     this.scheduleForm = this._formBuilder.group({
@@ -212,7 +219,7 @@ export class AirconCleaningComponent implements OnInit {
     if (this.locationForm.valid) {
       this.shared.changeCity(this.locationForm.value.service_city);
       this.shared.changeType(this.locationForm.value.service_property_type);
-      this.shared.changeZipcode(this.locationForm.value.service_zipcode);
+      this.shared.changebarangay(this.locationForm.value.service_barangay);
     } else {
       return;
     }
@@ -234,6 +241,44 @@ export class AirconCleaningComponent implements OnInit {
       const loc = this.locationForm.value;
       const sched = this.scheduleForm.value;
       const contact = this.contactDetialsForm.value;
+      if(unit.service_aptype == "Window" && unit.service_unitType == "Inverter"){
+        var cleanfee = this.window_type
+        var inverter = this.inverter
+      } else if (unit.service_aptype == "Window" && unit.service_unitType != "Inverter"){
+        var cleanfee = this.window_type
+      }
+
+      if(unit.service_aptype == "Split" && unit.service_unitType == "Inverter"){
+        var cleanfee = this.split_type
+        var inverter = this.inverter
+      } else if (unit.service_aptype == "Split" && unit.service_unitType != "Inverter"){
+        var cleanfee = this.split_type
+      }
+      if(unit.service_aptype == "Tower" && unit.service_unitType == "Inverter"){
+        var cleanfee = this.tower_type
+        var inverter = this.inverter
+      } else if((unit.service_aptype == "Tower" && unit.service_unitType != "Inverter")){
+        var cleanfee = this.tower_type
+      }
+      if(unit.service_aptype == "Cassette" && unit.service_unitType == "Inverter"){
+        var cleanfee = this.cassette_type
+        var inverter = this.inverter
+      } else if(unit.service_aptype == "Cassette" && unit.service_unitType != "Inverter") {
+        var cleanfee = this.cassette_type
+      }
+      if(unit.service_aptype == "Suspended" && unit.service_unitType == "Inverter"){
+        var cleanfee = this.suspended_type
+        var inverter = this.inverter
+      } else if(unit.service_aptype == "Suspended" && unit.service_unitType != "Inverter") {
+        var cleanfee = this.suspended_type
+      }
+      if(unit.service_aptype == "Concealed" && unit.service_unitType == "Inverter"){
+        var cleanfee = this.concealed_type
+        var inverter = this.inverter
+      } else if(unit.service_aptype == "Concealed" && unit.service_unitType != "Inverter") {
+        var cleanfee = this.concealed_type
+      }
+
       let body = {
         "service_type": this.service_type,
         "service_appliance": this.service_appliance,
@@ -243,7 +288,7 @@ export class AirconCleaningComponent implements OnInit {
         "service_unitProb": this.service_unitProb,
         "service_city": loc.service_city,
         "service_property_type": loc.service_property_type,
-        "service_zipcode": loc.service_zipcode,
+        "service_barangay": loc.service_barangay,
         "service_date": sched.service_date,
         "service_timeslot": sched.service_timeslot,
         "service_address": contact.service_address,
@@ -253,7 +298,9 @@ export class AirconCleaningComponent implements OnInit {
         "service_addressDetails": contact.service_addressDetails,
         "service_instruction": contact.service_instruction,
         "status": this.status,
-        "checkupfee": this.chupfee
+        "checkupfee": this.chupfee,
+        "cleaningfee": cleanfee,
+        "unitfee": inverter
       }
       const httpOptions = {
         headers: new HttpHeaders({
@@ -264,6 +311,7 @@ export class AirconCleaningComponent implements OnInit {
         this.http.post("http://localhost:3000/NewServiceRequest/repair", body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Booking Success');
+            localStorage.setItem("service", JSON.stringify(data));
             this.router.navigate(['/summary'])
           }, error => {
             console.log(error);

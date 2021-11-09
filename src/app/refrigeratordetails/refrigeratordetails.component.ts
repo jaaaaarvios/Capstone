@@ -215,7 +215,7 @@ export class RefrigeratordetailsComponent implements OnInit {
     if (this.locationForm.valid) {
       this.shared.changeCity(this.locationForm.value.service_city);
       this.shared.changeType(this.locationForm.value.service_property_type);
-      this.shared.changeZipcode(this.locationForm.value.service_zipcode);
+      this.shared.changebarangay(this.locationForm.value.service_zipcode);
     } else {
       return;
     }
@@ -267,6 +267,7 @@ export class RefrigeratordetailsComponent implements OnInit {
         this.http.post("http://localhost:3000/NewServiceRequest/repair", body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Booking Success');
+            localStorage.setItem("service", JSON.stringify(data));
             this.router.navigate(['/summary'])
           }, error => {
             console.log(error);

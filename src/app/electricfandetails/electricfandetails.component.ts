@@ -96,7 +96,7 @@ export class ElectricfandetailsComponent implements OnInit {
     this.locationForm = this._formBuilder.group({
       service_city: ['', Validators.required],
       service_property_type: ['', Validators.required],
-      service_zipcode: [null, Validators.required]
+      service_barangay: [null, Validators.required]
     });
 
     this.scheduleForm = this._formBuilder.group({
@@ -216,7 +216,7 @@ export class ElectricfandetailsComponent implements OnInit {
     if (this.locationForm.valid) {
       this.shared.changeCity(this.locationForm.value.service_city);
       this.shared.changeType(this.locationForm.value.service_property_type);
-      this.shared.changeZipcode(this.locationForm.value.service_zipcode);
+      this.shared.changebarangay(this.locationForm.value.service_barangay);
     } else {
       return;
     }
@@ -247,7 +247,7 @@ export class ElectricfandetailsComponent implements OnInit {
         "service_unitProb": unit.service_unitProb,
         "service_city": loc.service_city,
         "service_property_type": loc.service_property_type,
-        "service_zipcode": loc.service_zipcode,
+        "service_barangay": loc.service_barangay,
         "service_date": sched.service_date,
         "service_timeslot": sched.service_timeslot,
         "service_address": contact.service_address,
@@ -268,6 +268,7 @@ export class ElectricfandetailsComponent implements OnInit {
         this.http.post("http://localhost:3000/NewServiceRequest/repair", body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Booking Success');
+            localStorage.setItem("service", JSON.stringify(data));
             this.router.navigate(['/summary'])
           }, error => {
             console.log(error);

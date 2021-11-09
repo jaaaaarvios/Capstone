@@ -24,7 +24,7 @@ export class PaymentformComponent implements OnInit {
 
   service_request = []
   token = JSON.parse(localStorage.getItem('token'));
-
+  service = JSON.parse(localStorage.getItem('service'));
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver,
     private http: HttpClient) {
@@ -43,19 +43,6 @@ export class PaymentformComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "x-access-token": this.token
-      })
-    }
-    let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/NewServiceRequest', httpOptions);
-    data.subscribe(result => {
-      this.service_request = result
-      console.log(this.service_request)
-    });
-
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }

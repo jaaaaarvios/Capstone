@@ -91,6 +91,7 @@ export class LoginformComponent implements OnInit {
       this.auth.login(val).subscribe(result => {
         if(result) {
           localStorage.setItem("id", JSON.stringify(result._id));
+          localStorage.setItem("firstname", JSON.stringify(result.first_name));
           localStorage.setItem("token", JSON.stringify(result.token));
           alert(result.message);
           this.router.navigate(['/admin'])

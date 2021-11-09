@@ -32,6 +32,9 @@ export class RequestCompleteComponent implements OnInit {
     , private http: HttpClient, private route: ActivatedRoute, private auth: AuthService) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem("firstname") == null) {
+      this.router.navigate(['/home'])
+    }
     this.id = this.route.snapshot.params['id'];
     const httpOptions = {
       headers: new HttpHeaders({

@@ -219,7 +219,7 @@ color: #FFFFFF;
 .pendingcard
 {
   width: 1000px;
-  height: 500px;
+  height: fit-content;
   margin-top: 15px;
   border: solid 1px grey;
 }

@@ -33,6 +33,9 @@ export class RequestdetailsAdminComponent implements OnInit {
 
   ngOnInit(): void {
 
+    if (localStorage.getItem("firstname") == null) {
+      this.router.navigate(['/home'])
+    }
     this.id = this.route.snapshot.params['id'];
     const httpOptions = {
       headers: new HttpHeaders({

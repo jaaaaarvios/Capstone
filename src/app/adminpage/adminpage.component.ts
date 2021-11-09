@@ -48,7 +48,9 @@ export class AdminpageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    if (localStorage.getItem("firstname") == null) {
+      this.router.navigate(['/home'])
+    }
     const httpOptions = {
       headers: new HttpHeaders({
         "x-access-token": this.token

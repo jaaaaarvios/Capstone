@@ -5,7 +5,6 @@ import { HomepageComponent} from '../app/homepage/homepage.component';
 import { LoginformComponent } from '../app/loginform/loginform.component';
 import { DashboardComponent } from '../app/dashboard/dashboard.component';
 import {BookingformComponent} from '../app/bookingform/bookingform.component';
-import {ServicedetailsComponent} from '../app/servicedetails/servicedetails.component';
 import {ProfileformComponent} from '../app/profileform/profileform.component';
 import{ConfirmcancelComponent} from '../app/confirmcancel/confirmcancel.component';
 import {RequestdetailsComponent} from '../app/requestdetails/requestdetails.component';
@@ -20,16 +19,9 @@ import { WashingmachinedetailsComponent } from './washingmachinedetails/washingm
 import { TelevisiondetailsComponent } from './televisiondetails/televisiondetails.component';
 import { ApplianceCleaningComponent } from './appliance-cleaning/appliance-cleaning.component';
 import { AirconCleaningComponent } from './aircon-cleaning/aircon-cleaning.component';
-import { RefrigeratorCleaningComponent } from './refrigerator-cleaning/refrigerator-cleaning.component';
-import { ElectricfanCleaningComponent } from './electricfan-cleaning/electricfan-cleaning.component';
-import { WashingmachineCleaningComponent } from './washingmachine-cleaning/washingmachine-cleaning.component';
-import { TelevisionCleaningComponent } from './television-cleaning/television-cleaning.component';
 import { ApplianceInstallComponent } from './appliance-install/appliance-install.component';
 import { AirconInstallComponent } from './aircon-install/aircon-install.component';
-import { RefrigeratorInstallComponent } from './refrigerator-install/refrigerator-install.component';
-import { ElectricfanInstallComponent } from './electricfan-install/electricfan-install.component';
 import { WashingmachineInstallComponent } from './washingmachine-install/washingmachine-install.component';
-import { TelevisionInstallComponent } from './television-install/television-install.component';
 import { BookingsummaryComponent } from './bookingsummary/bookingsummary.component';
 import { AddtechComponent } from './addtech/addtech.component';
 import { EditAddressComponent } from './edit-address/edit-address.component';
@@ -60,7 +52,6 @@ const routes: Routes = [
   { path: 'login', component: LoginformComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'booking', component: BookingformComponent },
-  { path: 'servicedetails', component: ServicedetailsComponent },
   { path: 'profile', component: ProfileformComponent },
   { path: 'confirmcancel', component: ConfirmcancelComponent },
   { path: 'requestdetails/:id', component: RequestdetailsComponent },
@@ -78,16 +69,9 @@ const routes: Routes = [
   { path: 'television-repair', component: TelevisiondetailsComponent },
   { path: 'cleaning', component: ApplianceCleaningComponent },
   { path: 'aircon-cleaning', component: AirconCleaningComponent },
-  { path: 'refrigerator-cleaning', component: RefrigeratorCleaningComponent },
-  { path: 'electricfan-cleaning', component: ElectricfanCleaningComponent },
-  { path: 'washingmachine-cleaning', component: WashingmachineCleaningComponent },
-  { path: 'television-cleaning', component: TelevisionCleaningComponent },
   { path: 'installation', component: ApplianceInstallComponent },
   { path: 'aircon-installation', component: AirconInstallComponent },
-  { path: 'refrigerator-installation', component: RefrigeratorInstallComponent },
-  { path: 'electricfan-installation', component: ElectricfanInstallComponent },
   { path: 'washingmachine-installation', component: WashingmachineInstallComponent },
-  { path: 'television-installation', component: TelevisionInstallComponent },
   { path: 'summary', component: BookingsummaryComponent },
   { path: 'add_technician', component: AddtechComponent },
   { path: 'edit_address', component: EditAddressComponent },

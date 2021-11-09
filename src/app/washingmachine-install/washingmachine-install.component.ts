@@ -8,8 +8,6 @@ import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
 import { SharedService } from '../shared/shared.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { RepairFeeComponent } from '../repair-fee/repair-fee.component';
-import { InstallFeeComponent } from '../install-fee/install-fee.component';
 import { InstallFeeWashingComponent } from '../install-fee-washing/install-fee-washing.component';
 
 declare const L: any;
@@ -30,7 +28,10 @@ export class WashingmachineInstallComponent implements OnInit {
   service_unitType = "None";
   service_unitProb = "None";
   status = "Pending";
-  chupfee = "200.00";
+  chupfee = 200;
+  topload = 950;
+  frontload = 950;
+  twintub = 950;
   id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
   
@@ -48,7 +49,7 @@ export class WashingmachineInstallComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-  wm_type: any[] = ["Top Load", "Front Load", "Twin Tub", "I don't know"];
+  wm_type: any[] = ["Top Load", "Front Load", "Twin Tub"];
 
   wm_brand: any[] = ["Aiwa", "American Home", "Asahi", "Camel",
     "Carrier", "Coldfront", "Condura", "Daikin", "Everest",
@@ -85,7 +86,7 @@ export class WashingmachineInstallComponent implements OnInit {
     this.locationForm = this._formBuilder.group({
       service_city: ['', Validators.required],
       service_property_type: ['', Validators.required],
-      service_zipcode: [null, Validators.required]
+      service_barangay: [null, Validators.required]
     });
 
     this.scheduleForm = this._formBuilder.group({
@@ -204,7 +205,7 @@ export class WashingmachineInstallComponent implements OnInit {
     if (this.locationForm.valid) {
       this.shared.changeCity(this.locationForm.value.service_city);
       this.shared.changeType(this.locationForm.value.service_property_type);
-      this.shared.changeZipcode(this.locationForm.value.service_zipcode);
+      this.shared.changebarangay(this.locationForm.value.service_barangay);
     } else {
       return;
     }
@@ -226,6 +227,17 @@ export class WashingmachineInstallComponent implements OnInit {
       const loc = this.locationForm.value;
       const sched = this.scheduleForm.value;
       const contact = this.contactDetialsForm.value;
+      if(unit.service_aptype == "Top Load"){
+        var installfee = this.topload
+
+      }
+      else if(unit.service_aptype == "Front Load"){
+        var installfee = this.frontload
+
+      }
+      else if(unit.service_aptype == "Twin Tub"){
+        var installfee = this.twintub
+      }
       let body = {
         "service_type": this.service_type,
         "service_appliance": this.service_appliance,
@@ -235,7 +247,7 @@ export class WashingmachineInstallComponent implements OnInit {
         "service_unitProb": this.service_unitProb,
         "service_city": loc.service_city,
         "service_property_type": loc.service_property_type,
-        "service_zipcode": loc.service_zipcode,
+        "service_barangay": loc.service_barangay,
         "service_date": sched.service_date,
         "service_timeslot": sched.service_timeslot,
         "service_address": contact.service_address,
@@ -245,7 +257,8 @@ export class WashingmachineInstallComponent implements OnInit {
         "service_addressDetails": contact.service_addressDetails,
         "service_instruction": contact.service_instruction,
         "status": this.status,
-        "checkupfee": this.chupfee
+        "checkupfee": this.chupfee,
+        "installfee": installfee
       }
       const httpOptions = {
         headers: new HttpHeaders({
@@ -256,6 +269,7 @@ export class WashingmachineInstallComponent implements OnInit {
         this.http.post("http://localhost:3000/NewServiceRequest/repair", body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Booking Success');
+            localStorage.setItem("service", JSON.stringify(data));
             this.router.navigate(['/summary'])
           }, error => {
             console.log(error);
