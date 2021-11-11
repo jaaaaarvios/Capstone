@@ -6,12 +6,16 @@
       <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
     <br>
-    <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+  
     <mat-nav-list class="nav-list">
+
+      <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+
+
       <div class="dashboardside">
         <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
-          <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
+          <mat-icon class="nav-icon" aria-hidden="false" aria-label>home</mat-icon>
+          <a class="dashboard-btn" routerLink="/dashboard">Home</a>
         </mat-list-item>
       </div>
       <div class="bookingside">
@@ -26,46 +30,52 @@
           <a class="profile-btn" routerLink="/profile">Profile</a>
         </mat-list-item>
       </div>
-
+     
       <div class="logoutside">
         <mat-list-item (click)="closeSideNav()">
           <mat-icon class="nav-icon">exit_to_app</mat-icon>
           <a class="logout-btn" (click)="logout()">Logout</a>
-
         </mat-list-item>
-      </div>
-    </mat-nav-list>
+        </div>
+
+      </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+<mat-sidenav-content>
     <mat-toolbar>
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <h1 class="ayosgamit">Ayosgamit</h1>
-      <span class="spacer"></span>
 
-      <h2 class="welcome">Welcome, {{fname}} {{lname}}!</h2>
+      <div>
+        <h1 class="dashtitle">Welcome to AyosGamit!</h1>
+        <label class="dashtitle2">Hire trained and certified technicians.</label>
+
+        <button mat-raised-button class="startBtn">Get Started</button>
+      </div>
+
 
     </mat-toolbar>
 
-    <div class="container">
-
-      <div>
-        <h1 class="dashtitle">Dashboard</h1>
+  <div>
+    <mat-card class="customerinfo">
+      <div class="information">
+        <label class="fullname">Full Name</label>
+        <label class="contact">Contact Number</label>
+        <label class="email">Email</label>
+        <label class="address">Address</label>
       </div>
-      <div class="datetime">
-        <label>{{date | date: "MMMM dd, yyyy "}}</label>
-        <label>({{date | date: "h:mm:a'"}})</label>
+      <div class="information">
+        <label class="fullname">Full Name</label>
+        <label class="contact">Contact Number</label>
+        <label class="email">Email</label>
+        <label class="address">Address</label>
       </div>
 
-
-      <div>
-        <img class="dashvector" mat-card-image src="../../assets/homebg1.png">
-      </div>
-
-    </div>
+    </mat-card>
+  </div>
+    
 
     <mat-tab-group class="tab">
       <mat-tab label="Pending Requests">

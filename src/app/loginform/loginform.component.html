@@ -20,14 +20,12 @@
     <button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button>
 </mat-toolbar>
   <mat-card class="card">
-    <div>
-      <img class="logo" mat-card-image src="../../assets/mainlogo.png">
-    </div>
+    
 
     <div class="container">
       <mat-tab-group>
-        <!-- SIGNIN TAB------------------------------------------------------------ -->
-        <mat-tab class="loginTab" label="Sign In">
+        <!-- LOGIN TAB------------------------------------------------------------ -->
+        <mat-tab class="loginTab" label="Login">
           <form [formGroup]="userForm" (ngSubmit)="onClickSubmit()">
             <!--<div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true"></div>
             <h1>OR</h1>-->
