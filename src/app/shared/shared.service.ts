@@ -19,7 +19,7 @@ export class SharedService {
 
   service_city: any;
   service_property_type: any;
-  service_zipcode: number;
+  service_barangay: number;
   service_date: any;
   service_timeslot: any;
   service_address: any;
@@ -47,8 +47,8 @@ export class SharedService {
   private property_typeSource = new BehaviorSubject('None');
   currentPropertyType = this.property_typeSource.asObservable();
 
-  private zipcodeSource = new BehaviorSubject("None");
-  currentZipcode = this.zipcodeSource.asObservable();
+  private barangaySource = new BehaviorSubject("None");
+  currentbarangay = this.barangaySource.asObservable();
 
   private dateSource = new BehaviorSubject("None");
   currentDate = this.dateSource.asObservable();
@@ -138,8 +138,8 @@ export class SharedService {
   changeType(service_property_type: string) {
     this.property_typeSource.next(service_property_type)
   }
-  changeZipcode(service_zipcode: string) {
-    this.zipcodeSource.next(service_zipcode)
+  changebarangay(service_barangay: string) {
+    this.barangaySource.next(service_barangay)
   }
   changeDate(service_date: string) {
     this.dateSource.next(service_date)

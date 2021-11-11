@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -26,20 +26,27 @@ export class RequestdetailsAdminComponent implements OnInit {
   disabled = false;
   id: any;
   data: any;
+  token = JSON.parse(localStorage.getItem('token'));
 
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver, private router: Router
     , private http: HttpClient, private route: ActivatedRoute, private auth: AuthService) { }
 
   ngOnInit(): void {
 
+    if (localStorage.getItem("firstname") == null) {
+      this.router.navigate(['/home'])
+    }
     this.id = this.route.snapshot.params['id'];
-    this.getOne();
-  }
-
-  getOne() {
-    this.auth.getOne(this.id).subscribe(data => {
-      this.data = data
-    })
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/NewServiceRequest/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.data = result;
+    });
   }
 
   logout() {
@@ -52,13 +59,18 @@ export class RequestdetailsAdminComponent implements OnInit {
       this.drawer.close();
     }
   }
-   approvedRequest(){
+  approvedRequest() {
     var retVal = confirm("Do you really want to approve the request ?");
     if (retVal == true) {
       let body = {
         "status": "Pending (Approved)",
       }
-      this.http.patch("http://localhost:3000/NewServiceRequest/status/" + this.id, body)
+      const httpOptions = {
+        headers: new HttpHeaders({
+          "x-access-token": this.token
+        })
+      }
+      this.http.patch("http://localhost:3000/NewServiceRequest/status/" + this.id, body, httpOptions)
         .subscribe(data => {
           this.router.navigate(['/admin']);
         }, error => {
@@ -68,13 +80,18 @@ export class RequestdetailsAdminComponent implements OnInit {
     }
 
   }
-  rejectRequest(){
+  rejectRequest() {
     var retVal = confirm("Do you really want to reject the request ?");
     if (retVal == true) {
       let body = {
         "status": "Rejected",
       }
-      this.http.patch("http://localhost:3000/NewServiceRequest/status/" + this.id, body)
+      const httpOptions = {
+        headers: new HttpHeaders({
+          "x-access-token": this.token
+        })
+      }
+      this.http.patch("http://localhost:3000/NewServiceRequest/status/" + this.id, body, httpOptions)
         .subscribe(data => {
           this.router.navigate(['/admin']);
         }, error => {

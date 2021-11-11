@@ -7,7 +7,7 @@ import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
 import { SharedService } from '../shared/shared.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RepairFeeComponent } from '../repair-fee/repair-fee.component';
 
 declare const L: any;
@@ -32,6 +32,7 @@ export class WashingmachinedetailsComponent implements OnInit {
   chupfee = "200.00";
 
   id = JSON.parse(localStorage.getItem('id'));
+  token = JSON.parse(localStorage.getItem('token'));
 
   matcher = new MyErrorStateMatcher();
 
@@ -90,7 +91,7 @@ export class WashingmachinedetailsComponent implements OnInit {
     this.locationForm = this._formBuilder.group({
       service_city: ['', Validators.required],
       service_property_type: ['', Validators.required],
-      service_zipcode: [null, Validators.required]
+      service_barangay: [null, Validators.required]
     });
 
     this.scheduleForm = this._formBuilder.group({
@@ -106,8 +107,14 @@ export class WashingmachinedetailsComponent implements OnInit {
       service_addressDetails: ['', Validators.required],
       service_instruction: ['', Validators.required],
     });
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
     let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id);
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
     data.subscribe(result => {
       this.contactDetialsForm.setValue({
         service_address: result.service_address,
@@ -205,7 +212,7 @@ export class WashingmachinedetailsComponent implements OnInit {
     if (this.locationForm.valid) {
       this.shared.changeCity(this.locationForm.value.service_city);
       this.shared.changeType(this.locationForm.value.service_property_type);
-      this.shared.changeZipcode(this.locationForm.value.service_zipcode);
+      this.shared.changebarangay(this.locationForm.value.service_barangay);
     } else {
       return;
     }
@@ -236,7 +243,7 @@ export class WashingmachinedetailsComponent implements OnInit {
         "service_unitProb": unit.service_unitProb,
         "service_city": loc.service_city,
         "service_property_type": loc.service_property_type,
-        "service_zipcode": loc.service_zipcode,
+        "service_barangay": loc.service_barangay,
         "service_date": sched.service_date,
         "service_timeslot": sched.service_timeslot,
         "service_address": contact.service_address,
@@ -248,11 +255,16 @@ export class WashingmachinedetailsComponent implements OnInit {
         "status": this.status,
         "checkupfee": this.chupfee
       }
-
+      const httpOptions = {
+        headers: new HttpHeaders({
+          "x-access-token": this.token
+        })
+      }
       if (this.contactDetialsForm.valid) {
-        this.http.post("http://localhost:3000/NewServiceRequest/repair", body)
+        this.http.post("http://localhost:3000/NewServiceRequest/repair", body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Booking Success');
+            localStorage.setItem("service", JSON.stringify(data));
             this.router.navigate(['/summary'])
           }, error => {
             console.log(error);
@@ -273,7 +285,5 @@ export class WashingmachinedetailsComponent implements OnInit {
       this.drawer.close();
     }
   }
-
-
 
 }

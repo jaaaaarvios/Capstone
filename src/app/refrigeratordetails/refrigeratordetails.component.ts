@@ -7,7 +7,7 @@ import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
 import { SharedService } from '../shared/shared.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RepairFeeComponent } from '../repair-fee/repair-fee.component';
 
 declare const L: any;
@@ -20,23 +20,23 @@ declare const L: any;
 export class RefrigeratordetailsComponent implements OnInit {
 
   ref_type: any[] = ["Single Door", "Two Door Top Freezer", "Two Door Bottom Freezer",
-   "Multi Door-Shelves", "Chest Freezer", "Single Door Commercial"];
+    "Multi Door-Shelves", "Chest Freezer", "Single Door Commercial"];
 
-  ref_brand: any[] = ["Aiwa", "American Home", "Asahi", "Camel", 
-  "Carrier", "Coldfront", "Condura", "Daikin", "Everest", 
-  "Fujidenzo", "GE", "Concealed", "Gree", "Haeir", 
-  "Hanabishi", "Hisense","Hitachi","Kelvinator","Kolin", 
-  "Koppel", "LG","Lex","Mabe","Midea", "Mitsubishi", "National",
-  "Panasonic","Samsung","Sanyo","Sharp","TCLSSSS","Union","Xtreme",
-  "York", "Other"];
+  ref_brand: any[] = ["Aiwa", "American Home", "Asahi", "Camel",
+    "Carrier", "Coldfront", "Condura", "Daikin", "Everest",
+    "Fujidenzo", "GE", "Concealed", "Gree", "Haeir",
+    "Hanabishi", "Hisense", "Hitachi", "Kelvinator", "Kolin",
+    "Koppel", "LG", "Lex", "Mabe", "Midea", "Mitsubishi", "National",
+    "Panasonic", "Samsung", "Sanyo", "Sharp", "TCLSSSS", "Union", "Xtreme",
+    "York", "Other"];
 
   ref_unitType: any[] = ["Inverter", "Non-Inverter", "I don't know"];
 
   ref_unitProblem: any[] = ["Freezer is cold but refrigerator warm", "Refrigerator is freezing food",
-   "Making noise", "Ice and or Water dispenser is not working", "Temperature control not working", 
-   "Refrigerator light is not workin", "Other", "I don't know"];
+    "Making noise", "Ice and or Water dispenser is not working", "Temperature control not working",
+    "Refrigerator light is not workin", "Other", "I don't know"];
 
-   unitdetailsForm: FormGroup;
+  unitdetailsForm: FormGroup;
   locationForm: FormGroup;
   scheduleForm: FormGroup;
   contactDetialsForm: FormGroup;
@@ -46,7 +46,9 @@ export class RefrigeratordetailsComponent implements OnInit {
   service_type = "Repair";
   status = "Pending";
   chupfee = "200.00";
-  id=JSON.parse(localStorage.getItem('id'));
+  id = JSON.parse(localStorage.getItem('id'));
+  token = JSON.parse(localStorage.getItem('token'));
+
 
   matcher = new MyErrorStateMatcher();
 
@@ -64,20 +66,20 @@ export class RefrigeratordetailsComponent implements OnInit {
 
 
   constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog,
-     private shared: SharedService, private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
+    private shared: SharedService, private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
 
-     openDialog() {
-      const dialogRef = this.dialog.open(RepairFeeComponent);
-  
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
-    }
-    logout(){
-      localStorage.clear();
-      this.router.navigate(['/home'])
-    }
+  openDialog() {
+    const dialogRef = this.dialog.open(RepairFeeComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
   ngOnInit(): void {
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
@@ -109,18 +111,23 @@ export class RefrigeratordetailsComponent implements OnInit {
       service_instruction: ['', Validators.required],
     });
 
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id);
-      data.subscribe(result => {
-        this.contactDetialsForm.setValue({
-          service_address: result.service_address,
-          service_firstname: result.first_name,
-          service_lastname: result.last_name,
-          service_phoneNumber: result.number ,
-          service_addressDetails: result.service_addressDetails,
-          service_instruction: ""
-        });
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.contactDetialsForm.setValue({
+        service_address: result.service_address,
+        service_firstname: result.first_name,
+        service_lastname: result.last_name,
+        service_phoneNumber: result.number,
+        service_addressDetails: result.service_addressDetails,
+        service_instruction: ""
       });
+    });
 
     if (!navigator.geolocation) {
       console.log('location is not supported');
@@ -193,7 +200,7 @@ export class RefrigeratordetailsComponent implements OnInit {
   labelPosition: 'before' | 'after' = 'after';
   disabled = false;
 
-  unitdetailsSubmit(){
+  unitdetailsSubmit() {
     if (this.unitdetailsForm.valid) {
       this.shared.changeACType(this.unitdetailsForm.value.service_aptype);
       this.shared.changeACBrand(this.unitdetailsForm.value.service_brand);
@@ -208,7 +215,7 @@ export class RefrigeratordetailsComponent implements OnInit {
     if (this.locationForm.valid) {
       this.shared.changeCity(this.locationForm.value.service_city);
       this.shared.changeType(this.locationForm.value.service_property_type);
-      this.shared.changeZipcode(this.locationForm.value.service_zipcode);
+      this.shared.changebarangay(this.locationForm.value.service_zipcode);
     } else {
       return;
     }
@@ -225,7 +232,7 @@ export class RefrigeratordetailsComponent implements OnInit {
 
   contactDetailsSubmit() {
     var retVal = confirm("Are you sure you want to proceed ?");
-    if( retVal == true ) {
+    if (retVal == true) {
       const unit = this.unitdetailsForm.value;
       const loc = this.locationForm.value;
       const sched = this.scheduleForm.value;
@@ -251,11 +258,16 @@ export class RefrigeratordetailsComponent implements OnInit {
         "status": this.status,
         "checkupfee": this.chupfee
       }
-  
+      const httpOptions = {
+        headers: new HttpHeaders({
+          "x-access-token": this.token
+        })
+      }
       if (this.contactDetialsForm.valid) {
-        this.http.post("http://localhost:3000/NewServiceRequest/repair", body)
+        this.http.post("http://localhost:3000/NewServiceRequest/repair", body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Booking Success');
+            localStorage.setItem("service", JSON.stringify(data));
             this.router.navigate(['/summary'])
           }, error => {
             console.log(error);
@@ -265,12 +277,12 @@ export class RefrigeratordetailsComponent implements OnInit {
       else {
         return;
       }
-       return true;
+      return true;
     } else {
-       return false;
+      return false;
     }
   }
-  
+
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();

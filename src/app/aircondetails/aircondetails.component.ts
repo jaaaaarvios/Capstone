@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
 import { SharedService } from '../shared/shared.service';
 import { RepairFeeComponent } from '../repair-fee/repair-fee.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 
 
@@ -21,7 +21,7 @@ declare const L: any;
 })
 
 export class AircondetailsComponent implements OnInit {
-  
+
   ac_type: any[] = ["Split Type", "Window Type", "Tower", "Cassette",
     "Suspended", "Concealed"];
 
@@ -49,7 +49,8 @@ export class AircondetailsComponent implements OnInit {
   service_type = "Repair";
   status = "Pending";
   chupfee = "200.00";
-  id=JSON.parse(localStorage.getItem('id'));
+  id = JSON.parse(localStorage.getItem('id'));
+  token = JSON.parse(localStorage.getItem('token'));
 
   matcher = new MyErrorStateMatcher();
 
@@ -65,7 +66,7 @@ export class AircondetailsComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog,private route: ActivatedRoute,
+  constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog, private route: ActivatedRoute,
     private auth: AuthService, private shared: SharedService, private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
   openDialog() {
@@ -76,11 +77,11 @@ export class AircondetailsComponent implements OnInit {
     });
   }
 
-  logout(){
+  logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
-  
+
   ngOnInit(): void {
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
@@ -95,7 +96,7 @@ export class AircondetailsComponent implements OnInit {
     this.locationForm = this._formBuilder.group({
       service_city: ['', Validators.required],
       service_property_type: ['', Validators.required],
-      service_zipcode: [null, Validators.required]
+      service_barangay: [null, Validators.required]
     });
 
     this.scheduleForm = this._formBuilder.group({
@@ -112,18 +113,23 @@ export class AircondetailsComponent implements OnInit {
       service_instruction: ['', Validators.required],
     });
 
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id);
-      data.subscribe(result => {
-        this.contactDetialsForm.setValue({
-          service_address: result.service_address,
-          service_firstname: result.first_name,
-          service_lastname: result.last_name,
-          service_phoneNumber: result.number ,
-          service_addressDetails: result.service_addressDetails,
-          service_instruction: ""
-        });
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.contactDetialsForm.setValue({
+        service_address: result.service_address,
+        service_firstname: result.first_name,
+        service_lastname: result.last_name,
+        service_phoneNumber: result.number,
+        service_addressDetails: result.service_addressDetails,
+        service_instruction: ""
       });
+    });
 
     if (!navigator.geolocation) {
       console.log('location is not supported');
@@ -198,10 +204,7 @@ export class AircondetailsComponent implements OnInit {
 
   unitdetailsSubmit() {
     if (this.unitdetailsForm.valid) {
-      this.shared.changeACType(this.unitdetailsForm.value.service_aptype);
-      this.shared.changeACBrand(this.unitdetailsForm.value.service_brand);
-      this.shared.changeACUType(this.unitdetailsForm.value.service_unitType);
-      this.shared.changeACUProb(this.unitdetailsForm.value.service_unitProb);
+
     } else {
       return;
     }
@@ -209,9 +212,7 @@ export class AircondetailsComponent implements OnInit {
 
   locationSubmit() {
     if (this.locationForm.valid) {
-      this.shared.changeCity(this.locationForm.value.service_city);
-      this.shared.changeType(this.locationForm.value.service_property_type);
-      this.shared.changeZipcode(this.locationForm.value.service_zipcode);
+
     } else {
       return;
     }
@@ -219,8 +220,7 @@ export class AircondetailsComponent implements OnInit {
 
   schedSubmit() {
     if (this.scheduleForm.valid) {
-      this.shared.changeDate(this.scheduleForm.value.service_date);
-      this.shared.changeTimeslot(this.scheduleForm.value.service_timeslot);
+
     } else {
       return;
     }
@@ -242,7 +242,7 @@ export class AircondetailsComponent implements OnInit {
         "service_unitProb": unit.service_unitProb,
         "service_city": loc.service_city,
         "service_property_type": loc.service_property_type,
-        "service_zipcode": loc.service_zipcode,
+        "service_barangay": loc.service_barangay,
         "service_date": sched.service_date,
         "service_timeslot": sched.service_timeslot,
         "service_address": contact.service_address,
@@ -254,11 +254,16 @@ export class AircondetailsComponent implements OnInit {
         "status": this.status,
         "checkupfee": this.chupfee
       }
-
+      const httpOptions = {
+        headers: new HttpHeaders({
+          "x-access-token": this.token
+        })
+      }
       if (this.contactDetialsForm.valid) {
-        this.http.post("http://localhost:3000/NewServiceRequest/repair", body)
+        this.http.post("http://localhost:3000/NewServiceRequest/repair", body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Booking Success');
+            localStorage.setItem("service", JSON.stringify(data));
             this.router.navigate(['/summary'])
           }, error => {
             console.log(error);

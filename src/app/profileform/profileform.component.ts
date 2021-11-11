@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -13,6 +13,7 @@ import { map } from 'rxjs/operators';
 export class ProfileformComponent implements OnInit {
 
   id=JSON.parse(localStorage.getItem('id'));
+  token = JSON.parse(localStorage.getItem('token'));
   fname="";
   lname="";
   email="";
@@ -34,8 +35,13 @@ export class ProfileformComponent implements OnInit {
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
     let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id);
+      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id, httpOptions);
       data.subscribe(result => {
         this.fname = result.first_name;
         this.lname = result.last_name;

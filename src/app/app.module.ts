@@ -34,21 +34,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookingformComponent } from './bookingform/bookingform.component';
 import { AppliancesComponent } from './appliances/appliances.component';
 import { ProfileformComponent } from './profileform/profileform.component';
-import { ElectricalComponent } from './electrical/electrical.component';
 import { AircondetailsComponent } from './aircondetails/aircondetails.component';
-import { ServicedetailsComponent } from './servicedetails/servicedetails.component';
 import { RequestdetailsComponent } from './requestdetails/requestdetails.component';
 import { RescheduleComponent } from './reschedule/reschedule.component';
 import { ConfirmcancelComponent } from './confirmcancel/confirmcancel.component';
 import { CancelreasonsComponent } from './cancelreasons/cancelreasons.component';
 import { PaymentformComponent } from './paymentform/paymentform.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
-import { EmployeesComponent } from './employees/employees.component';
 import { RefrigeratordetailsComponent } from './refrigeratordetails/refrigeratordetails.component';
 import { ElectricfandetailsComponent } from './electricfandetails/electricfandetails.component';
 import { WashingmachinedetailsComponent } from './washingmachinedetails/washingmachinedetails.component';
-import { HousecleaningComponent } from './housecleaning/housecleaning.component';
-import { GencleaningdetailsComponent } from './gencleaningdetails/gencleaningdetails.component';
 import { TelevisiondetailsComponent } from './televisiondetails/televisiondetails.component';
 import { TechniciansComponent } from './technicians/technicians.component';
 import { TechprofileComponent } from './techprofile/techprofile.component';
@@ -57,16 +52,9 @@ import { AddtechComponent } from './addtech/addtech.component';
 import { BookingsummaryComponent } from './bookingsummary/bookingsummary.component';
 import { ApplianceCleaningComponent } from './appliance-cleaning/appliance-cleaning.component';
 import { AirconCleaningComponent } from './aircon-cleaning/aircon-cleaning.component';
-import { RefrigeratorCleaningComponent } from './refrigerator-cleaning/refrigerator-cleaning.component';
-import { ElectricfanCleaningComponent } from './electricfan-cleaning/electricfan-cleaning.component';
-import { WashingmachineCleaningComponent } from './washingmachine-cleaning/washingmachine-cleaning.component';
-import { TelevisionCleaningComponent } from './television-cleaning/television-cleaning.component';
 import { ApplianceInstallComponent } from './appliance-install/appliance-install.component';
 import { AirconInstallComponent } from './aircon-install/aircon-install.component';
-import { RefrigeratorInstallComponent } from './refrigerator-install/refrigerator-install.component';
-import { ElectricfanInstallComponent } from './electricfan-install/electricfan-install.component';
 import { WashingmachineInstallComponent } from './washingmachine-install/washingmachine-install.component';
-import { TelevisionInstallComponent } from './television-install/television-install.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { EditAddressComponent } from './edit-address/edit-address.component';
@@ -107,21 +95,16 @@ import { RequestCompleteComponent } from './request-complete/request-complete.co
     BookingformComponent,
     AppliancesComponent,
     ProfileformComponent,
-    ElectricalComponent,
     AircondetailsComponent,
-    ServicedetailsComponent,
     RequestdetailsComponent,
     RescheduleComponent,
     ConfirmcancelComponent,
     CancelreasonsComponent,
     PaymentformComponent,
     AdminpageComponent,
-    EmployeesComponent,
     RefrigeratordetailsComponent,
     ElectricfandetailsComponent,
     WashingmachinedetailsComponent,
-    HousecleaningComponent,
-    GencleaningdetailsComponent,
     TelevisiondetailsComponent,
     TechniciansComponent,
     TechprofileComponent,
@@ -130,16 +113,9 @@ import { RequestCompleteComponent } from './request-complete/request-complete.co
     BookingsummaryComponent,
     ApplianceCleaningComponent,
     AirconCleaningComponent,
-    RefrigeratorCleaningComponent,
-    ElectricfanCleaningComponent,
-    WashingmachineCleaningComponent,
-    TelevisionCleaningComponent,
     ApplianceInstallComponent,
     AirconInstallComponent,
-    RefrigeratorInstallComponent,
-    ElectricfanInstallComponent,
     WashingmachineInstallComponent,
-    TelevisionInstallComponent,
     StarRatingComponent,
     EditAddressComponent,
     EditProfileComponent,
@@ -174,7 +150,6 @@ import { RequestCompleteComponent } from './request-complete/request-complete.co
     ReactiveFormsModule,
     LayoutModule,
     HttpClientModule,
-
     MatButtonModule,
     MatBadgeModule,
     MatCardModule,

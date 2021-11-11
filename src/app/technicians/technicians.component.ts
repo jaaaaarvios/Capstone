@@ -28,7 +28,9 @@ export class TechniciansComponent implements OnInit {
     this.router.navigate(['/add_technician']);
   }
   ngOnInit(): void {
-
+    if (localStorage.getItem("firstname") == null) {
+      this.router.navigate(['/home'])
+    }
     let data:Observable<any>;
       data = this.http.get('http://localhost:3000/technician');
       data.subscribe(result => {

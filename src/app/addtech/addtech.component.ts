@@ -38,6 +38,9 @@ export class AddtechComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem("firstname") == null) {
+      this.router.navigate(['/home'])
+    }
     this.addTech = this.formBuilder.group({
       tech_specialization: this.formBuilder.array([], [Validators.required]),
       tech_name: ['', Validators.required],

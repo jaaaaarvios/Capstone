@@ -194,7 +194,7 @@ color: #FFFFFF;
  {
    margin-top: 15px;
    width: fit-content;
-   height: 400px;
+   height: fit-content;
    border: 2px solid #E5E5E5;
  }
  
@@ -209,7 +209,7 @@ color: #FFFFFF;
  {
    margin-top: 15px;
    width: fit-content;
-   height: 400px;
+   height: fit-content;
    border: 2px solid #E5E5E5;
  }
  
@@ -223,8 +223,8 @@ color: #FFFFFF;
  .completedreq
 {
   margin-top: 15px;
-  width: 1290fit-contentpx;
-  height: 400px;
+  width: fit-content;
+  height: fit-content;
   border: 2px solid #E5E5E5;
 }
 
@@ -239,7 +239,7 @@ color: #FFFFFF;
 {
   margin-top: 15px;
   width: fit-content;
-  height: 400px;
+  height: fit-content;
   border: 2px solid #E5E5E5;
 }
 

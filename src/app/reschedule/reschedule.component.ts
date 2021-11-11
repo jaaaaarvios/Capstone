@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,6 +14,7 @@ export class RescheduleComponent implements OnInit {
 
   scheduleForm: FormGroup;
   id: any;
+  token = JSON.parse(localStorage.getItem('token'));
 
   constructor(public dialog: MatDialog, private http: HttpClient,
     private router: Router, private _formBuilder: FormBuilder,  private route: ActivatedRoute) { }
@@ -28,14 +29,6 @@ export class RescheduleComponent implements OnInit {
     }
     this.id = this.route.snapshot.params['id'];
   }
-  // openDialog(){
-  //   const dialogRef = this.dialog.open(ConfirmcancelComponent);
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //     this.router.navigate(['/dashboard'])
-  //   });
-  // }
 
   schedSubmit() {
     const sched = this.scheduleForm.value;
@@ -47,7 +40,12 @@ export class RescheduleComponent implements OnInit {
     if (this.scheduleForm.valid) {
       var retVal = confirm("Are you sure you want to reschedule?");
       if (retVal == true) {
-        this.http.patch("http://localhost:3000/NewServiceRequest/schedule/" + this.id, body)
+        const httpOptions = {
+          headers: new HttpHeaders({
+            "x-access-token": this.token
+          })
+        }
+        this.http.patch("http://localhost:3000/NewServiceRequest/schedule/" + this.id, body, httpOptions)
           .subscribe(data => {
             alert("Rescheduled Success");
             this.router.navigate(['/dashboard'])

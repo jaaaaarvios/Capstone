@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -12,10 +12,12 @@ export class TechprofileComponent implements OnInit {
   id: any;
   data: any;
 
-  constructor(private route: ActivatedRoute, private auth: AuthService) { }
+  constructor(private route: ActivatedRoute, private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-
+    if (localStorage.getItem("firstname") == null) {
+      this.router.navigate(['/home'])
+    }
     this.id = this.route.snapshot.params['id'];
     this.getOne();
   }

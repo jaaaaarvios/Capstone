@@ -278,7 +278,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 .pendingcard
 {
   width: 1000px;
-  height: 500px;
+  height: fit-content;
   margin-top: 15px;
   border: solid 1px grey;
 }

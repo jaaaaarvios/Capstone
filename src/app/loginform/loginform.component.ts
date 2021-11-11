@@ -31,6 +31,7 @@ export class LoginformComponent implements OnInit {
   user_lname = "";
   user_semail = "";
   user_spassword = "";
+  admin = "admin@gmail.com"
 
   public showPassword: boolean;
   public showPasswordOnPress: boolean;
@@ -80,26 +81,29 @@ export class LoginformComponent implements OnInit {
       user_spassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw), Validators.maxLength(this.maxPw)]),
     });
 
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB');
-      data.subscribe(result => {
-        this.items = result
-        console.log(this.items)
-      });
-
   }
 
   onClickSubmit() {
 
     const val = this.userForm.value;
 
-    if(this.userForm.valid){
+    if(val.email === this.admin){
       this.auth.login(val).subscribe(result => {
         if(result) {
           localStorage.setItem("id", JSON.stringify(result._id));
-          // localStorage.setItem("password", JSON.stringify(result.password));
-          // localStorage.setItem("first_name", JSON.stringify(result.first_name));
-          // localStorage.setItem("last_name", JSON.stringify(result.last_name));
+          localStorage.setItem("firstname", JSON.stringify(result.first_name));
+          localStorage.setItem("token", JSON.stringify(result.token));
+          alert(result.message);
+          this.router.navigate(['/admin'])
+        }
+      }), error => {
+        console.log(error);
+      }
+    }
+    else if(val.email != this.admin){
+      this.auth.login(val).subscribe(result => {
+        if(result) {
+          localStorage.setItem("id", JSON.stringify(result._id));
           localStorage.setItem("token", JSON.stringify(result.token));
           console.log(result);
           alert(result.message);
@@ -108,9 +112,6 @@ export class LoginformComponent implements OnInit {
       }), error => {
         console.log(error);
       }
-    }
-    else if (val.email == "" && val.password == "") {
-      alert("Invalid Information. Please try again.");
     }
     else {
       alert("Invalid Information. Please try again.");

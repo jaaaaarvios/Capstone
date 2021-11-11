@@ -1,7 +1,7 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -15,10 +15,12 @@ import { MyErrorStateMatcher } from '../app.component';
 export class ChangePasswordComponent implements OnInit {
   value = '';
   hide = true;
+  hidee = true;
   minPw = 8;
   maxPw = 15;
   matcher = new MyErrorStateMatcher();
   id = JSON.parse(localStorage.getItem('id'));
+  token = JSON.parse(localStorage.getItem('token'));
   changePassForm: FormGroup;
 
   public showPassword: boolean;
@@ -29,13 +31,14 @@ export class ChangePasswordComponent implements OnInit {
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
-    
+
   constructor(private router: Router, private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
   ngOnInit(): void {
+
     this.changePassForm = new FormGroup({
-      currentPassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw), Validators.maxLength(this.maxPw)]),
       newPassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw), Validators.maxLength(this.maxPw)]),
+      confirmpassword: new FormControl('', [Validators.required]),
     });
 
     if (localStorage.getItem("id") == null) {
@@ -43,7 +46,46 @@ export class ChangePasswordComponent implements OnInit {
     }
   }
 
-  logout(){
+  // getting the form control elements
+  get password(): AbstractControl {
+    return this.changePassForm.controls['newPassword'];
+  }
+
+  get confirm_password(): AbstractControl {
+    return this.changePassForm.controls['confirmpassword'];
+  }
+
+  onPasswordChange() {
+    if (this.confirm_password.value == this.password.value) {
+      this.confirm_password.setErrors(null);
+      let body = {
+        "password": this.password.value,
+      }
+      const httpOptions = {
+        headers: new HttpHeaders({
+          "x-access-token": this.token
+        })
+      }
+      if (this.changePassForm.valid) {
+        this.http.patch("http://localhost:3000/CredentialDB/password/" + this.id, body, httpOptions)
+          .subscribe(data => {
+            console.log(data, 'Update Success');
+            alert("Update Success");
+            this.changePassForm.reset();
+          }, error => {
+            console.log(error);
+            alert(error);
+          });
+      }
+      else {
+        alert('Fill up the required textfields with valid information')
+      }
+    } else {
+      this.confirm_password.setErrors({ mismatch: true });
+    }
+  }
+
+  logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
@@ -54,15 +96,20 @@ export class ChangePasswordComponent implements OnInit {
     }
   }
 
-  changePassSubmit(){
+  changePassSubmit() {
     const cp = this.changePassForm.value;
 
     let body = {
       "password": cp.newPassword,
     }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
 
     if (this.changePassForm.valid) {
-      this.http.patch("http://localhost:3000/CredentialDB/password/"+this.id, body)
+      this.http.patch("http://localhost:3000/CredentialDB/password/" + this.id, body, httpOptions)
         .subscribe(data => {
           console.log(data, 'Update Success');
           alert("Update Success");
