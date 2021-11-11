@@ -7,8 +7,6 @@ import { map } from 'rxjs/operators';
 import { RequestdetailsComponent } from '../requestdetails/requestdetails.component';
 import { SharedService } from '../shared/shared.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { CookieService } from 'ngx-cookie-service';
-import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-dashboard',
