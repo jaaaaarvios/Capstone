@@ -21,6 +21,10 @@ export class DashboardComponent implements OnInit {
   token = JSON.parse(localStorage.getItem('token'))
   fname="";
   lname="";
+  number="";
+  email="";
+  address="";
+
   date: Date;
   subscription: any;
   pending_request = []
@@ -57,6 +61,9 @@ export class DashboardComponent implements OnInit {
     dataa.subscribe(result => {
       this.fname = result.first_name;
       this.lname = result.last_name;
+      this.email = result.email;
+      this.number = result.number;
+      this.address = result.service_address
     });
 
     let data: Observable<any>;
