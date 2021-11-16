@@ -29,6 +29,8 @@ export class WashingmachineInstallComponent implements OnInit {
   service_unitProb = "None";
   status = "Pending";
   chupfee = 200;
+  unitfee = 0;
+  cleanfee = 0;
   topload = 950;
   frontload = 950;
   twintub = 950;
@@ -258,7 +260,9 @@ export class WashingmachineInstallComponent implements OnInit {
         "service_instruction": contact.service_instruction,
         "status": this.status,
         "checkupfee": this.chupfee,
-        "installfee": installfee
+        "installfee": installfee,
+        "cleaningfee": this.cleanfee,
+        "unitfee": this.unitfee
       }
       const httpOptions = {
         headers: new HttpHeaders({

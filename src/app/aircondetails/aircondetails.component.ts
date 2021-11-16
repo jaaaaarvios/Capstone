@@ -48,7 +48,11 @@ export class AircondetailsComponent implements OnInit {
   service_appliance = "Aircon";
   service_type = "Repair";
   status = "Pending";
-  chupfee = "200.00";
+  chupfee = 200;
+  installfee = 0;
+  cleanfee = 0;
+  unitfee = 0;
+  inverter = 200;
   id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
 
@@ -226,6 +230,11 @@ export class AircondetailsComponent implements OnInit {
       const loc = this.locationForm.value;
       const sched = this.scheduleForm.value;
       const contact = this.contactDetialsForm.value;
+      if(unit.service_unitType == "Inverter"){
+        var inverter = this.inverter
+      } else if (unit.service_unitType != "Inverter"){
+        var inverter = this.unitfee
+      }
       let body = {
         "service_type": this.service_type,
         "service_appliance": this.service_appliance,
@@ -245,7 +254,10 @@ export class AircondetailsComponent implements OnInit {
         "service_addressDetails": contact.service_addressDetails,
         "service_instruction": contact.service_instruction,
         "status": this.status,
-        "checkupfee": this.chupfee
+        "checkupfee": this.chupfee,
+        "cleaningfee": this.cleanfee,
+        "installfee": this.installfee,
+        "unitfee": inverter
       }
       const httpOptions = {
         headers: new HttpHeaders({

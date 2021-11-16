@@ -22,11 +22,7 @@ export class BookingsummaryComponent implements OnInit {
   indeterminate = false;
   labelPosition: 'before' | 'after' = 'after';
   disabled = false;
-  repairtotal = this.service.checkupfee;
-  installtotal = this.service.checkupfee + this.service.installfee + this.service.unitfee
-  installtotal1 = this.service.checkupfee + this.service.installfee
-  cleaningtotal = this.service.checkupfee + this.service.cleaningfee + this.service.unitfee
-  cleaningtotal1 = this.service.checkupfee + this.service.cleaningfee
+  total = this.service.checkupfee + this.service.installfee + this.service.unitfee + this.service.cleaningfee;
   
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';

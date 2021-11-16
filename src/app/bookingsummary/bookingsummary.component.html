@@ -122,37 +122,25 @@
         <td class="body3">{{service.service_unitType}}</td>
         <td class="price1">
           &#8369;{{service.checkupfee}}.00
-          <div *ngIf="service.installfee != null; then install else install1"></div>
-          <ng-template #install> + &#8369;{{service.installfee}}.00</ng-template>
-          <ng-template #install1></ng-template>
-          <div *ngIf="service.cleaningfee != null; then cleaning else cleaning1"></div>
-          <ng-template #cleaning> + &#8369;{{service.cleaningfee}}.00</ng-template>
-          <ng-template #cleaning1></ng-template>
-          <div *ngIf="service.unitfee != null; then unit else unit1"></div>
-          <ng-template #unit> + &#8369;{{service.unitfee}}.00</ng-template>
-          <ng-template #unit1></ng-template>
+          <div *ngIf="service.installfee == 0; then install else install1"></div>
+          <ng-template #install1> + &#8369;{{service.installfee}}.00</ng-template>
+          <ng-template #install>  </ng-template>
+
+          <div *ngIf="service.cleaningfee == 0; then cleaning else cleaning1"></div>
+          <ng-template #cleaning1> + &#8369;{{service.cleaningfee}}.00</ng-template>
+          <ng-template #cleaning>  </ng-template>
+
+          <div *ngIf="service.unitfee == 0; then unit else unit1"></div>
+          <ng-template #unit1> + &#8369;{{service.unitfee}}.00</ng-template>
+          <ng-template #unit> </ng-template>
         </td>
       </tr>
     </tbody>
   </table>
 
-  <!-- <div>
-    <h1 class="totaltxt"><b>Total:
-        <div *ngIf="service.installfee != null && service.unitfee != null; else totalinstall1">
-          {{installtotal}}
-        </div>
-        <ng-template #totalinstall1>
-          {{installtotal1}}
-        </ng-template>
-
-        <div *ngIf="service.cleaningfee != null && service.unitfee == null; else totalcleaning1">
-          {{cleaningtotal1}}
-        </div>
-        <ng-template #totalcleaning1>
-          {{cleaningtotal}}
-        </ng-template>
-      </b></h1>
-  </div> -->
+  <div>
+    <h1 class="totaltxt"><b>Total: &#8369;{{total}}.00</b></h1>
+  </div>
 
 </mat-card>
 

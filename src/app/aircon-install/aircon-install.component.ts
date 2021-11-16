@@ -42,14 +42,16 @@ export class AirconInstallComponent implements OnInit {
   service_type = "Installation";
   service_unitProb = "None";
   status = "Pending";
-  chupfee = 200.00
-  inverter = 200.00
-  window_type = 1100.00
-  split_type = 8500.00
-  tower_type = 10500.00
-  cassette_type = 11500.00
-  suspended_type = 11500.00
-  concealed_type = 11500.00
+  chupfee = 200;
+  cleanfee = 0;
+  unitfee = 0;
+  inverter = 200;
+  window_type = 1100;
+  split_type = 8500;
+  tower_type = 10500;
+  cassette_type = 11500;
+  suspended_type = 11500;
+  concealed_type = 11500;
   id=JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
 
@@ -243,6 +245,7 @@ export class AirconInstallComponent implements OnInit {
         var inverter = this.inverter
       } else if (unit.service_aptype == "Window" && unit.service_unitType != "Inverter"){
         var installfee = this.window_type
+        var inverter = this.unitfee
       }
 
       if(unit.service_aptype == "Split" && unit.service_unitType == "Inverter"){
@@ -250,30 +253,35 @@ export class AirconInstallComponent implements OnInit {
         var inverter = this.inverter
       } else if (unit.service_aptype == "Split" && unit.service_unitType != "Inverter"){
         var installfee = this.split_type
+        var inverter = this.unitfee
       }
       if(unit.service_aptype == "Tower" && unit.service_unitType == "Inverter"){
         var installfee = this.tower_type
         var inverter = this.inverter
       } else if((unit.service_aptype == "Tower" && unit.service_unitType != "Inverter")){
         var installfee = this.tower_type
+        var inverter = this.unitfee
       }
       if(unit.service_aptype == "Cassette" && unit.service_unitType == "Inverter"){
         var installfee = this.cassette_type
         var inverter = this.inverter
       } else if(unit.service_aptype == "Cassette" && unit.service_unitType != "Inverter") {
         var installfee = this.cassette_type
+        var inverter = this.unitfee
       }
       if(unit.service_aptype == "Suspended" && unit.service_unitType == "Inverter"){
         var installfee = this.suspended_type
         var inverter = this.inverter
       } else if(unit.service_aptype == "Suspended" && unit.service_unitType != "Inverter") {
         var installfee = this.suspended_type
+        var inverter = this.unitfee
       }
       if(unit.service_aptype == "Concealed" && unit.service_unitType == "Inverter"){
         var installfee = this.concealed_type
         var inverter = this.inverter
       } else if(unit.service_aptype == "Concealed" && unit.service_unitType != "Inverter") {
         var installfee = this.concealed_type
+        var inverter = this.unitfee
       }
       let body = {
         "service_type": this.service_type,
@@ -295,8 +303,9 @@ export class AirconInstallComponent implements OnInit {
         "service_instruction": contact.service_instruction,
         "status": this.status,
         "checkupfee": this.chupfee,
+        "cleaningfee": this.cleanfee,
         "installfee": installfee,
-        "unitfee": inverter
+        "unitfee": inverter,
       }
       const httpOptions = {
         headers: new HttpHeaders({
