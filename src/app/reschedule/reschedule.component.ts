@@ -47,7 +47,7 @@ export class RescheduleComponent implements OnInit {
         }
         this.http.patch("http://localhost:3000/NewServiceRequest/schedule/" + this.id, body, httpOptions)
           .subscribe(data => {
-            alert("Rescheduled Success");
+            alert("Update Successfully");
             this.router.navigate(['/dashboard'])
           }, error => {
             console.log(error);

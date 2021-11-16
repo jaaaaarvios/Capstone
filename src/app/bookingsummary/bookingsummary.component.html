@@ -60,7 +60,7 @@
     </thead>
     <tbody>
       <tr>
-        <td class="body2">Blk 16</td>
+        <td class="body2">{{service.service_address}}</td>
         <td class="body2">{{service.service_city}}</td>
         <td class="body2">{{service.service_property_type}}</td>
         <td class="body2">{{service.service_barangay}}</td>
@@ -69,11 +69,11 @@
 
     <thead>
       <tr>
-        <th class="header4">Unit Problem <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
+        <th class="header4">Unit Problem 
         </th>
-        <th class="header4">Scheduled Date <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
+        <th class="header4">Scheduled Date
         </th>
-        <th class="header4">Time Slot <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
+        <th class="header4">Time Slot
         </th>
         <th class="header4">Instruction <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
         </th>
@@ -84,19 +84,6 @@
         <td class="body4">{{service.service_unitProb}}</td>
         <td class="body4">{{service.service_date | date}}</td>
         <td class="body4">{{service.service_timeslot}}</td>
-        <td class="body4">{{service.service_instruction}}</td>
-      </tr>
-    </tbody>
-
-    <thead>
-      <tr>
-        <th class="header4">Instruction <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
-        </th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
         <td class="body4">{{service.service_instruction}}</td>
       </tr>
     </tbody>
