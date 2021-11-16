@@ -1,107 +1,135 @@
-
-  <!--HEADER------------------------------------------------>
-  <mat-toolbar>
-    <h1 class="ayosgamit">Ayosgamit</h1>
-  </mat-toolbar>
-  <div class="container">
-    <!--REQUEST SUMMARY------------------------------------------------>
-    <div>
-   
-     <div>
-      <button mat-raised-button (click)="getConfirmation()" class="cancelBtn">Cancel Request</button>
-     </div>
-
-    <mat-card class="summary">
-      <div>
-        <mat-icon class="icon">description<h1 class="title">Request Summary</h1>
-        </mat-icon>
-      </div>
-      <h1 class="personalinfotxt">Personal Information</h1>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Contact Number</th>
-            <th>Address</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{service.service_firstname}}</td>
-            <td>{{service.service_lastname}}</td>
-            <td>{{service.service_phoneNumber}}</td>
-            <td>{{service.service_address}}</td>
-          </tr>
-        </tbody>
-        <thead>
-          <tr>
-            <th>Address Details</th>
-            <th>City</th>
-            <th>Property Type</th>
-            <th>Zip Code</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{service.service_addressDetails}}</td>
-            <td>{{service.service_city}}</td>
-            <td>{{service.service_property_type}}</td>
-            <td>{{service.service_zipcode}}</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h1 class="serviceinfotxt">Service Information</h1>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Appliance</th>
-            <th>Appliance Type</th>
-            <th>Service</th>
-            <th>Unit Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{service.service_appliance}}</td>
-            <td>{{service.service_aptype}}</td>
-            <td>{{service.service_type}}</td>
-            <td>{{service.service_unitType}}</td>
-          </tr>
-        </tbody>
-        <thead>
-          <tr>
-            <th>Unit Problem</th>
-            <th>Scheduled Date</th>
-            <th>Time Slot</th>
-            <th>Instruction</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{service.service_unitProb}}</td>
-            <td>{{service.service_date | date}}</td>
-            <td>{{service.service_timeslot}}</td>
-            <td>{{service.service_instruction}}</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="termschkbox">
-        <mat-checkbox [(ngModel)]="checked">I agree to Ayosgamit <b>Terms and Conditions.</b></mat-checkbox>
-      </div>
+<mat-toolbar>
   
-      <div>
-        <button mat-raised-button class="proceedBtn" routerLink="/payment">Proceed</button>
-      </div>
-    </mat-card>
+  <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
+
+  <label class="homeBtn" routerLink="/dashboard">Home</label>  
+        <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label> 
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
+              <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
+              <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
+              <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
+              <button mat-menu-item routerLink="/menu_tv">Television</button>
+            </mat-menu>
+
+            <label class="pricingBtn" routerLink="/pricing">Pricing</label>
+            <label class="contactUsBtn" routerLink="/contact_us">Contact Us</label>
+            <label class="aboutusBtn" routerLink="/about_us">About Us</label>    
+            
+</mat-toolbar> 
+   
+  
+<mat-card class="summary">
+  <div>
+    <mat-icon class="icon">description<h1 class="title">Request Summary</h1>
+    </mat-icon>
   </div>
-    <!--PAYMENT SUMMARY------------------------------------------------>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="header1">First Name <mat-icon class="editicon">edit</mat-icon></th>
+        <th class="header1">Last Name <mat-icon class="editicon">edit</mat-icon></th>
+        <th class="header1">Contact Number <mat-icon class="editicon">edit</mat-icon></th>
+        <th class="header1">Address <mat-icon class="editicon">edit</mat-icon></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="body1">Famela</td>
+        <td class="body1">{{service.service_lastname}}</td>
+        <td class="body1">{{service.service_phoneNumber}}</td>
+        <td class="body1">{{service.service_address}}</td>
+      </tr>
+    </tbody>
+    <thead>
+      <tr>
+        <th class="header2">Address Details <mat-icon class="editicon">edit</mat-icon></th>
+        <th class="header2">City <mat-icon class="editicon">edit</mat-icon></th>
+        <th class="header2">Property Type <mat-icon class="editicon">edit</mat-icon></th>
+        <th class="header2">Baranggay <mat-icon class="editicon">edit</mat-icon></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="body2">Blk 16</td>
+        <td class="body2">{{service.service_city}}</td>
+        <td class="body2">{{service.service_property_type}}</td>
+        <td class="body2">{{service.service_zipcode}}</td>
+      </tr>
+    </tbody>
+   
+     
+      <thead>
+        <tr>
+          <th class="header4">Unit Problem <mat-icon class="editicon">edit</mat-icon></th>
+          <th class="header4">Scheduled Date <mat-icon class="editicon">edit</mat-icon></th>
+          <th class="header4">Time Slot <mat-icon class="editicon">edit</mat-icon></th>
+          <th class="header4">Instruction <mat-icon class="editicon">edit</mat-icon></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="body4">{{service.service_unitProb}}</td>
+          <td class="body4">{{service.service_date | date}}</td>
+          <td class="body4">{{service.service_timeslot}}</td>
+          <td class="body4">{{service.service_instruction}}</td>
+        </tr>
+      </tbody>
+
+      <thead>
+        <tr>
+          <th class="header4">Instruction <mat-icon class="editicon">edit</mat-icon></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="body4">{{service.service_instruction}}</td>
+        </tr>
+      </tbody>
+   </table>
+</mat-card>
+
+<mat-card class="summary2">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="header3">Appliance</th>
+        <th class="header3">Service</th>
+        <th class="header3">Unit Type</th>
+        <th class="header3">Price</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td class="body3">{{service.service_appliance}}</td>
+        <td class="body3">{{service.service_type}}</td>
+        <td class="body3">{{service.service_unitType}}</td>
+        <td class="body3">{{service.service_unitType}}</td>
+      </tr>
+    </tbody>
+    </table>
+
+<div>
+  <h1 class="totaltxt"><b>Total: </b></h1>
+</div>
+</mat-card>
+   
+<div class="termschkbox">
+  <mat-checkbox [(ngModel)]="checked">I agree to Ayosgamit<b> Terms & Conditions.</b></mat-checkbox>
+</div>
+
+<div>
+<button  class="submitBtn" mat-raised-button>SUBMIT</button>
+</div>
+   
    
 
     
-  </div>
+ 
 
     
       

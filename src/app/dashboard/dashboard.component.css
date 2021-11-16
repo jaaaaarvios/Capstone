@@ -211,24 +211,49 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 
 
-.dashvector
+.customervector
 { 
   
   width: 23%;
   height: 15%;
   float: right;
-  margin-right: 200px;
-  margin-top: -200px !important;
+  margin-right: 50px;
+  margin-top: -400px;
  
 }
 
 .customerinfo
 {
-  width: 1000px;
+  width: 1100px;
   height: 150px;
   margin-left: 50px;
   margin-top: 20px;
 }
+
+
+table, tr, td
+ {
+   border: none;
+ }
+
+.header
+{
+  font-size: 13px;
+  color: grey;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: none;
+}
+
+
+.content1
+{
+  font-size: 15px;
+  color: #003049;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: none;
+}
+
+
 
 .tab{
   width: fit-content;

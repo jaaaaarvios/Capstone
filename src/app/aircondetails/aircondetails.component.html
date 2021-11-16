@@ -1,51 +1,21 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-      *ngIf="isHandset$ | async">
-      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-    </button>
-    <br>
-    <img class="logo" mat-card-image src="../../assets/mainlogo.png">
-    <mat-nav-list class="nav-list">
-      <div class="dashboardside">
-        <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
-          <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
-        </mat-list-item>
-      </div>
-      <div class="bookingside">
-        <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-          <a class="booking-btn" routerLink="/booking">Book a Service</a>
-        </mat-list-item>
-      </div>
-      <div class="profileside">
-        <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-          <a class="profile-btn" routerLink="/profile">Profile</a>
-        </mat-list-item>
-      </div>
+<mat-toolbar>
+  <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
+        <label class="homeBtn" routerLink="/dashboard">Home</label>
+        <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label> 
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
+              <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
+              <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
+              <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
+              <button mat-menu-item routerLink="/menu_tv">Television</button>
+            </mat-menu>
 
-      <div class="logoutside">
-        <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon">exit_to_app</mat-icon>
-          <a class="logout-btn" (click)="logout()">Logout</a>
-        </mat-list-item>
-      </div>
+            <label class="pricingBtn" routerLink="/pricing">Pricing</label>
+            <label class="contactUsBtn" routerLink="/contact_us">Contact Us</label>
+            <label class="aboutusBtn" routerLink="/about_us">About Us</label>      
+</mat-toolbar> 
 
-    </mat-nav-list>
-  </mat-sidenav>
 
-  <mat-sidenav-content>
-    <mat-toolbar>
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <h1 class="ayosgamit">Ayosgamit</h1>
-      <span class="spacer"></span>
-    </mat-toolbar>
     <!--1st Stepper-->
     <mat-horizontal-stepper class="stepper" #stepper [linear]="true">
       <mat-step state="first" [completed]="unitdetailsForm.valid" [editable]="true">
@@ -123,7 +93,7 @@
           </div> -->
 
             <!--Back and Next Button-->
-            <button class="backBtn" mat-button routerLink="/appliance">Back</button>
+            <button class="backBtn" mat-stroked-button routerLink="/appliance">Back</button>
             <button class="nextBtn" type="submit" [disabled]="!unitdetailsForm.valid" mat-button
               matStepperNext>Next</button>
           </form>
@@ -182,7 +152,7 @@
 
             </mat-card>
             <!--Back and Next Button-->
-            <button class="backBtn" mat-button matStepperPrevious>Back</button>
+            <button class="backBtn" mat-stroked-button matStepperPrevious>Back</button>
             <button class="nextBtn" type="submit" [disabled]="!locationForm.valid" mat-button
               matStepperNext>Next</button>
             <br><br>
@@ -220,29 +190,29 @@
                   <h1 class="timeslot">Select a time slot</h1>
                   <button mat-stroked-button class="tech1Btn">
                     <input type="radio" value="7:00am - 10:00am" formControlName="service_timeslot"
-                      required>7:00am-10:00am<h1 class="h1technicians">
+                      required>7:00am-10:00am<h1 class="h1technicians">10 slots available
                     </h1>
                   </button>
                   <button mat-stroked-button class="tech2Btn" value="10:00am-1:00pm">
                     <input type="radio" value="10:00am - 1:00pm" formControlName="service_timeslot"
-                      required>10:00am-1:00pm<h1 class="h1technicians">
+                      required>10:00am-1:00pm<h1 class="h1technicians">10 slots available
                     </h1>
                   </button>
                   <button mat-stroked-button class="tech4Btn" value="1:00pm-3:00pm">
                     <input type="radio" value="1:00pm - 3:00pm" formControlName="service_timeslot"
                       required>1:00pm-3:00pm
-                    <h1 class="h1technicians"></h1>
+                    <h1 class="h1technicians">10 slots available</h1>
                   </button>
                   <button mat-stroked-button class="tech4Btn" value="3:00pm-6:00pm">
                     <input type="radio" value="3:00pm - 6:00pm" formControlName="service_timeslot"
                       required>3:00pm-6:00pm
-                    <h1 class="h1technicians"></h1>
+                    <h1 class="h1technicians">10 slots available</h1>
                   </button>
                 </div>
               </div>
             </mat-card>
             <!--Back and Next Button-->
-            <button class="backBtn" mat-button matStepperPrevious>Back</button>
+            <button class="backBtn" mat-stroked-button matStepperPrevious>Back</button>
             <button class="nextBtn" type="submit" [disabled]="!scheduleForm.valid" mat-button
               matStepperNext>Next</button>
           </div>
@@ -341,11 +311,9 @@
             </mat-card>
 
             <!--Back and Next Button-->
-            <button class="CDbackBtn" mat-button matStepperPrevious>Back</button>
+            <button class="backBtn" mat-stroked-button matStepperPrevious>Back</button>
             <button class="doneBtn" type="submit" [disabled]="!contactDetialsForm.valid" mat-button>Review</button>
           </form>
         </div>
       </mat-step>
     </mat-horizontal-stepper>
-  </mat-sidenav-content>
-</mat-sidenav-container>

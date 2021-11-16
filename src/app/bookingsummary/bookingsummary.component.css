@@ -1,153 +1,97 @@
 @media (min-width: 820px)
 {
-
-.sidenav-container {
-  height: 100%;
-}
-.sidenav{
-  width: fit-content;
-  width: 280px;
-  background-color: #EAE2B7;
-}
-.mat-sidenav-content{
-   height: 910px;
-   background-color: white;
-}
-
-.logo{
-  width: 180px;
-  height: 150px;
-  padding-top: 40px;
-  margin-left: 55px;
-}
-
-.mat-toolbar{
-  background-color: #D62828;
+mat-toolbar
+{
   width: 100%;
+  height: 10%;
 }
-.ayosgamit
+
+.logo
 {
-font-family: 'Candara';
-font-size: 30px;
-float: left;
-color: #FFFFFF;
+     max-width: 200px;
+     height: 100px !important;
+     margin-left: 30px !important;
+     margin-top: 20px !important;
 }
 
 
-.dashtitle
+.homeBtn
 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #003049;
-  font-size: 25px;
+  font-size: 17px;
+  float: left;
+  margin: 30px;
   margin-left: 80px;
-  margin-top: 60px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+  margin-top: 40px;
 }
 
-.dashvector
+.homeBtn:hover, .homeBtn:active {
+  color:#dd0346;
+}
+
+.menuBtn
 {
-  width: 360px;
-  height: 250px;
-  margin-left: 620px;
-  margin-top: -60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #003049;
+    font-size: 17px;
+    float: left;
+    margin: 30px;
+    margin-top: 40px;
 }
 
-.nav-icon{
-  color: #003049;
-  font-size: 35px;
-  margin-left: 25px;
-  margin-top: -12px;
+.menuBtn:hover, .menuBtn:active {
+    color:#dd0346;
 }
 
-.dashboardside{
-  margin-left: 0px;
-  margin-top: 30px;
-  text-align: justify;
-}
-
-.dashboardside:hover
+.pricingBtn
 {
-    background-color: #c8c19c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #003049;
+    float: left;
+    margin: 30px;
+    margin-top: 40px;
+    font-size: 17px;
     
-    width: 100%;
-    height: 70px;
-    margin-left: 0;
-    margin-top: 20px;
-    text-align: justify;
 }
 
-.dashboard-btn{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-left: 25px;
-  text-decoration: none;
+
+.pricingBtn:hover, .pricingBtn:active {
+    color:#dd0346;
 }
 
-.bookingside{
-  margin-left: 0px;
-  margin-top: 30px;
-  text-align: justify;
-}
-
-.bookingside:hover
+.contactUsBtn
 {
-    background-color: #c8c19c;
-    width: 100%;
-    height: 70px;
-    margin-left: 0;
-    margin-top: 20px;
-    text-align: justify;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #003049;
+    font-size: 17px;
+    float: left;
+    margin: 30px;
+    margin-top: 40px;
 }
 
-.booking-btn{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-left: 25px;
+.contactUsBtn:hover, .contactUsBtn:active {
+    color:#dd0346;
 }
 
-.profileside{
-  margin-left: 0px;
-  margin-top: 30px;
-  text-align: justify;
-}
-
-.profileside:hover
+.aboutusBtn
 {
-    background-color: #c8c19c;
-    width: 100%;
-    height: 70px;
-    margin-left: 0;
-    margin-top: 20px;
-    text-align: justify;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #003049;
+    font-size: 17px;
+    float: left;
+    margin: 30px;
+    margin-top: 40px;
 }
 
-.profile-btn
-{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-left: 25px;
-}
-.spacer{
-  flex: 1 1 auto;
-}
-.inboxicon
-{
-  font-size: 30px;
-  color: #14213D;
-  margin-right: 20px;
-}
-.logoutBtn
-{
-  font-size: 20px;
-  color: antiquewhite;
-}
-.logoutBtn:hover{
-  background-color: black;
+.aboutusBtn:hover, .aboutusBtn:active {
+    color:#dd0346;
 }
 
+.spacer
+{
+    flex: 1 1 auto;
+  }
 
 .container{
   width: 100%;
@@ -189,342 +133,178 @@ margin-left: 50px;
 }
 .summary
 {
-  width: 750px;
-  height: 700px;
-  margin-top: 50px !important;
+  width: 1000px;
+  height: fit-content;
+  margin-top: 20px !important;
+  position: center !important;
+  margin: auto;
+  
+}
+
+.summary2
+{
+  width: 1000px;
+  height: fit-content;
+  margin-top: 20px !important;
   position: center !important;
   margin: auto;
   
 }
 .title
 {
-  color: #003049;
+  color: #c9184a;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 20px;
-  margin-top: -25px;
-  margin-left: 40px;
+  font-size: 30px;
+  margin-top: -35px;
+  margin-left: 70px;
 }
 
 .icon
 {
-  color: #003049;
-  font-size: 30px;
+  color: #c9184a;
+  font-size: 40px;
   margin-top: 5px;
   margin-left: 20px;
 }
 
-.personalinfotxt
+
+
+table,tr,th,td
 {
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-top: 25px;
+  border: none;
 }
 
-.fname
+.table
 {
-  margin-left: 20px;
-  margin-top: 20px;
-}
-
-.fname2
-{
-  margin-left: 20px;
-  margin-top: 10px;
-  font-size: 15px;
-}
-
-.lname
-{
-  margin-left: 170px;
-  margin-top: -67px;
-
-}
-
-.lname2
-{
-  margin-left: 170px;
-  margin-top: 10px;
-  font-size: 15px;
-}
-
-.number
-{
-  float: right;
-  margin-right: 100px;
-  margin-top: -67px;
-}
-
-.number2
-{
-  float: right;
-  margin-right: 145px;
-  margin-top: -33px;
-  font-size: 15px;
-}
-
-.addressinfo
-{
-  margin-top: 70px;
-}
-
-.address
-{
-  margin-left: 20px;
-  margin-top: -40px;
-}
-
-.address2
-{
-  margin-left: 20px;
-  margin-top: 10px;
-  font-size: 13px;
-}
-
-.city
-{
-  margin-left: 170px;
-  margin-top: -70px;
-}
-
-.city2
-{
-  margin-left: 170px;
-  margin-top: 10px;
-  font-size: 15px;
-}
-
-.property
-{
-  float: right;
-  margin-right: 160px;
-  margin-top: -70px;
-}
-
-.property2
-{
-  float: right;
-  margin-right: 200px;
-  margin-top: -35px;
-  font-size: 15px;
-}
-
-.zipcode
-{
-  float: right;
-  margin-right: 20px;
-  margin-top: -70px;
-}
-
-.zipcode2
-{
-  float: right;
-  margin-right: 40px;
-  margin-top: -35px;
-  font-size: 15px;
-}
-
-
-.serviceinfotxt
-{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-top: 20px;
-}
-
-.appliance
-{
-  margin-left: 20px;
-}
-
-.appliance2
-{
-  margin-left: 20px;
-  font-size: 15px;
-}
-
-.brand
-{
-  margin-left: 170px;
-  margin-top: -70px;
-}
-
-.brand2
-{
-  margin-left: 170px;
-  font-size: 15px;
-  margin-top: 10px;
-}
-
-
-.unittype
-{
-  float: right;
-  margin-right: 190px;
-  margin-top: -70px;
-}
-
-.unittype2
-{
-  
-  float: right;
-  margin-right: 205px;
-  margin-top: -33px;
-  font-size: 15px;
-}
-
-
-.unitprob
-{
-  margin-top: 70px;
-}
-
-.unitproblem
-{
-  margin-left: 20px;
-  margin-top: -35px;
+  margin-top: 50px;
   
 }
 
-.unitproblem2
+.header1
 {
-  margin-left: 20px;
-  font-size: 15px;
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: #c9184a;
+  border: none;
+  
 }
 
-.datetimeinfo
+.body1
 {
-  margin-top: 30px;
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  color: #590D22;
+  border: none;
+  
 }
 
-
-.date
+.header2
 {
-  margin-left: 20px;
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: #c9184a;
+  border: none;
+  
 }
 
-.date2
+.body2
 {
-  margin-left: 20px;
-  font-size: 15px;
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  color: #590D22;
+  border: none;
+  
 }
 
-.time
+.header3
 {
-  margin-left: 180px;
-  margin-top: -68px;
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: #FFFFFF;
+  border: none;
+  background-color: #b65e79;
 }
 
-.time2
+.body3
 {
-  margin-left: 180px;
-  margin-top: 10px;
-  font-size: 15px;
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  color: FFFFFF;
+  border: none;
+  
+}
+.header4
+{
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: #c9184a;
+  border: none;
+  
 }
 
+.body4
+{
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  color: #590D22;
+  border: none;
+  
+}
+.editicon
+{
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.editicon2
+{
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.totaltxt
+{
+  color: #590D22;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 17px;
+  margin-top: -10px;
+  float: right;
+  margin-right: 120px;
+}
 .termschkbox
 {
-  color: #003049;
+  margin-left: 800px;
+  margin-top: 50px !important;
+  color: #590D22;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
-  float: left;
-  margin-left: 200px;
-  
-  
+  font-size: 17px;
+
 }
 
-.reschedBtn
+.submitBtn
 {
-  width: 160px;
-  height: 40px;
-  background-color: #F77F00;
-  color: #FFFFFF;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
-  float: right;
-  margin-right: 15px;
-  
-  
-}
-
-.cancelBtn
-{
-  width: 120px;
-  height: 40px;
-  background-color: #D62828;
-  color: #FFFFFF;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 13px;
-  float: right;
-  margin: 5px;
-  margin-top: 1px;
-  
-;
-}
-.pending{
-  width: 100%;
-  height: 100%;
-  margin: auto;
-}
-
-.pendingtxt
-{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 23px;
-  color: #F77F00;
-  float: right;
-  margin-right: 740px;
-}
-
-.description
-{
-  float: left;
-  margin-left: 33px;
+  margin-left: 900px;
   margin-top: 20px;
-}
-
-.description1
-{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 15px;
-  color: grey;
-}
-.description2
-{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 15px;
-  color: grey;
-  margin-top: -15px;
-}
-.description3
-{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 15px;
-  color: grey;
-  margin-top: -15px;
-}
-
-.serviceinfotxt{
-  font-size: 15px;
-
-}
-
-.container{
-  width: 100%;
-  height: 100%;
-}
-
-.proceedBtn
-{
   width: 100px;
   height: 40px;
-  background-color: #F77F00;
+  background-color: #590D22;
   color: #FFFFFF;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
-  float: left;
-  margin-left: 300px;
-  margin-top: 10px;
+
 }
+
+.submitBtn:hover, .submitBtn:active {
+  color:#ffccd5;
+}
+
+
 }
