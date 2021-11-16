@@ -45,18 +45,18 @@
 
       <tbody>
         <tr>
-          <td>{{service.checkupfee}}.00</td>
+          <td>&#8369;{{service.checkupfee}}.00</td>
           <div *ngIf="service.cleaningfee != null; then clean else elseclean"></div>
-          <ng-template #clean><td>{{service.cleaningfee}}.00</td></ng-template>
+          <ng-template #clean><td>&#8369;{{service.cleaningfee}}.00</td></ng-template>
           <ng-template #elseclean></ng-template>
           
 
           <div *ngIf="service.installfee != null; then install else elseInstall"></div>
-          <ng-template #install><td>{{service.installfee}}.00</td></ng-template>
+          <ng-template #install><td>&#8369;{{service.installfee}}.00</td></ng-template>
           <ng-template #elseInstall></ng-template>
 
           <div *ngIf="service.unitfee != null; then unit1 else elseUnit1"></div>
-            <ng-template #unit1><td>{{service.unitfee}}.00</td></ng-template>
+            <ng-template #unit1><td>&#8369;{{service.unitfee}}.00</td></ng-template>
             <ng-template #elseUnit1></ng-template>
         </tr>
       </tbody>

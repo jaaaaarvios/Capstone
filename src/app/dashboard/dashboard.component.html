@@ -54,11 +54,8 @@
 
         <button mat-raised-button class="startBtn" routerLink="/booking">Get Started</button>
       </div>
-
-
     </mat-toolbar>
 
-    
   <div>
     <mat-card class="customerinfo">
       <div class="table">
@@ -74,10 +71,10 @@
           </thead>
           <tbody class="body">
             <tr>
-              <td class="content1">Famela Buenaobra</td>
-              <td class="content1">09676428307</td>
-              <td class="content1">famela0201@gmail.com</td>
-              <td class="content1"></td>
+              <td class="content1">{{fname}} {{lname}}</td>
+              <td class="content1">{{number}}</td>
+              <td class="content1">{{email}}</td>
+              <td class="content1">{{address}}</td>
             </tr>
           </tbody>
         </table>

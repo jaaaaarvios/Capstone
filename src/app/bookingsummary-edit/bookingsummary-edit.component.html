@@ -1,0 +1,113 @@
+<mat-toolbar>
+
+  <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
+
+  <label class="homeBtn" routerLink="/dashboard">Home</label>
+  <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
+    <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
+    <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
+    <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
+    <button mat-menu-item routerLink="/menu_tv">Television</button>
+  </mat-menu>
+
+  <label class="pricingBtn" routerLink="/pricing">Pricing</label>
+  <label class="contactUsBtn" routerLink="/contact_us">Contact Us</label>
+  <label class="aboutusBtn" routerLink="/about_us">About Us</label>
+  <span class="spacer"></span>
+  <button mat-raised-button (click)="getConfirmation()" class="cancelBtn">Cancel Request</button>
+
+</mat-toolbar>
+<div class="container1">
+  <form [formGroup]="summaryForm" (ngSubmit)="summarySubmit()">
+    <div class="ds">
+      <mat-card class="summary">
+        <div>
+          <mat-icon class="icon">description<h1 class="title">Request Summary</h1>
+          </mat-icon>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="header1">First Name
+              </th>
+              <th class="header1">Last Name
+              </th>
+              <th class="header1">Contact Number
+              </th>
+              <th class="header1">Address
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="body1">{{service.service_firstname}}</td>
+              <td class="body1">{{service.service_lastname}}</td>
+              <td class="body1">{{service.service_phoneNumber}}</td>
+              <td class="body1">{{service.service_address}}</td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th class="header2">Address Details
+              </th>
+              <th class="header2">City
+              </th>
+              <th class="header2">Property Type
+              </th>
+              <th class="header2">Baranggay
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="body2">Blk 16</td>
+              <td class="body2">{{service.service_city}}</td>
+              <td class="body2">{{service.service_property_type}}</td>
+              <td class="body2">{{service.service_barangay}}</td>
+            </tr>
+          </tbody>
+
+
+          <thead>
+            <tr>
+              <th class="header4">Unit Problem
+              </th>
+              <th class="header4">Scheduled Date
+              </th>
+              <th class="header4">Time Slot
+              </th>
+              <th class="header4">Instruction
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="body4">{{service.service_unitProb}}</td>
+              <td class="body4">{{service.service_date | date}}</td>
+              <td class="body4">{{service.service_timeslot}}</td>
+              <td class="body4">{{service.service_instruction}}</td>
+            </tr>
+          </tbody>
+
+          <thead>
+            <tr>
+              <th class="header4">Instruction
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="body4">{{service.service_instruction}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-card>
+    </div>
+    <button mat-stroked-button class="submitBtn-disabled" routerLink="/summary">Back</button>
+    <button mat-stroked-button class="submitBtn" type="submit">Done</button>
+  </form>
+</div>

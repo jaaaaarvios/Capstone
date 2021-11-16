@@ -370,21 +370,19 @@ p
     font-size: 17px;
     font-family: 'Trebuchet MS';
     border-color: #dd0346 !important;
-    color: #a4133c;
+    color: #a4133c !important;
     width: 100px !important;
     height: 50px !important;
-    
   }
   
   .nextBtn
   {
-    margin-top: 30px;
+    margin-top: 30px !important;
     font-size: 18px;
     font-family: 'Trebuchet MS';
     border-style: solid;
     border-width: thin;
     border-color: #dd0346 !important;
-    color: #a4133c !important;
     width: 100px !important;
     height: 50px !important;
     float: right;
@@ -691,6 +689,7 @@ p
     margin-top: 25px;
     float: right;
   }
+
   .backBtn
   {
     font-size: 18px;

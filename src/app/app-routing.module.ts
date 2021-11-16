@@ -44,7 +44,7 @@ import { PaymentsuccessComponent } from './paymentsuccess/paymentsuccess.compone
 import { PaymentthankyouComponent } from './paymentthankyou/paymentthankyou.component';
 import { RequestdetailsAdminComponent } from './requestdetails-admin/requestdetails-admin.component';
 import { RequestCompleteComponent } from './request-complete/request-complete.component';
-
+import { BookingsummaryEditComponent } from './bookingsummary-edit/bookingsummary-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -94,6 +94,7 @@ const routes: Routes = [
   { path: 'paymentthankyou', component: PaymentthankyouComponent },
   { path: 'requestdetail/:id', component: RequestdetailsAdminComponent },
   { path: 'completedetail/:id', component: RequestCompleteComponent },
+  { path: 'summary-edit/:id', component: BookingsummaryEditComponent },
 ];
 
 @NgModule({

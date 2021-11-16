@@ -1,6 +1,7 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -8,25 +9,22 @@ import { map } from 'rxjs/operators';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-bookingsummary',
-  templateUrl: './bookingsummary.component.html',
-  styleUrls: ['./bookingsummary.component.css']
+  selector: 'app-bookingsummary-edit',
+  templateUrl: './bookingsummary-edit.component.html',
+  styleUrls: ['./bookingsummary-edit.component.css']
 })
-
-export class BookingsummaryComponent implements OnInit {
+export class BookingsummaryEditComponent implements OnInit {
   subscription: any;
   data: any;
+  id: any;
   token = JSON.parse(localStorage.getItem('token'));
   service = JSON.parse(localStorage.getItem('service'));
   checked = false;
   indeterminate = false;
   labelPosition: 'before' | 'after' = 'after';
   disabled = false;
-  repairtotal = this.service.checkupfee;
-  installtotal = this.service.checkupfee + this.service.installfee + this.service.unitfee
-  installtotal1 = this.service.checkupfee + this.service.installfee
-  cleaningtotal = this.service.checkupfee + this.service.cleaningfee + this.service.unitfee
-  cleaningtotal1 = this.service.checkupfee + this.service.cleaningfee
+
+  summaryForm: FormGroup;
   
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -34,7 +32,7 @@ export class BookingsummaryComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-  constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver,
+  constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver, private _formBuilder: FormBuilder,
     private http: HttpClient, private router: Router,  private route: ActivatedRoute, private auth: AuthService) {
   }
 
@@ -42,6 +40,12 @@ export class BookingsummaryComponent implements OnInit {
     if (localStorage.getItem("service") == null) {
       this.router.navigate(['/dashboard'])
     }
+    this.id = this.route.snapshot.params['id'];
+
+    this.summaryForm = this._formBuilder.group({
+
+    });
+
   }
 
   deleteOne() {
@@ -69,5 +73,7 @@ export class BookingsummaryComponent implements OnInit {
       return false;
     }
   }
-
+  summarySubmit(){
+    return
+  }
 }

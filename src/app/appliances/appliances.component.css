@@ -97,6 +97,14 @@
   font-size: 40px;
   color: #003049;
   margin-left: 150px;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 12px;
+}
+.backtxt{
+  font-size: 22px;
+  color: #003049;
+  margin-left: 10px;
 }
 .dashtitle
 {

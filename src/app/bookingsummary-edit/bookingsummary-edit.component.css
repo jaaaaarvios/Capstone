@@ -133,12 +133,10 @@ margin-left: 50px;
 }
 .summary
 {
-  width: 1000px;
-  height: fit-content;
-  margin-top: 20px !important;
-  position: center !important;
   margin: auto;
-  
+  width: fit-content;
+  height: fit-content;
+  margin-top: 20px;
 }
 
 .summary2
@@ -302,7 +300,15 @@ table,tr,th,td
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 17px;
 }
-
+.container1{
+  margin: auto;
+  width: fit-content;
+  height: inherit;
+}
+.ds{
+  margin: auto;
+  width: fit-content;
+}
 .submitBtn
 {
   width: 100px;
@@ -315,6 +321,8 @@ table,tr,th,td
   justify-content: center;  
   margin: auto; 
   margin-top: 20px;
+  float: right;
+
 }
 
 .submitBtn:hover, .submitBtn:active {
@@ -332,6 +340,7 @@ table,tr,th,td
   justify-content: center;  
   margin: auto; 
   margin-top: 20px;
+  float: left;
 }
 .cancelBtn{
   width: 120px;
@@ -344,4 +353,5 @@ table,tr,th,td
   margin-top: 1px;
   margin-right: 50px;
 }
+
 }

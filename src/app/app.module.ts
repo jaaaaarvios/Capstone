@@ -8,28 +8,28 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 // -----------------Materials----------------------------
-import {MatButtonModule} from '@angular/material/button';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatCardModule} from '@angular/material/card';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatTableModule} from '@angular/material/table';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatListModule} from '@angular/material/list';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 // --------------Components-----------------------------
 import { HomepageComponent } from './homepage/homepage.component';
-import {LoginformComponent} from './loginform/loginform.component';
+import { LoginformComponent } from './loginform/loginform.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookingformComponent } from './bookingform/bookingform.component';
 import { AppliancesComponent } from './appliances/appliances.component';
@@ -71,7 +71,6 @@ import { AdminUserComponent } from './admin-user/admin-user.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { PrivacytermsComponent } from './privacyterms/privacyterms.component';
 import { FeedbackComponent } from './feedback/feedback.component';
-import {CookieService} from 'ngx-cookie-service';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { RepairFeeComponent } from './repair-fee/repair-fee.component';
 import { CleaningFeeComponent } from './cleaning-fee/cleaning-fee.component';
@@ -81,6 +80,7 @@ import { PaymentsuccessComponent } from './paymentsuccess/paymentsuccess.compone
 import { PaymentthankyouComponent } from './paymentthankyou/paymentthankyou.component';
 import { RequestdetailsAdminComponent } from './requestdetails-admin/requestdetails-admin.component';
 import { RequestCompleteComponent } from './request-complete/request-complete.component';
+import { BookingsummaryEditComponent } from './bookingsummary-edit/bookingsummary-edit.component';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -129,17 +129,18 @@ import { RequestCompleteComponent } from './request-complete/request-complete.co
     MenuTvComponent,
     AdminUserComponent,
     PricingComponent,
-   
+
     PrivacytermsComponent,
-         FeedbackComponent,
-         RepairFeeComponent,
-         CleaningFeeComponent,
-         InstallFeeComponent,
-         InstallFeeWashingComponent,
-         PaymentsuccessComponent,
-         PaymentthankyouComponent,
-         RequestdetailsAdminComponent,
-         RequestCompleteComponent,
+    FeedbackComponent,
+    RepairFeeComponent,
+    CleaningFeeComponent,
+    InstallFeeComponent,
+    InstallFeeWashingComponent,
+    PaymentsuccessComponent,
+    PaymentthankyouComponent,
+    RequestdetailsAdminComponent,
+    RequestCompleteComponent,
+    BookingsummaryEditComponent,
 
   ],
   imports: [
@@ -175,8 +176,8 @@ import { RequestCompleteComponent } from './request-complete/request-complete.co
 
   ],
   providers: [],
-  
+
   bootstrap: [AppComponent]
-  
+
 })
 export class AppModule { }
