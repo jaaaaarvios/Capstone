@@ -1,26 +1,26 @@
 <body>
   <mat-toolbar>
     <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
-    <button mat-button class="toolbarBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon>
-        </button>
+    <button mat-button class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon>
+    </button>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
-        <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
-        <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
-        <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
-        <button mat-menu-item routerLink="/menu_tv">Television</button>
+      <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
+      <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
+      <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
+      <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
+      <button mat-menu-item routerLink="/menu_tv">Television</button>
     </mat-menu>
 
-    <button mat-button class="toolbarBtn" routerLink="/pricing">Pricing</button>
-    <button mat-button class="toolbarBtn" routerLink="/contact_us">Contact Us</button>
-    <button mat-button class="toolbarBtn" routerLink="/about_us">About Us</button>
+    <label class="toolbarBtn" routerLink="/pricing">Pricing</label>
+    <label class="toolbarBtn" routerLink="/contact_us">Contact Us</label>
+    <label class="toolbarBtn" routerLink="/about_us">About Us</label>
 
     <span class="spacer"></span>
 
     <button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button>
-</mat-toolbar>
+  </mat-toolbar>
   <mat-card class="card">
-    
+
 
     <div class="container">
       <mat-tab-group>
@@ -71,7 +71,7 @@
 
             <mat-form-field class="signup-lnamefield" appearance="outline">
               <mat-label>Last Name</mat-label>
-              <input matInput formControlName="user_lname" type="text"placeholder="Enter last name" required>
+              <input matInput formControlName="user_lname" type="text" placeholder="Enter last name" required>
               <mat-error *ngIf="signupForm.get('user_lname').hasError('required')"> Last name is required </mat-error>
               <mat-error *ngIf="signupForm.get('user_lname').hasError('pattern')"> Invalid Name </mat-error>
               <mat-error *ngIf="signupForm.get('user_lname').hasError('maxlength')">Name contains maximum of 15

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-tv.component.css']
 })
 export class MenuTvComponent implements OnInit {
-
+  token = localStorage.getItem("token");
   constructor() { }
 
   ngOnInit(): void {
