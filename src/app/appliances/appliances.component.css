@@ -1,9 +1,9 @@
 @media (min-width: 820px)
 {
-  mat-toolbar
+  .mat-toolbar
   {
     width: 100%;
-    height: 10%;
+    height: 80px;
   }
   
   .logo

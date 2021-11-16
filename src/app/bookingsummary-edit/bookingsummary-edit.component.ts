@@ -88,11 +88,100 @@ export class BookingsummaryEditComponent implements OnInit {
     }
   }
   getConfirmation() {
-    var retVal = confirm("Do you really want to cancel ?");
+    var retVal = confirm("Do you really want to cancel the booking ?");
     if (retVal == true) {
       this.deleteOne()
       localStorage.removeItem("service");
       this.router.navigate(['/dashboard'])
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  getConfirmation1() {
+    var retVal = confirm("If you exit, your booking progress will be lost.");
+    if (retVal == true) {
+      this.deleteOne()
+      localStorage.removeItem("service");
+      this.router.navigate(['/menu_aircon'])
+      return true;
+    } else {
+      return false;
+    }
+  }
+  getConfirmation2() {
+    var retVal = confirm("If you exit, your booking progress will be lost.");
+    if (retVal == true) {
+      this.deleteOne()
+      localStorage.removeItem("service");
+      this.router.navigate(['/menu_ref'])
+      return true;
+    } else {
+      return false;
+    }
+  }
+  getConfirmation3() {
+    var retVal = confirm("If you exit, your booking progress will be lost.");
+    if (retVal == true) {
+      this.deleteOne()
+      localStorage.removeItem("service");
+      this.router.navigate(['/menu_fan'])
+      return true;
+    } else {
+      return false;
+    }
+  }
+  getConfirmation4() {
+    var retVal = confirm("If you exit, your booking progress will be lost.");
+    if (retVal == true) {
+      this.deleteOne()
+      localStorage.removeItem("service");
+      this.router.navigate(['/menu_washing'])
+      return true;
+    } else {
+      return false;
+    }
+  }
+  getConfirmation5() {
+    var retVal = confirm("If you exit, your booking progress will be lost.");
+    if (retVal == true) {
+      this.deleteOne()
+      localStorage.removeItem("service");
+      this.router.navigate(['/menu_tv'])
+      return true;
+    } else {
+      return false;
+    }
+  }
+  getConfirmation6() {
+    var retVal = confirm("If you exit, your booking progress will be lost.");
+    if (retVal == true) {
+      this.deleteOne()
+      localStorage.removeItem("service");
+      this.router.navigate(['/pricing'])
+      return true;
+    } else {
+      return false;
+    }
+  }
+  getConfirmation7() {
+    var retVal = confirm("If you exit, your booking progress will be lost.");
+    if (retVal == true) {
+      this.deleteOne()
+      localStorage.removeItem("service");
+      this.router.navigate(['/contact_us'])
+      return true;
+    } else {
+      return false;
+    }
+  }
+  getConfirmation8() {
+    var retVal = confirm("If you exit, your booking progress will be lost.");
+    if (retVal == true) {
+      this.deleteOne()
+      localStorage.removeItem("service");
+      this.router.navigate(['/about_us'])
       return true;
     } else {
       return false;
