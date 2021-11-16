@@ -52,59 +52,75 @@
       <h1>Profile Settings</h1>
     </div>
 
-      <mat-card class="infocard">
-        <div>
-          <button class="editbtn" mat-raised-button routerLink="/edit_profile">Edit</button>
-        </div>
-        <div>
-          <h1 class="personalinfoLbl">{{fname}} {{lname}}</h1>
-        </div>
-        <div>
-          <mat-icon class="mail_icon">mail</mat-icon>
-          <label class="mail">{{email}}</label>
-        </div>
+    <mat-card class="infocard">
+      <div>
+        <button class="editbtn" mat-raised-button routerLink="/edit_profile">Edit</button>
+      </div>
+      <div>
+        <h3 class="name">{{fname}} {{lname}}</h3>
+      </div>
 
-        <div>
-          <mat-icon class="contact_icon">call</mat-icon>
-          <label class="contact">{{number}}</label>
-        </div>
-
-        <div>
-          <mat-icon class="pass_icon">lock</mat-icon>
-          <label class="pass"><a href="/change_password">Change password?</a></label>
-        </div>
-      </mat-card>
-
-      <mat-card class="addresscard">
-        <div>
-          <button class="editbtn" mat-raised-button routerLink="/edit_address">Edit</button>
-        </div>
-        <div>
-          <h3>Address Details</h3>
-        </div>
-
-        <div>
-          <div class="row">
-            <div class="col-12">
-              <p class="paper-label">Service Address</p>
-              <p class="mt-2">{{address}}</p>
-            </div>
-            <div class="col-12">
-              <p class="paper-label">Service Address Details (Unit No., Block/Lot No., Bldg./Tower)</p>
-              <p class="mt-2">{{addressDetails}}</p>
-            </div>
-            <div class="col-12">
-              <p class="paper-label">Property type</p>
-              <p class="mt-2">{{property_type}}</p>
-            </div>
-
-            <div class="col-12">
-              <img class="map-image mt-4" lat="14.6141994" long="120.9991554">
-            </div>
+      <div>
+        <div class="row">
+          <div class="col-12">
+            <p class="mt-2">
+              <mat-icon class="mail_icon">mail</mat-icon>
+              <label class="mail">{{email}}</label>
+            </p>
           </div>
+          <div class="col-12">
+            <p class="mt-2">
+              <mat-icon class="mail_icon">call</mat-icon>
+              <label class="mail">{{number}}</label>
+            </p>
           </div>
-      </mat-card>
+          <div class="col-12">
+            <p class="mt-2">
+              <mat-icon class="mail_icon">lock</mat-icon>
+              <label class="mail"><a href="/change_password">
+                Change password?
+              </a>
+            </label>
+            </p>
+          </div>
 
-    
+          <div class="col-12">
+            <img class="map-image mt-4" lat="14.6141994" long="120.9991554">
+          </div>
+        </div>
+      </div>
+    </mat-card>
+
+    <mat-card class="addresscard">
+      <div>
+        <button class="editbtn" mat-raised-button routerLink="/edit_address">Edit</button>
+      </div>
+      <div>
+        <h3>Address Details</h3>
+      </div>
+
+      <div>
+        <div class="row">
+          <div class="col-12">
+            <p class="paper-label">Service Address</p>
+            <p class="mt-2">{{address}}</p>
+          </div>
+          <div class="col-12">
+            <p class="paper-label">Service Address Details (Unit No., Block/Lot No., Bldg./Tower)</p>
+            <p class="mt-2">{{addressDetails}}</p>
+          </div>
+          <div class="col-12">
+            <p class="paper-label">Property type</p>
+            <p class="mt-2">{{property_type}}</p>
+          </div>
+
+          <div class="col-12">
+            <img class="map-image mt-4" lat="14.6141994" long="120.9991554">
+          </div>
+        </div>
+      </div>
+    </mat-card>
+
+
   </mat-sidenav-content>
 </mat-sidenav-container>

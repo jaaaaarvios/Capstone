@@ -31,7 +31,7 @@
             <h1>OR</h1>-->
             <mat-form-field class="login-emailfield" appearance="outline">
               <mat-label>Email Address</mat-label>
-              <input matInput formControlName="email" ngModel [email]="true" type="email" placeholder="user@example.com"
+              <input matInput formControlName="email" [email]="true" type="email" placeholder="user@example.com"
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$">
               <mat-error *ngIf="userForm.get('email').hasError('required')"> Email is required </mat-error>
               <mat-error *ngIf="userForm.get('email').hasError('pattern')"> Please enter a valid email address
@@ -61,7 +61,7 @@
           <form [formGroup]="signupForm" (ngSubmit)="SignUpSubmit()">
             <mat-form-field class="signup-fnamefield" appearance="outline">
               <mat-label>First Name</mat-label>
-              <input matInput formControlName="user_fname" type="text" ngModel placeholder="Enter first name" required>
+              <input matInput formControlName="user_fname" type="text" placeholder="Enter first name" required>
               <mat-error *ngIf="signupForm.get('user_fname').hasError('required')"> First name is required
               </mat-error>
               <mat-error *ngIf="signupForm.get('user_fname').hasError('pattern')"> Invalid Name</mat-error>
@@ -71,7 +71,7 @@
 
             <mat-form-field class="signup-lnamefield" appearance="outline">
               <mat-label>Last Name</mat-label>
-              <input matInput formControlName="user_lname" type="text" ngModel placeholder="Enter last name" required>
+              <input matInput formControlName="user_lname" type="text"placeholder="Enter last name" required>
               <mat-error *ngIf="signupForm.get('user_lname').hasError('required')"> Last name is required </mat-error>
               <mat-error *ngIf="signupForm.get('user_lname').hasError('pattern')"> Invalid Name </mat-error>
               <mat-error *ngIf="signupForm.get('user_lname').hasError('maxlength')">Name contains maximum of 15
@@ -80,7 +80,7 @@
 
             <mat-form-field class="signup-emailfield" appearance="outline">
               <mat-label>Email Address</mat-label>
-              <input matInput formControlName="user_semail" [email]="true" type="email" ngModel
+              <input matInput formControlName="user_semail" [email]="true" type="email"
                 placeholder="yourname@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$" autocomplete="off">
               <mat-error *ngIf="signupForm.get('user_semail').hasError('required')"> Email is required </mat-error>
               <mat-error *ngIf="signupForm.get('user_semail').hasError('pattern')"> Please enter a valid email address
@@ -89,7 +89,7 @@
 
             <mat-form-field class="signup-passfield" appearance="outline">
               <mat-label>Password</mat-label>
-              <input matInput formControlName="user_spassword" type="password" ngModel placeholder="Enter password"
+              <input matInput formControlName="user_spassword" type="password" placeholder="Enter password"
                 [type]="hide ? 'password' : 'text'" required autocomplete="off">
               <mat-icon mat-icon-button matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
               </mat-icon>

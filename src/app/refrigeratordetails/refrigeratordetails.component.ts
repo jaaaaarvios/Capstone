@@ -94,7 +94,7 @@ export class RefrigeratordetailsComponent implements OnInit {
     this.locationForm = this._formBuilder.group({
       service_city: ['', Validators.required],
       service_property_type: ['', Validators.required],
-      service_zipcode: [null, Validators.required]
+      service_barangay: [null, Validators.required]
     });
 
     this.scheduleForm = this._formBuilder.group({
@@ -215,7 +215,7 @@ export class RefrigeratordetailsComponent implements OnInit {
     if (this.locationForm.valid) {
       this.shared.changeCity(this.locationForm.value.service_city);
       this.shared.changeType(this.locationForm.value.service_property_type);
-      this.shared.changebarangay(this.locationForm.value.service_zipcode);
+      this.shared.changebarangay(this.locationForm.value.service_barangay);
     } else {
       return;
     }
@@ -246,7 +246,7 @@ export class RefrigeratordetailsComponent implements OnInit {
         "service_unitProb": unit.service_unitProb,
         "service_city": loc.service_city,
         "service_property_type": loc.service_property_type,
-        "service_zipcode": loc.service_zipcode,
+        "service_barangay": loc.service_barangay,
         "service_date": sched.service_date,
         "service_timeslot": sched.service_timeslot,
         "service_address": contact.service_address,

@@ -118,18 +118,18 @@ export class ElectricfandetailsComponent implements OnInit {
         "x-access-token": this.token
       })
     }
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id, httpOptions);
-      data.subscribe(result => {
-        this.contactDetialsForm.setValue({
-          service_address: result.service_address,
-          service_firstname: result.first_name,
-          service_lastname: result.last_name,
-          service_phoneNumber: result.number ,
-          service_addressDetails: result.service_addressDetails,
-          service_instruction: ""
-        });
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.contactDetialsForm.setValue({
+        service_address: result.service_address,
+        service_firstname: result.first_name,
+        service_lastname: result.last_name,
+        service_phoneNumber: result.number,
+        service_addressDetails: result.service_addressDetails,
+        service_instruction: ""
       });
+    });
 
     if (!navigator.geolocation) {
       console.log('location is not supported');

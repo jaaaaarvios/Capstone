@@ -38,15 +38,13 @@ export class BookingsummaryComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if (localStorage.getItem("id") == null) {
-      this.router.navigate(['/home'])
+    if (localStorage.getItem("service") == null) {
+      this.router.navigate(['/dashboard'])
     }
   }
 
-
-
   deleteOne() {
-    this.auth.deleteOne(this.service._id).subscribe(data => {
+    this.auth.deleteRequest(this.service._id).subscribe(data => {
       this.data = data
     })
   }

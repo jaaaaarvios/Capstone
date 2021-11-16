@@ -527,4 +527,16 @@ margin-left: 50px;
   margin-left: 300px;
   margin-top: 10px;
 }
+.proceedBtn-disabled
+{
+  width: 100px;
+  height: 40px;
+  background-color: #e0d1c1;
+  border-color: #F77F00;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  float: left;
+  margin-left: 300px;
+  margin-top: 10px;
+}
 }

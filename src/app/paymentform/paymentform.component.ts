@@ -43,8 +43,8 @@ export class PaymentformComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if (localStorage.getItem("id") == null) {
-      this.router.navigate(['/home'])
+    if (localStorage.getItem("service") == null) {
+      this.router.navigate(['/dashboard'])
     }
   }
 

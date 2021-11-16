@@ -153,9 +153,9 @@ h1
 .infocard
 {
   width: 800px;
-  height: fit-content;
+  height: 250px;
   float: left;
-  margin-top: 150px;
+  margin-top: 120px;
   margin-left: -165px;
 }
 
@@ -172,69 +172,35 @@ h1
 .addresscard
 {
   width: 800px;
-  height: fit-content;
+  height: 320px;
   float: left;
   margin-top: 30px;
   margin-left: 85px;
 }
 
-
+.name{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px;
+  color: #14213D;
+  margin-top: 0px;
+}
 .mail_icon
 {
-  font-size: 20px;
+  font-size: 22px;
   color: #14213D;
-  margin-top: 50px;
-  float: left;
-  margin-left: -90px;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 5px;
 }
 
 .mail
 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   color: #14213D;
-  margin-top: 50px;
-  float: left;
-  margin-left: -50px;
+  margin-left: 15px;
 }
 
-.contact_icon
-{
-  font-size: 20px;
-  color: #14213D;
-  margin-top: 90px;
-  float: left;
-  margin-left: -163px;
-}
-
-.contact
-{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 15px;
-  color: #14213D;
-  margin-top: 90px;
-  float: left;
-  margin-left: -120px;
-}
-
-.pass_icon
-{
-  font-size: 20px;
-  color: #14213D;
-  margin-top: 130px;
-  float: left;
-  margin-left: -163px;
-}
-
-.pass
-{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 15px;
-  color: #14213D;
-  margin-top: 130px;
-  float: left;
-  margin-left: -120px;
-}
 .paper-label{
   color: grey;
 }

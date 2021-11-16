@@ -47,7 +47,7 @@
             <td>{{service.service_addressDetails}}</td>
             <td>{{service.service_city}}</td>
             <td>{{service.service_property_type}}</td>
-            <td>{{service.service_zipcode}}</td>
+            <td>{{service.service_barangay}}</td>
           </tr>
         </tbody>
       </table>
@@ -89,12 +89,12 @@
       </table>
 
       <div class="termschkbox">
-        <mat-checkbox [(ngModel)]="checked">I agree to Ayosgamit <b>Terms and Conditions.</b></mat-checkbox>
+        <mat-checkbox #confirmed>I agree to Ayosgamit <b>Terms and Conditions.</b></mat-checkbox>
       </div>
   
-      <div>
-        <button mat-raised-button class="proceedBtn" routerLink="/payment">Proceed</button>
-      </div>
+      <div *ngIf="!confirmed.checked; then disable else enable"></div>
+        <ng-template #disable><button mat-stroked-button class="proceedBtn-disabled"  routerLink="/payment" [disabled]="!confirmed.checked">Proceed</button></ng-template>
+        <ng-template #enable><button mat-raised-button class="proceedBtn" routerLink="/payment">Proceed</button></ng-template>
     </mat-card>
   </div>
     <!--PAYMENT SUMMARY------------------------------------------------>
