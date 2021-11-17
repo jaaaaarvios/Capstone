@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuAirconComponent implements OnInit {
 
+  token = localStorage.getItem("token");
   constructor() { }
 
   ngOnInit(): void {

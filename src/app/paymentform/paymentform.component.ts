@@ -21,10 +21,10 @@ export class PaymentformComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-
   service_request = []
   token = JSON.parse(localStorage.getItem('token'));
   service = JSON.parse(localStorage.getItem('service'));
+  total = this.service.checkupfee + this.service.installfee + this.service.unitfee + this.service.cleaningfee;
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver,
     private http: HttpClient) {
@@ -43,8 +43,8 @@ export class PaymentformComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if (localStorage.getItem("id") == null) {
-      this.router.navigate(['/home'])
+    if (localStorage.getItem("service") == null) {
+      this.router.navigate(['/dashboard'])
     }
   }
 

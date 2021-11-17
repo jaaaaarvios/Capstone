@@ -67,6 +67,7 @@
               <th scope="col">Service Address</th>
               <th scope="col">Property Type</th>
               <th scope="col">Created Date</th>
+              <th scope="col">Updated Date</th>
             </tr>
           </thead>
           <tbody class="body">
@@ -78,7 +79,8 @@
               <td>{{user.number}}</td>
               <td>{{user.service_address}}</td>
               <td>{{user.property_type}}</td>
-              <td>{{user.createdDate | date:'longDate'}}</td>
+              <td>{{user.createdAt | date:'longDate'}}</td>
+              <td>{{user.updatedAt | date:'longDate'}}</td>
             </tr>
           </tbody>
         </table>

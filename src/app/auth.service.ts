@@ -17,6 +17,10 @@ export class AuthService {
     return this.http.post("http://localhost:3000/CredentialDB/login", data)
   }
 
+  admin(data): Observable<any> {
+    return this.http.post("http://localhost:3000/CredentialDB/admin", data)
+  }
+
   deleteTechnician(_id): Observable<any> {
     return this.http.delete<void>("http://localhost:3000/technician/:id", _id)
   }
@@ -25,7 +29,7 @@ export class AuthService {
     return this.http.patch("http://localhost:3000/technician/:id", data)
   }
 
-  deleteOne(_id) {
+  deleteRequest(_id) {
     return this.http.delete("http://localhost:3000/NewServiceRequest/"+ _id).pipe(map((res: any) => res));
   }
 

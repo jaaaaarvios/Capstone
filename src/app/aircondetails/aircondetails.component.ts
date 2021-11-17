@@ -48,7 +48,11 @@ export class AircondetailsComponent implements OnInit {
   service_appliance = "Aircon";
   service_type = "Repair";
   status = "Pending";
-  chupfee = "200.00";
+  chupfee = 200;
+  installfee = 0;
+  cleanfee = 0;
+  unitfee = 0;
+  inverter = 200;
   id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
 
@@ -142,13 +146,6 @@ export class AircondetailsComponent implements OnInit {
       );
       let mymap = L.map('mapid').setView(latLong, 13);
 
-      var circle = L.circle([51.508, -0.11], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 500
-      }).addTo(mymap);
-
       L.tileLayer(
         'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoieGFhYWFhcm9uIiwiYSI6ImNrb3hxczd0ZTA3anAydXFueTQzNmNzM2gifQ.3U1BwgLJM3TXPAS0e2nz-A',
         {
@@ -233,6 +230,11 @@ export class AircondetailsComponent implements OnInit {
       const loc = this.locationForm.value;
       const sched = this.scheduleForm.value;
       const contact = this.contactDetialsForm.value;
+      if(unit.service_unitType == "Inverter"){
+        var inverter = this.inverter
+      } else if (unit.service_unitType != "Inverter"){
+        var inverter = this.unitfee
+      }
       let body = {
         "service_type": this.service_type,
         "service_appliance": this.service_appliance,
@@ -252,7 +254,10 @@ export class AircondetailsComponent implements OnInit {
         "service_addressDetails": contact.service_addressDetails,
         "service_instruction": contact.service_instruction,
         "status": this.status,
-        "checkupfee": this.chupfee
+        "checkupfee": this.chupfee,
+        "cleaningfee": this.cleanfee,
+        "installfee": this.installfee,
+        "unitfee": inverter
       }
       const httpOptions = {
         headers: new HttpHeaders({

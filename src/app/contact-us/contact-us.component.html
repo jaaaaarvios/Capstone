@@ -13,9 +13,13 @@
                   <label class="toolbarBtn" routerLink="/pricing">Pricing</label>
                   <label class="toolbarBtn" routerLink="/contact_us">Contact Us</label>
                   <label class="toolbarBtn" routerLink="/about_us">About Us</label>
-                  
+                  <div *ngIf="token != null; else notLogin">
+                    <label class="toolbarBtn" routerLink="/dashboard">Home</label>
+                  </div>
+                  <ng-template #notLogin></ng-template>
                   <span class="spacer"></span>
-                    <button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button>           
+                  <div *ngIf="token != null; else notLogin1"></div>
+                  <ng-template #notLogin1><button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button></ng-template>           
         </mat-toolbar>      
 
     <div>

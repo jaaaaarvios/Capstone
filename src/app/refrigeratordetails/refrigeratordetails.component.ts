@@ -45,7 +45,11 @@ export class RefrigeratordetailsComponent implements OnInit {
   service_appliance = "Refrigerator";
   service_type = "Repair";
   status = "Pending";
-  chupfee = "200.00";
+  chupfee = 200;
+  installfee = 0;
+  cleanfee = 0;
+  unitfee = 0;
+  inverter = 200;
   id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
 
@@ -94,7 +98,7 @@ export class RefrigeratordetailsComponent implements OnInit {
     this.locationForm = this._formBuilder.group({
       service_city: ['', Validators.required],
       service_property_type: ['', Validators.required],
-      service_zipcode: [null, Validators.required]
+      service_barangay: [null, Validators.required]
     });
 
     this.scheduleForm = this._formBuilder.group({
@@ -215,7 +219,7 @@ export class RefrigeratordetailsComponent implements OnInit {
     if (this.locationForm.valid) {
       this.shared.changeCity(this.locationForm.value.service_city);
       this.shared.changeType(this.locationForm.value.service_property_type);
-      this.shared.changebarangay(this.locationForm.value.service_zipcode);
+      this.shared.changebarangay(this.locationForm.value.service_barangay);
     } else {
       return;
     }
@@ -237,6 +241,11 @@ export class RefrigeratordetailsComponent implements OnInit {
       const loc = this.locationForm.value;
       const sched = this.scheduleForm.value;
       const contact = this.contactDetialsForm.value;
+      if(unit.service_unitType == "Inverter"){
+        var inverter = this.inverter
+      } else if (unit.service_unitType != "Inverter"){
+        var inverter = this.unitfee
+      }
       let body = {
         "service_type": this.service_type,
         "service_appliance": this.service_appliance,
@@ -246,7 +255,7 @@ export class RefrigeratordetailsComponent implements OnInit {
         "service_unitProb": unit.service_unitProb,
         "service_city": loc.service_city,
         "service_property_type": loc.service_property_type,
-        "service_zipcode": loc.service_zipcode,
+        "service_barangay": loc.service_barangay,
         "service_date": sched.service_date,
         "service_timeslot": sched.service_timeslot,
         "service_address": contact.service_address,
@@ -256,7 +265,10 @@ export class RefrigeratordetailsComponent implements OnInit {
         "service_addressDetails": contact.service_addressDetails,
         "service_instruction": contact.service_instruction,
         "status": this.status,
-        "checkupfee": this.chupfee
+        "checkupfee": this.chupfee,
+        "cleaningfee": this.cleanfee,
+        "installfee": this.installfee,
+        "unitfee": inverter
       }
       const httpOptions = {
         headers: new HttpHeaders({

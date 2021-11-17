@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class AboutUsComponent implements OnInit {
 
+  token = localStorage.getItem("token");
+  
   constructor(private router: Router) { }
 
   ngOnInit(): void {

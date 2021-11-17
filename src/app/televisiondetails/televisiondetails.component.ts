@@ -28,7 +28,10 @@ export class TelevisiondetailsComponent implements OnInit {
   service_type = "Repair";
   service_unitProb = "None";
   status = "Pending";
-  chupfee = "200.00";
+  chupfee = 200;
+  installfee = 0;
+  cleanfee = 0;
+  unitfee = 0;
   id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
 
@@ -249,7 +252,10 @@ export class TelevisiondetailsComponent implements OnInit {
         "service_addressDetails": contact.service_addressDetails,
         "service_instruction": contact.service_instruction,
         "status": this.status,
-        "checkupfee": this.chupfee
+        "checkupfee": this.chupfee,
+        "cleaningfee": this.cleanfee,
+        "installfee": this.installfee,
+        "unitfee": this.unitfee
       }
       const httpOptions = {
         headers: new HttpHeaders({

@@ -1,43 +1,76 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MyErrorStateMatcher } from '../app.component';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-bookingsummary',
-  templateUrl: './bookingsummary.component.html',
-  styleUrls: ['./bookingsummary.component.css']
+  selector: 'app-bookingsummary-edit',
+  templateUrl: './bookingsummary-edit.component.html',
+  styleUrls: ['./bookingsummary-edit.component.css']
 })
-
-export class BookingsummaryComponent implements OnInit {
+export class BookingsummaryEditComponent implements OnInit {
   subscription: any;
   data: any;
+
   token = JSON.parse(localStorage.getItem('token'));
   service = JSON.parse(localStorage.getItem('service'));
   checked = false;
   indeterminate = false;
   labelPosition: 'before' | 'after' = 'after';
   disabled = false;
-  total = this.service.checkupfee + this.service.installfee + this.service.unitfee + this.service.cleaningfee;
-  
+
+  matcher = new MyErrorStateMatcher();
+  summaryForm: FormGroup;
+
+  city: any[] = ["Manila City", "Quezon City", "Caloocan City", "Las Piñas City", "Valenzuela City", "Makati City",
+    "Malabon City", "Mandaluyong City", "Marikina City", "Muntinlupa City", "Navotas City", "Parañaque City", "Pasay City",
+    "Pasig City", "San Juan City", "Taguig City", "Valenzuela City"];
+
+  property_type: any[] = ["Condo", "Apartment", "House", "Store", "Office Building", "Warehouse or Storage"];
+
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-  constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver,
-    private http: HttpClient, private router: Router,  private route: ActivatedRoute, private auth: AuthService) {
+  constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver, private _formBuilder: FormBuilder,
+    private http: HttpClient, private router: Router, private route: ActivatedRoute, private auth: AuthService) {
   }
 
   ngOnInit(): void {
     if (localStorage.getItem("service") == null) {
       this.router.navigate(['/dashboard'])
     }
+
+    this.summaryForm = this._formBuilder.group({
+      service_firstname: ['', Validators.required],
+      service_lastname: ['', Validators.required],
+      service_phoneNumber: ['', [Validators.required, Validators.pattern]],
+      service_address: ['', Validators.required],
+      service_addressDetails: ['', Validators.required],
+      service_instruction: ['', Validators.required],
+      service_city: ['', Validators.required],
+      service_property_type: ['', Validators.required],
+      service_barangay: ['', Validators.required],
+    });
+    this.summaryForm.patchValue({
+      service_firstname: this.service.service_firstname,
+      service_lastname: this.service.service_lastname,
+      service_address: this.service.service_address,
+      service_phoneNumber: this.service.service_phoneNumber,
+      service_addressDetails: this.service.service_addressDetails,
+      service_instruction: this.service.service_instruction,
+      service_barangay: this.service.service_barangay,
+      service_city: this.service.service_city,
+      service_property_type: this.service.service_property_type,
+    });
   }
 
   deleteOne() {
@@ -54,7 +87,6 @@ export class BookingsummaryComponent implements OnInit {
       this.drawer.close();
     }
   }
-
   getConfirmation() {
     var retVal = confirm("Do you really want to cancel the booking ?");
     if (retVal == true) {
@@ -150,6 +182,46 @@ export class BookingsummaryComponent implements OnInit {
       this.deleteOne()
       localStorage.removeItem("service");
       this.router.navigate(['/about_us'])
+      return true;
+    } else {
+      return false;
+    }
+  }
+  summarySubmit() {
+    var retVal = confirm("Do you want to update ?");
+    if (retVal == true) {
+      const summary = this.summaryForm.value;
+      let body = {
+        "service_firstname": summary.service_firstname,
+        "service_lastname": summary.service_lastname,
+        "service_address": summary.service_address,
+        "service_phoneNumber": summary.service_phoneNumber,
+        "service_addressDetails": summary.service_addressDetails,
+        "service_instruction": summary.service_instruction,
+        "service_barangay": summary.service_barangay,
+        "service_city": summary.service_city,
+        "service_property_type": summary.service_property_type
+      }
+      const httpOptions = {
+        headers: new HttpHeaders({
+          "x-access-token": this.token
+        })
+      }
+      if (this.summaryForm.valid) {
+        this.http.patch("http://localhost:3000/NewServiceRequest/summary/"+ this.service._id, body, httpOptions)
+          .subscribe(data => {
+            console.log(data, 'Update Success');
+            alert("Update Successfully");
+            localStorage.setItem("service", JSON.stringify(data));
+            this.router.navigate(['/summary']);
+          }, error => {
+            console.log(error);
+            alert(error);
+          });
+      }
+      else {
+        alert('Fill up the required textfields with valid information')
+      }
       return true;
     } else {
       return false;

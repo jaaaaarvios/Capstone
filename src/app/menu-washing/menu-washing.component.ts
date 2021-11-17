@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-washing.component.css']
 })
 export class MenuWashingComponent implements OnInit {
-
+  token = localStorage.getItem("token");
   constructor() { }
 
   ngOnInit(): void {

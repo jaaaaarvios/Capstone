@@ -13,6 +13,8 @@ import { SharedService } from '../shared/shared.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
+
+  token = localStorage.getItem("token")
     
   constructor(private router: Router, private shared: SharedService,
     ngZone: NgZone) {}

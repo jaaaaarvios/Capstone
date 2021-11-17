@@ -1,42 +1,46 @@
 <mat-toolbar>
-  
+
   <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
+  <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="getConfirmation1()">Aircon</button>
+    <button mat-menu-item (click)="getConfirmation2()">Refrigerator</button>
+    <button mat-menu-item (click)="getConfirmation3()">Electric Fan</button>
+    <button mat-menu-item (click)="getConfirmation4()">Washing Machine</button>
+    <button mat-menu-item (click)="getConfirmation5()">Television</button>
+  </mat-menu>
 
-  <label class="homeBtn" routerLink="/dashboard">Home</label>  
-        <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label> 
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
-              <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
-              <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
-              <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
-              <button mat-menu-item routerLink="/menu_tv">Television</button>
-            </mat-menu>
+  <label class="pricingBtn" (click)="getConfirmation6()">Pricing</label>
+  <label class="contactUsBtn" (click)="getConfirmation7()">Contact Us</label>
+  <label class="aboutusBtn" (click)="getConfirmation8()">About Us</label>
+  <label class="aboutusBtn" (click)="getConfirmation()">Home</label>
+  <span class="spacer"></span>
+  <button mat-raised-button (click)="getConfirmation()" class="cancelBtn">Cancel Request</button>
 
-            <label class="pricingBtn" routerLink="/pricing">Pricing</label>
-            <label class="contactUsBtn" routerLink="/contact_us">Contact Us</label>
-            <label class="aboutusBtn" routerLink="/about_us">About Us</label>    
-            
-</mat-toolbar> 
-   
-  
+</mat-toolbar>
 <mat-card class="summary">
   <div>
     <mat-icon class="icon">description<h1 class="title">Request Summary</h1>
     </mat-icon>
   </div>
-  
+
   <table class="table">
+    
     <thead>
       <tr>
-        <th class="header1">First Name <mat-icon class="editicon">edit</mat-icon></th>
-        <th class="header1">Last Name <mat-icon class="editicon">edit</mat-icon></th>
-        <th class="header1">Contact Number <mat-icon class="editicon">edit</mat-icon></th>
-        <th class="header1">Address <mat-icon class="editicon">edit</mat-icon></th>
+        <th class="header1">First Name <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
+        </th>
+        <th class="header1">Last Name <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
+        </th>
+        <th class="header1">Contact Number <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
+        </th>
+        <th class="header1">Address <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
+        </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="body1">Famela</td>
+        <td class="body1">{{service.service_firstname}}</td>
         <td class="body1">{{service.service_lastname}}</td>
         <td class="body1">{{service.service_phoneNumber}}</td>
         <td class="body1">{{service.service_address}}</td>
@@ -44,51 +48,46 @@
     </tbody>
     <thead>
       <tr>
-        <th class="header2">Address Details <mat-icon class="editicon">edit</mat-icon></th>
-        <th class="header2">City <mat-icon class="editicon">edit</mat-icon></th>
-        <th class="header2">Property Type <mat-icon class="editicon">edit</mat-icon></th>
-        <th class="header2">Baranggay <mat-icon class="editicon">edit</mat-icon></th>
+        <th class="header2">Address Details <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
+        </th>
+        <th class="header2">City <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
+        </th>
+        <th class="header2">Property Type <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
+        </th>
+        <th class="header2">Baranggay <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
+        </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="body2">Blk 16</td>
+        <td class="body2">{{service.service_address}}</td>
         <td class="body2">{{service.service_city}}</td>
         <td class="body2">{{service.service_property_type}}</td>
-        <td class="body2">{{service.service_zipcode}}</td>
+        <td class="body2">{{service.service_barangay}}</td>
       </tr>
     </tbody>
-   
-     
-      <thead>
-        <tr>
-          <th class="header4">Unit Problem <mat-icon class="editicon">edit</mat-icon></th>
-          <th class="header4">Scheduled Date <mat-icon class="editicon">edit</mat-icon></th>
-          <th class="header4">Time Slot <mat-icon class="editicon">edit</mat-icon></th>
-          <th class="header4">Instruction <mat-icon class="editicon">edit</mat-icon></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="body4">{{service.service_unitProb}}</td>
-          <td class="body4">{{service.service_date | date}}</td>
-          <td class="body4">{{service.service_timeslot}}</td>
-          <td class="body4">{{service.service_instruction}}</td>
-        </tr>
-      </tbody>
 
-      <thead>
-        <tr>
-          <th class="header4">Instruction <mat-icon class="editicon">edit</mat-icon></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td class="body4">{{service.service_instruction}}</td>
-        </tr>
-      </tbody>
-   </table>
+    <thead>
+      <tr>
+        <th class="header4">Unit Problem 
+        </th>
+        <th class="header4">Scheduled Date
+        </th>
+        <th class="header4">Time Slot
+        </th>
+        <th class="header4">Instruction <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="body4">{{service.service_unitProb}}</td>
+        <td class="body4">{{service.service_date | date}}</td>
+        <td class="body4">{{service.service_timeslot}}</td>
+        <td class="body4">{{service.service_instruction}}</td>
+      </tr>
+    </tbody>
+  </table>
 </mat-card>
 
 <mat-card class="summary2">
@@ -99,7 +98,7 @@
         <th class="header3">Appliance</th>
         <th class="header3">Service</th>
         <th class="header3">Unit Type</th>
-        <th class="header3">Price</th>
+        <th class="price">Price</th>
       </tr>
     </thead>
 
@@ -108,30 +107,35 @@
         <td class="body3">{{service.service_appliance}}</td>
         <td class="body3">{{service.service_type}}</td>
         <td class="body3">{{service.service_unitType}}</td>
-        <td class="body3">{{service.service_unitType}}</td>
+        <td class="price1">
+          &#8369;{{service.checkupfee}}.00
+          <div *ngIf="service.installfee == 0; then install else install1"></div>
+          <ng-template #install1> + &#8369;{{service.installfee}}.00</ng-template>
+          <ng-template #install>  </ng-template>
+
+          <div *ngIf="service.cleaningfee == 0; then cleaning else cleaning1"></div>
+          <ng-template #cleaning1> + &#8369;{{service.cleaningfee}}.00</ng-template>
+          <ng-template #cleaning>  </ng-template>
+
+          <div *ngIf="service.unitfee == 0; then unit else unit1"></div>
+          <ng-template #unit1> + &#8369;{{service.unitfee}}.00</ng-template>
+          <ng-template #unit> </ng-template>
+        </td>
       </tr>
     </tbody>
-    </table>
+  </table>
 
-<div>
-  <h1 class="totaltxt"><b>Total: </b></h1>
-</div>
+  <div>
+    <h1 class="totaltxt"><b>Total: &#8369;{{total}}.00</b></h1>
+  </div>
+
 </mat-card>
-   
+
 <div class="termschkbox">
-  <mat-checkbox [(ngModel)]="checked">I agree to Ayosgamit<b> Terms & Conditions.</b></mat-checkbox>
+  <mat-checkbox #confirmed>I agree to Ayosgamit <b>Terms and Conditions.</b></mat-checkbox>
 </div>
 
-<div>
-<button  class="submitBtn" mat-raised-button>SUBMIT</button>
-</div>
-   
-   
-
-    
- 
-
-    
-      
-    
-
+<div *ngIf="!confirmed.checked; then disable else enable"></div>
+<ng-template #disable><button mat-stroked-button class="submitBtn-disabled" routerLink="/payment"
+    [disabled]="!confirmed.checked">Proceed</button></ng-template>
+<ng-template #enable><button mat-raised-button class="submitBtn" routerLink="/payment">Proceed</button></ng-template>

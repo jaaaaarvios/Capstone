@@ -31,7 +31,7 @@ export class LoginformComponent implements OnInit {
   user_lname = "";
   user_semail = "";
   user_spassword = "";
-  admin = "admin@gmail.com"
+  admin = "admin@admin.com"
 
   public showPassword: boolean;
   public showPasswordOnPress: boolean;
@@ -64,11 +64,6 @@ export class LoginformComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.subscription = this.shared.currentUserFname.subscribe(user_fname => this.user_fname = user_fname);
-    this.subscription = this.shared.currentUserLname.subscribe(user_lname => this.user_lname = user_lname);
-    this.subscription = this.shared.currentUserEmail.subscribe(user_semail => this.user_semail = user_semail);
-    this.subscription = this.shared.currentUserPassword.subscribe(user_spassword => this.user_spassword = user_spassword);
-
     this.userForm = new FormGroup({
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.minLength(this.minPw)]),
@@ -87,9 +82,9 @@ export class LoginformComponent implements OnInit {
 
     const val = this.userForm.value;
 
-    if(val.email === this.admin){
-      this.auth.login(val).subscribe(result => {
-        if(result) {
+    if (val.email === this.admin) {
+      this.auth.admin(val).subscribe(result => {
+        if (result) {
           localStorage.setItem("id", JSON.stringify(result._id));
           localStorage.setItem("firstname", JSON.stringify(result.first_name));
           localStorage.setItem("token", JSON.stringify(result.token));
@@ -98,11 +93,12 @@ export class LoginformComponent implements OnInit {
         }
       }), error => {
         console.log(error);
+        alert("Error: " + error);
       }
     }
-    else if(val.email != this.admin){
+    else if (val.email != this.admin) {
       this.auth.login(val).subscribe(result => {
-        if(result) {
+        if (result) {
           localStorage.setItem("id", JSON.stringify(result._id));
           localStorage.setItem("token", JSON.stringify(result.token));
           console.log(result);
@@ -111,6 +107,7 @@ export class LoginformComponent implements OnInit {
         }
       }), error => {
         console.log(error);
+        alert("Error: " + error);
       }
     }
     else {

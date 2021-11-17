@@ -46,7 +46,10 @@ export class ElectricfandetailsComponent implements OnInit {
   service_appliance = "Electric Fan";
   service_type = "Repair";
   status = "Pending";
-  chupfee = "200.00";
+  chupfee = 200;
+  installfee = 0;
+  cleanfee = 0;
+  unitfee = 0;
   id=JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
 
@@ -118,18 +121,18 @@ export class ElectricfandetailsComponent implements OnInit {
         "x-access-token": this.token
       })
     }
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id, httpOptions);
-      data.subscribe(result => {
-        this.contactDetialsForm.setValue({
-          service_address: result.service_address,
-          service_firstname: result.first_name,
-          service_lastname: result.last_name,
-          service_phoneNumber: result.number ,
-          service_addressDetails: result.service_addressDetails,
-          service_instruction: ""
-        });
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.contactDetialsForm.setValue({
+        service_address: result.service_address,
+        service_firstname: result.first_name,
+        service_lastname: result.last_name,
+        service_phoneNumber: result.number,
+        service_addressDetails: result.service_addressDetails,
+        service_instruction: ""
       });
+    });
 
     if (!navigator.geolocation) {
       console.log('location is not supported');
@@ -257,7 +260,10 @@ export class ElectricfandetailsComponent implements OnInit {
         "service_addressDetails": contact.service_addressDetails,
         "service_instruction": contact.service_instruction,
         "status": this.status,
-        "checkupfee": this.chupfee
+        "checkupfee": this.chupfee,
+        "cleaningfee": this.cleanfee,
+        "installfee": this.installfee,
+        "unitfee": this.unitfee
       }
       const httpOptions = {
         headers: new HttpHeaders({

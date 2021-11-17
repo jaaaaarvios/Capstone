@@ -29,35 +29,45 @@
       <thead>
         <tr>
           <th>Check Up Fee</th>
-          <div *ngIf="service.cleaningfee != null; then thenClean else elseClean"></div>
+          <div *ngIf="service.cleaningfee != 0; then thenClean else elseClean"></div>
           <ng-template #thenClean><th>Cleaning Fee</th></ng-template>
           <ng-template #elseClean></ng-template>
           
-          <div *ngIf="service.installfee != null; then thenInstall else elseInstall"></div>
+          <div *ngIf="service.installfee != 0; then thenInstall else elseInstall"></div>
           <ng-template #thenInstall><th>Installation Fee</th></ng-template>
           <ng-template #elseInstall></ng-template>
 
-          <div *ngIf="service.unitfee != null; then thenUnit else elseUnit"></div>
+          <div *ngIf="service.unitfee != 0; then thenUnit else elseUnit"></div>
           <ng-template #thenUnit><th>Additional Fee</th></ng-template>
           <ng-template #elseUnit></ng-template>
         </tr>
       </thead>
-
       <tbody>
         <tr>
-          <td>{{service.checkupfee}}.00</td>
-          <div *ngIf="service.cleaningfee != null; then clean else elseclean"></div>
-          <ng-template #clean><td>{{service.cleaningfee}}.00</td></ng-template>
+          <td>&#8369;{{service.checkupfee}}.00</td>
+          <div *ngIf="service.cleaningfee != 0; then clean else elseclean"></div>
+          <ng-template #clean><td>&#8369;{{service.cleaningfee}}.00</td></ng-template>
           <ng-template #elseclean></ng-template>
           
-
-          <div *ngIf="service.installfee != null; then install else elseInstall"></div>
-          <ng-template #install><td>{{service.installfee}}.00</td></ng-template>
+          <div *ngIf="service.installfee != 0; then install else elseInstall"></div>
+          <ng-template #install><td>&#8369;{{service.installfee}}.00</td></ng-template>
           <ng-template #elseInstall></ng-template>
 
-          <div *ngIf="service.unitfee != null; then unit1 else elseUnit1"></div>
-            <ng-template #unit1><td>{{service.unitfee}}.00</td></ng-template>
+          <div *ngIf="service.unitfee != 0; then unit1 else elseUnit1"></div>
+            <ng-template #unit1><td>&#8369;{{service.unitfee}}.00</td></ng-template>
             <ng-template #elseUnit1></ng-template>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Total Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>&#8369;{{total}}.00</td>
         </tr>
       </tbody>
     </table>

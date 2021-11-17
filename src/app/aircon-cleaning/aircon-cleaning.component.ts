@@ -42,14 +42,16 @@ export class AirconCleaningComponent implements OnInit {
   service_type = "Cleaning";
   service_unitProb = "None";
   status = "Pending";
-  chupfee = 200
-  inverter = 200.00
-  window_type = 600.00
-  split_type = 1200.00
-  tower_type = 1900.00
-  cassette_type = 2800.00
-  suspended_type = 2800.00
-  concealed_type = 2200.00
+  chupfee = 200;
+  insfee = 0;
+  unitfee = 0;
+  inverter = 200;
+  window_type = 600;
+  split_type = 1200;
+  tower_type = 1900;
+  cassette_type = 2800;
+  suspended_type = 2800;
+  concealed_type = 2200;
 
   id=JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
@@ -246,6 +248,7 @@ export class AirconCleaningComponent implements OnInit {
         var inverter = this.inverter
       } else if (unit.service_aptype == "Window" && unit.service_unitType != "Inverter"){
         var cleanfee = this.window_type
+        var inverter = this.unitfee
       }
 
       if(unit.service_aptype == "Split" && unit.service_unitType == "Inverter"){
@@ -253,30 +256,35 @@ export class AirconCleaningComponent implements OnInit {
         var inverter = this.inverter
       } else if (unit.service_aptype == "Split" && unit.service_unitType != "Inverter"){
         var cleanfee = this.split_type
+        var inverter = this.unitfee
       }
       if(unit.service_aptype == "Tower" && unit.service_unitType == "Inverter"){
         var cleanfee = this.tower_type
         var inverter = this.inverter
       } else if((unit.service_aptype == "Tower" && unit.service_unitType != "Inverter")){
         var cleanfee = this.tower_type
+        var inverter = this.unitfee
       }
       if(unit.service_aptype == "Cassette" && unit.service_unitType == "Inverter"){
         var cleanfee = this.cassette_type
         var inverter = this.inverter
       } else if(unit.service_aptype == "Cassette" && unit.service_unitType != "Inverter") {
         var cleanfee = this.cassette_type
+        var inverter = this.unitfee
       }
       if(unit.service_aptype == "Suspended" && unit.service_unitType == "Inverter"){
         var cleanfee = this.suspended_type
         var inverter = this.inverter
       } else if(unit.service_aptype == "Suspended" && unit.service_unitType != "Inverter") {
         var cleanfee = this.suspended_type
+        var inverter = this.unitfee
       }
       if(unit.service_aptype == "Concealed" && unit.service_unitType == "Inverter"){
         var cleanfee = this.concealed_type
         var inverter = this.inverter
       } else if(unit.service_aptype == "Concealed" && unit.service_unitType != "Inverter") {
         var cleanfee = this.concealed_type
+        var inverter = this.unitfee
       }
 
       let body = {
@@ -300,6 +308,7 @@ export class AirconCleaningComponent implements OnInit {
         "status": this.status,
         "checkupfee": this.chupfee,
         "cleaningfee": cleanfee,
+        "installfee": this.insfee,
         "unitfee": inverter
       }
       const httpOptions = {
