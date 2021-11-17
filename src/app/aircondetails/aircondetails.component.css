@@ -91,74 +91,7 @@
 .spacer{
   flex: 1 1 auto;
 }
-.dashtitle
-{
-  color: #003049;
-  font-size: 30px;
-  margin-top: 40px;
-  margin-left: 60px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-}
-.services
-{
-  color: #003049;
-  font-size: 20px;
-  margin-left: 60px;
-  margin-top: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.datetime
-{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #003049;
-  font-size: 18px;
-  float: left;
-  margin-left: 60px;
-  margin-top: 5px;
-}
-
-
-.ayosgamit
-{
-  font-family: 'Candara';
-  font-size: 30px;
-  margin-left: 10px;
-  color: #FFFFFF;
-}
-
-.welcome
-{
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-float: right;
-margin-right: 250px;
-font-size: 18px;
-margin-top: 3px;
-color: #FFFFFF;
-}
-
-.logouticon
-{
-  font-size: 30px;
-  float: right;
-  margin-right: 80px;
-  margin-top: -5px;
-  color: #FFFFFF;
-}
-
-.logoutBtn
-{
-  font-size: 18px;
-  color: #FFFFFF;
-}
-.logoutxt
-{
-  font-size: 17px;
-  color: #FFFFFF;
-  margin-top: -30px;
-  float: right;
-  margin-right: -70px;
-}
   .stepper
   {
     margin: auto;
@@ -177,7 +110,7 @@ color: #FFFFFF;
 
   .pricetxt
   {
-    color: #14213D;
+    color: #590D22;
     font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -230,18 +163,18 @@ p
   }
   .locationicon
   {
-    color: #14213D;
+    color: #590D22;
     font-size: 35px;
     margin: auto;
   }
   .unitdetails{
-    color: #14213D;
+    color: #590D22;
     font-size: 25px;
     font-family: 'Trebuchet MS';
   }
   .servicelocation
   {
-    color: #14213D;
+    color: #590D22;
     margin-top: -33px;
     margin-left: 50px;
     font-size: 25px;
@@ -275,13 +208,13 @@ p
   
   .phoneicon
   {
-    color: #14213D;
+    color: #590D22;
     font-size: 35px;
   }
   
   .contactdetails
   {
-    color: #14213D;
+    color: #590D22;
     margin-top: -33px;
     margin-left: 50px;
     font-size: 25px;
@@ -401,13 +334,13 @@ p
   .schedicon
   {
     margin-top: 10px;
-    color: #14213D;
+    color: #590D22;
     font-size: 35px;
   }
   
   .servicesched
   {
-    color: #14213D;
+    color: #590D22;
     margin-top: -35px;
     margin-left: 50px;
     font-size: 25px;
@@ -669,7 +602,7 @@ p
 
   .contactdetails
   {
-    color: #14213D;
+    color: #590D22;
     font-size: 18px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -702,17 +635,7 @@ p
     margin-top: 25px;
     float: left;
   }
-  .CDbackBtn
-  {
-    margin-top: 30px;
-    font-size: 18px;
-    font-family: 'Trebuchet MS';
-    background-color: #D62828;
-    color: #FFFFFF;
-    width: 100px;
-    height: 50px;
-    float: left;
-  }
+
   .doneBtn
   {
     margin-top: 30px;

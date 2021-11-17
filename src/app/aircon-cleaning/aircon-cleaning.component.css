@@ -1,235 +1,104 @@
 @media (min-width: 820px)
 {
-.sidenav-container {
-  height: 100%;
-}
-
-.sidenav{
-  width: fit-content;
-  width: 280px;
-  background-color: #EAE2B7;
-}
-
-.mat-sidenav-content{
-   height: 910px;
-   background-color: white;
-}
-
-.mat-toolbar{
-  background-color: #D62828;
-  width: 100%;
-}
-
-.logo{
-  width: 60%;
-  height: 18%;
-  margin-left: 60px;
-}
-
-.nav-icon{
-  color: #003049;
-  font-size: 35px;
-  margin-left: 25px;
-  margin-top: -12px;
-}
-
-.dashboardside{
-  margin-left: 0px;
-  margin-top: 30px;
-  text-align: justify;
-}
-
-.dashboardside:hover
-{
-    background-color: #c8c19c;
-    
+  mat-toolbar
+  {
     width: 100%;
-    height: 70px;
-    margin-left: 0;
-    margin-top: 20px;
-    text-align: justify;
-}
+    height: 10%;
+  }
+  
+  .logo
+  {
+       max-width: 200px;
+       height: 100px !important;
+       margin-left: 30px !important;
+       margin-top: 20px !important;
+  }
+  
+  .homeBtn
+  {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #003049;
+    font-size: 17px;
+    float: left;
+    margin: 30px;
+    margin-left: 80px;
+    margin-top: 40px;
+  }
+  
+  .homeBtn:hover, .homeBtn:active {
+    color:#dd0346;
+  }
+  
+  .menuBtn
+  {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #003049;
+      font-size: 17px;
+      float: left;
+      margin: 30px;
+      margin-top: 40px;
+  }
+  
+  .menuBtn:hover, .menuBtn:active {
+      color:#dd0346;
+  }
+  
+  .pricingBtn
+  {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #003049;
+      float: left;
+      margin: 30px;
+      margin-top: 40px;
+      font-size: 17px;
+      
+  }
+  
+  
+  .pricingBtn:hover, .pricingBtn:active {
+      color:#dd0346;
+  }
+  
+  .contactUsBtn
+  {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #003049;
+      font-size: 17px;
+      float: left;
+      margin: 30px;
+      margin-top: 40px;
+  }
+  
+  .contactUsBtn:hover, .contactUsBtn:active {
+      color:#dd0346;
+  }
+  
+  .aboutusBtn
+  {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #003049;
+      font-size: 17px;
+      float: left;
+      margin: 30px;
+      margin-top: 40px;
+  }
+  
+  .aboutusBtn:hover, .aboutusBtn:active {
+      color:#dd0346;
+  }
 
-.dashboard-btn{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-left: 25px;
-  text-decoration: none;
-}
-
-.bookingside{
-  margin-left: 0px;
-  margin-top: 30px;
-  text-align: justify;
-}
-
-.bookingside:hover
-{
-    background-color: #c8c19c;
-    width: 100%;
-    height: 70px;
-    margin-left: 0;
-    margin-top: 20px;
-    text-align: justify;
-}
-
-.booking-btn{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-left: 25px;
-}
-
-.profileside{
-  margin-left: 0px;
-  margin-top: 30px;
-  text-align: justify;
-}
-
-.profileside:hover
-{
-    background-color: #c8c19c;
-    
-    width: 100%;
-    height: 70px;
-    margin-left: 0;
-    margin-top: 20px;
-    text-align: justify;
-}
-
-.profile-btn
-{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-left: 25px;
-}
-
-.logoutside{
-  margin-left: 0px;
-  margin-top: 30px;
-  text-align: justify;
-}
-
-.logoutside:hover
-{
-    background-color: #c8c19c;
-    
-    width: 100%;
-    height: 70px;
-    margin-left: 0;
-    margin-top: 20px;
-    text-align: justify;
-}
-
-.logout-btn
-{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-left: 25px;
-}
 
 .spacer{
   flex: 1 1 auto;
 }
-.dashtitle
-{
-  color: #003049;
-  font-size: 30px;
-  margin-top: 40px;
-  margin-left: 60px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-}
-.services
-{
-  color: #003049;
-  font-size: 20px;
-  margin-left: 60px;
-  margin-top: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.datetime
-{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #003049;
-  font-size: 18px;
-  float: left;
-  margin-left: 60px;
-  margin-top: 5px;
-}
-
-
-.ayosgamit
-{
-  font-family: 'Candara';
-  font-size: 30px;
-  margin-left: 10px;
-  color: #FFFFFF;
-}
-
-.welcome
-{
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-float: right;
-margin-right: 250px;
-font-size: 18px;
-margin-top: 3px;
-color: #FFFFFF;
-}
-
-.logouticon
-{
-  font-size: 30px;
-  float: right;
-  margin-right: 80px;
-  margin-top: -5px;
-  color: #FFFFFF;
-}
-
-.logoutBtn
-{
-  font-size: 18px;
-  color: #FFFFFF;
-}
-.logoutxt
-{
-  font-size: 17px;
-  color: #FFFFFF;
-  margin-top: -30px;
-  float: right;
-  margin-right: -70px;
-}
   .stepper
   {
     margin: auto;
+    position: center !important;
     margin-top: 50px;
     font-family: 'Trebuchet MS';
     width: fit-content;
-  }
-  .nextBtn
-  {
-    font-size: 18px;
-    font-family: 'Trebuchet MS';
-    background-color: #D62828;
-      color: #FFFFFF;
-    width: 100px;
-    height: 50px;
-    margin-top: 25px;
-    float: right;
-  }
-  .backBtn
-  {
-    font-size: 18px;
-    font-family: 'Trebuchet MS';
-    background-color: #D62828;
-    color: #FFFFFF;
-    width: 100px;
-    height: 50px;
-    margin-top: 25px;
-    float: left;
   }
 
   .viewprice
@@ -241,7 +110,7 @@ color: #FFFFFF;
 
   .pricetxt
   {
-    color: #14213D;
+    color: #590D22;
     font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -255,7 +124,7 @@ p
 
 .priceBtn
 {
-  background-color: #003049;
+  background-color: #590D22;
   color: #FFFFFF;
   font-size: 13px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -294,18 +163,18 @@ p
   }
   .locationicon
   {
-    color: #14213D;
+    color: #590D22;
     font-size: 35px;
     margin: auto;
   }
   .unitdetails{
-    color: #14213D;
+    color: #590D22;
     font-size: 25px;
     font-family: 'Trebuchet MS';
   }
   .servicelocation
   {
-    color: #14213D;
+    color: #590D22;
     margin-top: -33px;
     margin-left: 50px;
     font-size: 25px;
@@ -339,13 +208,13 @@ p
   
   .phoneicon
   {
-    color: #14213D;
+    color: #590D22;
     font-size: 35px;
   }
   
   .contactdetails
   {
-    color: #14213D;
+    color: #590D22;
     margin-top: -33px;
     margin-left: 50px;
     font-size: 25px;
@@ -426,27 +295,31 @@ p
     font-family: 'Trebuchet MS';
   }
   
-  .CDbackBtn
+  .backBtn
   {
-    margin-top: 30px;
-    font-size: 18px;
+    margin-top: 30px !important;
+    float: left !important;
+    margin-left: 10px !important;
+    font-size: 17px;
     font-family: 'Trebuchet MS';
-    background-color: #D62828;
-    color: #FFFFFF;
-    width: 100px;
-    height: 50px;
-    float: left;
+    border-color: #dd0346 !important;
+    color: #a4133c;
+    width: 100px !important;
+    height: 50px !important;
+    
   }
   
-  .CDnextBtn
+  .nextBtn
   {
     margin-top: 30px;
     font-size: 18px;
     font-family: 'Trebuchet MS';
-    background-color: #D62828;
-    color: #FFFFFF;
-    width: 100px;
-    height: 50px;
+    border-style: solid;
+    border-width: thin;
+    border-color: #dd0346 !important;
+    color: #a4133c !important;
+    width: 100px !important;
+    height: 50px !important;
     float: right;
   }
   
@@ -455,20 +328,20 @@ p
     margin: auto;
     margin-top: 40px;
     width: 800px;
-    height: 350px;
+    height: 410px;
   }
   
   .schedicon
   {
     margin-top: 10px;
-    color: #14213D;
+    color: #590D22;
     font-size: 35px;
   }
   
   .servicesched
   {
-    color: #14213D;
-    margin-top: -33px;
+    color: #590D22;
+    margin-top: -35px;
     margin-left: 50px;
     font-size: 25px;
     font-family: 'Trebuchet MS';
@@ -478,8 +351,8 @@ p
   {
     margin-top: -10px;
     margin-left: 550px;
-    border-color: #FCA311;
-    height: 50px;
+    border-color: #a4133c;
+    height: 70px;
     width: 200px;
     font-family: 'Trebuchet MS';
   }
@@ -508,6 +381,7 @@ p
   {
    font-size: 12px;
    font-family: 'Trebuchet MS';
+   color: #a4133c;
   }
   
   .listicon
@@ -538,8 +412,8 @@ p
     margin-top: 30px;
     font-size: 18px;
     font-family: 'Trebuchet MS';
-    background-color: #FCA311;
-    color: #14213D;
+    background-color: #590D22;
+    color: #FFFFFF;
     width: 100px;
     height: 50px;
     float: right;
@@ -555,52 +429,19 @@ p
   {
     
     margin-left: 20px;
-    background-color: #D62828;
-      color: #FFFFFF;
+    background-color: #a4133c;
+    color: #FFFFFF;
     height: 52px;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Trebuchet MS';
   }
-  
-  .airconcard
-  {
-    margin-top: 100px;
-    margin-left: 250px;
-    width: 200px;
-    height: 200px;
-  }
-  
-  .refcard
-  {
-    margin-top: -235px;
-    margin-left: 500px;
-    width: 200px;
-    height: 200px;
-  }
-  
-  .efancard
-  {
-    margin-top: -235px;
-    margin-left: 760px;
-    width: 200px;
-    height: 200px;
-  }
-  
-  .washingcard
-  {
-    margin-top: -230px;
-    margin-left: 1015px;
-    width: 200px;
-    height: 200px;
-  }
-  
   .timeslots
   {
     margin-top: -135px;
   }
   .timeslot
   {
-    margin-top:-50px;
+    margin-top: -55px;
     float: right;
     margin-right: 75px;
     font-size: 18px;
@@ -761,7 +602,7 @@ p
 
   .contactdetails
   {
-    color: #14213D;
+    color: #590D22;
     font-size: 18px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -794,24 +635,14 @@ p
     margin-top: 25px;
     float: left;
   }
-  .CDbackBtn
-  {
-    margin-top: 30px;
-    font-size: 18px;
-    font-family: 'Trebuchet MS';
-    background-color: #D62828;
-    color: #FFFFFF;
-    width: 100px;
-    height: 50px;
-    float: left;
-  }
+
   .doneBtn
   {
     margin-top: 30px;
     font-size: 18px;
     font-family: 'Trebuchet MS';
-    background-color: #FCA311;
-    color: #14213D;
+    background-color: #F77F00;
+    color: #FFFFFF;
     width: 100px;
     height: 50px;
     float: right;

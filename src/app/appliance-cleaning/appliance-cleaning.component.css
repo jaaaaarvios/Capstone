@@ -1,207 +1,104 @@
 @media (min-width: 820px)
 {
-.sidenav-container {
-  height: 100%;
-}
-
-.sidenav{
-  width: fit-content;
-  width: 280px;
-  background-color: #EAE2B7;
-}
-
-.mat-sidenav-content{
-   height: 910px;
-   background-color: white;
-}
-
-.mat-toolbar{
-  background-color: #D62828;
-  width: 100%;
-}
-
-.logo{
-  width: 60%;
-  height: 18%;
-  margin-left: 60px;
-}
-
-.nav-icon{
-  color: #003049;
-  font-size: 35px;
-  margin-left: 25px;
-  margin-top: -12px;
-}
-
-.dashboardside{
-  margin-left: 0px;
-  margin-top: 30px;
-  text-align: justify;
-}
-
-.dashboardside:hover
-{
-    background-color: #c8c19c;
-    
+  mat-toolbar
+  {
     width: 100%;
-    height: 70px;
-    margin-left: 0;
-    margin-top: 20px;
-    text-align: justify;
-}
+    height: 10%;
+  }
+  
+  .logo
+  {
+       max-width: 200px;
+       height: 100px !important;
+       margin-left: 30px !important;
+       margin-top: 20px !important;
+  }
+  
+  .homeBtn
+  {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #003049;
+    font-size: 17px;
+    float: left;
+    margin: 30px;
+    margin-left: 80px;
+    margin-top: 40px;
+  }
+  
+  .homeBtn:hover, .homeBtn:active {
+    color:#dd0346;
+  }
+  
+  .menuBtn
+  {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #003049;
+      font-size: 17px;
+      float: left;
+      margin: 30px;
+      margin-top: 40px;
+  }
+  
+  .menuBtn:hover, .menuBtn:active {
+      color:#dd0346;
+  }
+  
+  .pricingBtn
+  {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #003049;
+      float: left;
+      margin: 30px;
+      margin-top: 40px;
+      font-size: 17px;
+      
+  }
+  
+  
+  .pricingBtn:hover, .pricingBtn:active {
+      color:#dd0346;
+  }
+  
+  .contactUsBtn
+  {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #003049;
+      font-size: 17px;
+      float: left;
+      margin: 30px;
+      margin-top: 40px;
+  }
+  
+  .contactUsBtn:hover, .contactUsBtn:active {
+      color:#dd0346;
+  }
+  
+  .aboutusBtn
+  {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #003049;
+      font-size: 17px;
+      float: left;
+      margin: 30px;
+      margin-top: 40px;
+  }
+  
+  .aboutusBtn:hover, .aboutusBtn:active {
+      color:#dd0346;
+  }
 
-.dashboard-btn{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-left: 25px;
-  text-decoration: none;
-}
-
-.bookingside{
-  margin-left: 0px;
-  margin-top: 30px;
-  text-align: justify;
-}
-
-.bookingside:hover
-{
-    background-color: #c8c19c;
-    width: 100%;
-    height: 70px;
-    margin-left: 0;
-    margin-top: 20px;
-    text-align: justify;
-}
-
-.booking-btn{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-left: 25px;
-}
-
-.profileside{
-  margin-left: 0px;
-  margin-top: 30px;
-  text-align: justify;
-}
-
-.profileside:hover
-{
-    background-color: #c8c19c;
-    
-    width: 100%;
-    height: 70px;
-    margin-left: 0;
-    margin-top: 20px;
-    text-align: justify;
-}
-
-.profile-btn
-{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-left: 25px;
-}
-
-.logoutside{
-  margin-left: 0px;
-  margin-top: 30px;
-  text-align: justify;
-}
-
-.logoutside:hover
-{
-    background-color: #c8c19c;
-    
-    width: 100%;
-    height: 70px;
-    margin-left: 0;
-    margin-top: 20px;
-    text-align: justify;
-}
-
-.logout-btn
-{
-  color: #003049;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin-left: 25px;
-}
-
+  
 .spacer{
   flex: 1 1 auto;
 }
-.dashtitle
+
+.backicon
 {
+  font-size: 40px;
   color: #003049;
-  font-size: 30px;
-  margin-top: 40px;
-  margin-left: 60px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-}
-.services
-{
-  color: #003049;
-  font-size: 20px;
-  margin-left: 60px;
-  margin-top: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.datetime
-{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #003049;
-  font-size: 18px;
-  float: left;
-  margin-left: 60px;
-  margin-top: 5px;
+  margin-left: 150px;
 }
 
-
-.ayosgamit
-{
-  font-family: 'Candara';
-  font-size: 30px;
-  margin-left: 10px;
-  color: #FFFFFF;
-}
-
-.welcome
-{
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-float: right;
-margin-right: 250px;
-font-size: 18px;
-margin-top: 3px;
-color: #FFFFFF;
-}
-
-.logouticon
-{
-  font-size: 30px;
-  float: right;
-  margin-right: 80px;
-  margin-top: -5px;
-  color: #FFFFFF;
-}
-
-.logoutBtn
-{
-  font-size: 18px;
-  color: #FFFFFF;
-}
-.logoutxt
-{
-  font-size: 17px;
-  color: #FFFFFF;
-  margin-top: -30px;
-  float: right;
-  margin-right: -70px;
-}
 
 .h1title
 {
