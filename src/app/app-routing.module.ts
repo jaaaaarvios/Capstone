@@ -45,6 +45,7 @@ import { PaymentthankyouComponent } from './paymentthankyou/paymentthankyou.comp
 import { RequestdetailsAdminComponent } from './requestdetails-admin/requestdetails-admin.component';
 import { RequestCompleteComponent } from './request-complete/request-complete.component';
 import { BookingsummaryEditComponent } from './bookingsummary-edit/bookingsummary-edit.component';
+import { SignupformComponent } from './signupform/signupform.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -95,6 +96,7 @@ const routes: Routes = [
   { path: 'requestdetail/:id', component: RequestdetailsAdminComponent },
   { path: 'completedetail/:id', component: RequestCompleteComponent },
   { path: 'summary-edit/:id', component: BookingsummaryEditComponent },
+  { path: 'signup', component: SignupformComponent },
 ];
 
 @NgModule({

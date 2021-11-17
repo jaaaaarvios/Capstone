@@ -14,36 +14,41 @@
     <label class="toolbarBtn" routerLink="/pricing">Pricing</label>
     <label class="toolbarBtn" routerLink="/contact_us">Contact Us</label>
     <label class="toolbarBtn" routerLink="/about_us">About Us</label>
-
+    <div *ngIf="token != null; else notLogin">
+      <label class="toolbarBtn" routerLink="/dashboard">Home</label>
+    </div>
+    <ng-template #notLogin></ng-template>
     <span class="spacer"></span>
-
-    <button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button>
+    <div *ngIf="token != null; else notLogin1"></div>
+    <ng-template #notLogin1><button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button>
+    </ng-template>
   </mat-toolbar>
 
   <div>
-  <img class="loginvector" mat-card-image src="../../assets/loginvector.png">
+    <img class="loginvector" mat-card-image src="../../assets/loginvector.png">
   </div>
 
 
   <mat-card class="logincard">
 
-    
+
     <h1 class="title">Login</h1>
 
 
     <form [formGroup]="userForm" (ngSubmit)="onClickSubmit()">
-     <div class="g-signin2" data-onsuccess="onSignIn" data-width="300" data-height="40" data-longtitle="true" style="float: left; margin-left: 80px; margin-top: 30px;"></div>
-      
+      <div class="g-signin2" data-onsuccess="onSignIn" data-width="300" data-height="40" data-longtitle="true"
+        style="float: left; margin-left: 80px; margin-top: 30px;"></div>
+
       <div>
-        <hr class="line1"> 
+        <hr class="line1">
         <h1 class="ortxt">OR</h1>
-        <hr class="line2"> 
+        <hr class="line2">
       </div>
 
       <mat-form-field class="login-emailfield" appearance="outline">
         <mat-label>Email Address</mat-label>
         <input matInput formControlName="email" [email]="true" type="email" placeholder="user@example.com"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$">
+          pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{3}$">
         <mat-error *ngIf="userForm.get('email').hasError('required')"> Email is required </mat-error>
         <mat-error *ngIf="userForm.get('email').hasError('pattern')"> Please enter a valid email address
         </mat-error>
@@ -51,8 +56,7 @@
 
       <mat-form-field class="login-passfield" appearance="outline">
         <mat-label>Password</mat-label>
-        <input matInput formControlName="password" placeholder="Enter password"
-          [type]="hide ? 'password' : 'text'">
+        <input matInput formControlName="password" placeholder="Enter password" [type]="hide ? 'password' : 'text'">
         <mat-icon mat-icon-button matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
         </mat-icon>
         <mat-error *ngIf="userForm.get('password').hasError('required')">Password is required</mat-error>
@@ -64,8 +68,8 @@
       <button mat-button class="loginBtn1" type="submit">Login</button>
 
       <div>
-      <label class="accounttxt">Don't have an account?</label>
-      <label class="signuptxt">Sign up.</label>
+        <label class="accounttxt">Don't have an account?</label>
+        <label class="signuptxt" routerLink="/signup">Sign up.</label>
       </div>
     </form>
 

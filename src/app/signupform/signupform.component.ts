@@ -9,12 +9,11 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-loginform',
-  templateUrl: './loginform.component.html',
-  styleUrls: ['./loginform.component.css'],
+  selector: 'app-signupform',
+  templateUrl: './signupform.component.html',
+  styleUrls: ['./signupform.component.css']
 })
-
-export class LoginformComponent implements OnInit {
+export class SignupformComponent implements OnInit {
   value = '';
   hide = true;
   minPw = 8;
@@ -22,22 +21,15 @@ export class LoginformComponent implements OnInit {
   guser: any;
   metaservice: any;
 
-  items = [];
-
-  user_email = "";
-  user_password = "";
-
   user_fname = "";
   user_lname = "";
   user_semail = "";
   user_spassword = "";
-  admin = "admin@admin.com"
   token = localStorage.getItem("token");
 
   public showPassword: boolean;
   public showPasswordOnPress: boolean;
 
-  userForm: FormGroup;
   signupForm: FormGroup;
   subscription: Subscription;
 
@@ -65,11 +57,6 @@ export class LoginformComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userForm = new FormGroup({
-      email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required, Validators.minLength(this.minPw)]),
-    });
-
     this.signupForm = new FormGroup({
       user_fname: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z_ ]{3,40}"), Validators.maxLength(15)]),
       user_lname: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z_ ]{2,40}"), Validators.maxLength(15)]),
@@ -77,47 +64,6 @@ export class LoginformComponent implements OnInit {
       user_spassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw), Validators.maxLength(this.maxPw)]),
     });
 
-  }
-
-  onClickSubmit() {
-
-    const val = this.userForm.value;
-
-    if (val.email === this.admin) {
-      this.auth.admin(val).subscribe(result => {
-        if (result) {
-          localStorage.setItem("id", JSON.stringify(result._id));
-          localStorage.setItem("firstname", JSON.stringify(result.first_name));
-          localStorage.setItem("token", JSON.stringify(result.token));
-          alert(result.message);
-          this.router.navigate(['/admin'])
-        }
-      }), error => {
-        console.log(error);
-        alert("Error: " + error);
-      }
-    }
-    else if (val.email != this.admin) {
-      this.auth.login(val).subscribe(result => {
-        if (result) {
-          localStorage.setItem("id", JSON.stringify(result._id));
-          localStorage.setItem("token", JSON.stringify(result.token));
-          console.log(result);
-          alert(result.message);
-          this.router.navigate(['/profile'])
-        }
-      }), error => {
-        console.log(error);
-        alert("Error: " + error);
-      }
-    }
-    else {
-      alert("Invalid Information. Please try again.");
-      this.userForm.reset();
-      Object.keys(this.userForm.controls).forEach(key => {
-        this.userForm.get(key).setErrors(null);
-      });
-    }
   }
 
   SignUpSubmit() {
@@ -157,8 +103,4 @@ export class LoginformComponent implements OnInit {
       this.drawer.close();
     }
   }
-
 }
-
-
-

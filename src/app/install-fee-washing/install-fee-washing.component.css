@@ -1,12 +1,9 @@
-body
-{
+body {
     width: 400px;
     position: center !important;
 }
 
-
-.airconrepair
-{
+.airconrepair {
     font-size: 20px;
     color: #14213D;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,39 +11,48 @@ body
     margin-top: 20px;
 }
 
-.airconfee
-{
+.airconfee {
     font-size: 17px;
-    color: #F77F00;
+    color: #590D22;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: center !important;
     margin-top: 20px;
-    
 }
 
-.text_icon
-{
-    color: #FCBF49;
-    font-size: 25px;
+.text_icon {
+    color: #590D22;
+    font-size: 22px;
+    position: absolute;
+    bottom: 5;
 }
 
+.text {
+    margin-left: 25px;
+}
 
-.cleaningservice1
-{
+.cleaningservice1 {
     font-size: 15px;
     color: #14213D;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     float: left;
     margin-top: 50px;
-   
 }
 
-.cleaningservice2
-{
+.cleaningservice2 {
     font-size: 15px;
     color: #14213D;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     float: left;
-  
-   
+}
+
+.cancelBtn {
+    color: grey;
+    font-size: 35px;
+    float: right;
+    margin-top: -30px;
+}
+
+.cancelBtn:hover {
+    color: rgb(250, 50, 50);
+    transition: 0.3s;
 }

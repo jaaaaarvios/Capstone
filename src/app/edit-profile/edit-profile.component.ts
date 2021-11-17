@@ -59,7 +59,8 @@ export class EditProfileComponent implements OnInit {
     });
   }
 
-  signOut() {
+  logout(){
+    localStorage.clear();
     this.router.navigate(['/home'])
   }
 
