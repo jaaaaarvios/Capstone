@@ -1,196 +1,190 @@
 <mat-toolbar>
 
-  <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
-  <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="getConfirmation1()">Aircon</button>
-    <button mat-menu-item (click)="getConfirmation2()">Refrigerator</button>
-    <button mat-menu-item (click)="getConfirmation3()">Electric Fan</button>
-    <button mat-menu-item (click)="getConfirmation4()">Washing Machine</button>
-    <button mat-menu-item (click)="getConfirmation5()">Television</button>
-  </mat-menu>
+    <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
+    <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="getConfirmation1()">Aircon</button>
+        <button mat-menu-item (click)="getConfirmation2()">Refrigerator</button>
+        <button mat-menu-item (click)="getConfirmation3()">Electric Fan</button>
+        <button mat-menu-item (click)="getConfirmation4()">Washing Machine</button>
+        <button mat-menu-item (click)="getConfirmation5()">Television</button>
+    </mat-menu>
 
-  <label class="pricingBtn" (click)="getConfirmation6()">Pricing</label>
-  <label class="contactUsBtn" (click)="getConfirmation7()">Contact Us</label>
-  <label class="aboutusBtn" (click)="getConfirmation8()">About Us</label>
-  <label class="aboutusBtn" (click)="getConfirmation()">Home</label>
-  <span class="spacer"></span>
-  <button mat-raised-button (click)="getConfirmation()" class="cancelBtn">Cancel Request</button>
+    <label class="pricingBtn" (click)="getConfirmation6()">Pricing</label>
+    <label class="contactUsBtn" (click)="getConfirmation7()">Contact Us</label>
+    <label class="aboutusBtn" (click)="getConfirmation8()">About Us</label>
+    <label class="aboutusBtn" (click)="getConfirmationn()">Home</label>
+    <span class="spacer"></span>
+    <button mat-raised-button (click)="getConfirmation()" class="cancelBtn">Cancel Request</button>
 
 </mat-toolbar>
 <div class="container1">
-  <form [formGroup]="summaryForm" (ngSubmit)="summarySubmit()">
-    <div class="ds">
-      <mat-card class="summary">
-        <div>
-          <mat-icon class="icon">description<h1 class="title">Request Summary</h1>
-          </mat-icon>
+    <form [formGroup]="summaryForm" (ngSubmit)="summarySubmit()">
+        <div class="ds">
+            <mat-card class="summary">
+                <div>
+                    <mat-icon class="icon">description
+                        <h1 class="title">Request Summary</h1>
+                    </mat-icon>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="header1">First Name
+                            </th>
+                            <th class="header1">Last Name
+                            </th>
+                            <th class="header1">Contact Number
+                            </th>
+                            <th class="header1">Address
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="body1">
+                                <mat-form-field class="textfield" appearance="outline">
+                                    <mat-label>First Name</mat-label>
+                                    <input matInput type="text" pattern="[a-zA-Z_ ]{1,15}" formControlName="service_firstname" placeholder="Juan" [errorStateMatcher]="matcher">
+                                    <mat-error *ngIf="summaryForm.get('service_firstname').hasError('required')">
+                                        Input your first name
+                                    </mat-error>
+                                    <mat-error *ngIf="summaryForm.get('service_firstname').hasError('pattern')">
+                                        Invalid Name (Max of 15 Characters)
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                            <td class="body1">
+                                <mat-form-field class="textfield" appearance="outline">
+                                    <mat-label>Last Name</mat-label>
+                                    <input matInput type="text" pattern="[a-zA-Z_ ]{1,15}" formControlName="service_lastname" placeholder="Juan" [errorStateMatcher]="matcher">
+                                    <mat-error *ngIf="summaryForm.get('service_lastname').hasError('required')">
+                                        Input your last name
+                                    </mat-error>
+                                    <mat-error *ngIf="summaryForm.get('service_lastname').hasError('pattern')">
+                                        Invalid Name (Max of 15 Characters)
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                            <td class="body1">
+                                <mat-form-field class="textfield" appearance="outline">
+                                    <mat-label>Phone Number</mat-label>
+                                    <input matInput pattern="(09)[0-9]{9}" formControlName="service_phoneNumber" [errorStateMatcher]="matcher" #input maxlength="11" placeholder="09XXXXXXXXX" autocomplete="off" required>
+                                    <mat-hint>{{input.value?.length || 0}}/11</mat-hint>
+                                    <mat-error *ngIf="summaryForm.get('service_phoneNumber').hasError('required')">
+                                        Enter a valid phone number
+                                    </mat-error>
+                                    <mat-error *ngIf="summaryForm.get('service_phoneNumber').hasError('pattern')">
+                                        Invalid phone number
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                            <td class="body1">
+                                <mat-form-field class="textfield" appearance="outline">
+                                    <mat-label>Service Address</mat-label>
+                                    <input matInput formControlName="service_address" [errorStateMatcher]="matcher" autocomplete="off">
+                                    <mat-error *ngIf="summaryForm.get('service_address').hasError('required')">
+                                        Input your Home Adress
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th class="header2">Address Details
+                            </th>
+                            <th class="header2">City
+                            </th>
+                            <th class="header2">Property Type
+                            </th>
+                            <th class="header2">Baranggay
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="body2">
+                                <mat-form-field class="textfield" appearance="outline">
+                                    <mat-label>Service Address Details</mat-label>
+                                    <input matInput formControlName="service_addressDetails" [errorStateMatcher]="matcher" autocomplete="off">
+                                    <mat-hint>unit no., floor no., building name, block no.</mat-hint>
+                                    <mat-error *ngIf="summaryForm.get('service_addressDetails').hasError('required')">
+                                        Input your address details
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                            <td class="body2">
+                                <mat-form-field class="textfield" appearance="outline">
+                                    <mat-label>Select a City</mat-label>
+                                    <mat-select formControlName="service_city" [errorStateMatcher]="matcher">
+                                        <mat-option *ngFor="let cit of city" [value]="cit">
+                                            {{cit}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="summaryForm.get('service_city').hasError('required')">
+                                        You must make a selection
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                            <td class="body2">
+                                <mat-form-field class="textfield" appearance="outline">
+                                    <mat-label>Property Type</mat-label>
+                                    <mat-select formControlName="service_property_type" [errorStateMatcher]="matcher">
+                                        <mat-option *ngFor="let ptype of property_type" [value]="ptype">
+                                            {{ptype}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="summaryForm.get('service_property_type').hasError('required')">
+                                        You must make a selection
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                            <td class="body2">
+                                <mat-form-field class="textfield" appearance="outline">
+                                    <mat-label>Barangay</mat-label>
+                                    <input matInput type="text" formControlName="service_barangay" [errorStateMatcher]="matcher" autocomplete="off">
+                                    <mat-error *ngIf="summaryForm.get('service_barangay').hasError('required')">
+                                        Input valid barangay
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </tbody>
+
+
+                    <thead>
+                        <tr>
+                            <th class="header4">Unit Problem
+                            </th>
+                            <th class="header4">Scheduled Date
+                            </th>
+                            <th class="header4">Time Slot
+                            </th>
+                            <th class="header4">Instruction
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="body4">{{service.service_unitProb}}</td>
+                            <td class="body4">{{service.service_date | date}}</td>
+                            <td class="body4">{{service.service_timeslot}}</td>
+                            <td class="body4">
+                                <mat-form-field class="textfield" appearance="outline">
+                                    <mat-label>Instructions</mat-label>
+                                    <input matInput formControlName="service_instruction" [errorStateMatcher]="matcher" placeholder="Any instruction to the technician?" autocomplete="off">
+                                    <mat-error *ngIf="summaryForm.get('service_instruction').hasError('required')">
+                                        Any instructions?
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-card>
         </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th class="header1">First Name
-              </th>
-              <th class="header1">Last Name
-              </th>
-              <th class="header1">Contact Number
-              </th>
-              <th class="header1">Address
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="body1">
-                <mat-form-field class="textfield" appearance="outline">
-                  <mat-label>First Name</mat-label>
-                  <input matInput type="text" pattern="[a-zA-Z_ ]{1,15}" formControlName="service_firstname"
-                    placeholder="Juan" [errorStateMatcher]="matcher">
-                  <mat-error *ngIf="summaryForm.get('service_firstname').hasError('required')">
-                    Input your first name
-                  </mat-error>
-                  <mat-error *ngIf="summaryForm.get('service_firstname').hasError('pattern')">
-                    Invalid Name (Max of 15 Characters)
-                  </mat-error>
-                </mat-form-field>
-              </td>
-              <td class="body1">
-                <mat-form-field class="textfield" appearance="outline">
-                  <mat-label>Last Name</mat-label>
-                  <input matInput type="text" pattern="[a-zA-Z_ ]{1,15}" formControlName="service_lastname"
-                    placeholder="Juan" [errorStateMatcher]="matcher">
-                  <mat-error *ngIf="summaryForm.get('service_lastname').hasError('required')">
-                    Input your last name
-                  </mat-error>
-                  <mat-error *ngIf="summaryForm.get('service_lastname').hasError('pattern')">
-                    Invalid Name (Max of 15 Characters)
-                  </mat-error>
-                </mat-form-field>
-              </td>
-              <td class="body1">
-                <mat-form-field class="textfield" appearance="outline">
-                  <mat-label>Phone Number</mat-label>
-                  <input matInput pattern="(09)[0-9]{9}" formControlName="service_phoneNumber"
-                    [errorStateMatcher]="matcher" #input maxlength="11" placeholder="09XXXXXXXXX" autocomplete="off"
-                    required>
-                  <mat-hint>{{input.value?.length || 0}}/11</mat-hint>
-                  <mat-error *ngIf="summaryForm.get('service_phoneNumber').hasError('required')">
-                    Enter a valid phone number
-                  </mat-error>
-                  <mat-error *ngIf="summaryForm.get('service_phoneNumber').hasError('pattern')">
-                    Invalid phone number
-                  </mat-error>
-                </mat-form-field>
-              </td>
-              <td class="body1">
-                <mat-form-field class="textfield" appearance="outline">
-                  <mat-label>Service Address</mat-label>
-                  <input matInput formControlName="service_address" [errorStateMatcher]="matcher" autocomplete="off">
-                  <mat-error *ngIf="summaryForm.get('service_address').hasError('required')">
-                    Input your Home Adress
-                  </mat-error>
-                </mat-form-field>
-              </td>
-            </tr>
-          </tbody>
-          <thead>
-            <tr>
-              <th class="header2">Address Details
-              </th>
-              <th class="header2">City
-              </th>
-              <th class="header2">Property Type
-              </th>
-              <th class="header2">Baranggay
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="body2">
-                <mat-form-field class="textfield" appearance="outline">
-                  <mat-label>Service Address Details</mat-label>
-                  <input matInput formControlName="service_addressDetails" [errorStateMatcher]="matcher"
-                    autocomplete="off">
-                  <mat-hint>unit no., floor no., building name, block no.</mat-hint>
-                  <mat-error *ngIf="summaryForm.get('service_addressDetails').hasError('required')">
-                    Input your address details
-                  </mat-error>
-                </mat-form-field>
-              </td>
-              <td class="body2">
-                <mat-form-field class="textfield" appearance="outline">
-                  <mat-label>Select a City</mat-label>
-                  <mat-select formControlName="service_city" [errorStateMatcher]="matcher">
-                    <mat-option *ngFor="let cit of city" [value]="cit">
-                      {{cit}}
-                    </mat-option>
-                  </mat-select>
-                  <mat-error *ngIf="summaryForm.get('service_city').hasError('required')">
-                    You must make a selection
-                  </mat-error>
-                </mat-form-field>
-              </td>
-              <td class="body2">
-                <mat-form-field class="textfield" appearance="outline">
-                  <mat-label>Property Type</mat-label>
-                  <mat-select formControlName="service_property_type" [errorStateMatcher]="matcher">
-                    <mat-option *ngFor="let ptype of property_type" [value]="ptype">
-                      {{ptype}}
-                    </mat-option>
-                  </mat-select>
-                  <mat-error *ngIf="summaryForm.get('service_property_type').hasError('required')">
-                    You must make a selection
-                  </mat-error>
-                </mat-form-field>
-              </td>
-              <td class="body2">
-                <mat-form-field class="textfield" appearance="outline">
-                  <mat-label>Barangay</mat-label>
-                  <input matInput type="text" formControlName="service_barangay" [errorStateMatcher]="matcher"
-                    autocomplete="off">
-                  <mat-error *ngIf="summaryForm.get('service_barangay').hasError('required')">
-                    Input valid barangay
-                  </mat-error>
-                </mat-form-field>
-              </td>
-            </tr>
-          </tbody>
-
-
-          <thead>
-            <tr>
-              <th class="header4">Unit Problem
-              </th>
-              <th class="header4">Scheduled Date
-              </th>
-              <th class="header4">Time Slot
-              </th>
-              <th class="header4">Instruction
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="body4">{{service.service_unitProb}}</td>
-              <td class="body4">{{service.service_date | date}}</td>
-              <td class="body4">{{service.service_timeslot}}</td>
-              <td class="body4">
-                <mat-form-field class="textfield" appearance="outline">
-                  <mat-label>Instructions</mat-label>
-                  <input matInput formControlName="service_instruction" [errorStateMatcher]="matcher"
-                    placeholder="Any instruction to the technician?" autocomplete="off">
-                  <mat-error *ngIf="summaryForm.get('service_instruction').hasError('required')">
-                    Any instructions?
-                  </mat-error>
-                </mat-form-field>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </mat-card>
-    </div>
-    <button mat-stroked-button class="submitBtn-disabled" routerLink="/summary">Back</button>
-    <button mat-stroked-button class="submitBtn" type="submit">Done</button>
-  </form>
+        <button mat-stroked-button class="submitBtn-disabled" routerLink="/summary">Back</button>
+        <button mat-stroked-button class="submitBtn" type="submit">Done</button>
+    </form>
 </div>

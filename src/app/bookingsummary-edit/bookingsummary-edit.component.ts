@@ -98,7 +98,17 @@ export class BookingsummaryEditComponent implements OnInit {
       return false;
     }
   }
-
+  getConfirmationn() {
+    var retVal = confirm("If you exit, your booking progress will be lost.");
+    if (retVal == true) {
+      this.deleteOne()
+      localStorage.removeItem("service");
+      this.router.navigate(['/dashboard'])
+      return true;
+    } else {
+      return false;
+    }
+  }
   getConfirmation1() {
     var retVal = confirm("If you exit, your booking progress will be lost.");
     if (retVal == true) {

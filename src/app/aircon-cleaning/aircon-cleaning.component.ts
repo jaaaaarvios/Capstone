@@ -53,7 +53,7 @@ export class AirconCleaningComponent implements OnInit {
   suspended_type = 2800;
   concealed_type = 2200;
 
-  id=JSON.parse(localStorage.getItem('id'));
+  id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
 
   matcher = new MyErrorStateMatcher();
@@ -82,7 +82,7 @@ export class AirconCleaningComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  logout(){
+  logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
@@ -117,24 +117,24 @@ export class AirconCleaningComponent implements OnInit {
       service_addressDetails: ['', Validators.required],
       service_instruction: ['', Validators.required],
     });
-    
+
     const httpOptions = {
       headers: new HttpHeaders({
         "x-access-token": this.token
       })
     }
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id, httpOptions);
-      data.subscribe(result => {
-        this.contactDetialsForm.setValue({
-          service_address: result.service_address,
-          service_firstname: result.first_name,
-          service_lastname: result.last_name,
-          service_phoneNumber: result.number ,
-          service_addressDetails: result.service_addressDetails,
-          service_instruction: ""
-        });
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.contactDetialsForm.setValue({
+        service_address: result.service_address,
+        service_firstname: result.first_name,
+        service_lastname: result.last_name,
+        service_phoneNumber: result.number,
+        service_addressDetails: result.service_addressDetails,
+        service_instruction: ""
       });
+    });
 
     if (!navigator.geolocation) {
       console.log('location is not supported');
@@ -175,6 +175,32 @@ export class AirconCleaningComponent implements OnInit {
         .setLatLng(latLong)
         .setContent('Hello')
         .openOn(mymap);
+
+      // const searchControl = L.esri.Geocoding.geosearch({
+      //   position: "topright",
+      //   placeholder: "Enter an address or place e.g. 1 York St",
+      //   useMapBounds: false,
+      //   providers: [L.esri.Geocoding.arcgisOnlineProvider({
+      //     //apikey: apiKey,
+      //     nearby: {
+      //       lat: -33.8688,
+      //       lng: 151.2093
+      //     },
+      //   })]
+      // }).addTo(map);
+
+      // const results = L.layerGroup().addTo(map);
+
+      // searchControl.on("results", (data) => {
+      //   results.clearLayers();
+      //   for (let i = data.results.length - 1; i >= 0; i--) {
+      //     const lngLatString = `${Math.round(data.results[i].latlng.lng * 100000) / 100000}, ${Math.round(data.results[i].latlng.lat * 100000) / 100000}`;
+      //     const marker = L.marker(data.results[i].latlng);
+      //     marker.bindPopup(`<b>${lngLatString}</b><p>${data.results[i].properties.LongLabel}</p>`)
+      //     results.addLayer(marker);
+      //     marker.openPopup();
+      //   }
+      // });
     });
     this.watchPosition();
   }
@@ -243,46 +269,46 @@ export class AirconCleaningComponent implements OnInit {
       const loc = this.locationForm.value;
       const sched = this.scheduleForm.value;
       const contact = this.contactDetialsForm.value;
-      if(unit.service_aptype == "Window" && unit.service_unitType == "Inverter"){
+      if (unit.service_aptype == "Window" && unit.service_unitType == "Inverter") {
         var cleanfee = this.window_type
         var inverter = this.inverter
-      } else if (unit.service_aptype == "Window" && unit.service_unitType != "Inverter"){
+      } else if (unit.service_aptype == "Window" && unit.service_unitType != "Inverter") {
         var cleanfee = this.window_type
         var inverter = this.unitfee
       }
 
-      if(unit.service_aptype == "Split" && unit.service_unitType == "Inverter"){
+      if (unit.service_aptype == "Split" && unit.service_unitType == "Inverter") {
         var cleanfee = this.split_type
         var inverter = this.inverter
-      } else if (unit.service_aptype == "Split" && unit.service_unitType != "Inverter"){
+      } else if (unit.service_aptype == "Split" && unit.service_unitType != "Inverter") {
         var cleanfee = this.split_type
         var inverter = this.unitfee
       }
-      if(unit.service_aptype == "Tower" && unit.service_unitType == "Inverter"){
+      if (unit.service_aptype == "Tower" && unit.service_unitType == "Inverter") {
         var cleanfee = this.tower_type
         var inverter = this.inverter
-      } else if((unit.service_aptype == "Tower" && unit.service_unitType != "Inverter")){
+      } else if ((unit.service_aptype == "Tower" && unit.service_unitType != "Inverter")) {
         var cleanfee = this.tower_type
         var inverter = this.unitfee
       }
-      if(unit.service_aptype == "Cassette" && unit.service_unitType == "Inverter"){
+      if (unit.service_aptype == "Cassette" && unit.service_unitType == "Inverter") {
         var cleanfee = this.cassette_type
         var inverter = this.inverter
-      } else if(unit.service_aptype == "Cassette" && unit.service_unitType != "Inverter") {
+      } else if (unit.service_aptype == "Cassette" && unit.service_unitType != "Inverter") {
         var cleanfee = this.cassette_type
         var inverter = this.unitfee
       }
-      if(unit.service_aptype == "Suspended" && unit.service_unitType == "Inverter"){
+      if (unit.service_aptype == "Suspended" && unit.service_unitType == "Inverter") {
         var cleanfee = this.suspended_type
         var inverter = this.inverter
-      } else if(unit.service_aptype == "Suspended" && unit.service_unitType != "Inverter") {
+      } else if (unit.service_aptype == "Suspended" && unit.service_unitType != "Inverter") {
         var cleanfee = this.suspended_type
         var inverter = this.unitfee
       }
-      if(unit.service_aptype == "Concealed" && unit.service_unitType == "Inverter"){
+      if (unit.service_aptype == "Concealed" && unit.service_unitType == "Inverter") {
         var cleanfee = this.concealed_type
         var inverter = this.inverter
-      } else if(unit.service_aptype == "Concealed" && unit.service_unitType != "Inverter") {
+      } else if (unit.service_aptype == "Concealed" && unit.service_unitType != "Inverter") {
         var cleanfee = this.concealed_type
         var inverter = this.unitfee
       }
