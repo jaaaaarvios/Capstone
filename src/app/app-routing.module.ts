@@ -46,11 +46,13 @@ import { RequestdetailsAdminComponent } from './requestdetails-admin/requestdeta
 import { RequestCompleteComponent } from './request-complete/request-complete.component';
 import { BookingsummaryEditComponent } from './bookingsummary-edit/bookingsummary-edit.component';
 import { SignupformComponent } from './signupform/signupform.component';
+import { LoginformAdminComponent } from './loginform-admin/loginform-admin.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'home', component: HomepageComponent },
   { path: 'login', component: LoginformComponent },
+  { path: 'admin-login', component: LoginformAdminComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'booking', component: BookingformComponent },
   { path: 'profile', component: ProfileformComponent },

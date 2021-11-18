@@ -48,6 +48,7 @@ export class BookingsummaryEditComponent implements OnInit {
     if (localStorage.getItem("service") == null) {
       this.router.navigate(['/dashboard'])
     }
+    
 
     this.summaryForm = this._formBuilder.group({
       service_firstname: ['', Validators.required],

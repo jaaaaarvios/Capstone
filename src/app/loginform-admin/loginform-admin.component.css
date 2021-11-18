@@ -152,16 +152,6 @@
     .signuptxt:hover {
         color: #14213D;
     }
-    .admintxt {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 16px;
-        float: left;
-        margin-left: 173px;
-        color: #FFB703;
-    }
-    .admintxt:hover {
-        color: #14213D;
-    }
     h1 {
         color: grey;
         font-size: 15px;

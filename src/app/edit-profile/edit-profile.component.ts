@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -27,7 +28,7 @@ export class EditProfileComponent implements OnInit {
     .pipe(map((result: BreakpointState) => result.matches));
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver
-    , private _formBuilder: FormBuilder, private http: HttpClient) { }
+    , private _formBuilder: FormBuilder, private http: HttpClient, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.personalInfoForm = this._formBuilder.group({
@@ -102,5 +103,4 @@ export class EditProfileComponent implements OnInit {
       alert('Fill up the required textfields with valid information')
     }
   }
-
 }

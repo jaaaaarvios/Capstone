@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AuthService } from '../auth.service';
 import { SharedService } from '../shared/shared.service';
 
 declare const L: any;
@@ -16,10 +17,7 @@ declare const L: any;
 export class BookingformComponent implements OnInit {
 
   subscription: any;
-  service_type ="";
-  repair = "Repair";
-  cleaning = "Cleaning";
-  install = "Installation"
+  token = JSON.parse(localStorage.getItem('token'));
 
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -28,19 +26,16 @@ export class BookingformComponent implements OnInit {
     .pipe(map((result: BreakpointState) => result.matches));
  
 
-  constructor(private router: Router, public dialog: MatDialog, 
+  constructor(private router: Router, public dialog: MatDialog, private auth: AuthService,
     private breakpointObserver: BreakpointObserver, private shared: SharedService) { }
 
   ApplianceOpen(){
-    this.shared.changeServiceType(this.repair);
     this.router.navigate(['/appliance'])
   }
   CleaningOpen(){
-    this.shared.changeServiceType(this.cleaning);
     this.router.navigate(['/cleaning'])
   }
   InstallationOpen(){
-    this.shared.changeServiceType(this.install);
     this.router.navigate(['/installation'])
   }
 
@@ -50,7 +45,6 @@ export class BookingformComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.subscription = this.shared.currentServiceType.subscribe(service_type => this.service_type = service_type);
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }

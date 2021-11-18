@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { RequestdetailsComponent } from '../requestdetails/requestdetails.component';
 import { SharedService } from '../shared/shared.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,13 +18,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class DashboardComponent implements OnInit {
 
-  id=JSON.parse(localStorage.getItem('id'));
+  id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'))
-  fname="";
-  lname="";
-  number="";
-  email="";
-  address="";
+  fname = "";
+  lname = "";
+  number = "";
+  email = "";
+  address = "";
 
   date: Date;
   subscription: any;
@@ -40,7 +41,7 @@ export class DashboardComponent implements OnInit {
     .pipe(map((result: BreakpointState) => result.matches));
 
   constructor(private router: Router, public dialog: MatDialog, private http: HttpClient,
-    private breakpointObserver: BreakpointObserver, private shared: SharedService) {
+    private breakpointObserver: BreakpointObserver, private shared: SharedService, private auth: AuthService) {
     {
       setInterval(() => {
         this.date = new Date()
@@ -56,8 +57,8 @@ export class DashboardComponent implements OnInit {
       })
     }
 
-    let dataa:Observable<any>;
-    dataa = this.http.get('http://localhost:3000/CredentialDB/'+this.id, httpOptions);
+    let dataa: Observable<any>;
+    dataa = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
     dataa.subscribe(result => {
       this.fname = result.first_name;
       this.lname = result.last_name;
@@ -93,7 +94,6 @@ export class DashboardComponent implements OnInit {
         return status.status == "Rejected";
       });
       this.rejected_request = rejected_request
-
     });
 
     if (localStorage.getItem("id") == null) {
@@ -129,5 +129,7 @@ export class DashboardComponent implements OnInit {
       this.drawer.close();
     }
   }
+
 }
+
 
