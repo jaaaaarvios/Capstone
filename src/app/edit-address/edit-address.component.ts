@@ -86,7 +86,7 @@ export class EditAddressComponent implements OnInit {
       this.http.patch("http://localhost:3000/CredentialDB/service/" + this.id, body, httpOptions)
         .subscribe(data => {
           console.log(data, 'Update Success');
-          alert("Update Successfully");
+          alert("Updated");
           this.serviceInfoForm.reset();
           Object.keys(this.serviceInfoForm.controls).forEach(key => {
             this.serviceInfoForm.get(key).setErrors(null);

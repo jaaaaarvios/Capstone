@@ -72,7 +72,7 @@ export class ChangePasswordComponent implements OnInit {
         this.http.patch("http://localhost:3000/CredentialDB/password/" + this.id, body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Update Success');
-            alert("Update Success");
+            alert("Updated");
             this.changePassForm.reset();
           }, error => {
             console.log(error);
@@ -95,34 +95,6 @@ export class ChangePasswordComponent implements OnInit {
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();
-    }
-  }
-
-  changePassSubmit() {
-    const cp = this.changePassForm.value;
-
-    let body = {
-      "password": cp.newPassword,
-    }
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "x-access-token": this.token
-      })
-    }
-
-    if (this.changePassForm.valid) {
-      this.http.patch("http://localhost:3000/CredentialDB/password/" + this.id, body, httpOptions)
-        .subscribe(data => {
-          console.log(data, 'Update Success');
-          alert("Update Success");
-          this.changePassForm.reset();
-        }, error => {
-          console.log(error);
-          alert(error);
-        });
-    }
-    else {
-      alert('Fill up the required textfields with valid information')
     }
   }
 

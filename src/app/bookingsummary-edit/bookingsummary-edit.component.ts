@@ -199,7 +199,7 @@ export class BookingsummaryEditComponent implements OnInit {
     }
   }
   summarySubmit() {
-    var retVal = confirm("Do you want to update ?");
+    var retVal = confirm("Are you sure ?");
     if (retVal == true) {
       const summary = this.summaryForm.value;
       let body = {
@@ -222,7 +222,7 @@ export class BookingsummaryEditComponent implements OnInit {
         this.http.patch("http://localhost:3000/NewServiceRequest/summary/"+ this.service._id, body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Update Success');
-            alert("Update Successfully");
+            alert("Updated");
             localStorage.setItem("service", JSON.stringify(data));
             this.router.navigate(['/summary']);
           }, error => {

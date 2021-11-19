@@ -88,7 +88,7 @@ export class EditProfileComponent implements OnInit {
       this.http.patch("http://localhost:3000/CredentialDB/personal/"+this.id, body, httpOptions)
         .subscribe(data => {
           console.log(data, 'Update Success');
-          alert("Update Successfully");
+          alert("Updated");
           this.personalInfoForm.reset();
           Object.keys(this.personalInfoForm.controls).forEach(key => {
             this.personalInfoForm.get(key).setErrors(null);

@@ -24,23 +24,17 @@
             <h1 class="title">Request Summary</h1>
         </mat-icon>
     </div>
+    <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
+
 
     <table class="table">
 
         <thead>
             <tr>
-                <th class="header1">First Name
-                    <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
-                </th>
-                <th class="header1">Last Name
-                    <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
-                </th>
-                <th class="header1">Contact Number
-                    <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
-                </th>
-                <th class="header1">Address
-                    <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
-                </th>
+                <th class="header1">First Name</th>
+                <th class="header1">Last Name</th>
+                <th class="header1">Contact Number</th>
+                <th class="header1">Address</th>
             </tr>
         </thead>
         <tbody>
@@ -53,18 +47,10 @@
         </tbody>
         <thead>
             <tr>
-                <th class="header2">Address Details
-                    <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
-                </th>
-                <th class="header2">City
-                    <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
-                </th>
-                <th class="header2">Property Type
-                    <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
-                </th>
-                <th class="header2">Baranggay
-                    <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
-                </th>
+                <th class="header2">Address Details</th>
+                <th class="header2">City</th>
+                <th class="header2">Property Typ</th>
+                <th class="header2">Baranggay</th>
             </tr>
         </thead>
         <tbody>
@@ -84,9 +70,7 @@
                 </th>
                 <th class="header4">Time Slot
                 </th>
-                <th class="header4">Instruction
-                    <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
-                </th>
+                <th class="header4">Instruction</th>
             </tr>
         </thead>
         <tbody>
