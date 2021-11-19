@@ -32,6 +32,7 @@ export class LoginformComponent implements OnInit {
   user_semail = "";
   user_spassword = "";
   admin = "admin@admin.com"
+  token = localStorage.getItem("token");
 
   public showPassword: boolean;
   public showPasswordOnPress: boolean;

@@ -1,13 +1,9 @@
-body
-{
+body {
     width: 400px;
     position: center !important;
 }
 
-
-
-.airconrepair
-{
+.airconrepair {
     font-size: 20px;
     color: #003049;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,37 +11,23 @@ body
     margin-top: 20px;
 }
 
-.airconfee
-{
+.airconfee {
     font-size: 20px;
     color: #003049;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: center !important;
-    margin-top: 50px;
-    
+    margin-top: 20px;
 }
 
-.airconfee2
-{
+.airconfee2 {
     font-size: 18px;
-    color: #FCBF49;
+    color: #590D22;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: center !important;
     margin-top: 20px;
-    
 }
 
-.aircondescrip
-{
-    font-size: 15px;
-    color: grey;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    position: center !important;
-    margin-top: 50px;
-}
-
-.aircondescrip2
-{
+.aircondescrip {
     font-size: 15px;
     color: grey;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -53,26 +35,41 @@ body
     margin-top: 20px;
 }
 
-.text_icon
-{
-    color: #FCBF49;
-    font-size: 25px;
+.aircondescrip2 {
+    font-size: 15px;
+    color: grey;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: center !important;
+    margin-top: 20px;
 }
-.repairservice1
-{
+
+.text_icon {
+    color: #590D22;
+    font-size: 22px;
+    position: absolute;
+    bottom: 5;
+}
+
+.text {
+    margin-left: 25px;
+}
+
+.repairservice1 {
     margin-top: 20px;
     font-size: 15px;
     color: #003049;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     float: left;
-   
 }
 
-.cancelBtn
-{
-   color: grey;
-   font-size: 35px;
-   float: right;
-   margin-top: -50px;
+.cancelBtn {
+    color: grey;
+    font-size: 35px;
+    float: right;
+    margin-top: -30px;
 }
 
+.cancelBtn:hover {
+    color: rgb(250, 50, 50);
+    transition: 0.3s;
+}

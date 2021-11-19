@@ -1,30 +1,31 @@
 <mat-toolbar>
     <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
-          <label class="homeBtn" routerLink="/dashboard">Home</label>
-          <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label> 
-              <mat-menu #menu="matMenu">
-                <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
-                <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
-                <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
-                <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
-                <button mat-menu-item routerLink="/menu_tv">Television</button>
-              </mat-menu>
-  
-              <label class="pricingBtn" routerLink="/pricing">Pricing</label>
-              <label class="contactUsBtn" routerLink="/contact_us">Contact Us</label>
-              <label class="aboutusBtn" routerLink="/about_us">About Us</label>      
-  </mat-toolbar> 
-  <h1 class="backBtn" routerLink="/booking">
+    <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
+        <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
+        <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
+        <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
+        <button mat-menu-item routerLink="/menu_tv">Television</button>
+    </mat-menu>
+
+    <label class="pricingBtn" routerLink="/pricing">Pricing</label>
+    <label class="contactUsBtn" routerLink="/contact_us">Contact Us</label>
+    <label class="aboutusBtn" routerLink="/about_us">About Us</label>
+    <label class="aboutusBtn" routerLink="/dashboard">Home</label>
+</mat-toolbar>
+<h1 class="backBtn" routerLink="/booking">
     <mat-icon class="backicon">chevron_left</mat-icon>
-  </h1>
-        <h1 class="h1title">Appliance to Clean</h1>
-        
-        <div class="allservices">
-            <mat-card class="airconcard">
-                <mat-card-content>
-                    <img class="airconimg" mat-button (click)="AirconOpen()" mat-card-image
-                        src="../../assets/airconicon.png" mat-dialog-close>
-                    <h1 class="aircontxt" mat-button (click)="AirconOpen()" mat-dialog-close>Aircon</h1>
-                </mat-card-content>
-            </mat-card>
-        </div>
+    <label class="backtxt">Back</label>
+</h1>
+<h1 class="h1title">Appliance to Clean</h1>
+
+<div class="allservices">
+    <mat-card class="airconcard">
+        <mat-card-content>
+            <img class="airconimg" mat-button (click)="AirconOpen()" mat-card-image src="../../assets/airconicon.png"
+                mat-dialog-close>
+            <h1 class="aircontxt" mat-button (click)="AirconOpen()" mat-dialog-close>Aircon</h1>
+        </mat-card-content>
+    </mat-card>
+</div>
