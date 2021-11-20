@@ -38,11 +38,16 @@ export class TechniciansComponent implements OnInit {
         console.log(this.technicians)
       });
   }
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
 
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();
     }
   }
+ 
 
 }

@@ -86,6 +86,10 @@ export class AddtechComponent implements OnInit {
 
   }
 
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();

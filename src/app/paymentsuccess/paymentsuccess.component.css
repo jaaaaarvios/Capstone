@@ -134,13 +134,16 @@
     margin-left: 220px;
 }
 
-.goTo {
+.doneBtn {
+    background-color: #dd0346;
+    width: 90px;
+    height: 40px;
+    color: #FFFFFF;
     font-size: 18px;
-    float: right;
-    margin-top: 50px;
-    margin-right: 170px;
-    color: #003049;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    float: right;
+    margin-right: 200px;
+    margin-top: 50px;
 }
 
 mat-icon {
