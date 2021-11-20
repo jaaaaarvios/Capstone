@@ -36,4 +36,9 @@ export class AuthService {
   getTechnician(_id) {
     return this.http.get("http://localhost:3000/technician/"+ _id).pipe(map((res: any) => res));
   }
+
+  tokenExpired(token: string) {
+    const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
+    return (Math.floor((new Date).getTime() / 1000)) >= expiry;
+ }
 }

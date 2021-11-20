@@ -9,12 +9,11 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-loginform',
-  templateUrl: './loginform.component.html',
-  styleUrls: ['./loginform.component.css'],
+  selector: 'app-loginform-admin',
+  templateUrl: './loginform-admin.component.html',
+  styleUrls: ['./loginform-admin.component.css']
 })
-
-export class LoginformComponent implements OnInit {
+export class LoginformAdminComponent implements OnInit {
   value = '';
   hide = true;
   minPw = 8;
@@ -22,10 +21,10 @@ export class LoginformComponent implements OnInit {
   guser: any;
   metaservice: any;
 
-  users: any;
+  items = [];
 
-  user_email: any;;
-  user_password: any;;
+  user_email = "";
+  user_password = "";
 
   user_fname = "";
   user_lname = "";
@@ -77,35 +76,24 @@ export class LoginformComponent implements OnInit {
       user_spassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw), Validators.maxLength(this.maxPw)]),
     });
 
-    // let dataa: Observable<any>;
-    // dataa = this.http.get('http://localhost:3000/CredentialDB/');
-    // dataa.subscribe(result => {
-    //   this.users = result
-    //   let eemail =  result.filter(function (email) {
-    //     return email.email;
-    //   });
-    //   this.user_email = eemail
-    //   console.log(this.user_email)
-    // });
-
-
   }
 
   onClickSubmit() {
 
-    const val = this.userForm
-    if (val.valid) {
-      this.auth.login(val.value).subscribe(result => {
+    const val = this.userForm.value;
+
+    if (val.email === this.admin) {
+      this.auth.admin(val).subscribe(result => {
         if (result) {
           localStorage.setItem("id", JSON.stringify(result._id));
+          localStorage.setItem("firstname", JSON.stringify(result.first_name));
           localStorage.setItem("token", JSON.stringify(result.token));
-          console.log(result);
           alert(result.message);
-          this.router.navigate(['/profile'])
+          this.router.navigate(['/admin'])
         }
-      }), err => {
-        // console.log(err);
-        // alert(err);
+      }), error => {
+        console.log(error);
+        alert("Error: " + error);
       }
     }
     else {
@@ -114,7 +102,6 @@ export class LoginformComponent implements OnInit {
       Object.keys(this.userForm.controls).forEach(key => {
         this.userForm.get(key).setErrors(null);
       });
-      
     }
   }
 
@@ -123,8 +110,4 @@ export class LoginformComponent implements OnInit {
       this.drawer.close();
     }
   }
-
 }
-
-
-

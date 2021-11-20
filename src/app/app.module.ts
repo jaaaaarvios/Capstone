@@ -82,6 +82,7 @@ import { RequestdetailsAdminComponent } from './requestdetails-admin/requestdeta
 import { RequestCompleteComponent } from './request-complete/request-complete.component';
 import { BookingsummaryEditComponent } from './bookingsummary-edit/bookingsummary-edit.component';
 import { SignupformComponent } from './signupform/signupform.component';
+import { LoginformAdminComponent } from './loginform-admin/loginform-admin.component';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -143,6 +144,7 @@ import { SignupformComponent } from './signupform/signupform.component';
     RequestCompleteComponent,
     BookingsummaryEditComponent,
     SignupformComponent,
+    LoginformAdminComponent,
 
   ],
   imports: [

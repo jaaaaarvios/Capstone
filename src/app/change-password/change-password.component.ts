@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-change-password',
@@ -32,7 +33,8 @@ export class ChangePasswordComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-  constructor(private router: Router, private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
+  constructor(private router: Router, private breakpointObserver: BreakpointObserver, private http: HttpClient
+    ,private auth: AuthService) { }
 
   ngOnInit(): void {
 
@@ -70,7 +72,7 @@ export class ChangePasswordComponent implements OnInit {
         this.http.patch("http://localhost:3000/CredentialDB/password/" + this.id, body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Update Success');
-            alert("Update Success");
+            alert("Updated");
             this.changePassForm.reset();
           }, error => {
             console.log(error);
@@ -93,34 +95,6 @@ export class ChangePasswordComponent implements OnInit {
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();
-    }
-  }
-
-  changePassSubmit() {
-    const cp = this.changePassForm.value;
-
-    let body = {
-      "password": cp.newPassword,
-    }
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "x-access-token": this.token
-      })
-    }
-
-    if (this.changePassForm.valid) {
-      this.http.patch("http://localhost:3000/CredentialDB/password/" + this.id, body, httpOptions)
-        .subscribe(data => {
-          console.log(data, 'Update Success');
-          alert("Update Success");
-          this.changePassForm.reset();
-        }, error => {
-          console.log(error);
-          alert(error);
-        });
-    }
-    else {
-      alert('Fill up the required textfields with valid information')
     }
   }
 

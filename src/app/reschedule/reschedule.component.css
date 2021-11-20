@@ -186,6 +186,11 @@
         margin-top: 40px;
         margin-left: 10px !important;
     }
+    .backBtn:hover {
+        background-color: rgb(250, 50, 50);
+        color: whitesmoke !important;
+        transition: 0.3s;
+    }
 }
 
 @media (max-width: 576px) {

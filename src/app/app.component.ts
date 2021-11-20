@@ -2,6 +2,8 @@ import { Component, } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,9 @@ export class AppComponent {
   public form: FormGroup;
   rating: number;
 
-  constructor(private fb: FormBuilder){
+  token = JSON.parse(localStorage.getItem('token'));
+
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router){
     this.rating = 0;
     this.form = this.fb.group({
       rating: ['', Validators.required],
@@ -22,7 +26,14 @@ export class AppComponent {
 
 ngOnInit()
  {
-
+  const token = this.token
+  if (this.auth.tokenExpired(token)) {
+    alert("Login Expires");
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  } else {
+    return
+  }
 }
 title = 'Techlean'
 }

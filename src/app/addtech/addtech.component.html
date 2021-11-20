@@ -1,6 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
         <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+<<<<<<< HEAD
 <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
 </button>
         <br>
@@ -14,16 +15,33 @@
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
                     <a class="dashboard-btn" routerLink="/dashboard">Dashboard</a>
+=======
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+        <br>
+        <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+        <mat-nav-list class="nav-list">
+            <div class="dashboardside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
+                    <a class="dashboard-btn" routerLink="/admin">Dashboard</a>
+>>>>>>> 424b68a10e6aed7dd4ac62743919b5fb6ede1e48
                 </mat-list-item>
             </div>
             <div class="bookingside">
                 <mat-list-item (click)="closeSideNav()">
+<<<<<<< HEAD
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label="">worker</mat-icon>
                     <a class="booking-btn" routerLink="/booking">Technicians</a>
+=======
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">face</mat-icon>
+                    <a class="booking-btn" routerLink="/technicians">Technicians</a>
+>>>>>>> 424b68a10e6aed7dd4ac62743919b5fb6ede1e48
                 </mat-list-item>
             </div>
             <div class="profileside">
                 <mat-list-item (click)="closeSideNav()">
+<<<<<<< HEAD
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
                     <a class="profile-btn" routerLink="/profile">Users</a>
                 </mat-list-item>
@@ -36,12 +54,26 @@
                 </mat-list-item>
             </div>
 
+=======
+
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">perm_identity</mat-icon>
+                    <a class="profile-btn" routerLink="/user">Users</a>
+                </mat-list-item>
+            </div>
+            <div class="logoutside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon">exit_to_app</mat-icon>
+                    <a class="logout-btn" routerLink="/home">Logout</a>
+                </mat-list-item>
+            </div>
+>>>>>>> 424b68a10e6aed7dd4ac62743919b5fb6ede1e48
         </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
         <mat-toolbar>
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+<<<<<<< HEAD
             <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
             <h1 class="titletxt">Add Technician</h1>
@@ -60,6 +92,20 @@
                   <img class="addtechvector" mat-card-image src="../../assets/addtech.png">
                     <div class="card">
                       
+=======
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+            <h1 class="ayosgamit">Ayosgamit</h1>
+            <span class="spacer"></span>
+        </mat-toolbar>
+
+        <div class="mat-dialog-content">
+            <h1 class="title">Add Technician</h1>
+            <div class="container">
+                <form [formGroup]="addTech" (ngSubmit)="submit()">
+                    <div class="card">
+
+>>>>>>> 424b68a10e6aed7dd4ac62743919b5fb6ede1e48
                         <mat-form-field class="textfield" appearance="outline">
                             <mat-label>Name</mat-label>
                             <input matInput formControlName="tech_name" pattern="[a-zA-Z_ ]{1,30}" placeholder="Juan Dela Cruz" [errorStateMatcher]="matcher" autocomplete="off">
@@ -102,5 +148,14 @@
                         </mat-form-field>
                     </div>
                     <button mat-raised-button type="submit" class="addBtn">Add</button>
+<<<<<<< HEAD
         </form>
         </div>
+=======
+                </form>
+            </div>
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
+>>>>>>> 424b68a10e6aed7dd4ac62743919b5fb6ede1e48

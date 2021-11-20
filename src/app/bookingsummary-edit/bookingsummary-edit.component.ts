@@ -48,6 +48,7 @@ export class BookingsummaryEditComponent implements OnInit {
     if (localStorage.getItem("service") == null) {
       this.router.navigate(['/dashboard'])
     }
+    
 
     this.summaryForm = this._formBuilder.group({
       service_firstname: ['', Validators.required],
@@ -98,7 +99,17 @@ export class BookingsummaryEditComponent implements OnInit {
       return false;
     }
   }
-
+  getConfirmationn() {
+    var retVal = confirm("If you exit, your booking progress will be lost.");
+    if (retVal == true) {
+      this.deleteOne()
+      localStorage.removeItem("service");
+      this.router.navigate(['/dashboard'])
+      return true;
+    } else {
+      return false;
+    }
+  }
   getConfirmation1() {
     var retVal = confirm("If you exit, your booking progress will be lost.");
     if (retVal == true) {
@@ -188,7 +199,7 @@ export class BookingsummaryEditComponent implements OnInit {
     }
   }
   summarySubmit() {
-    var retVal = confirm("Do you want to update ?");
+    var retVal = confirm("Are you sure ?");
     if (retVal == true) {
       const summary = this.summaryForm.value;
       let body = {
@@ -211,7 +222,7 @@ export class BookingsummaryEditComponent implements OnInit {
         this.http.patch("http://localhost:3000/NewServiceRequest/summary/"+ this.service._id, body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Update Success');
-            alert("Update Successfully");
+            alert("Updated");
             localStorage.setItem("service", JSON.stringify(data));
             this.router.navigate(['/summary']);
           }, error => {

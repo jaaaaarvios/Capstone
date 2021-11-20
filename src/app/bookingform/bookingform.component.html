@@ -1,45 +1,71 @@
-<mat-toolbar>
-  <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
-        <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label> 
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
-              <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
-              <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
-              <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
-              <button mat-menu-item routerLink="/menu_tv">Television</button>
-            </mat-menu>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+        <br>
+        <mat-nav-list class="nav-list">
+            <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+            <div class="dashboardside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label>home</mat-icon>
+                    <a class="dashboard-btn" routerLink="/dashboard">Home</a>
+                </mat-list-item>
+            </div>
+            <div class="bookingside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+                    <a class="booking-btn" routerLink="/booking">Book a Service</a>
+                </mat-list-item>
+            </div>
+            <div class="profileside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+                    <a class="profile-btn" routerLink="/profile">Profile</a>
+                </mat-list-item>
+            </div>
 
-            <label class="toolbarBtn" routerLink="/pricing">Pricing</label>
-            <label class="toolbarBtn" routerLink="/contact_us">Contact Us</label>
-            <label class="toolbarBtn" routerLink="/about_us">About Us</label>    
-            <label class="toolbarBtn" routerLink="/dashboard">Home</label>  
-  </mat-toolbar>   
-    <!--Appliances Repair-->
-      <h1 class="h1serviceneed">What service do you need?</h1>
-    <div class="allservices">
-      <mat-card class="appliancescard">
-        <img class="applianceimg" mat-button (click)="ApplianceOpen()" mat-card-image
-          src="../../assets/appliancesrepair.png" mat-dialog-close>
-        <mat-card-content>
-          <h1 class="h1appliances" mat-button (click)="ApplianceOpen()" mat-dialog-close>Appliances Repair</h1>
-        </mat-card-content>
-      </mat-card>
+            <div class="logoutside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon">exit_to_app</mat-icon>
+                    <a class="logout-btn" (click)="logout()">Logout</a>
+                </mat-list-item>
+            </div>
+        </mat-nav-list>
+    </mat-sidenav>
 
-      <!--Appliances Cleaning-->
-      <mat-card class="cleaningcard">
-        <img class="cleaningimg" mat-button (click)="CleaningOpen()" mat-card-image
-          src="../../assets/cleaning.png" mat-dialog-close>
-        <mat-card-content>
-          <h1 class="h1cleaning" mat-button (click)="CleaningOpen()" mat-dialog-close>Appliances Cleaning</h1>
-        </mat-card-content>
-      </mat-card>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        </mat-toolbar>
+        <!--Appliances Repair-->
+        <h1 class="h1serviceneed">What service do you need?</h1>
+        <div class="allservices">
+            <mat-card class="appliancescard">
+                <img class="applianceimg" mat-button (click)="ApplianceOpen()" mat-card-image src="../../assets/appliancesrepair.png" mat-dialog-close>
+                <mat-card-content>
+                    <h1 class="h1appliances" mat-button (click)="ApplianceOpen()" mat-dialog-close>Appliances Repair</h1>
+                </mat-card-content>
+            </mat-card>
 
-      <!--Appliances Installation-->
-      <mat-card class="installcard">
-        <img class="installimg" mat-button (click)="InstallationOpen()" mat-card-image
-          src="../../assets/installation.png" mat-dialog-close>
-        <mat-card-content>
-          <h1 class="h1install" mat-button (click)="InstallationOpen()" mat-dialog-close>Appliance Installation</h1>
-        </mat-card-content>
-      </mat-card>
-    </div>
+            <!--Appliances Cleaning-->
+            <mat-card class="cleaningcard">
+                <img class="cleaningimg" mat-button (click)="CleaningOpen()" mat-card-image src="../../assets/cleaning.png" mat-dialog-close>
+                <mat-card-content>
+                    <h1 class="h1cleaning" mat-button (click)="CleaningOpen()" mat-dialog-close>Appliances Cleaning</h1>
+                </mat-card-content>
+            </mat-card>
+
+            <!--Appliances Installation-->
+            <mat-card class="installcard">
+                <img class="installimg" mat-button (click)="InstallationOpen()" mat-card-image src="../../assets/installation.png" mat-dialog-close>
+                <mat-card-content>
+                    <h1 class="h1install" mat-button (click)="InstallationOpen()" mat-dialog-close>Appliance Installation</h1>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,32 +1,38 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>AyosGamit</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>AyosGamit</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-  crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-  crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.4.1/dist/esri-leaflet.js" integrity="sha512-xY2smLIHKirD03vHKDJ2u4pqeHA7OQZZ27EjtqmuhDguxiUvdsOuXMwkg16PQrm9cgTmXtoxA6kwr8KBy3cdcw==" crossorigin=""></script>
 
-  <meta name="google-signin-client_id" content="668350379601-n03opt2fme7s3t32qhle4e0hbr12imep.apps.googleusercontent.com">
-  <script src="https:apis.google.com/js/platform.js"></script>
+    <!-- Load Esri Leaflet Geocoder from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.css" integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g==" crossorigin="">
+    <script src="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.js" integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA==" crossorigin=""></script>
 
-  <script
-  src="https://www.paypal.com/sdk/js?client-id=AZ2VVi2Vsnz7StgQmWJ2r__IlJ_EuiA6u6VBmdmwRf2zZgHNQUD21fB3HHAkt5s9ClFZe0BfFcHgLvwd"></script>
+    <meta name="google-signin-client_id" content="668350379601-n03opt2fme7s3t32qhle4e0hbr12imep.apps.googleusercontent.com">
+    <script src="https:apis.google.com/js/platform.js"></script>
 
-  <script>"https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=[AIzaSyD1n0PIq2Z0b-v6A6Hkp-fElWuL5pmgjak]"</script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AZ2VVi2Vsnz7StgQmWJ2r__IlJ_EuiA6u6VBmdmwRf2zZgHNQUD21fB3HHAkt5s9ClFZe0BfFcHgLvwd"></script>
+
+    <script>
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=[AIzaSyD1n0PIq2Z0b-v6A6Hkp-fElWuL5pmgjak]"
+    </script>
 </head>
+
 <body>
-  
-  <app-root></app-root>
+
+    <app-root></app-root>
 </body>
+
 </html>

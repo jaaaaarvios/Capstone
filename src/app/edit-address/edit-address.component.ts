@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-edit-address',
@@ -19,7 +20,7 @@ export class EditAddressComponent implements OnInit {
   address = "";
   addressDetails = "";
   property_type = "";
-  id=JSON.parse(localStorage.getItem('id'));
+  id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
   property: any[] = ["Condo", "Apartment", "House", "Store", "Office Building", "Warehouse or Storage"];
 
@@ -30,7 +31,7 @@ export class EditAddressComponent implements OnInit {
     .pipe(map((result: BreakpointState) => result.matches));
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver,
-    private _formBuilder: FormBuilder, private http: HttpClient) { }
+    private _formBuilder: FormBuilder, private http: HttpClient, private auth: AuthService) { }
 
   ngOnInit(): void {
 
@@ -50,19 +51,19 @@ export class EditAddressComponent implements OnInit {
       this.router.navigate(['/home'])
     }
 
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id, httpOptions);
-      data.subscribe(result => {
-        this.serviceInfoForm.setValue({
-          address: result.service_address,
-          addressDetails: result.service_addressDetails,
-          property_type: result.property_type
-        });
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.serviceInfoForm.setValue({
+        address: result.service_address,
+        addressDetails: result.service_addressDetails,
+        property_type: result.property_type
       });
+    });
   }
-  
 
-  logout(){
+
+  logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
@@ -82,10 +83,10 @@ export class EditAddressComponent implements OnInit {
     }
 
     if (this.serviceInfoForm.valid) {
-      this.http.patch("http://localhost:3000/CredentialDB/service/"+this.id, body, httpOptions)
+      this.http.patch("http://localhost:3000/CredentialDB/service/" + this.id, body, httpOptions)
         .subscribe(data => {
           console.log(data, 'Update Success');
-          alert("Update Successfully");
+          alert("Updated");
           this.serviceInfoForm.reset();
           Object.keys(this.serviceInfoForm.controls).forEach(key => {
             this.serviceInfoForm.get(key).setErrors(null);
@@ -100,7 +101,7 @@ export class EditAddressComponent implements OnInit {
       alert('Fill up the required textfields with valid information')
     }
   }
-  
+
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();

@@ -2,17 +2,17 @@
     <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
     <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
-        <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
-        <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
-        <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
-        <button mat-menu-item routerLink="/menu_tv">Television</button>
+        <button mat-menu-item (click)="getConfirmation1()">Aircon</button>
+        <button mat-menu-item (click)="getConfirmation2()">Refrigerator</button>
+        <button mat-menu-item (click)="getConfirmation3()">Electric Fan</button>
+        <button mat-menu-item (click)="getConfirmation4()">Washing Machine</button>
+        <button mat-menu-item (click)="getConfirmation5()">Television</button>
     </mat-menu>
 
-    <label class="pricingBtn" routerLink="/pricing">Pricing</label>
-    <label class="contactUsBtn" routerLink="/contact_us">Contact Us</label>
-    <label class="aboutusBtn" routerLink="/about_us">About Us</label>
-    <label class="aboutusBtn" routerLink="/dashboard">Home</label>
+    <label class="pricingBtn" (click)="getConfirmation6()">Pricing</label>
+    <label class="contactUsBtn" (click)="getConfirmation7()">Contact Us</label>
+    <label class="aboutusBtn" (click)="getConfirmation8()">About Us</label>
+    <label class="aboutusBtn" (click)="onSubmit()">Home</label>
 </mat-toolbar>
 <div class="container">
 
