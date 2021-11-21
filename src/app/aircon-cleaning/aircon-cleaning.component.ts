@@ -38,6 +38,7 @@ export class AirconCleaningComponent implements OnInit {
   contactDetialsForm: FormGroup;
   subscription: Subscription;
 
+  email:any;
   service_appliance = "Aircon";
   service_type = "Cleaning";
   service_unitProb = "None";
@@ -126,6 +127,7 @@ export class AirconCleaningComponent implements OnInit {
     let data: Observable<any>;
     data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
     data.subscribe(result => {
+      this.email = result.email
       this.contactDetialsForm.setValue({
         service_address: result.service_address,
         service_firstname: result.first_name,
@@ -335,7 +337,8 @@ export class AirconCleaningComponent implements OnInit {
         "checkupfee": this.chupfee,
         "cleaningfee": cleanfee,
         "installfee": this.insfee,
-        "unitfee": inverter
+        "unitfee": inverter,
+        "createdBy": this.email
       }
       const httpOptions = {
         headers: new HttpHeaders({

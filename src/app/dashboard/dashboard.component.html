@@ -176,7 +176,7 @@
                                     <td>{{cr.service_type}}</td>
                                     <td>{{cr.status}}</td>
                                     <td>
-                                        <button mat-button (click)="open(content)">Rate</button></td>
+                                        <button mat-button (click)="open(ratingFeedback)">Rate</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -231,17 +231,17 @@
                             <thead>
                                 <tr>
                                     <th scope="col" class="header">Service ID</th>
-                                    <th scope="col" class="header">Appliance</th>
                                     <th scope="col" class="header">Service Type</th>
                                     <th scope="col" class="header">Status</th>
+                                    <th scope="col" class="header">Reason</th>
                                 </tr>
                             </thead>
                             <tbody class="body">
                                 <tr *ngFor="let rejreq of rejected_request">
                                     <td><b>{{rejreq._id | slice:0:9}}</b></td>
-                                    <td>{{rejreq.service_appliance}}</td>
                                     <td>{{rejreq.service_type}}</td>
                                     <td>{{rejreq.status}}</td>
+                                    <td>{{rejreq.reason}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -251,7 +251,7 @@
         </mat-tab-group>
 
     </mat-sidenav-content>
-    <ng-template #content let-c="close" let-d="dismiss">
+    <ng-template #ratingFeedback let-c="close" let-d="dismiss">
         <div class="modal-header">
             <h4 class="modal-title" id="modal-basic-title">Service Rating</h4>
             <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -271,17 +271,17 @@
                         </ul>
                     </div>
                 </div>
-                <!-- <mat-form-field class="instructions" appearance="outline">
+                <mat-form-field class="feedback" appearance="outline">
                     <mat-label>Feedback</mat-label>
-                    <input matInput formControlName="technician_feedback" [errorStateMatcher]="matcher" placeholder="Give feedback for the experience" autocomplete="off">
-                    <mat-error *ngIf="rateForm.get('service_instruction').hasError('required')">
-                        Any feedback ?
+                    <input matInput formControlName="technician_feedback" [errorStateMatcher]="matcher" placeholder="Share us your experience" autocomplete="off">
+                    <mat-error *ngIf="rateForm.get('technician_feedback').hasError('required')">
+                        Give us your feedback.
                     </mat-error>
-                </mat-form-field> -->
+                </mat-form-field>
             </div>
             <div class="modal-footer">
                 <button type="button" id="close" class="btn btn-outline-danger" (click)="c('Close')">Close</button>
-                <button type="button" class="btn btn-outline-dark" (click)="submit()">Save</button>
+                <button type="button" class="btn btn-outline-primary" (click)="submit()">Submit</button>
             </div>
         </form>
     </ng-template>

@@ -261,6 +261,10 @@
         display: inline-block;
         list-style: none;
     }
+    .feedback {
+        width: 450px;
+        font-family: 'Trebuchet MS';
+    }
 }
 
 @media (max-width: 576px) {
@@ -369,5 +373,9 @@
     .rating-list {
         display: inline-block;
         list-style: none;
+    }
+    .feedback {
+        width: 250px;
+        font-family: 'Trebuchet MS';
     }
 }

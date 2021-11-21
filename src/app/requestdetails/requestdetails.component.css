@@ -146,4 +146,7 @@
     .serviceinfotxt {
         font-size: 15px;
     }
+    .radioBtn {
+        margin: 5px;
+    }
 }

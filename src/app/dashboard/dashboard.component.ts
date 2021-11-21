@@ -5,9 +5,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RequestdetailsComponent } from '../requestdetails/requestdetails.component';
-import { SharedService } from '../shared/shared.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthService } from '../auth.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MyErrorStateMatcher } from '../app.component';
@@ -23,22 +21,24 @@ import { MyErrorStateMatcher } from '../app.component';
 export class DashboardComponent implements OnInit {
 
   id = JSON.parse(localStorage.getItem('id'));
-  token = JSON.parse(localStorage.getItem('token'))
+  token = JSON.parse(localStorage.getItem('token'));
+  service = JSON.parse(localStorage.getItem('service_request'));
   fname = "";
   lname = "";
   number = "";
-  email = "";
+  email: any;
   address = "";
   rateForm: FormGroup;
   date: Date;
   subscription: any;
-  pending_request = []
-  completed_request = []
-  cancelled_request = []
-  approved_request = []
-  rejected_request = []
+  pending_request = [];
+  completed_request = [];
+  cancelled_request = [];
+  approved_request = [];
+  rejected_request = [];
   stars: number[] = [1, 2, 3, 4, 5];
   selectedValue: number;
+  service_request: [];
 
   matcher = new MyErrorStateMatcher();
   @ViewChild('drawer') drawer: any;
@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
-    
+
   constructor(private router: Router, public dialog: MatDialog, private http: HttpClient, config: NgbModalConfig, private modalService: NgbModal,
     private breakpointObserver: BreakpointObserver, private _formBuilder: FormBuilder,) {
     {
@@ -58,8 +58,8 @@ export class DashboardComponent implements OnInit {
     config.keyboard = false;
   }
 
-  open(content) {
-    this.modalService.open(content);
+  open(ratingFeedback) {
+    this.modalService.open(ratingFeedback);
   }
 
   ngOnInit(): void {
@@ -87,31 +87,38 @@ export class DashboardComponent implements OnInit {
     let data: Observable<any>;
     data = this.http.get('http://localhost:3000/NewServiceRequest', httpOptions);
     data.subscribe(result => {
-      let completed_request = result.filter(function (status) {
-        return status.status == "Completed";
+      var email = this.email
+      let service_request = result.filter(function (createdBy) {
+        return createdBy.createdBy == email;
       });
-      this.completed_request = completed_request
-
-      let pending_request = result.filter(function (status) {
-        return status.status == "Pending";
-      });
-      this.pending_request = pending_request
-
-      let approved_request = result.filter(function (status) {
-        return status.status == "Pending (Approved)";
-      });
-      this.approved_request = approved_request
-
-      let cancel_request = result.filter(function (status) {
-        return status.status == "Cancelled";
-      });
-      this.cancelled_request = cancel_request
-
-      let rejected_request = result.filter(function (status) {
-        return status.status == "Rejected";
-      });
-      this.rejected_request = rejected_request
+      this.service_request = service_request
+      localStorage.setItem("service_request", JSON.stringify(this.service_request));
     });
+
+    let pending_request = this.service.filter(function (status) {
+      return status.status == "Pending";
+    });
+    this.pending_request = pending_request
+
+    let completed_request = this.service.filter(function (status) {
+      return status.status == "Completed";
+    });
+    this.completed_request = completed_request
+
+    let approved_request = this.service.filter(function (status) {
+      return status.status == "Pending (Approved)";
+    });
+    this.approved_request = approved_request
+
+    let cancel_request = this.service.filter(function (status) {
+      return status.status == "Cancelled";
+    });
+    this.cancelled_request = cancel_request
+
+    let rejected_request = this.service.filter(function (status) {
+      return status.status == "Rejected";
+    });
+    this.rejected_request = rejected_request
 
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
@@ -146,10 +153,14 @@ export class DashboardComponent implements OnInit {
       this.drawer.close();
     }
   }
-  submit(){
-    console.log('Value of star',  this.selectedValue);
-    let ref = document.getElementById('close');
-    ref?.click();
+  submit() {
+    if (this.rateForm.valid) {
+      console.log('Value of star', this.selectedValue);
+      console.log(this.rateForm.value.technician_feedback);
+      let ref = document.getElementById('close');
+      ref?.click();
+      this.rateForm.reset();
+    }
   }
 
   countStar(star) {

@@ -6,7 +6,8 @@ import { map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { RescheduleComponent } from '../reschedule/reschedule.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthService } from '../auth.service';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-requestdetails',
@@ -28,9 +29,10 @@ export class RequestdetailsComponent implements OnInit {
   id: any;
   data: any;
   token = JSON.parse(localStorage.getItem('token'));
+  cancelreasonForm: FormGroup;
 
-  constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver, private router: Router
-    , private http: HttpClient, private route: ActivatedRoute, private auth: AuthService) { }
+  constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver, private router: Router, private _formBuilder: FormBuilder,
+    private http: HttpClient, private route: ActivatedRoute, config: NgbModalConfig, private modalService: NgbModal,) { }
 
   ngOnInit(): void {
     if (localStorage.getItem("id") == null) {
@@ -44,11 +46,18 @@ export class RequestdetailsComponent implements OnInit {
         "x-access-token": this.token
       })
     }
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/NewServiceRequest/'+this.id, httpOptions);
-      data.subscribe(result => {
-        this.data = result;
-      });
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/NewServiceRequest/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.data = result;
+    });
+
+    this.cancelreasonForm = this._formBuilder.group({
+      reason: ['', Validators.required],
+    });
+  }
+  open(cancelReason) {
+    this.modalService.open(cancelReason);
   }
 
   logout() {
@@ -72,15 +81,19 @@ export class RequestdetailsComponent implements OnInit {
     if (retVal == true) {
       let body = {
         "status": "Cancelled",
+        "reason": this.cancelreasonForm.value.reason
       }
       const httpOptions = {
         headers: new HttpHeaders({
           "x-access-token": this.token
         })
       }
-      this.http.patch("http://localhost:3000/NewServiceRequest/status/" + this.id, body, httpOptions)
+      this.http.patch("http://localhost:3000/NewServiceRequest/cancel-status/" + this.id, body, httpOptions)
         .subscribe(data => {
           this.router.navigate(['/dashboard']);
+          let ref = document.getElementById('close');
+          ref?.click();
+          this.cancelreasonForm.reset();
         }, error => {
           console.log(error);
           alert(error);

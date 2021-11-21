@@ -23,6 +23,7 @@ export class WashingmachineInstallComponent implements OnInit {
   contactDetialsForm: FormGroup;
   subscription: Subscription;
 
+  email:any;
   service_appliance = "Washing Machine";
   service_type = "Installation";
   service_unitType = "None";
@@ -113,6 +114,7 @@ export class WashingmachineInstallComponent implements OnInit {
     let data: Observable<any>;
     data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
     data.subscribe(result => {
+      this.email = result.email
       this.contactDetialsForm.setValue({
         service_address: result.service_address,
         service_firstname: result.first_name,
@@ -262,7 +264,8 @@ export class WashingmachineInstallComponent implements OnInit {
         "checkupfee": this.chupfee,
         "installfee": installfee,
         "cleaningfee": this.cleanfee,
-        "unitfee": this.unitfee
+        "unitfee": this.unitfee,
+        "createdBy": this.email
       }
       const httpOptions = {
         headers: new HttpHeaders({
