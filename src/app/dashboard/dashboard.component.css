@@ -248,6 +248,19 @@
         margin-top: 5px;
         margin-left: 20px;
     }
+    .rating-list li {
+        color: #ddd;
+        padding: 10px 5px;
+    }
+    .rating-list li:hover,
+    .rating-list li:hover~li,
+    .rating-list li.selected {
+        color: #ffd700;
+    }
+    .rating-list {
+        display: inline-block;
+        list-style: none;
+    }
 }
 
 @media (max-width: 576px) {
@@ -343,5 +356,18 @@
     .detailsBtn {
         margin-top: 5px;
         margin-left: 20px;
+    }
+    .rating-list li {
+        color: #ddd;
+        padding: 10px 5px;
+    }
+    .rating-list li:hover,
+    .rating-list li:hover~li,
+    .rating-list li.selected {
+        color: #ffd700;
+    }
+    .rating-list {
+        display: inline-block;
+        list-style: none;
     }
 }

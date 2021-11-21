@@ -8,11 +8,15 @@ import { RequestdetailsComponent } from '../requestdetails/requestdetails.compon
 import { SharedService } from '../shared/shared.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth.service';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MyErrorStateMatcher } from '../app.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  providers: [NgbModalConfig, NgbModal]
 })
 
 
@@ -25,7 +29,7 @@ export class DashboardComponent implements OnInit {
   number = "";
   email = "";
   address = "";
-
+  rateForm: FormGroup;
   date: Date;
   subscription: any;
   pending_request = []
@@ -33,23 +37,36 @@ export class DashboardComponent implements OnInit {
   cancelled_request = []
   approved_request = []
   rejected_request = []
+  stars: number[] = [1, 2, 3, 4, 5];
+  selectedValue: number;
 
+  matcher = new MyErrorStateMatcher();
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
-
-  constructor(private router: Router, public dialog: MatDialog, private http: HttpClient,
-    private breakpointObserver: BreakpointObserver, private shared: SharedService, private auth: AuthService) {
+    
+  constructor(private router: Router, public dialog: MatDialog, private http: HttpClient, config: NgbModalConfig, private modalService: NgbModal,
+    private breakpointObserver: BreakpointObserver, private _formBuilder: FormBuilder,) {
     {
       setInterval(() => {
         this.date = new Date()
       }, 1000)
     }
+    config.backdrop = 'static';
+    config.keyboard = false;
+  }
+
+  open(content) {
+    this.modalService.open(content);
   }
 
   ngOnInit(): void {
+
+    this.rateForm = this._formBuilder.group({
+      technician_feedback: ['', Validators.required],
+    });
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -129,7 +146,15 @@ export class DashboardComponent implements OnInit {
       this.drawer.close();
     }
   }
+  submit(){
+    console.log('Value of star',  this.selectedValue);
+    let ref = document.getElementById('close');
+    ref?.click();
+  }
 
+  countStar(star) {
+    this.selectedValue = star;
+  }
 }
 
 
