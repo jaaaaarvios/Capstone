@@ -24,6 +24,7 @@ export class TelevisiondetailsComponent implements OnInit {
   contactDetialsForm: FormGroup;
   subscription: Subscription;
 
+  email:any;
   service_appliance = "Television";
   service_type = "Repair";
   service_unitProb = "None";
@@ -117,6 +118,7 @@ export class TelevisiondetailsComponent implements OnInit {
     let data: Observable<any>;
     data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
     data.subscribe(result => {
+      this.email = result.email
       this.contactDetialsForm.setValue({
         service_address: result.service_address,
         service_firstname: result.first_name,
@@ -255,7 +257,8 @@ export class TelevisiondetailsComponent implements OnInit {
         "checkupfee": this.chupfee,
         "cleaningfee": this.cleanfee,
         "installfee": this.installfee,
-        "unitfee": this.unitfee
+        "unitfee": this.unitfee,
+        "createdBy": this.email
       }
       const httpOptions = {
         headers: new HttpHeaders({

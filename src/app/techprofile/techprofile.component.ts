@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -11,8 +14,19 @@ export class TechprofileComponent implements OnInit {
 
   id: any;
   data: any;
+  drawer: any;
 
-  constructor(private route: ActivatedRoute, private auth: AuthService, private router: Router) { }
+  technicians =[];
+  
+  @ViewChild('drawer') 
+  public selectedItem: string = '';
+  public isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map((result: BreakpointState) => result.matches));
+
+
+  constructor(private route: ActivatedRoute, private auth: AuthService,
+     private breakpointObserver: BreakpointObserver, private router: Router) { }
 
   ngOnInit(): void {
     if (localStorage.getItem("firstname") == null) {
@@ -28,4 +42,14 @@ export class TechprofileComponent implements OnInit {
     })
   }
 
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
+
+  closeSideNav() {
+    if (this.drawer._mode == 'over') {
+      this.drawer.close();
+    }
+  }
 }

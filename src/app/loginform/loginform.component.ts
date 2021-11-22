@@ -76,46 +76,51 @@ export class LoginformComponent implements OnInit {
       user_semail: new FormControl('', [Validators.required]),
       user_spassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw), Validators.maxLength(this.maxPw)]),
     });
-
-    // let dataa: Observable<any>;
-    // dataa = this.http.get('http://localhost:3000/CredentialDB/');
-    // dataa.subscribe(result => {
-    //   this.users = result
-    //   let eemail =  result.filter(function (email) {
-    //     return email.email;
-    //   });
-    //   this.user_email = eemail
-    //   console.log(this.user_email)
-    // });
-
-
   }
 
   onClickSubmit() {
-
-    const val = this.userForm
-    if (val.valid) {
-      this.auth.login(val.value).subscribe(result => {
-        if (result) {
-          localStorage.setItem("id", JSON.stringify(result._id));
-          localStorage.setItem("token", JSON.stringify(result.token));
-          console.log(result);
-          alert(result.message);
-          this.router.navigate(['/profile'])
+    try {
+      const val = this.userForm.value
+      if (val.email == this.admin) {
+        this.auth.admin(val).subscribe(result => {
+          if (result) {
+            localStorage.setItem("id", JSON.stringify(result._id));
+            localStorage.setItem("firstname", JSON.stringify(result.first_name));
+            localStorage.setItem("token", JSON.stringify(result.token));
+            alert(result.message);
+            this.router.navigate(['/admin'])
+          }
+        }), error => {
+          console.log(error);
+          alert("Error: " + error);
         }
-      }), err => {
-        // console.log(err);
-        // alert(err);
       }
+      else if (val.email != this.admin) {
+        this.auth.login(val).subscribe(result => {
+          if (result) {
+            localStorage.setItem("id", JSON.stringify(result._id));
+            localStorage.setItem("token", JSON.stringify(result.token));
+            console.log(result);
+            alert(result.message);
+            this.router.navigate(['/profile'])
+          }
+        }), err => {
+          // console.log(err);
+          // alert(err);
+        }
+      }
+      else {
+        alert("Invalid Information. Please try again.");
+        this.userForm.reset();
+        Object.keys(this.userForm.controls).forEach(key => {
+          this.userForm.get(key).setErrors(null);
+        });
+
+      }
+    } catch (err) {
+      console.log(err)
     }
-    else {
-      alert("Invalid Information. Please try again.");
-      this.userForm.reset();
-      Object.keys(this.userForm.controls).forEach(key => {
-        this.userForm.get(key).setErrors(null);
-      });
-      
-    }
+
   }
 
   closeSideNav() {

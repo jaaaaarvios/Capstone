@@ -252,6 +252,23 @@
         margin-top: 5px;
         margin-left: 20px;
     }
+    .rating-list li {
+        color: #ddd;
+        padding: 10px 5px;
+    }
+    .rating-list li:hover,
+    .rating-list li:hover~li,
+    .rating-list li.selected {
+        color: #ffd700;
+    }
+    .rating-list {
+        display: inline-block;
+        list-style: none;
+    }
+    .feedback {
+        width: 450px;
+        font-family: 'Trebuchet MS';
+    }
 }
 
 @media (max-width: 576px) {
@@ -347,5 +364,22 @@
     .detailsBtn {
         margin-top: 5px;
         margin-left: 20px;
+    }
+    .rating-list li {
+        color: #ddd;
+        padding: 10px 5px;
+    }
+    .rating-list li:hover,
+    .rating-list li:hover~li,
+    .rating-list li.selected {
+        color: #ffd700;
+    }
+    .rating-list {
+        display: inline-block;
+        list-style: none;
+    }
+    .feedback {
+        width: 250px;
+        font-family: 'Trebuchet MS';
     }
 }

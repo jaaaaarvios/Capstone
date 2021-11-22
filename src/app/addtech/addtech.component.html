@@ -4,8 +4,8 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
         <br>
-        <img class="logo" mat-card-image src="../../assets/mainlogo.png">
         <mat-nav-list class="nav-list">
+            <img class="logo" mat-card-image src="../../assets/mainlogo.png">
             <div class="dashboardside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
@@ -14,21 +14,28 @@
             </div>
             <div class="bookingside">
                 <mat-list-item (click)="closeSideNav()">
-                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">face</mat-icon>
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">worker</mat-icon>
                     <a class="booking-btn" routerLink="/technicians">Technicians</a>
                 </mat-list-item>
             </div>
+
+            <div class="feedbackside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">feedback</mat-icon>
+                    <a class="feedback-btn" routerLink="/technicians">Feedbacks</a>
+                </mat-list-item>
+            </div>
+
             <div class="profileside">
                 <mat-list-item (click)="closeSideNav()">
-
-                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">perm_identity</mat-icon>
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
                     <a class="profile-btn" routerLink="/user">Users</a>
                 </mat-list-item>
             </div>
             <div class="logoutside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon">exit_to_app</mat-icon>
-                    <a class="logout-btn" routerLink="/home">Logout</a>
+                    <a class="logout-btn" (click)="logout()">Logout</a>
                 </mat-list-item>
             </div>
         </mat-nav-list>
@@ -39,13 +46,19 @@
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-            <h1 class="ayosgamit">Ayosgamit</h1>
-            <span class="spacer"></span>
+            <h1 class="titletxt">Add Technician</h1>
+
         </mat-toolbar>
 
+        <button class="backBtn" routerLink="/technicians" mat-icon-button>
+            <mat-icon class="backicon">chevron_left</mat-icon>
+          </button>
+
+
         <div class="mat-dialog-content">
-            <h1 class="title">Add Technician</h1>
+
             <div class="container">
+                <img class="vector" mat-card-image src="../../assets/fillout.png">
                 <form [formGroup]="addTech" (ngSubmit)="submit()">
                     <div class="card">
 
@@ -60,7 +73,7 @@
                             </mat-error>
                         </mat-form-field>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="tech_specialization">Specialization:</label>
                             <div *ngFor="let web of specializationList">
                                 <label>
@@ -68,7 +81,27 @@
                                 {{web.job}}
                             </label>
                             </div>
-                        </div>
+                        </div>-->
+
+
+
+                        <mat-form-field class="genderfield" appearance="outline">
+                            <mat-label>Gender</mat-label>
+                            <mat-select>
+                                <mat-option value="option">Male</mat-option>
+                                <mat-option value="option">Female</mat-option>
+                            </mat-select>
+
+                        </mat-form-field>
+
+                        <mat-form-field class="birthdate" appearance="outline">
+                            <mat-label>Date of Birth</mat-label>
+                            <input matInput [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker">
+                                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
 
                         <mat-form-field class="textfield" appearance="outline">
                             <mat-label>Contact Number</mat-label>
@@ -89,8 +122,14 @@
                                 Input Technicians address
                             </mat-error>
                         </mat-form-field>
+
+                        <div>
+                            <button mat-raised-button type="submit" class="addBtn">Add</button>
+                        </div>
                     </div>
-                    <button mat-raised-button type="submit" class="addBtn">Add</button>
+
+
+
                 </form>
             </div>
         </div>

@@ -1,90 +1,85 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-      *ngIf="isHandset$ | async">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
       <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
-    <br>
-    <img class="logo" mat-card-image src="../../assets/mainlogo.png">
-    <mat-nav-list class="nav-list">
-      <div class="dashboardside">
-        <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
-          <a class="dashboard-btn" routerLink="/admin">Dashboard</a>
-        </mat-list-item>
-      </div>
-      <div class="bookingside">
-        <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">face</mat-icon>
-          <a class="booking-btn" routerLink="/technicians">Technicians</a>
-        </mat-list-item>
-      </div>
-      <div class="profileside">
-        <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon" aria-hidden="false" aria-label="">perm_identity</mat-icon>
-          <a class="profile-btn" routerLink="/user">Users</a>
-        </mat-list-item>
-      </div>
-      <div class="logoutside">
-        <mat-list-item (click)="closeSideNav()">
-          <mat-icon class="nav-icon">exit_to_app</mat-icon>
-          <a class="logout-btn" routerLink="/home">Logout</a>
-        </mat-list-item>
-      </div>
-    </mat-nav-list>
-  </mat-sidenav>
+        <br>
+        <mat-nav-list class="nav-list">
+            <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+            <div class="dashboardside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
+                    <a class="dashboard-btn" routerLink="/admin">Dashboard</a>
+                </mat-list-item>
+            </div>
+            <div class="bookingside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">worker</mat-icon>
+                    <a class="booking-btn" routerLink="/technicians">Technicians</a>
+                </mat-list-item>
+            </div>
+            <div class="profileside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+                    <a class="profile-btn" routerLink="/user">Users</a>
+                </mat-list-item>
+            </div>
+            <div class="logoutside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon">exit_to_app</mat-icon>
+                    <a class="logout-btn" (click)="logout()">Logout</a>
+                </mat-list-item>
+            </div>
+        </mat-nav-list>
+    </mat-sidenav>
 
-  <mat-sidenav-content>
-    <mat-toolbar>
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <h1 class="ayosgamit">Ayosgamit</h1>
-      <span class="spacer"></span>
-      <mat-icon class="accounticon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-      <h2 class="welcome">Welcome, ADMIN!</h2>
-    </mat-toolbar>
-    <div class="content">
-      <h1 class="titletxt">Users</h1>
-      <div class="content1">
-        <!-- <mat-form-field class="searchfield" appearance="outline">
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+            <div>
+                <h1 class="dashtitle1">Users</h1>
+            </div>
+        </mat-toolbar>
+        <div class="content">
+            <div class="content1">
+                <!-- <mat-form-field class="searchfield" appearance="outline">
           <mat-label>
             <mat-icon>find_in_page</mat-icon> Search..
           </mat-label>
           <input matInput>
         </mat-form-field> -->
 
-        <table class="table">
-          <thead class="head">
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone Number</th>
-              <th scope="col">Service Address</th>
-              <th scope="col">Property Type</th>
-              <th scope="col">Created Date</th>
-              <th scope="col">Updated Date</th>
-            </tr>
-          </thead>
-          <tbody class="body">
-            <tr *ngFor="let user of users">
-              <th scope="row">{{user._id | slice:0:9}}</th>
-              <td>{{user.first_name}}</td>
-              <td>{{user.last_name}}</td>
-              <td>{{user.email}}</td>
-              <td>{{user.number}}</td>
-              <td>{{user.service_address}}</td>
-              <td>{{user.property_type}}</td>
-              <td>{{user.createdAt | date:'longDate'}}</td>
-              <td>{{user.updatedAt | date:'longDate'}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </mat-sidenav-content>
+                <table class="table">
+                    <thead class="head">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Service Address</th>
+                            <th scope="col">Property Type</th>
+                            <th scope="col">Created Date</th>
+                            <th scope="col">Updated Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="body">
+                        <tr *ngFor="let user of users">
+                            <th scope="row">{{user._id | slice:0:9}}</th>
+                            <td>{{user.first_name}}</td>
+                            <td>{{user.last_name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.number}}</td>
+                            <td>{{user.service_address}}</td>
+                            <td>{{user.property_type}}</td>
+                            <td>{{user.createdAt | date:'longDate'}}</td>
+                            <td>{{user.updatedAt | date:'longDate'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </mat-sidenav-content>
 </mat-sidenav-container>

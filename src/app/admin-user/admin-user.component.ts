@@ -27,17 +27,6 @@ export class AdminUserComponent implements OnInit {
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver
     ,private router: Router, private http: HttpClient) { }
 
-  // TechprofileOpenDialog() {
-  //   const dialogRef = this.dialog.open(TechprofileComponent);
-    
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
-
-  AddtechOpenDialog() {
-    this.router.navigate(['/add_technician']);
-  }
   ngOnInit(): void {
 
     if (localStorage.getItem("firstname") == null) {
@@ -61,5 +50,10 @@ export class AdminUserComponent implements OnInit {
       this.drawer.close();
     }
   }
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
+
 
 }

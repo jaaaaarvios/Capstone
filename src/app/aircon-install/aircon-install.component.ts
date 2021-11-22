@@ -37,7 +37,7 @@ export class AirconInstallComponent implements OnInit {
   scheduleForm: FormGroup;
   contactDetialsForm: FormGroup;
   subscription: Subscription;
-
+  email:any;
   service_appliance = "Aircon";
   service_type = "Installation";
   service_unitProb = "None";
@@ -123,6 +123,7 @@ export class AirconInstallComponent implements OnInit {
     let data:Observable<any>;
       data = this.http.get('http://localhost:3000/CredentialDB/'+this.id, httpOptions);
       data.subscribe(result => {
+        this.email = result.email
         this.contactDetialsForm.setValue({
           service_address: result.service_address,
           service_firstname: result.first_name,
@@ -306,6 +307,7 @@ export class AirconInstallComponent implements OnInit {
         "cleaningfee": this.cleanfee,
         "installfee": installfee,
         "unitfee": inverter,
+        "createdBy": this.email
       }
       const httpOptions = {
         headers: new HttpHeaders({

@@ -42,6 +42,7 @@ export class RefrigeratordetailsComponent implements OnInit {
   contactDetialsForm: FormGroup;
   subscription: Subscription;
 
+  email:any;
   service_appliance = "Refrigerator";
   service_type = "Repair";
   status = "Pending";
@@ -123,6 +124,7 @@ export class RefrigeratordetailsComponent implements OnInit {
     let data: Observable<any>;
     data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
     data.subscribe(result => {
+      this.email = result.email
       this.contactDetialsForm.setValue({
         service_address: result.service_address,
         service_firstname: result.first_name,
@@ -268,7 +270,8 @@ export class RefrigeratordetailsComponent implements OnInit {
         "checkupfee": this.chupfee,
         "cleaningfee": this.cleanfee,
         "installfee": this.installfee,
-        "unitfee": inverter
+        "unitfee": inverter,
+        "createdBy": this.email
       }
       const httpOptions = {
         headers: new HttpHeaders({
