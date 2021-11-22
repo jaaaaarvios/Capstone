@@ -109,7 +109,7 @@
                                     <td>{{pr.service_type}}</td>
                                     <td>{{pr.status}}</td>
                                     <td><button mat-raised-button [routerLink]="['/reschedule/' + pr._id]">Reschedule</button></td>
-                                    <td><button mat-raised-button [routerLink]="['/requestdetails/' + pr._id]">Details</button></td>
+                                    <td><button mat-raised-button [routerLink]="['/requestdetails-pending/' + pr._id]">Details</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -198,18 +198,17 @@
                             <thead>
                                 <tr>
                                     <th scope="col" class="header">Service ID</th>
-                                    <th scope="col" class="header">Appliance</th>
                                     <th scope="col" class="header">Service Type</th>
                                     <th scope="col" class="header">Status</th>
+                                    <th scope="col" class="header">Reason</th>
                                 </tr>
                             </thead>
                             <tbody class="body">
                                 <tr *ngFor="let canreq of cancelled_request">
                                     <td><b>{{canreq._id | slice:0:9}}</b></td>
                                     <td>{{canreq.service_appliance}}</td>
-                                    <td>{{canreq.service_type}}</td>
                                     <td>{{canreq.status}}</td>
-
+                                    <td>{{canreq.reason}}</td>
                                 </tr>
                             </tbody>
                         </table>

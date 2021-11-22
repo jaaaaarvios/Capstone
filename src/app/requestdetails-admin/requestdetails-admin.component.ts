@@ -26,7 +26,9 @@ export class RequestdetailsAdminComponent implements OnInit {
   labelPosition: 'before' | 'after' = 'after';
   disabled = false;
   id: any;
-  data: any;
+  request: any;
+  technician: [];
+  techID: "";
   token = JSON.parse(localStorage.getItem('token'));
   cancelreasonForm: FormGroup;
 
@@ -47,7 +49,17 @@ export class RequestdetailsAdminComponent implements OnInit {
     let data: Observable<any>;
     data = this.http.get('http://localhost:3000/NewServiceRequest/' + this.id, httpOptions);
     data.subscribe(result => {
-      this.data = result;
+      this.request = result;
+      this.techID = result.technician_id
+    });
+
+    let dataa:Observable<any>;
+    dataa = this.http.get('http://localhost:3000/technician');
+    dataa.subscribe(result => {
+      let technicians = result.filter(function (activeStatus) {
+        return activeStatus.active == true;
+      });
+      this.technician = technicians
     });
 
     this.cancelreasonForm = this._formBuilder.group({
@@ -75,12 +87,23 @@ export class RequestdetailsAdminComponent implements OnInit {
       let body = {
         "status": "Pending (Approved)",
       }
+      let body1 = {
+        "active": 0,
+      }
       const httpOptions = {
         headers: new HttpHeaders({
           "x-access-token": this.token
         })
       }
       this.http.patch("http://localhost:3000/NewServiceRequest/status/" + this.id, body, httpOptions)
+        .subscribe(data => {
+          this.router.navigate(['/admin']);
+        }, error => {
+          console.log(error);
+          alert(error);
+        });
+
+        this.http.patch("http://localhost:3000/technician/active/" + this.techID, body1, httpOptions)
         .subscribe(data => {
           this.router.navigate(['/admin']);
         }, error => {
@@ -113,6 +136,24 @@ export class RequestdetailsAdminComponent implements OnInit {
           alert(error);
         });
     }
+  }
+
+  deploy(techID){
+    let body = {
+      "technician_id": techID,
+    }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+    this.http.patch("http://localhost:3000/NewServiceRequest/deploy/" + this.id, body, httpOptions)
+      .subscribe(data => {
+
+      }, error => {
+        console.log(error);
+        alert(error);
+      });
   }
 
 }

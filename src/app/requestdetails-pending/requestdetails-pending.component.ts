@@ -10,12 +10,11 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-requestdetails',
-  templateUrl: './requestdetails.component.html',
-  styleUrls: ['./requestdetails.component.css']
+  selector: 'app-requestdetails-pending',
+  templateUrl: './requestdetails-pending.component.html',
+  styleUrls: ['./requestdetails-pending.component.css']
 })
-export class RequestdetailsComponent implements OnInit {
-
+export class RequestdetailsPendingComponent implements OnInit {
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
@@ -91,9 +90,6 @@ export class RequestdetailsComponent implements OnInit {
         "status": "Cancelled",
         "reason": this.cancelreasonForm.value.reason
       }
-      let body1 = {
-        "active": 1,
-      }
       const httpOptions = {
         headers: new HttpHeaders({
           "x-access-token": this.token
@@ -109,18 +105,7 @@ export class RequestdetailsComponent implements OnInit {
           console.log(error);
           alert(error);
         });
-        this.http.patch("http://localhost:3000/technician/active/" + this.techID, body1, httpOptions)
-        .subscribe(data => {
-          // this.router.navigate(['/dashboard']);
-          let ref = document.getElementById('close');
-          ref?.click();
-          this.cancelreasonForm.reset();
-        }, error => {
-          console.log(error);
-          alert(error);
-        });
     }
   }
+
 }
-
-

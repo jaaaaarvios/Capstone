@@ -41,7 +41,8 @@ export class RefrigeratordetailsComponent implements OnInit {
   scheduleForm: FormGroup;
   contactDetialsForm: FormGroup;
   subscription: Subscription;
-
+  today = new Date();
+  tomorrow = new Date();  
   email:any;
   service_appliance = "Refrigerator";
   service_type = "Repair";
@@ -86,6 +87,8 @@ export class RefrigeratordetailsComponent implements OnInit {
     this.router.navigate(['/home'])
   }
   ngOnInit(): void {
+    this.tomorrow.setDate(this.today.getDate() + 1);
+    
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
