@@ -55,6 +55,10 @@
         margin-left: 0px;
         margin-top: 30px;
         text-align: justify;
+        border-radius: 20px;
+        width: 100%;
+        height: 70px;
+        background-color: #D6B2BD;
     }
     .bookingside:hover {
         background-color: #D6B2BD;

@@ -51,10 +51,10 @@ import { LoginformAdminComponent } from './loginform-admin/loginform-admin.compo
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'home', component: HomepageComponent },
-  { path: 'login', component: LoginformComponent },
+  { path: 'loginform', component: LoginformComponent },
   { path: 'admin-login', component: LoginformAdminComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'booking', component: BookingformComponent },
+  { path: 'bookingform', component: BookingformComponent },
   { path: 'profile', component: ProfileformComponent },
   { path: 'confirmcancel', component: ConfirmcancelComponent },
   { path: 'requestdetails/:id', component: RequestdetailsComponent },
