@@ -19,7 +19,7 @@
         <ng-template #notLogin></ng-template>
         <span class="spacer"></span>
         <div *ngIf="token != null; else notLogin1"></div>
-        <ng-template #notLogin1><button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button></ng-template>
+        <ng-template #notLogin1><button mat-raised-button class="loginBtn" routerLink="/loginform">Login / Sign Up</button></ng-template>
     </mat-toolbar>
 
 
@@ -38,40 +38,7 @@
         <h1 class="headertxt">How It Works</h1>
     </div>
 
-    <div class="headerimg1">
+    <div>
         <img class="bookimg" mat-card-image src="../../assets/bookimg.png">
-        <img class="connectimg" mat-card-image src="../../assets/connectimg.png">
-        <img class="likeimg" mat-card-image src="../../assets/likeimg.png">
-    </div>
-
-    <div class="headertitle1">
         <h1 class="booktxt">1. Book a Service</h1>
-        <h1 class="connecttxt">2. Connect with Us</h1>
-        <h1 class="liketxt">3. Enjoy Our Service</h1>
-    </div>
-
-    <div>
-        <pre class="booklabel">Need a hand? Book a service
-  you need at home directly
-      from our website application.</pre>
-
-        <pre class="connectlabel">Depending on the service booked,
-    we will assign you a technician and 
-    quote fixed prices.
-  </pre>
-
-        <pre class="likelabel">Once the job is done, 
-   Kindly leave us a feedback.
-  </pre>
-
-    </div>
-
-    <div>
-        <h1 class="header2txt">Why people are choosing us</h1>
-    </div>
-
-    <div>
-        <img class="convenientimg" mat-card-image src="../../assets/convenient.png">
-        <img class="protectimg" mat-card-image src="../../assets/protect.png">
-        <img class="guaranteeimg" mat-card-image src="../../assets/guarantee.png">
     </div>

@@ -37,6 +37,10 @@
             margin-left: 0px;
             margin-top: 150px;
             text-align: justify;
+            background-color: #D6B2BD;
+            border-radius: 20px;
+            width: 100%;
+            height: 70px;
         }
         .dashboard-btn {
             color: #003049;
@@ -258,7 +262,8 @@
             margin: 5px;
         }
         .detailsBtn {
-            background-color: #FCA311;
+            background-color: #fcb42a;
+            color: #FFFFFF;
             margin: 5px;
         }
         .container {

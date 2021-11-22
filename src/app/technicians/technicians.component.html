@@ -18,6 +18,14 @@
                     <a class="booking-btn" routerLink="/technicians">Technicians</a>
                 </mat-list-item>
             </div>
+
+            <div class="feedbackside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">feedback</mat-icon>
+                    <a class="feedback-btn" routerLink="/technicians">Feedbacks</a>
+                </mat-list-item>
+            </div>
+
             <div class="profileside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
@@ -44,9 +52,15 @@
 
             <!-- <img class="techicon" mat-card-image src="../../assets/techicon.png"> -->
 
+
             <button mat-icon-button class="addtech" (click)="AddtechOpenDialog()" aria-label="Example icon button with a home icon">
-        <mat-icon class="addicon">add</mat-icon>
-      </button>
+                    <mat-icon class="addicon">add</mat-icon>
+                </button>
+
+
+
+
+
             <div class="content1">
 
                 <!-- <mat-form-field class="searchfield" appearance="outline">
@@ -81,6 +95,11 @@
                         </mat-menu>
                         <hr>
                     </div>
+                </mat-card>
+
+
+                <mat-card class="activetech">
+                    <h1 class="activetitle"> Active Technicians</h1>
                 </mat-card>
             </div>
         </div>

@@ -6,28 +6,29 @@
         <br>
         <mat-nav-list class="nav-list">
             <img class="logo" mat-card-image src="../../assets/mainlogo.png">
-            <div class="dashboardside">
+
+            <div class="dashboardside" routerLink="/dashboard">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label>home</mat-icon>
-                    <a class="dashboard-btn" routerLink="/dashboard">Home</a>
+                    <a class="dashboard-btn">Home</a>
                 </mat-list-item>
             </div>
-            <div class="bookingside">
+            <div class="bookingside" routerLink="/bookingform">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-                    <a class="booking-btn" routerLink="/booking">Book a Service</a>
+                    <a class="booking-btn">Book a Service</a>
                 </mat-list-item>
             </div>
-            <div class="profileside">
+            <div class="profileside" routerLink="/profile">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
-                    <a class="profile-btn" routerLink="/profile">Profile</a>
+                    <a class="profile-btn">Profile</a>
                 </mat-list-item>
             </div>
-            <div class="logoutside">
+            <div class="logoutside" (click)="logout()">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon">exit_to_app</mat-icon>
-                    <a class="logout-btn" (click)="logout()">Logout</a>
+                    <a class="logout-btn">Logout</a>
                 </mat-list-item>
             </div>
         </mat-nav-list>
@@ -52,7 +53,10 @@
 
         <mat-card class="infocard">
             <div>
-                <button class="editbtn" mat-raised-button routerLink="/edit_profile">Edit</button>
+
+                <button mat-icon-button class="editBtn" aria-label="Example icon button with a vertical three dot icon">
+                    <mat-icon class="editicon">edit</mat-icon>
+                  </button>
             </div>
             <div>
                 <h3 class="name">{{fname}} {{lname}}</h3>
