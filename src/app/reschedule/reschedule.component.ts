@@ -50,7 +50,6 @@ export class RescheduleComponent implements OnInit {
     });
 
   }
-
   schedSubmit() {
     const sched = this.scheduleForm.value;
     let body = {
