@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ConfirmcancelComponent } from '../confirmcancel/confirmcancel.component';
 
 @Component({
@@ -17,6 +18,7 @@ export class RescheduleComponent implements OnInit {
   token = JSON.parse(localStorage.getItem('token'));
   today = new Date();
   tomorrow = new Date();
+  activeTechnicians: any;
 
   constructor(public dialog: MatDialog, private http: HttpClient,
     private router: Router, private _formBuilder: FormBuilder,  private route: ActivatedRoute) { }
@@ -32,6 +34,21 @@ export class RescheduleComponent implements OnInit {
       this.router.navigate(['/home'])
     }
     this.id = this.route.snapshot.params['id'];
+    
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+    let dataa: Observable<any>;
+    dataa = this.http.get('http://localhost:3000/technician', httpOptions);
+    dataa.subscribe(result => {
+      let acttechnicians = result.filter(function (activeStatus) {
+        return activeStatus.active == true;
+      });
+      this.activeTechnicians = acttechnicians
+    });
+
   }
 
   schedSubmit() {
