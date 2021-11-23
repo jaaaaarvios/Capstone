@@ -2,18 +2,17 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MyErrorStateMatcher } from '../app.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
-  selector: 'app-addtech',
-  templateUrl: './addtech.component.html',
-  styleUrls: ['./addtech.component.css']
+  selector: 'app-edit-technician',
+  templateUrl: './edit-technician.component.html',
+  styleUrls: ['./edit-technician.component.css']
 })
-export class AddtechComponent implements OnInit {
+export class EditTechnicianComponent implements OnInit {
   url: any;
   imageSrc: string | ArrayBuffer;
   token = JSON.parse(localStorage.getItem('token'));
@@ -27,14 +26,16 @@ export class AddtechComponent implements OnInit {
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
+  id: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router,
+  constructor(private formBuilder: FormBuilder, private router: Router,  private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
   onUpload() {
   }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
     if (localStorage.getItem("firstname") == null) {
       this.router.navigate(['/home'])
     }
@@ -44,6 +45,23 @@ export class AddtechComponent implements OnInit {
       tech_birthdate: ['', Validators.required],
       tech_number: ['', Validators.required],
       tech_address: ['', Validators.required],
+    });
+    
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+    let data:Observable<any>;
+    data = this.http.get('http://localhost:3000/technician/'+this.id, httpOptions);
+    data.subscribe(result => {
+      this.addTech.setValue({
+        tech_name: result.fullname,
+        tech_gender: result.gender,
+        tech_birthdate: result.birthdate,
+        tech_number: result.number,
+        tech_address: result.address
+      });
     });
   }
 
@@ -66,8 +84,6 @@ export class AddtechComponent implements OnInit {
       "birthdate": val.tech_birthdate,
       "number": val.tech_number,
       "address": val.tech_address,
-      "active": 1,
-      "rate": 0
     }
     const httpOptions = {
       headers: new HttpHeaders({
@@ -76,11 +92,11 @@ export class AddtechComponent implements OnInit {
     }
     if (this.addTech.valid) {
       console.log(this.addTech.value);
-      this.http.post("http://localhost:3000/technician", body, httpOptions)
+      this.http.patch("http://localhost:3000/technician/update/" + this.id, body, httpOptions)
         .subscribe(data => {
           console.log(data, 'success');
           this.router.navigate(['/technicians']);
-          alert("Added Successfully!");
+          alert("Updated");
         }, error => {
           console.log(error)
         });
@@ -90,7 +106,6 @@ export class AddtechComponent implements OnInit {
     }
 
   }
-
   logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
@@ -100,5 +115,4 @@ export class AddtechComponent implements OnInit {
       this.drawer.close();
     }
   }
-
 }

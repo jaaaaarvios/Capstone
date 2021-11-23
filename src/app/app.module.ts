@@ -84,6 +84,8 @@ import { BookingsummaryEditComponent } from './bookingsummary-edit/bookingsummar
 import { SignupformComponent } from './signupform/signupform.component';
 import { LoginformAdminComponent } from './loginform-admin/loginform-admin.component';
 import { RequestdetailsPendingComponent } from './requestdetails-pending/requestdetails-pending.component';
+import { RequestdetailsCompleteComponent } from './requestdetails-complete/requestdetails-complete.component';
+import { EditTechnicianComponent } from './edit-technician/edit-technician.component';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -147,7 +149,8 @@ import { RequestdetailsPendingComponent } from './requestdetails-pending/request
     SignupformComponent,
     LoginformAdminComponent,
     RequestdetailsPendingComponent,
-
+    RequestdetailsCompleteComponent,
+    EditTechnicianComponent,
   ],
   imports: [
     BrowserModule,
@@ -179,7 +182,6 @@ import { RequestdetailsPendingComponent } from './requestdetails-pending/request
     MatGridListModule,
     NgbModule,
     NgxStarRatingModule
-
   ],
   providers: [],
 

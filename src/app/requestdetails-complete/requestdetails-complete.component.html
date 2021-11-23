@@ -24,7 +24,7 @@
             </h1>
         </div>
         <div>
-            <button mat-raised-button (click)="open(cancelReason)" class="cancelBtn">Cancel Request</button>
+            <button mat-raised-button (click)="open(ratingFeedback)" class="rateBtn">Rate</button>
         </div>
 
         <mat-card class="summary">
@@ -127,34 +127,37 @@
     </table>
 </div>
 
-<ng-template #cancelReason let-c="close" let-d="dismiss">
+<ng-template #ratingFeedback let-c="close" let-d="dismiss">
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Are you sure ?</h4>
+        <h4 class="modal-title" id="modal-basic-title">Give service rating and feedback</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <form [formGroup]="cancelreasonForm">
+    <form [formGroup]="rateForm">
         <div class="modal-body">
-            <div>
-                <h6>Please share the reason to serve you better next time </h6>
-                <button mat-stroked-button class="radioBtn" value="Schedule conflict">
-                    <input type="radio" value="Schedule conflict" formControlName="reason" required>&nbsp;Schedule conflict.
-                </button>
-                <button mat-stroked-button class="radioBtn" value="Problem went away">
-                    <input type="radio" value="Problem went away" formControlName="reason" required>&nbsp;Problem went away.
-                </button>
-                <button mat-stroked-button class="radioBtn" value="Found another provider">
-                    <input type="radio" value="Found another provider" formControlName="reason" required>&nbsp;Found another provider.
-                </button>
-                <button mat-stroked-button class="radioBtn" value="Personal emergency">
-                    <input type="radio" value="Personal emergency" formControlName="reason" required>&nbsp;Personal emergency.
-                </button>
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block; color: darkgoldenrod;">
+                        <li (click)="countStar(star)" [ngClass]="{'selected': (star &lt;= selectedValue)}">
+                            <button mat-button>
+                            <mat-icon class="star">star</mat-icon>
+                        </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
+            <mat-form-field class="feedback" appearance="outline">
+                <mat-label>Feedback</mat-label>
+                <input matInput formControlName="technician_feedback" [errorStateMatcher]="matcher" placeholder="Share us your experience" autocomplete="off">
+                <mat-error *ngIf="rateForm.get('technician_feedback').hasError('required')">
+                    Give us your feedback.
+                </mat-error>
+            </mat-form-field>
         </div>
         <div class="modal-footer">
-            <button type="button" id="close" class="btn btn-outline-primary" (click)="c('Close')">Keep my booking</button>
-            <button type="button" class="btn btn-outline-danger" (click)="getConfirmation()">Cancel Request</button>
+            <button type="button" id="close" class="btn btn-outline-danger" (click)="c('Close')">Close</button>
+            <button type="button" class="btn btn-outline-primary" (click)="getConfirmation()">Submit</button>
         </div>
     </form>
 </ng-template>

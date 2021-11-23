@@ -14,7 +14,7 @@
 
         <div>
             <button mat-raised-button class="acceptBtn" (click)="approvedRequest()">Accept</button>
-            <button mat-raised-button class="rejectBtn" (click)="open(cancelReason)">Reject</button>
+            <button mat-stroked-button class="rejectBtn" (click)="open(cancelReason)">Reject</button>
         </div>
 
         <mat-card class="summary">
@@ -91,7 +91,6 @@
                         <td>{{request.service_date | date}}</td>
                         <td>{{request.service_timeslot}}</td>
                         <td>{{request.service_instruction}}</td>
-                        <td>{{request.technician_id}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -102,7 +101,7 @@
         <thead>
             <tr>
                 <th>Fullname</th>
-                <th>Specialization</th>
+                <th>Gender</th>
                 <th>Number</th>
                 <th>Address</th>
             </tr>
@@ -110,9 +109,9 @@
         <tbody>
             <tr *ngFor="let tech of technician">
                 <td>{{tech.fullname}}</td>
-                <td>{{tech.specialization}}</td>
+                <td>{{tech.gender}}</td>
                 <td>{{tech.number}}</td>
-                <td>{{tech.number}}</td>
+                <td>{{tech.address}}</td>
                 <td><button (click)="deploy(tech._id)">Deploy</button></td>
             </tr>
         </tbody>

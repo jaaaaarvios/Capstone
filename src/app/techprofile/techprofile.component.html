@@ -59,10 +59,10 @@
                     <h1 class="techname">{{data.fullname}}</h1>
 
                     <p class="contactnumber">Gender</p>
-                    <p class="number">{{data.number}}</p>
+                    <p class="number">{{data.gender}}</p>
 
                     <p class="contactnumber">Date of Birth</p>
-                    <p class="number">{{data.number}}</p>
+                    <p class="number">{{data.birthdate | date:'longDate'}}</p>
 
                     <p class="contactnumber">Contact Number</p>
                     <p class="number">{{data.number}}</p>
@@ -74,3 +74,5 @@
 
             <img class="vector" mat-card-image src="../../assets/addtech.png">
         </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

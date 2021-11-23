@@ -35,9 +35,9 @@ export class WashingmachinedetailsComponent implements OnInit {
   installfee = 0;
   cleanfee = 0;
   unitfee = 0;
-
   id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
+  activeTechnicians: any;
 
   matcher = new MyErrorStateMatcher();
 
@@ -132,6 +132,14 @@ export class WashingmachinedetailsComponent implements OnInit {
         service_addressDetails: result.service_addressDetails,
         service_instruction: ""
       });
+    });
+    let dataa: Observable<any>;
+    dataa = this.http.get('http://localhost:3000/technician', httpOptions);
+    dataa.subscribe(result => {
+      let acttechnicians = result.filter(function (activeStatus) {
+        return activeStatus.active == true;
+      });
+      this.activeTechnicians = acttechnicians
     });
 
     if (!navigator.geolocation) {

@@ -54,7 +54,7 @@ export class RequestdetailsAdminComponent implements OnInit {
     });
 
     let dataa:Observable<any>;
-    dataa = this.http.get('http://localhost:3000/technician');
+    dataa = this.http.get('http://localhost:3000/technician', httpOptions);
     dataa.subscribe(result => {
       let technicians = result.filter(function (activeStatus) {
         return activeStatus.active == true;
@@ -81,6 +81,7 @@ export class RequestdetailsAdminComponent implements OnInit {
       this.drawer.close();
     }
   }
+
   approvedRequest() {
     var retVal = confirm("Do you really want to approve the request ?");
     if (retVal == true) {
@@ -139,17 +140,28 @@ export class RequestdetailsAdminComponent implements OnInit {
   }
 
   deploy(techID){
+    
     let body = {
       "technician_id": techID,
+    }
+    let body1 = {
+      "active": 0,
     }
     const httpOptions = {
       headers: new HttpHeaders({
         "x-access-token": this.token
       })
     }
-    this.http.patch("http://localhost:3000/NewServiceRequest/deploy/" + this.id, body, httpOptions)
+      this.http.patch("http://localhost:3000/NewServiceRequest/deploy/" + this.id, body, httpOptions)
       .subscribe(data => {
-
+      }, error => {
+        console.log(error);
+        alert(error);
+      });
+      var tech_id = techID
+      this.http.patch("http://localhost:3000/technician/active/" + tech_id, body1, httpOptions)
+      .subscribe(data => {
+        alert("Deployed")
       }, error => {
         console.log(error);
         alert(error);

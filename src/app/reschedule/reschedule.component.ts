@@ -15,11 +15,15 @@ export class RescheduleComponent implements OnInit {
   scheduleForm: FormGroup;
   id: any;
   token = JSON.parse(localStorage.getItem('token'));
+  today = new Date();
+  tomorrow = new Date();
 
   constructor(public dialog: MatDialog, private http: HttpClient,
     private router: Router, private _formBuilder: FormBuilder,  private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.tomorrow.setDate(this.today.getDate() + 1);
+
     this.scheduleForm = this._formBuilder.group({
       service_date: [null, Validators.required],
       service_timeslot: [""]

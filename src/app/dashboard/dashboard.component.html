@@ -176,7 +176,7 @@
                                     <td>{{cr.service_type}}</td>
                                     <td>{{cr.status}}</td>
                                     <td>
-                                        <button mat-button (click)="open(ratingFeedback)">Rate</button></td>
+                                        <button mat-stroked-button class="rateBtn" [routerLink]="['/completed/' + cr._id]">Rate</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -250,39 +250,4 @@
         </mat-tab-group>
 
     </mat-sidenav-content>
-    <ng-template #ratingFeedback let-c="close" let-d="dismiss">
-        <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Service Rating</h4>
-            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form [formGroup]="rateForm">
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block; color: darkgoldenrod;">
-                            <li (click)="countStar(star)" [ngClass]="{'selected': (star &lt;= selectedValue)}">
-                                <button mat-button>
-                                <mat-icon class="star">star</mat-icon>
-                            </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <mat-form-field class="feedback" appearance="outline">
-                    <mat-label>Feedback</mat-label>
-                    <input matInput formControlName="technician_feedback" [errorStateMatcher]="matcher" placeholder="Share us your experience" autocomplete="off">
-                    <mat-error *ngIf="rateForm.get('technician_feedback').hasError('required')">
-                        Give us your feedback.
-                    </mat-error>
-                </mat-form-field>
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="close" class="btn btn-outline-danger" (click)="c('Close')">Close</button>
-                <button type="button" class="btn btn-outline-primary" (click)="submit()">Submit</button>
-            </div>
-        </form>
-    </ng-template>
-
 </mat-sidenav-container>

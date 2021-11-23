@@ -48,6 +48,8 @@ import { BookingsummaryEditComponent } from './bookingsummary-edit/bookingsummar
 import { SignupformComponent } from './signupform/signupform.component';
 import { LoginformAdminComponent } from './loginform-admin/loginform-admin.component';
 import { RequestdetailsPendingComponent } from './requestdetails-pending/requestdetails-pending.component';
+import { RequestdetailsCompleteComponent } from './requestdetails-complete/requestdetails-complete.component';
+import { EditTechnicianComponent } from './edit-technician/edit-technician.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -101,6 +103,8 @@ const routes: Routes = [
   { path: 'completedetail/:id', component: RequestCompleteComponent },
   { path: 'summary-edit/:id', component: BookingsummaryEditComponent },
   { path: 'signup', component: SignupformComponent },
+  { path: 'completed/:id', component: RequestdetailsCompleteComponent },
+  { path: 'edit-technician/:id', component: EditTechnicianComponent },
 ];
 
 @NgModule({

@@ -29,7 +29,7 @@
                 <div>
                     <mat-form-field class="datepicker" appearance="outline">
                         <mat-label>Date of Service</mat-label>
-                        <input matInput [matDatepicker]="picker" formControlName="service_date" autocomplete="off">
+                        <input matInput [min]="tomorrow" [matDatepicker]="picker" formControlName="service_date" autocomplete="off">
                         <mat-datepicker #picker></mat-datepicker>
                         <mat-error *ngIf="scheduleForm.get('service_date').hasError('required')">
                             You must make a selection
