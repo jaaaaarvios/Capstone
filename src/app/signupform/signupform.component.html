@@ -20,7 +20,7 @@
         <ng-template #notLogin></ng-template>
         <span class="spacer"></span>
         <div *ngIf="token != null; else notLogin1"></div>
-        <ng-template #notLogin1><button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button>
+        <ng-template #notLogin1><button mat-raised-button class="loginBtn" routerLink="/loginform">Login / Sign Up</button>
         </ng-template>
     </mat-toolbar>
 
@@ -41,8 +41,8 @@
                 <mat-error *ngIf="signupForm.get('user_fname').hasError('required')"> First name is required
                 </mat-error>
                 <mat-error *ngIf="signupForm.get('user_fname').hasError('pattern')"> Invalid Name</mat-error>
-                <mat-error *ngIf="signupForm.get('user_fname').hasError('maxlength')">Name contains maximum of 15
-                    characters</mat-error>
+                <mat-error *ngIf="signupForm.get('user_fname').hasError('maxlength')">Name contains maximum of 15 characters
+                </mat-error>
             </mat-form-field>
 
             <mat-form-field class="signup-lnamefield" appearance="outline">
@@ -50,15 +50,13 @@
                 <input matInput formControlName="user_lname" type="text" placeholder="Enter last name" required>
                 <mat-error *ngIf="signupForm.get('user_lname').hasError('required')"> Last name is required </mat-error>
                 <mat-error *ngIf="signupForm.get('user_lname').hasError('pattern')"> Invalid Name </mat-error>
-                <mat-error *ngIf="signupForm.get('user_lname').hasError('maxlength')">Name contains maximum of 15
-                    characters</mat-error>
+                <mat-error *ngIf="signupForm.get('user_lname').hasError('maxlength')">Name contains maximum of 15 characters
+                </mat-error>
             </mat-form-field>
 
             <mat-form-field class="signup-emailfield" appearance="outline">
                 <mat-label>Email Address</mat-label>
-                <input matInput formControlName="user_semail" [email]="true" type="email"
-                    placeholder="yourname@example.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{3}$"
-                    autocomplete="off">
+                <input matInput formControlName="user_semail" [email]="true" type="email" placeholder="yourname@example.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{3}$" autocomplete="off">
                 <mat-error *ngIf="signupForm.get('user_semail').hasError('required')"> Email is required </mat-error>
                 <mat-error *ngIf="signupForm.get('user_semail').hasError('pattern')"> Please enter a valid email address
                 </mat-error>
@@ -66,22 +64,19 @@
 
             <mat-form-field class="signup-passfield" appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput formControlName="user_spassword" type="password" placeholder="Enter password"
-                    [type]="hide ? 'password' : 'text'" required autocomplete="off">
+                <input matInput formControlName="user_spassword" type="password" placeholder="Enter password" [type]="hide ? 'password' : 'text'" required autocomplete="off">
                 <mat-icon mat-icon-button matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
                 </mat-icon>
                 <mat-error *ngIf="signupForm.get('user_spassword').hasError('required')">Password is required
                 </mat-error>
-                <mat-error *ngIf="signupForm.get('user_spassword').hasError('minlength')">Password must have at least
-                    {{minPw}} characters</mat-error>
-                <mat-error *ngIf="signupForm.get('user_spassword').hasError('maxlength')">Password contains maximum of
-                    {{maxPw}} characters</mat-error>
+                <mat-error *ngIf="signupForm.get('user_spassword').hasError('minlength')">Password must have at least {{minPw}} characters</mat-error>
+                <mat-error *ngIf="signupForm.get('user_spassword').hasError('maxlength')">Password contains maximum of {{maxPw}} characters</mat-error>
             </mat-form-field>
 
             <button mat-raised-button type="submit" class="signupBtn">Sign Up</button>
             <div>
                 <label class="accounttxt">Already have an account?</label>
-                <label class="signuptxt" routerLink="/login">Login.</label>
+                <label class="signuptxt" routerLink="/loginform">Login.</label>
             </div>
         </form>
 

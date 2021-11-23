@@ -104,10 +104,11 @@
         margin: auto;
     }
     .summary {
-        margin: auto;
-        width: fit-content;
+        width: 1000px;
         height: fit-content;
-        margin-top: 20px;
+        margin-top: 20px !important;
+        position: center !important;
+        margin: auto;
     }
     .summary2 {
         width: 1000px;
@@ -116,12 +117,23 @@
         position: center !important;
         margin: auto;
     }
+    .remindervector {
+        width: 20%;
+        margin-top: -65px !important;
+        float: left;
+        margin-left: -50px;
+    }
     .title {
-        color: #c9184a;
+        color: #b65e79;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 30px;
-        margin-top: -35px;
+        margin-top: 15px;
         margin-left: 70px;
+    }
+    .label {
+        color: grey;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 15px;
     }
     .icon {
         color: #c9184a;
@@ -141,25 +153,25 @@
     .header1 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 16px;
-        color: #c9184a;
+        color: #b65e79;
         border: none;
     }
     .body1 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 18px;
-        color: #590D22;
+        color: #14213D;
         border: none;
     }
     .header2 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 16px;
-        color: #c9184a;
+        color: #b65e79;
         border: none;
     }
     .body2 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 18px;
-        color: #590D22;
+        color: #14213D;
         border: none;
     }
     .header3 {
@@ -173,7 +185,7 @@
     .body3 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 18px;
-        color: FFFFFF;
+        color: #14213D;
         border: none;
         text-align: center;
     }
@@ -195,13 +207,13 @@
     .header4 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 16px;
-        color: #c9184a;
+        color: #b65e79;
         border: none;
     }
     .body4 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 18px;
-        color: #590D22;
+        color: #14213D;
         border: none;
     }
     .editicon {

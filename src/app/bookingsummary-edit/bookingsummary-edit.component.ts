@@ -100,7 +100,7 @@ export class BookingsummaryEditComponent implements OnInit {
     }
   }
   getConfirmationn() {
-    var retVal = confirm("If you exit, your booking progress will be lost.");
+    var retVal = confirm("Leaving this page will ");
     if (retVal == true) {
       this.deleteOne()
       localStorage.removeItem("service");
@@ -199,8 +199,7 @@ export class BookingsummaryEditComponent implements OnInit {
     }
   }
   summarySubmit() {
-    var retVal = confirm("Are you sure ?");
-    if (retVal == true) {
+    
       const summary = this.summaryForm.value;
       let body = {
         "service_firstname": summary.service_firstname,
@@ -231,11 +230,8 @@ export class BookingsummaryEditComponent implements OnInit {
           });
       }
       else {
-        alert('Fill up the required textfields with valid information')
+        alert('Fill up text fields.')
       }
-      return true;
-    } else {
-      return false;
-    }
+      
   }
 }

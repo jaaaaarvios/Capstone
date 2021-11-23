@@ -56,7 +56,7 @@ export class BookingsummaryComponent implements OnInit {
   }
 
   getConfirmation() {
-    var retVal = confirm("Do you really want to cancel the booking ?");
+    var retVal = confirm("By cancelling your booking, all data will be lost. ");
     if (retVal == true) {
       this.deleteOne()
       localStorage.removeItem("service");

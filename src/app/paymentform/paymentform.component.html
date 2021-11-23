@@ -43,22 +43,26 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th style="border: none;">Check Up Fee</th>
+                    <th style="border: none; font-size: 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    color: #b65e79;">Check Up Fee</th>
                     <div *ngIf="service.cleaningfee != 0; then thenClean else elseClean"></div>
                     <ng-template #thenClean>
-                        <th>Cleaning Fee</th>
+                        <th style="border: none; font-size: 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        color: #b65e79;">Cleaning Fee</th>
                     </ng-template>
                     <ng-template #elseClean></ng-template>
 
                     <div *ngIf="service.installfee != 0; then thenInstall else elseInstall"></div>
                     <ng-template #thenInstall>
-                        <th>Installation Fee</th>
+                        <th style="border: none; font-size: 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        color: #b65e79;">Installation Fee</th>
                     </ng-template>
                     <ng-template #elseInstall></ng-template>
 
                     <div *ngIf="service.unitfee != 0; then thenUnit else elseUnit"></div>
                     <ng-template #thenUnit>
-                        <th>Additional Fee</th>
+                        <th style="border: none; font-size: 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        color: #b65e79;">Additional Fee</th>
                     </ng-template>
                     <ng-template #elseUnit></ng-template>
                 </tr>
@@ -89,7 +93,8 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th style="border: none;">Total Fee</th>
+                    <th style="background-color: #b65e79; border: none; font-size: 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    color: #FFFFFF;">Total Fee</th>
                 </tr>
             </thead>
             <tbody>
