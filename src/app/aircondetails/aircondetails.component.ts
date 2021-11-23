@@ -246,7 +246,7 @@ export class AircondetailsComponent implements OnInit {
   }
 
   contactDetailsSubmit() {
-    var retVal = confirm("Are you sure you want to proceed ?");
+    var retVal = confirm("Proceed to Booking Summary");
     if (retVal == true) {
       const unit = this.unitdetailsForm.value;
       const loc = this.locationForm.value;
