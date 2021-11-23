@@ -15,18 +15,30 @@
     <label class="aboutusBtn" (click)="getConfirmation8()">About Us</label>
     <label class="aboutusBtn" (click)="getConfirmationn()">Home</label>
     <span class="spacer"></span>
-    <button mat-raised-button (click)="getConfirmation()" class="cancelBtn">Cancel Request</button>
+
 
 </mat-toolbar>
+
+
+
+
+
+
 <mat-card class="summary">
     <div>
-        <mat-icon class="icon">description
-            <h1 class="title">Request Summary</h1>
-        </mat-icon>
+        <img class="remindervector" mat-card-image src="../../assets/reminder.png">
+        <h1 class="title">Booking Summary</h1>
+
+        <label class="label">Confirm your booking details.</label>
+
     </div>
-    <mat-icon class="editicon" [routerLink]="['/summary-edit/' + service._id]">edit</mat-icon>
 
-
+    <div>
+        <button mat-icon-button class="editBtn" [routerLink]="['/summary-edit/' + service._id]">
+            <mat-icon class="editicon">edit</mat-icon>
+        </button>
+        <button mat-raised-button (click)="getConfirmation()" class="cancelBtn">Cancel Request</button>
+    </div>
     <table class="table">
 
         <thead>
@@ -49,7 +61,7 @@
             <tr>
                 <th class="header2">Address Details</th>
                 <th class="header2">City</th>
-                <th class="header2">Property Typ</th>
+                <th class="header2">Property Type</th>
                 <th class="header2">Baranggay</th>
             </tr>
         </thead>
@@ -130,5 +142,6 @@
 </div>
 
 <div *ngIf="!confirmed.checked; then disable else enable"></div>
-<ng-template #disable><button mat-stroked-button class="submitBtn-disabled" routerLink="/payment" [disabled]="!confirmed.checked">Proceed</button></ng-template>
-<ng-template #enable><button mat-raised-button class="submitBtn" routerLink="/payment">Proceed</button></ng-template>
+
+<ng-template #disable><button mat-stroked-button class="submitBtn-disabled" routerLink="/payment" [disabled]="!confirmed.checked">PROCEED TO PAYMENT</button></ng-template>
+<ng-template #enable><button mat-raised-button class="submitBtn" routerLink="/payment">PROCEED TO PAYMENT</button></ng-template>

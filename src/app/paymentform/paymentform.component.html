@@ -16,19 +16,21 @@
 </mat-toolbar>
 <div class="container">
 
+    <button class="backBtn" routerLink="/summary" mat-icon-button>
+        <mat-icon class="backicon">chevron_left</mat-icon>
+      </button>
+
     <mat-card class="header">
         <div>
-            <img class="pendingvector" mat-card-image src="../../assets/pendingvector.png">
-        </div>
+            <img class="confirmedvector" mat-card-image src="../../assets/confirmed.png">
 
-        <div class="pending">
-            <h1 class="pendingtxt">Booking details confirmed!</h1>
+            <h1 class="pendingtxt">Booking Details Confirmed!</h1>
         </div>
 
         <div class="description">
-            <p class="description1">The technician will contact you before </p>
-            <p class="description2">going to site. To get your service ID, </p>
-            <p class="description3">kindly choose a payment method.</p>
+            <p class="description1">Complete your payment method to get your </p>
+            <p class="description2">Service Request ID. </p>
+            <p class="description3"></p>
 
         </div>
     </mat-card>
@@ -41,7 +43,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Check Up Fee</th>
+                    <th style="border: none;">Check Up Fee</th>
                     <div *ngIf="service.cleaningfee != 0; then thenClean else elseClean"></div>
                     <ng-template #thenClean>
                         <th>Cleaning Fee</th>
@@ -63,22 +65,22 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>&#8369;{{service.checkupfee}}.00</td>
+                    <td style="border: none;">&#8369;{{service.checkupfee}}.00</td>
                     <div *ngIf="service.cleaningfee != 0; then clean else elseclean"></div>
                     <ng-template #clean>
-                        <td>&#8369;{{service.cleaningfee}}.00</td>
+                        <td style="border: none;">&#8369;{{service.cleaningfee}}.00</td>
                     </ng-template>
                     <ng-template #elseclean></ng-template>
 
                     <div *ngIf="service.installfee != 0; then install else elseInstall"></div>
                     <ng-template #install>
-                        <td>&#8369;{{service.installfee}}.00</td>
+                        <td style="border: none;">&#8369;{{service.installfee}}.00</td>
                     </ng-template>
                     <ng-template #elseInstall></ng-template>
 
                     <div *ngIf="service.unitfee != 0; then unit1 else elseUnit1"></div>
                     <ng-template #unit1>
-                        <td>&#8369;{{service.unitfee}}.00</td>
+                        <td style="border: none;">&#8369;{{service.unitfee}}.00</td>
                     </ng-template>
                     <ng-template #elseUnit1></ng-template>
                 </tr>
@@ -87,12 +89,12 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Total Fee</th>
+                    <th style="border: none;">Total Fee</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>&#8369;{{total}}.00</td>
+                    <td style="border: none;">&#8369;{{total}}.00</td>
                 </tr>
             </tbody>
         </table>

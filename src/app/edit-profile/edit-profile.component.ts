@@ -26,6 +26,7 @@ export class EditProfileComponent implements OnInit {
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
+  fname: any;
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver
     , private _formBuilder: FormBuilder, private http: HttpClient, private auth: AuthService) { }
@@ -51,6 +52,7 @@ export class EditProfileComponent implements OnInit {
     let data:Observable<any>;
     data = this.http.get('http://localhost:3000/CredentialDB/'+this.id, httpOptions);
     data.subscribe(result => {
+      this.fname = result.first_name;
       this.personalInfoForm.setValue({
         firstname: result.first_name,
         lastname: result.last_name,

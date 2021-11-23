@@ -19,8 +19,20 @@
         max-width: 200px;
         height: 100px !important;
         float: left;
-        margin-top: 10px !important;
+        margin-top: -20px !important;
         margin-left: 25px;
+    }
+    .adminvector {
+        width: 95%;
+        margin-top: -60px !important;
+        margin-left: 10px;
+    }
+    .sidetitle {
+        color: #003049;
+        font-size: 20px;
+        margin-top: -10px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
     }
     .nav-icon {
         color: #003049;
@@ -33,7 +45,7 @@
     }
     .dashboardside {
         margin-left: 0px;
-        margin-top: 150px;
+        margin-top: 50px;
         text-align: justify;
     }
     .dashboard-btn {
@@ -55,6 +67,10 @@
         margin-left: 0px;
         margin-top: 30px;
         text-align: justify;
+        background-color: #D6B2BD;
+        border-radius: 20px;
+        width: 100%;
+        height: 70px;
     }
     .bookingside:hover {
         background-color: #D6B2BD;
@@ -266,21 +282,24 @@
         width: 430px;
         font-family: 'Trebuchet MS';
     }
+    .priceBtn {
+        background-color: #dd0346;
+        color: #FFFFFF;
+        font-size: 13px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        float: right;
+        margin-top: -50px;
+    }
     .backBtn {
         margin-top: 30px !important;
         float: left !important;
         margin-left: 10px !important;
         font-size: 17px;
         font-family: 'Trebuchet MS';
-        border-color: #dd0346 !important;
-        color: #a4133c !important;
+        border-color: #fcb42a !important;
+        color: #003049 !important;
         width: 100px !important;
         height: 50px !important;
-    }
-    .backBtn:hover {
-        background-color: rgb(250, 50, 50);
-        color: whitesmoke !important;
-        transition: 0.3s;
     }
     .nextBtn {
         margin-top: 30px !important;
@@ -288,9 +307,19 @@
         font-family: 'Trebuchet MS';
         border-style: solid;
         border-width: thin;
-        border-color: #dd0346 !important;
+        border-color: #fcb42a !important;
         width: 100px !important;
         height: 50px !important;
+        float: right;
+    }
+    .doneBtn {
+        margin-top: 30px;
+        font-size: 18px;
+        font-family: 'Trebuchet MS';
+        background-color: #fcb42a;
+        color: #FFFFFF;
+        width: 100px;
+        height: 50px;
         float: right;
     }
     .schedcard {
@@ -352,16 +381,6 @@
         float: right;
         margin-right: 40px;
         margin-top: -45px;
-    }
-    .doneBtn {
-        margin-top: 30px;
-        font-size: 18px;
-        font-family: 'Trebuchet MS';
-        background-color: #590D22;
-        color: #FFFFFF;
-        width: 100px;
-        height: 50px;
-        float: right;
     }
     .datepicker {
         margin-top: 70px;

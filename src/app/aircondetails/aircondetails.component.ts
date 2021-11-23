@@ -67,6 +67,10 @@ export class AircondetailsComponent implements OnInit {
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
+  mapsAPILoader: any;
+  currentBusiness: any;
+  zoom: number;
+  currentLocation: any;
 
   constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog,
       private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
@@ -167,6 +171,7 @@ export class AircondetailsComponent implements OnInit {
         .setContent('Hello')
         .openOn(mymap);
     });
+
     this.watchPosition();
   }
 
@@ -193,6 +198,9 @@ export class AircondetailsComponent implements OnInit {
       }
     );
   }
+
+
+
   checked = false;
   indeterminate = false;
   labelPosition: 'before' | 'after' = 'after';

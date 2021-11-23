@@ -6,6 +6,9 @@
         <br>
         <mat-nav-list class="nav-list">
             <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+            <img class="adminvector" mat-card-image src="../../assets/customervector.png">
+
+            <h1 class="sidetitle">fname</h1>
             <div class="dashboardside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label>home</mat-icon>
@@ -40,10 +43,9 @@
             <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
           </button>
         </mat-toolbar>
-        <h1 class="backBtn" routerLink="/booking">
+        <button class="backBtn" routerLink="/bookingform" mat-icon-button>
             <mat-icon class="backicon">chevron_left</mat-icon>
-            <label class="backtxt">Back</label>
-        </h1>
+          </button>
         <h1 class="h1title">Appliance to Clean</h1>
 
         <div class="allservices">

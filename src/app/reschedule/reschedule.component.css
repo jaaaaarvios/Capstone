@@ -80,57 +80,68 @@
         color: #FFFFFF;
     }
     p {
-        margin-top: 50px;
+        margin-top: -5px;
         font-size: 15px;
+        float: left;
         margin-left: 20px;
         color: grey;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+    .reschedulevec {
+        width: 30%;
+        float: left;
+        margin-top: -50px !important;
+    }
     .resched {
-        font-size: 25px;
-        margin-top: 30px;
+        font-size: 28px;
+        float: left;
+        margin-top: 30px !important;
         margin-left: 20px;
-        color: #14213D;
+        color: #b65e79;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .datepicker {
-        margin-top: 25px;
-        margin-left: 20px;
+        margin-top: 80px;
+        margin-left: -80px;
     }
     .dateBtn {
-        margin-left: 15px;
-        border-color: #a4133c;
-        color: #a4133c;
-        width: 70px !important;
-        height: 50px !important;
-        font-size: 15px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    .timeslot {
-        margin-top: 30px;
-        float: left;
         margin-left: 20px;
-        font-size: 15px;
-        color: grey;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #a4133c;
+        color: #FFFFFF;
+        height: 52px;
+        font-size: 16px;
+        font-family: 'Trebuchet MS';
     }
     .timeslots {
-        margin-left: 20px;
-        margin-top: 70px;
+        margin-top: 50px;
+        margin-left: 120px;
+    }
+    .timeslot {
+        margin-top: -30px;
+        float: left;
+        margin-left: 10px;
+        font-size: 18px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .tech1Btn {
-        width: 170px;
-        height: 50px;
-        margin: 10px;
-        margin-top: -110px;
-        border-style: solid;
-        border-width: thin;
-        border-color: #a4133c;
-        color: black !important;
+        margin-top: -100px;
+        margin-right: 10px;
+    }
+    .tech2Btn {
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    .tech3Btn {
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    .tech4Btn {
+        margin-top: 10px;
     }
     .h1technicians {
         font-size: 12px;
         font-family: 'Trebuchet MS';
+        color: #a4133c;
     }
     .cancelBtn {
         width: 120px;
@@ -148,48 +159,49 @@
         height: 100%;
     }
     .summary {
-        width: fit-content;
-        height: fit-content;
+        width: 800px;
+        height: 500px;
         margin-top: 50px !important;
         position: center !important;
         margin: auto;
     }
     .reschedBtn {
-        width: 160px;
-        height: 40px !important;
-        border-color: #dd0346 !important;
+        margin-top: 30px !important;
+        font-size: 15px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 14px;
+        border-style: solid;
+        border-width: thin;
+        border-color: #fcb42a !important;
+        width: 100px !important;
+        height: 50px !important;
         float: right;
-        margin-top: 40px;
-        margin-right: 25px;
+        margin-right: 160px;
     }
     .reschedBtn-enable {
-        width: 160px;
-        height: 40px !important;
-        background-color: #590D22;
-        color: #FFFFFF;
+        margin-top: 30px !important;
+        font-size: 15px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 14px;
+        background-color: #fcb42a !important;
+        color: #FFFFFF;
+        width: 100px !important;
+        height: 50px !important;
         float: right;
-        margin-top: 40px;
-        margin-right: 25px;
+        margin-right: 160px;
+    }
+    .reschedBtn-enable:hover,
+    .reschedBtn-enable:active {
+        color: #14213D;
     }
     .backBtn {
+        margin-top: 30px !important;
+        float: right !important;
+        margin-right: 10px !important;
+        font-size: 15px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border-color: #fcb42a !important;
+        color: #003049 !important;
         width: 100px !important;
-        height: 40px !important;
-        font-size: 17px;
-        font-family: 'Trebuchet MS';
-        border-color: #dd0346 !important;
-        color: #a4133c !important;
-        float: left !important;
-        margin-top: 40px;
-        margin-left: 10px !important;
-    }
-    .backBtn:hover {
-        background-color: rgb(250, 50, 50);
-        color: whitesmoke !important;
-        transition: 0.3s;
+        height: 50px !important;
     }
 }
 
