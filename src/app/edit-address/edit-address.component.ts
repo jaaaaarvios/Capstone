@@ -23,13 +23,14 @@ export class EditAddressComponent implements OnInit {
   id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
   property: any[] = ["Condo", "Apartment", "House", "Store", "Office Building", "Warehouse or Storage"];
+  fname: any;
 
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
-  fname: any;
+  
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver,
     private _formBuilder: FormBuilder, private http: HttpClient, private auth: AuthService) { }

@@ -39,12 +39,11 @@
     <mat-sidenav-content>
         <mat-toolbar>
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
-  <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-</button>
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
             <button class="backBtn" routerLink="/profile" mat-icon-button>
-    <mat-icon class="backicon">chevron_left</mat-icon>
-  </button>
-
+                <mat-icon class="backicon">chevron_left</mat-icon>
+            </button>
             <div class="headertitle">
                 <h1 class="titletxt">Edit Address</h1>
             </div>

@@ -8,7 +8,7 @@
             <img class="logo" mat-card-image src="../../assets/mainlogo.png">
             <img class="adminvector" mat-card-image src="../../assets/customervector.png">
 
-            <h1 class="sidetitle">fname</h1>
+            <h1 class="sidetitle">{{fname}}</h1>
             <div class="dashboardside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label>home</mat-icon>
@@ -18,7 +18,7 @@
             <div class="bookingside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-                    <a class="booking-btn" routerLink="/booking">Book a Service</a>
+                    <a class="booking-btn" routerLink="/bookingform">Book a Service</a>
                 </mat-list-item>
             </div>
             <div class="profileside">

@@ -54,9 +54,10 @@ export class AirconCleaningComponent implements OnInit {
   cassette_type = 2800;
   suspended_type = 2800;
   concealed_type = 2200;
-
   id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
+  activeTechnicians: any;
+  fname: any;
 
   matcher = new MyErrorStateMatcher();
 
@@ -131,6 +132,7 @@ export class AirconCleaningComponent implements OnInit {
     data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
     data.subscribe(result => {
       this.email = result.email
+      this.fname = result.first_name;
       this.contactDetialsForm.setValue({
         service_address: result.service_address,
         service_firstname: result.first_name,
@@ -139,6 +141,15 @@ export class AirconCleaningComponent implements OnInit {
         service_addressDetails: result.service_addressDetails,
         service_instruction: ""
       });
+    });
+
+    let dataa: Observable<any>;
+    dataa = this.http.get('http://localhost:3000/technician', httpOptions);
+    dataa.subscribe(result => {
+      let acttechnicians = result.filter(function (activeStatus) {
+        return activeStatus.active == true;
+      });
+      this.activeTechnicians = acttechnicians
     });
 
     if (!navigator.geolocation) {

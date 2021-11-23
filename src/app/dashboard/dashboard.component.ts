@@ -4,10 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { RequestdetailsComponent } from '../requestdetails/requestdetails.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MyErrorStateMatcher } from '../app.component';
 
 @Component({
@@ -28,7 +26,6 @@ export class DashboardComponent implements OnInit {
   number = "";
   email: any;
   address = "";
-  rateForm: FormGroup;
   date: Date;
   subscription: any;
   pending_request = [];
@@ -36,8 +33,6 @@ export class DashboardComponent implements OnInit {
   cancelled_request = [];
   approved_request = [];
   rejected_request = [];
-  stars: number[] = [1, 2, 3, 4, 5];
-  selectedValue: number;
   service_request: [];
 
   matcher = new MyErrorStateMatcher();
@@ -47,8 +42,9 @@ export class DashboardComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
 
-  constructor(private router: Router, public dialog: MatDialog, private http: HttpClient, config: NgbModalConfig, private modalService: NgbModal,
-    private breakpointObserver: BreakpointObserver, private _formBuilder: FormBuilder,) {
+
+  constructor(private router: Router, public dialog: MatDialog, private http: HttpClient, config: NgbModalConfig,
+     private modalService: NgbModal, private breakpointObserver: BreakpointObserver) {
     {
       setInterval(() => {
         this.date = new Date()
@@ -58,16 +54,7 @@ export class DashboardComponent implements OnInit {
     config.keyboard = false;
   }
 
-  open(ratingFeedback) {
-    this.modalService.open(ratingFeedback);
-  }
-
   ngOnInit(): void {
-
-    this.rateForm = this._formBuilder.group({
-      technician_feedback: ['', Validators.required],
-    });
-
     const httpOptions = {
       headers: new HttpHeaders({
         "x-access-token": this.token
@@ -125,46 +112,15 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  images = [];
-
-  signOut() {
-    var auth2 = auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-      this.router.navigate(['/home'])
-    });
-  }
-
   logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
 
-
-  openDialog() {
-    const dialogRef = this.dialog.open(RequestdetailsComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();
     }
-  }
-  submit() {
-    if (this.rateForm.valid) {
-      console.log('Value of star', this.selectedValue);
-      console.log(this.rateForm.value.technician_feedback);
-      let ref = document.getElementById('close');
-      ref?.click();
-      this.rateForm.reset();
-    }
-  }
-
-  countStar(star) {
-    this.selectedValue = star;
   }
 }
 

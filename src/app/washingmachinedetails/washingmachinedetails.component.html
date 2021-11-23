@@ -8,7 +8,7 @@
             <img class="logo" mat-card-image src="../../assets/mainlogo.png">
             <img class="adminvector" mat-card-image src="../../assets/customervector.png">
 
-            <h1 class="sidetitle">fname</h1>
+            <h1 class="sidetitle">{{fname}}</h1>
             <div class="dashboardside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label>home</mat-icon>
@@ -18,7 +18,7 @@
             <div class="bookingside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
-                    <a class="booking-btn" routerLink="/booking">Book a Service</a>
+                    <a class="booking-btn" routerLink="/bookingform">Book a Service</a>
                 </mat-list-item>
             </div>
             <div class="profileside">
@@ -207,24 +207,45 @@
                                 <!--Time Slots-->
                                 <div class="timeslots">
                                     <h1 class="timeslot">Select a time slot</h1>
-                                    <button mat-stroked-button class="tech1Btn">
-                    <input type="radio" value="7:00am - 10:00am" formControlName="service_timeslot" required>7:00am-10:00am
-                    <h1 class="h1technicians">10 slots available
-                    </h1>
-                  </button>
-                                    <button mat-stroked-button class="tech2Btn" value="10:00am-1:00pm">
-                    <input type="radio" value="10:00am - 1:00pm" formControlName="service_timeslot" required>10:00am-1:00pm
-                    <h1 class="h1technicians">10 slots available
-                    </h1>
-                  </button>
-                                    <button mat-stroked-button class="tech4Btn" value="1:00pm-3:00pm">
-                    <input type="radio" value="1:00pm - 3:00pm" formControlName="service_timeslot" required>1:00pm-3:00pm
-                    <h1 class="h1technicians">10 slots available</h1>
-                  </button>
-                                    <button mat-stroked-button class="tech4Btn" value="3:00pm-6:00pm">
-                    <input type="radio" value="3:00pm - 6:00pm" formControlName="service_timeslot" required>3:00pm-6:00pm
-                    <h1 class="h1technicians">10 slots available</h1>
-                  </button>
+                                    <div *ngIf="activeTechnicians.length == 0; else showAvailalbe">
+                                        <button mat-stroked-button class="tech1Btn" disabled>Fully Booked</button>
+                                    </div>
+                                    <ng-template #showAvailalbe>
+                                        <button mat-stroked-button class="tech1Btn">
+                                            <input type="radio" value="7:00am - 10:00am" formControlName="service_timeslot" required>7:00am-10:00am
+                                            <h1 class="h1technicians"> {{activeTechnicians.length}} slot(s) available </h1>
+                                        </button>
+                                    </ng-template>
+
+                                    <div *ngIf="activeTechnicians.length == 0; else showAvailalbe1">
+                                        <button mat-stroked-button class="tech2Btn" disabled>Fully Booked</button>
+                                    </div>
+                                    <ng-template #showAvailalbe1>
+                                        <button mat-stroked-button class="tech2Btn" value="10:00am-1:00pm">
+                                            <input type="radio" value="10:00am - 1:00pm" formControlName="service_timeslot" required>10:00am-1:00pm
+                                            <h1 class="h1technicians">{{activeTechnicians.length}} slot(s) available </h1>
+                                        </button>
+                                    </ng-template>
+
+                                    <div *ngIf="activeTechnicians.length == 0; else showAvailalbe2">
+                                        <button mat-stroked-button class="tech2Btn" disabled>Fully Booked</button>
+                                    </div>
+                                    <ng-template #showAvailalbe2>
+                                        <button mat-stroked-button class="tech2Btn" value="1:00pm-3:00pm">
+                                            <input type="radio" value="1:00pm - 3:00pm" formControlName="service_timeslot" required>1:00pm-3:00pm
+                                            <h1 class="h1technicians">{{activeTechnicians.length}} slot(s) available</h1>
+                                        </button>
+                                    </ng-template>
+
+                                    <div *ngIf="activeTechnicians.length == 0; else showAvailalbe3">
+                                        <button mat-stroked-button class="tech2Btn" disabled>Fully Booked</button>
+                                    </div>
+                                    <ng-template #showAvailalbe3>
+                                        <button mat-stroked-button class="tech2Btn" value="3:00pm-6:00pm">
+                                            <input type="radio" value="3:00pm - 6:00pm" formControlName="service_timeslot" required>3:00pm-6:00pm
+                                            <h1 class="h1technicians">{{activeTechnicians.length}} slot(s) available</h1>
+                                        </button>
+                                    </ng-template>
                                 </div>
                             </div>
                         </mat-card>

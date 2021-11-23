@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RepairFeeComponent } from '../repair-fee/repair-fee.component';
 import { AuthService } from '../auth.service';
 
@@ -17,6 +17,8 @@ import { AuthService } from '../auth.service';
 export class AppliancesComponent implements OnInit {
 
   subscription: any;
+  fname: any;
+  id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
 
   @ViewChild('drawer') drawer: any;
@@ -28,31 +30,39 @@ export class AppliancesComponent implements OnInit {
   constructor(private shared: SharedService, private router: Router, private auth: AuthService,
     private breakpointObserver: BreakpointObserver, private http: HttpClient, public dialog: MatDialog) { }
 
-  
-
   ngOnInit() {
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.fname = result.first_name;
+    });
   }
-  logout(){
+  logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
-  
-  AirconOpen(){
+
+  AirconOpen() {
     this.router.navigate(['/aircon-repair']);
   }
-  RefrigeratorOpen(){
+  RefrigeratorOpen() {
     this.router.navigate(['/refrigerator-repair']);
   }
-  ElectricfanOpen(){
+  ElectricfanOpen() {
     this.router.navigate(['/electricfan-repair']);
   }
-  WashingmachineOpen(){
+  WashingmachineOpen() {
     this.router.navigate(['/washingmachine-repair']);
   }
-  TelevisionOpen(){
+  TelevisionOpen() {
     this.router.navigate(['/television-repair']);
   }
 

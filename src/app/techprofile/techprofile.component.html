@@ -60,17 +60,27 @@
             </div>
         </mat-toolbar>
 
-
-
         <div>
             <mat-card class="profilecard">
                 <div class="mat-dialog-content">
                     <h1>Personal Information</h1>
                     <h2 class="techname">{{data.fullname}}</h2>
 
+                    <p class="contactnumber">Gender</p>
+                    <p class="number">{{data.gender}}</p>
 
+                    <p class="contactnumber">Date of Birth</p>
+                    <p class="number">{{data.birthdate | date:'longDate'}}</p>
+
+                    <p class="contactnumber">Contact Number</p>
+                    <p class="number">{{data.number}}</p>
+
+                    <p class="address">Home Address</p>
+                    <p class="add">{{data.address}}</p>
                 </div>
             </mat-card>
 
-
+            <img class="vector" mat-card-image src="../../assets/addtech.png">
         </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

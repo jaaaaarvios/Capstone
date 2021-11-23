@@ -199,17 +199,17 @@
                                     <thead class="head">
                                         <tr>
                                             <th scope="col" class="header">Service ID</th>
-                                            <th scope="col" class="header">Service Appliance</th>
                                             <th scope="col" class="header">Service Type</th>
                                             <th scope="col" class="header">Status</th>
+                                            <th scope="col" class="header">Reason</th>
                                         </tr>
                                     </thead>
                                     <tbody class="body">
                                         <tr *ngFor="let car of cancelled_request">
                                             <td><b>{{car._id | slice:0:8}}</b></td>
-                                            <td>{{car.service_appliance}}</td>
                                             <td>{{car.service_type}}</td>
                                             <td>{{car.status}}</td>
+                                            <td>{{car.reason}}</td>
                                         </tr>
                                     </tbody>
                                 </table>

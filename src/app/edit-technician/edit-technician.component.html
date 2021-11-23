@@ -6,10 +6,6 @@
         <br>
         <mat-nav-list class="nav-list">
             <img class="logo" mat-card-image src="../../assets/mainlogo.png">
-            <img class="adminvector" mat-card-image src="../../assets/admin.png">
-
-            <h1 class="sidetitle">Admin</h1>
-
             <div class="dashboardside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
@@ -50,8 +46,6 @@
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-            <h1 class="titletxt">Add Technician</h1>
-
         </mat-toolbar>
 
         <button class="backBtn" routerLink="/technicians" mat-icon-button>
@@ -116,15 +110,11 @@
                         </mat-form-field>
 
                         <div>
-                            <button mat-raised-button type="submit" class="addBtn">Add</button>
+                            <button mat-raised-button type="submit" class="addBtn">Update</button>
                         </div>
                     </div>
-
-
-
                 </form>
             </div>
         </div>
-
     </mat-sidenav-content>
 </mat-sidenav-container>

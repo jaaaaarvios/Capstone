@@ -39,7 +39,7 @@ export class AirconInstallComponent implements OnInit {
   subscription: Subscription;
   today = new Date();
   tomorrow = new Date();
-  email:any;
+  email: any;
   service_appliance = "Aircon";
   service_type = "Installation";
   service_unitProb = "None";
@@ -54,8 +54,10 @@ export class AirconInstallComponent implements OnInit {
   cassette_type = 11500;
   suspended_type = 11500;
   concealed_type = 11500;
-  id=JSON.parse(localStorage.getItem('id'));
+  id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
+  activeTechnicians: any;
+  fname: any;
 
   matcher = new MyErrorStateMatcher();
 
@@ -81,7 +83,7 @@ export class AirconInstallComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  logout(){
+  logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
@@ -118,25 +120,35 @@ export class AirconInstallComponent implements OnInit {
       service_addressDetails: ['', Validators.required],
       service_instruction: ['', Validators.required],
     });
-    
+
     const httpOptions = {
       headers: new HttpHeaders({
         "x-access-token": this.token
       })
     }
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB/'+this.id, httpOptions);
-      data.subscribe(result => {
-        this.email = result.email
-        this.contactDetialsForm.setValue({
-          service_address: result.service_address,
-          service_firstname: result.first_name,
-          service_lastname: result.last_name,
-          service_phoneNumber: result.number ,
-          service_addressDetails: result.service_addressDetails,
-          service_instruction: ""
-        });
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.email = result.email
+      this.fname = result.first_name;
+      this.contactDetialsForm.setValue({
+        service_address: result.service_address,
+        service_firstname: result.first_name,
+        service_lastname: result.last_name,
+        service_phoneNumber: result.number,
+        service_addressDetails: result.service_addressDetails,
+        service_instruction: ""
       });
+    });
+    
+    let dataa: Observable<any>;
+    dataa = this.http.get('http://localhost:3000/technician', httpOptions);
+    dataa.subscribe(result => {
+      let acttechnicians = result.filter(function (activeStatus) {
+        return activeStatus.active == true;
+      });
+      this.activeTechnicians = acttechnicians
+    });
 
     if (!navigator.geolocation) {
       console.log('location is not supported');
@@ -245,46 +257,46 @@ export class AirconInstallComponent implements OnInit {
       const loc = this.locationForm.value;
       const sched = this.scheduleForm.value;
       const contact = this.contactDetialsForm.value;
-      if(unit.service_aptype == "Window" && unit.service_unitType == "Inverter"){
+      if (unit.service_aptype == "Window" && unit.service_unitType == "Inverter") {
         var installfee = this.window_type
         var inverter = this.inverter
-      } else if (unit.service_aptype == "Window" && unit.service_unitType != "Inverter"){
+      } else if (unit.service_aptype == "Window" && unit.service_unitType != "Inverter") {
         var installfee = this.window_type
         var inverter = this.unitfee
       }
 
-      if(unit.service_aptype == "Split" && unit.service_unitType == "Inverter"){
+      if (unit.service_aptype == "Split" && unit.service_unitType == "Inverter") {
         var installfee = this.split_type
         var inverter = this.inverter
-      } else if (unit.service_aptype == "Split" && unit.service_unitType != "Inverter"){
+      } else if (unit.service_aptype == "Split" && unit.service_unitType != "Inverter") {
         var installfee = this.split_type
         var inverter = this.unitfee
       }
-      if(unit.service_aptype == "Tower" && unit.service_unitType == "Inverter"){
+      if (unit.service_aptype == "Tower" && unit.service_unitType == "Inverter") {
         var installfee = this.tower_type
         var inverter = this.inverter
-      } else if((unit.service_aptype == "Tower" && unit.service_unitType != "Inverter")){
+      } else if ((unit.service_aptype == "Tower" && unit.service_unitType != "Inverter")) {
         var installfee = this.tower_type
         var inverter = this.unitfee
       }
-      if(unit.service_aptype == "Cassette" && unit.service_unitType == "Inverter"){
+      if (unit.service_aptype == "Cassette" && unit.service_unitType == "Inverter") {
         var installfee = this.cassette_type
         var inverter = this.inverter
-      } else if(unit.service_aptype == "Cassette" && unit.service_unitType != "Inverter") {
+      } else if (unit.service_aptype == "Cassette" && unit.service_unitType != "Inverter") {
         var installfee = this.cassette_type
         var inverter = this.unitfee
       }
-      if(unit.service_aptype == "Suspended" && unit.service_unitType == "Inverter"){
+      if (unit.service_aptype == "Suspended" && unit.service_unitType == "Inverter") {
         var installfee = this.suspended_type
         var inverter = this.inverter
-      } else if(unit.service_aptype == "Suspended" && unit.service_unitType != "Inverter") {
+      } else if (unit.service_aptype == "Suspended" && unit.service_unitType != "Inverter") {
         var installfee = this.suspended_type
         var inverter = this.unitfee
       }
-      if(unit.service_aptype == "Concealed" && unit.service_unitType == "Inverter"){
+      if (unit.service_aptype == "Concealed" && unit.service_unitType == "Inverter") {
         var installfee = this.concealed_type
         var inverter = this.inverter
-      } else if(unit.service_aptype == "Concealed" && unit.service_unitType != "Inverter") {
+      } else if (unit.service_aptype == "Concealed" && unit.service_unitType != "Inverter") {
         var installfee = this.concealed_type
         var inverter = this.unitfee
       }

@@ -21,12 +21,8 @@ export class AuthService {
     return this.http.post("http://localhost:3000/CredentialDB/admin", data)
   }
 
-  deleteTechnician(_id): Observable<any> {
-    return this.http.delete<void>("http://localhost:3000/technician/:id", _id)
-  }
-
-  updateTechnician(data) {
-    return this.http.patch("http://localhost:3000/technician/:id", data)
+  deleteTechnician(_id) {
+    return this.http.delete("http://localhost:3000/technician/"+ _id).pipe(map((res: any) => res));
   }
 
   deleteRequest(_id) {

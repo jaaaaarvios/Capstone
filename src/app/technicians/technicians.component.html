@@ -61,10 +61,6 @@
                     <mat-icon class="addicon">add</mat-icon>
                 </button>
 
-
-
-
-
             <div class="content1">
 
                 <!-- <mat-form-field class="searchfield" appearance="outline">
@@ -80,30 +76,34 @@
                         <h2 class="position1">{{tech.specialization}}</h2>
                         <button mat-stroked-button class="statusBtn1" [matMenuTriggerFor]="statusmenu">Status</button>
                         <mat-menu #statusmenu="matMenu">
-                            <button mat-menu-item>Active</button>
-                            <button mat-menu-item>Inactive</button>
+                            <button mat-menu-item (click)="active(tech._id)">Active</button>
+                            <button mat-menu-item (click)="inactive(tech._id)">Inactive</button>
                         </mat-menu>
                         <button mat-flat-button class="profileBtn1" [routerLink]="['/technician/' + tech._id]">Profile</button>
                         <button mat-icon-button class="editBtn1" [matMenuTriggerFor]="editmenu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+
                         <mat-menu #editmenu="matMenu">
-                            <button mat-menu-item>
-                <mat-icon>edit</mat-icon>
-                <span>Edit</span>
-              </button>
-                            <button mat-menu-item>
-                <mat-icon>delete</mat-icon>
-                <span>Delete</span>
-              </button>
+                            <button mat-menu-item [routerLink]="['/edit-technician/' + tech._id]">
+                                <mat-icon>edit</mat-icon>
+                                    <span>Edit</span>
+                            </button>
+                            <button mat-menu-item (click)="deleteOne(tech._id)">
+                                <mat-icon>delete</mat-icon>
+                                <span>Delete</span>
+                            </button>
                         </mat-menu>
                         <hr>
                     </div>
                 </mat-card>
 
-
                 <mat-card class="activetech">
-                    <h1 class="activetitle"> Active Technicians</h1>
+                    <h1 class="activetitle"> Active Technicians </h1>
+                    <div *ngFor="let actTech of activeTechnicians">
+                        <h1 class="name1">{{actTech.fullname}}</h1>
+                        <h2 class="position1">{{actTech.specialization}}</h2>
+                    </div>
                 </mat-card>
             </div>
         </div>
