@@ -19,11 +19,14 @@
         <mat-card class="summary">
             <form [formGroup]="scheduleForm" (ngSubmit)="schedSubmit()">
                 <div>
+                    <img class="reschedulevec" mat-card-image src="../../assets/reschedule.png">
+
                     <h1 class="resched">Reschedule Service</h1>
                 </div>
 
                 <div>
-                    <p>Pick a date to reschedule your service request.</p>
+                    <p>Pick a date and timeslot to reschedule your service request.
+                    </p>
                 </div>
 
                 <div>
@@ -35,47 +38,45 @@
                             You must make a selection
                         </mat-error>
                     </mat-form-field>
-
-                    <button mat-stroked-button class="dateBtn" (click)="picker.open()">
-            <mat-icon>calendar_today</mat-icon>
-          </button>
+                    <button mat-raised-button class="dateBtn" (click)="picker.open()">Pick a date</button>
                 </div>
 
                 <!--Time Slots-->
-                <p class="timeslot">Select a time slot</p>
-
                 <div class="timeslots">
-                    <button mat-stroked-button class="tech1Btn" value="7:00am - 10:00am" disabled>
-            <input type="radio" value="7:00am - 10:00am" formControlName="service_timeslot" required> &nbsp;
-            7:00am-10:00am
-          </button>
-                    <button mat-stroked-button class="tech1Btn" value="10:00am-1:00pm" disabled>
-            <input type="radio" value="10:00am - 1:00pm" formControlName="service_timeslot" required> &nbsp;
-            10:00am-1:00pm
-          </button>
-                    <button mat-stroked-button class="tech1Btn" value="1:00pm-3:00pm" disabled>
-            <input type="radio" value="1:00pm - 3:00pm" formControlName="service_timeslot" required> &nbsp;
-            1:00pm-3:00pm
-          </button>
-                    <button mat-stroked-button class="tech1Btn" value="3:00pm-6:00pm" disabled>
-            <input type="radio" value="3:00pm - 6:00pm" formControlName="service_timeslot" required> &nbsp;
-            3:00pm-6:00pm
-          </button>
+                    <h1 class="timeslot">Select a time slot</h1>
+                    <button mat-stroked-button class="tech1Btn">
+        <input type="radio" value="7:00am - 10:00am" formControlName="service_timeslot" required>7:00am-10:00am
+        <h1 class="h1technicians">10 slots available
+        </h1>
+      </button>
+                    <button mat-stroked-button class="tech2Btn" value="10:00am-1:00pm">
+        <input type="radio" value="10:00am - 1:00pm" formControlName="service_timeslot" required>10:00am-1:00pm
+        <h1 class="h1technicians">10 slots available
+        </h1>
+      </button>
+                    <button mat-stroked-button class="tech3Btn" value="1:00pm-3:00pm">
+        <input type="radio" value="1:00pm - 3:00pm" formControlName="service_timeslot" required>1:00pm-3:00pm
+        <h1 class="h1technicians">10 slots available</h1>
+      </button>
+                    <button mat-stroked-button class="tech4Btn" value="3:00pm-6:00pm">
+        <input type="radio" value="3:00pm - 6:00pm" formControlName="service_timeslot" required>3:00pm-6:00pm
+        <h1 class="h1technicians">10 slots available</h1>
+      </button>
                 </div>
 
-                <div>
-                    <button mat-stroked-button class="backBtn" routerLink="/dashboard">Back</button>
-
-                    <div *ngIf="!scheduleForm.valid; else enable">
-                        <button mat-stroked-button class="reschedBtn" type="submit" [disabled]="!scheduleForm.valid">Reschedule
-                Request</button>
-                    </div>
-                    <ng-template #enable>
-                        <button mat-raised-button class="reschedBtn-enable" type="submit">Reschedule
-              Request</button>
-                    </ng-template>
-                </div>
             </form>
         </mat-card>
+
+        <div>
+
+
+            <div *ngIf="!scheduleForm.valid; else enable">
+                <button mat-stroked-button class="reschedBtn" type="submit" [disabled]="!scheduleForm.valid">Confirm</button>
+            </div>
+            <ng-template #enable>
+                <button mat-raised-button class="reschedBtn-enable" type="submit">Confirm</button>
+            </ng-template>
+            <button mat-stroked-button class="backBtn" routerLink="/dashboard">Cancel</button>
+        </div>
     </div>
 </div>

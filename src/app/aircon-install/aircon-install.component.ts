@@ -57,6 +57,7 @@ export class AirconInstallComponent implements OnInit {
   id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
   activeTechnicians: any;
+  fname: any;
 
   matcher = new MyErrorStateMatcher();
 
@@ -129,6 +130,7 @@ export class AirconInstallComponent implements OnInit {
     data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
     data.subscribe(result => {
       this.email = result.email
+      this.fname = result.first_name;
       this.contactDetialsForm.setValue({
         service_address: result.service_address,
         service_firstname: result.first_name,

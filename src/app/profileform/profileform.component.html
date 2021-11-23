@@ -6,6 +6,9 @@
         <br>
         <mat-nav-list class="nav-list">
             <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+            <img class="adminvector" mat-card-image src="../../assets/customervector.png">
+
+            <h1 class="sidetitle">{{fname}}</h1>
 
             <div class="dashboardside" routerLink="/dashboard">
                 <mat-list-item (click)="closeSideNav()">
@@ -38,24 +41,22 @@
         <mat-toolbar>
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-            <div>
-                <h1 class="dashtitle">Welcome to AyosGamit!</h1>
-                <label class="dashtitle2">Hire trained and certified technicians.</label>
+</button>
 
-                <button mat-raised-button class="startBtn" routerLink="/booking">Get Started</button>
+
+            <div class="headertitle">
+                <h1 class="titletxt">Profile</h1>
             </div>
         </mat-toolbar>
+
         <!-- put the content below -->
-        <div>
-            <h1>Profile Settings</h1>
-        </div>
+
 
         <mat-card class="infocard">
             <div>
-                <button class="editbtn" mat-raised-button routerLink="/edit_profile">Edit
-                <!-- <mat-icon class="editicon">edit</mat-icon> -->
-                </button>
+                <button mat-icon-button class="editBtn" routerLink="/edit_profile">
+                    <mat-icon class="editicon">edit</mat-icon>
+                  </button>
             </div>
             <div>
                 <h3 class="name">{{fname}} {{lname}}</h3>
@@ -86,7 +87,10 @@
 
         <mat-card class="addresscard">
             <div>
-                <button class="editbtn" mat-raised-button routerLink="/edit_address">Edit</button>
+
+                <button mat-icon-button class="editBtn" routerLink="/edit_address">
+                    <mat-icon class="editicon">edit</mat-icon>
+                  </button>
             </div>
             <div>
                 <h3>Address Details</h3>

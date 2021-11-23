@@ -1,4 +1,5 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -18,6 +19,8 @@ export class BookingformComponent implements OnInit {
 
   subscription: any;
   token = JSON.parse(localStorage.getItem('token'));
+  fname: any;
+  id=JSON.parse(localStorage.getItem('id'));
 
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -27,7 +30,7 @@ export class BookingformComponent implements OnInit {
  
 
   constructor(private router: Router, public dialog: MatDialog, private auth: AuthService,
-    private breakpointObserver: BreakpointObserver, private shared: SharedService) { }
+    private breakpointObserver: BreakpointObserver, private shared: SharedService, private http: HttpClient) { }
 
   ApplianceOpen(){
     this.router.navigate(['/appliance'])
@@ -48,6 +51,16 @@ export class BookingformComponent implements OnInit {
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.fname = result.first_name;
+    });
   }
 
   closeSideNav() {

@@ -55,6 +55,7 @@ export class AircondetailsComponent implements OnInit {
   id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
   activeTechnicians: any;
+  fname: any;
 
   matcher = new MyErrorStateMatcher();
 
@@ -69,6 +70,10 @@ export class AircondetailsComponent implements OnInit {
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
+  mapsAPILoader: any;
+  currentBusiness: any;
+  zoom: number;
+  currentLocation: any;
 
   constructor(private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog,
       private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
@@ -128,6 +133,7 @@ export class AircondetailsComponent implements OnInit {
     data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
     data.subscribe(result => {
       this.email = result.email
+      this.fname = result.first_name;
       this.contactDetialsForm.setValue({
         service_address: result.service_address,
         service_firstname: result.first_name,
@@ -180,6 +186,7 @@ export class AircondetailsComponent implements OnInit {
         .setContent('Hello')
         .openOn(mymap);
     });
+
     this.watchPosition();
   }
 
@@ -206,6 +213,9 @@ export class AircondetailsComponent implements OnInit {
       }
     );
   }
+
+
+
   checked = false;
   indeterminate = false;
   labelPosition: 'before' | 'after' = 'after';

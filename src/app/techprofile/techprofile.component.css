@@ -21,8 +21,20 @@
         max-width: 200px;
         height: 100px !important;
         float: left;
-        margin-top: 10px !important;
+        margin-top: -20px !important;
         margin-left: 25px;
+    }
+    .adminvector {
+        width: 95%;
+        margin-top: -110px !important;
+        margin-left: 10px;
+    }
+    .sidetitle {
+        color: #003049;
+        font-size: 20px;
+        margin-top: -10px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
     }
     .nav-icon {
         color: #003049;
@@ -35,7 +47,7 @@
     }
     .dashboardside {
         margin-left: 0px;
-        margin-top: 150px;
+        margin-top: 50px;
         text-align: justify;
     }
     .dashboard-btn {
@@ -141,33 +153,36 @@
         width: 500px;
         height: 600px;
     }
+    .headertitle {
+        position: center !important;
+        margin: auto;
+    }
     .titletxt {
         color: #FFFFFF;
         font-size: 25px;
-        float: left;
-        margin-left: 20px;
+        text-align: center;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin-top: 30px;
+        margin-top: 10px;
     }
     .backBtn {
         font-size: 20px;
         float: left;
-        margin-top: 50px;
-        margin-left: 100px;
-        background-color: grey;
+        margin-top: 10px;
+        margin-left: 50px;
+        background-color: #FFFFFF;
     }
     .backicon {
-        color: #FFFFFF;
+        color: #dd0346;
         float: left;
         margin-left: 2px;
         font-size: 35px;
     }
     .profilecard {
-        width: 600px;
-        height: 600px;
-        float: left;
-        margin-left: 150px;
-        margin-top: 80px;
+        width: 1000px;
+        height: 400px;
+        position: center !important;
+        margin: auto;
+        margin-top: 50px;
     }
     .vector {
         width: 27%;

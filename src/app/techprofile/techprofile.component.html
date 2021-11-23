@@ -6,6 +6,10 @@
         <br>
         <mat-nav-list class="nav-list">
             <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+            <img class="adminvector" mat-card-image src="../../assets/admin.png">
+
+            <h1 class="sidetitle">Admin</h1>
+
             <div class="dashboardside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
@@ -46,17 +50,21 @@
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
               <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
           </button>
-            <h1 class="titletxt">Profile</h1>
-        </mat-toolbar>
 
-
-        <button class="backBtn" routerLink="/technicians" mat-icon-button>
+            <button class="backBtn" routerLink="/technicians" mat-icon-button>
             <mat-icon class="backicon">chevron_left</mat-icon>
           </button>
+
+            <div class="headertitle">
+                <h1 class="titletxt">Profile</h1>
+            </div>
+        </mat-toolbar>
+
         <div>
             <mat-card class="profilecard">
                 <div class="mat-dialog-content">
-                    <h1 class="techname">{{data.fullname}}</h1>
+                    <h1>Personal Information</h1>
+                    <h2 class="techname">{{data.fullname}}</h2>
 
                     <p class="contactnumber">Gender</p>
                     <p class="number">{{data.gender}}</p>

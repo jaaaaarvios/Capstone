@@ -23,6 +23,7 @@ export class ChangePasswordComponent implements OnInit {
   id = JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
   changePassForm: FormGroup;
+  fname: any;
 
   public showPassword: boolean;
   public showPasswordOnPress: boolean;
@@ -37,7 +38,6 @@ export class ChangePasswordComponent implements OnInit {
     ,private auth: AuthService) { }
 
   ngOnInit(): void {
-
     this.changePassForm = new FormGroup({
       newPassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw), Validators.maxLength(this.maxPw)]),
       confirmpassword: new FormControl('', [Validators.required]),
@@ -46,6 +46,16 @@ export class ChangePasswordComponent implements OnInit {
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.fname = result.first_name;
+    });
   }
 
   // getting the form control elements

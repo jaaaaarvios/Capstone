@@ -6,8 +6,11 @@
         <br>
         <mat-nav-list class="nav-list">
             <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+            <img class="adminvector" mat-card-image src="../../assets/customervector.png">
 
-            <div class="dashboardside" routerLink="/dashboard">
+            <h1 class="sidetitle">{{fname}}</h1>
+
+            <div class="dashboardside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label>home</mat-icon>
                     <a class="dashboard-btn">Home</a>
@@ -38,21 +41,19 @@
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-            <div>
-                <h1 class="dashtitle">Welcome to AyosGamit!</h1>
-                <label class="dashtitle2">Hire trained and certified technicians.</label>
+            <button class="backBtn" routerLink="/profile" mat-icon-button>
+        <mat-icon class="backicon">chevron_left</mat-icon>
+      </button>
 
-                <button mat-raised-button class="startBtn" routerLink="/booking">Get Started</button>
+            <div class="headertitle">
+                <h1 class="titletxt">Edit profile</h1>
             </div>
         </mat-toolbar>
 
-        <h1 class="backBtn" routerLink="/profile">
-            <mat-icon><b>keyboard_return</b></mat-icon>Back to Profile
-        </h1>
         <form [formGroup]="personalInfoForm" (ngSubmit)="personalInfoSubmit()">
             <mat-card class="card">
                 <div>
-                    <h1 class="infoLbl">Edit Information</h1>
+
                     <p>
                         <mat-form-field class="fnametextfields" appearance="outline">
                             <mat-label>First Name</mat-label>
@@ -101,8 +102,10 @@
                         </mat-form-field>
                     </p>
 
+                    <button class="saveBtn" mat-raised-button>Save Changes</button>
+                    <button class="cancelBtn" mat-stroked-button routerLink="/profile">Cancel</button>
 
-                    <button class="saveBtn" mat-raised-button> Save </button>
+
                 </div>
             </mat-card>
         </form>

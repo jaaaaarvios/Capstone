@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import { AuthService } from '../auth.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-appliance-cleaning',
@@ -15,6 +16,8 @@ import { AuthService } from '../auth.service';
 export class ApplianceCleaningComponent implements OnInit {
 
   subscription: any;
+  fname: any;
+id=JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
   
   @ViewChild('drawer') drawer: any;
@@ -24,12 +27,23 @@ export class ApplianceCleaningComponent implements OnInit {
     .pipe(map((result: BreakpointState) => result.matches));
 
   constructor(private shared: SharedService, private router: Router, private breakpointObserver: BreakpointObserver,
-    private auth: AuthService) { }
+    private auth: AuthService, private http: HttpClient) { }
 
   ngOnInit(): void {
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.fname = result.first_name;
+    });
+
   }
   logout(){
     localStorage.clear();
