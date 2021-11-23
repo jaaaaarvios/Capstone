@@ -37,7 +37,8 @@ export class AirconCleaningComponent implements OnInit {
   scheduleForm: FormGroup;
   contactDetialsForm: FormGroup;
   subscription: Subscription;
-
+  today = new Date();
+  tomorrow = new Date();
   email:any;
   service_appliance = "Aircon";
   service_type = "Cleaning";
@@ -89,6 +90,8 @@ export class AirconCleaningComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.tomorrow.setDate(this.today.getDate() + 1);
+
     if (localStorage.getItem("id") == null) {
       this.router.navigate(['/home'])
     }

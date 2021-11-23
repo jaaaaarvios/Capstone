@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -16,6 +16,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 export class AddtechComponent implements OnInit {
   url: any;
   imageSrc: string | ArrayBuffer;
+  token = JSON.parse(localStorage.getItem('token'));
 
   matcher = new MyErrorStateMatcher();
 
@@ -23,7 +24,7 @@ export class AddtechComponent implements OnInit {
   specializationList: any = [
     { id: 1, job: 'Appliances Repair' },
     { id: 2, job: 'Appliances cleaning' },
-    { id: 3, job: 'Installation and Dismantling' }
+    { id: 3, job: 'Installation' }
   ];
 
   @ViewChild('drawer') drawer: any;
@@ -68,11 +69,16 @@ export class AddtechComponent implements OnInit {
       "specialization": val.tech_specialization,
       "number": val.tech_number,
       "address": val.tech_address,
-      "active": "1"
+      "active": 1
+    }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
     }
     if (this.addTech.valid) {
       console.log(this.addTech.value);
-      this.http.post("http://localhost:3000/technician", body)
+      this.http.post("http://localhost:3000/technician", body, httpOptions)
         .subscribe(data => {
           console.log(data, 'success');
           this.router.navigate(['/technicians']);

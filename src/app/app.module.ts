@@ -83,6 +83,7 @@ import { RequestCompleteComponent } from './request-complete/request-complete.co
 import { BookingsummaryEditComponent } from './bookingsummary-edit/bookingsummary-edit.component';
 import { SignupformComponent } from './signupform/signupform.component';
 import { LoginformAdminComponent } from './loginform-admin/loginform-admin.component';
+import { RequestdetailsPendingComponent } from './requestdetails-pending/requestdetails-pending.component';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -145,6 +146,7 @@ import { LoginformAdminComponent } from './loginform-admin/loginform-admin.compo
     BookingsummaryEditComponent,
     SignupformComponent,
     LoginformAdminComponent,
+    RequestdetailsPendingComponent,
 
   ],
   imports: [

@@ -10,6 +10,8 @@
                 <mat-icon class="back"><b>keyboard_return</b></mat-icon>Back to Dashboard
             </h1>
         </div>
+
+
         <div>
             <button mat-raised-button class="acceptBtn" (click)="approvedRequest()">Accept</button>
             <button mat-raised-button class="rejectBtn" (click)="open(cancelReason)">Reject</button>
@@ -33,10 +35,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{data.service_firstname}}</td>
-                        <td>{{data.service_lastname}}</td>
-                        <td>{{data.service_phoneNumber}}</td>
-                        <td>{{data.service_address}}</td>
+                        <td>{{request.service_firstname}}</td>
+                        <td>{{request.service_lastname}}</td>
+                        <td>{{request.service_phoneNumber}}</td>
+                        <td>{{request.service_address}}</td>
                     </tr>
                 </tbody>
                 <thead>
@@ -49,10 +51,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{data.service_addressDetails}}</td>
-                        <td>{{data.service_city}}</td>
-                        <td>{{data.service_property_type}}</td>
-                        <td>{{data.service_zipcode}}</td>
+                        <td>{{request.service_addressDetails}}</td>
+                        <td>{{request.service_city}}</td>
+                        <td>{{request.service_property_type}}</td>
+                        <td>{{request.service_zipcode}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -69,10 +71,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{data.service_appliance}}</td>
-                        <td>{{data.service_type}}</td>
-                        <td>{{data.service_brand}}</td>
-                        <td>{{data.service_unitType}}</td>
+                        <td>{{request.service_appliance}}</td>
+                        <td>{{request.service_type}}</td>
+                        <td>{{request.service_brand}}</td>
+                        <td>{{request.service_unitType}}</td>
                     </tr>
                 </tbody>
                 <thead>
@@ -85,16 +87,36 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{data.service_unitProb}}</td>
-                        <td>{{data.service_date | date}}</td>
-                        <td>{{data.service_timeslot}}</td>
-                        <td>{{data.service_instruction}}</td>
+                        <td>{{request.service_unitProb}}</td>
+                        <td>{{request.service_date | date}}</td>
+                        <td>{{request.service_timeslot}}</td>
+                        <td>{{request.service_instruction}}</td>
+                        <td>{{request.technician_id}}</td>
                     </tr>
                 </tbody>
             </table>
         </mat-card>
     </div>
     <!--Technicians Details------------------------------------------------>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fullname</th>
+                <th>Specialization</th>
+                <th>Number</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tech of technician">
+                <td>{{tech.fullname}}</td>
+                <td>{{tech.specialization}}</td>
+                <td>{{tech.number}}</td>
+                <td>{{tech.number}}</td>
+                <td><button (click)="deploy(tech._id)">Deploy</button></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <ng-template #cancelReason let-c="close" let-d="dismiss">

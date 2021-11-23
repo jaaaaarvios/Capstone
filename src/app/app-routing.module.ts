@@ -47,6 +47,7 @@ import { RequestCompleteComponent } from './request-complete/request-complete.co
 import { BookingsummaryEditComponent } from './bookingsummary-edit/bookingsummary-edit.component';
 import { SignupformComponent } from './signupform/signupform.component';
 import { LoginformAdminComponent } from './loginform-admin/loginform-admin.component';
+import { RequestdetailsPendingComponent } from './requestdetails-pending/requestdetails-pending.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -58,6 +59,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileformComponent },
   { path: 'confirmcancel', component: ConfirmcancelComponent },
   { path: 'requestdetails/:id', component: RequestdetailsComponent },
+  { path: 'requestdetails-pending/:id', component: RequestdetailsPendingComponent },
   { path: 'payment', component: PaymentformComponent },
   { path: 'employees', component: PaymentformComponent },
   { path: 'payment', component: PaymentformComponent },
