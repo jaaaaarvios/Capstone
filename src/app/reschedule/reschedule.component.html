@@ -16,8 +16,8 @@
 </mat-toolbar>
 <div class="container">
     <div>
-        <mat-card class="summary">
-            <form [formGroup]="scheduleForm" (ngSubmit)="schedSubmit()">
+        <form [formGroup]="scheduleForm" (ngSubmit)="schedSubmit()">
+            <mat-card class="summary">
                 <div>
                     <img class="reschedulevec" mat-card-image src="../../assets/reschedule.png">
 
@@ -66,19 +66,17 @@
                         </button>
                     </ng-template>
                 </div>
-            </form>
-        </mat-card>
+            </mat-card>
 
-        <div>
-
-
-            <div *ngIf="!scheduleForm.valid; else enable">
-                <button mat-stroked-button class="reschedBtn" type="submit" [disabled]="!scheduleForm.valid">Confirm</button>
+            <div>
+                <div *ngIf="!scheduleForm.valid; else enable">
+                    <button mat-stroked-button class="reschedBtn" type="submit" [disabled]="!scheduleForm.valid">Confirm</button>
+                </div>
+                <ng-template #enable>
+                    <button mat-raised-button class="reschedBtn-enable" type="submit">Confirm</button>
+                </ng-template>
+                <button mat-stroked-button class="backBtn" routerLink="/dashboard">Cancel</button>
             </div>
-            <ng-template #enable>
-                <button mat-raised-button class="reschedBtn-enable" type="submit">Confirm</button>
-            </ng-template>
-            <button mat-stroked-button class="backBtn" routerLink="/dashboard">Cancel</button>
-        </div>
+        </form>
     </div>
 </div>
