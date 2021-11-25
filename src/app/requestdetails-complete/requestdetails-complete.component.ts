@@ -30,9 +30,13 @@ export class RequestdetailsCompleteComponent implements OnInit {
   techID: "";
   technician: any;
   token = JSON.parse(localStorage.getItem('token'));
+  userID = JSON.parse(localStorage.getItem('id'));
   rateForm: FormGroup;
   stars: number[] = [1, 2, 3, 4, 5];
   selectedValue: number;
+  fname: any;
+  lname: any;
+  email: any;
 
   constructor(private router: Router, public dialog: MatDialog, private http: HttpClient, config: NgbModalConfig, private modalService: NgbModal,
     private breakpointObserver: BreakpointObserver, private _formBuilder: FormBuilder, private route: ActivatedRoute) { 
@@ -66,6 +70,13 @@ export class RequestdetailsCompleteComponent implements OnInit {
         this.technician = result
       });
     });
+    let dataa:Observable<any>;
+    dataa = this.http.get('http://localhost:3000/CredentialDB/' + this.userID, httpOptions);
+    dataa.subscribe(result => {
+      this.fname = result.first_name;
+      this.lname = result.last_name;
+      this.email = result.email;
+    });
   }
 
   logout() {
@@ -89,7 +100,12 @@ export class RequestdetailsCompleteComponent implements OnInit {
     if (retVal == true) {
       if (this.rateForm.valid) {
         let body = {
-          "rate": this.selectedValue,
+          "rate": this.selectedValue
+        }
+        let body1 = {
+          "first_name": this.fname,
+          "last_name": this.lname,
+          "createdBy": this.email,
           "feedback": this.rateForm.value.technician_feedback
         }
         const httpOptions = {
@@ -99,6 +115,17 @@ export class RequestdetailsCompleteComponent implements OnInit {
         }
           this.http.patch("http://localhost:3000/technician/rate/" + this.techID, body, httpOptions)
           .subscribe(data => {
+            this.router.navigate(['/dashboard']);
+            let ref = document.getElementById('close');
+            ref?.click();
+            this.rateForm.reset();
+          }, error => {
+            console.log(error);
+            alert(error);
+          });
+          this.http.post("http://localhost:3000/feedback", body1, httpOptions)
+          .subscribe(data => {
+            alert("Thank you for the feedback!")
             this.router.navigate(['/dashboard']);
             let ref = document.getElementById('close');
             ref?.click();
