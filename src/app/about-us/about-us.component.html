@@ -19,22 +19,22 @@
         <ng-template #notLogin></ng-template>
         <span class="spacer"></span>
         <div *ngIf="token != null; else notLogin1"></div>
-        <ng-template #notLogin1><button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button>
+        <ng-template #notLogin1><button mat-raised-button class="loginBtn" routerLink="/loginform">Login / Sign Up</button>
         </ng-template>
     </mat-toolbar>
 
     <div>
         <mat-card>
-            <div>
-                <img class="logo" mat-card-image src="../../assets/mainlogo.png">
-            </div>
+
 
             <h1 class="title">About Us</h1>
 
+            <img class="img1" mat-card-image src="../../assets/aboutusimg1.jpg">
+            <img class="img2" mat-card-image src="../../assets/aboutusimg2.jpg">
 
             <div class="description">
                 <p>Ayosgamit was established July 14, 2021. Our services includes Repair, Check-up, Estimate, </p>
-                <p> Installation, Cleaning, Maintenance for all tyes and brands of home appliances. We guarantee</p>
+                <p> Installation, Cleaning, Maintenance for all types and brands of home appliances. We guarantee</p>
                 <p>users to easily book a professional technician at any time and from anywhere.</p>
             </div>
 

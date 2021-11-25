@@ -154,3 +154,8 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
 }
+
+.okBtn:hover,
+.okBtn:active {
+    color: #14213D;
+}

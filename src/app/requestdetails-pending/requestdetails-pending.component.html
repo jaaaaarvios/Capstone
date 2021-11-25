@@ -1,142 +1,171 @@
-<!--HEADER------------------------------------------------>
-<mat-toolbar>
-    <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
-    <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
-        <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
-        <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
-        <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
-        <button mat-menu-item routerLink="/menu_tv">Television</button>
-    </mat-menu>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+        <br>
+        <mat-nav-list class="nav-list">
+            <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+            <img class="adminvector" mat-card-image src="../../assets/customervector.png">
 
-    <label class="pricingBtn" routerLink="/pricing">Pricing</label>
-    <label class="contactUsBtn" routerLink="/contact_us">Contact Us</label>
-    <label class="aboutusBtn" routerLink="/about_us">About Us</label>
-    <label class="aboutusBtn" routerLink="/dashboard">Home</label>
-</mat-toolbar>
-<div class="container">
-    <!--REQUEST SUMMARY------------------------------------------------>
-    <div>
-        <div>
-            <h1 class="backBtn" routerLink="/dashboard">
-                <mat-icon class="back"><b>keyboard_return</b></mat-icon>Back to Dashboard
-            </h1>
-        </div>
-        <div>
-            <button mat-raised-button (click)="open(cancelReason)" class="cancelBtn">Cancel Request</button>
-        </div>
-
-        <mat-card class="summary">
-            <div>
-                <mat-icon class="icon">description
-                    <h1 class="title">Request Details</h1>
-                </mat-icon>
+            <h1 class="sidetitle">{{fname}}</h1>
+            <div class="dashboardside" routerLink="/dashboard">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label>home</mat-icon>
+                    <a class="dashboard-btn">Home</a>
+                </mat-list-item>
             </div>
-            <h1 class="personalinfotxt">Personal Information</h1>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Contact Number</th>
-                        <th>Address</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{data.service_firstname}}</td>
-                        <td>{{data.service_lastname}}</td>
-                        <td>{{data.service_phoneNumber}}</td>
-                        <td>{{data.service_address}}</td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <th>Address Details</th>
-                        <th>City</th>
-                        <th>Property Type</th>
-                        <th>Barangay</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{data.service_addressDetails}}</td>
-                        <td>{{data.service_city}}</td>
-                        <td>{{data.service_property_type}}</td>
-                        <td>{{data.service_barangay}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="bookingside" routerLink="/booking">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+                    <a class="booking-btn">Book a Service</a>
+                </mat-list-item>
+            </div>
+            <div class="profileside" routerLink="/profile">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+                    <a class="profile-btn">Profile</a>
+                </mat-list-item>
+            </div>
 
-            <h1 class="serviceinfotxt">Service Information</h1>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Appliance</th>
-                        <th>Service</th>
-                        <th>Brand</th>
-                        <th>Unit Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{data.service_appliance}}</td>
-                        <td>{{data.service_type}}</td>
-                        <td>{{data.service_brand}}</td>
-                        <td>{{data.service_unitType}}</td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <th>Unit Problem</th>
-                        <th>Scheduled Date</th>
-                        <th>Time Slot</th>
-                        <th>Instruction</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{data.service_unitProb}}</td>
-                        <td>{{data.service_date | date}}</td>
-                        <td>{{data.service_timeslot}}</td>
-                        <td>{{data.service_instruction}}</td>
-                        <td>{{data.technician_id}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </mat-card>
-    </div>
-</div>
+            <div class="logoutside" (click)="logout()">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon">exit_to_app</mat-icon>
+                    <a class="logout-btn">Logout</a>
+                </mat-list-item>
+            </div>
+        </mat-nav-list>
+    </mat-sidenav>
 
-<ng-template #cancelReason let-c="close" let-d="dismiss">
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Are you sure ?</h4>
-        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        </mat-toolbar>
+        <div class="container">
+            <!--REQUEST SUMMARY------------------------------------------------>
+            <div>
+                <button class="backBtn" routerLink="/dashboard" mat-icon-button>
+                    <mat-icon class="backicon">chevron_left</mat-icon>
+                  </button>
+
+                <div>
+                    <button mat-raised-button (click)="open(cancelReason)" class="cancelBtn">Cancel Request</button>
+                </div>
+
+                <mat-card class="summary">
+                    <div>
+                        <img class="remindervector" mat-card-image src="../../assets/reminder.png">
+                        <h1 class="title">Booking Details</h1>
+
+                        <label class="label">View your booking details.</label>
+
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="header1">First Name</th>
+                                <th class="header1">Last Name</th>
+                                <th class="header1">Contact Number</th>
+                                <th class="header1">Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="body1">{{data.service_firstname}}</td>
+                                <td class="body1">{{data.service_lastname}}</td>
+                                <td class="body1">{{data.service_phoneNumber}}</td>
+                                <td class="body1">{{data.service_address}}</td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th class="header2">Address Details</th>
+                                <th class="header2">City</th>
+                                <th class="header2">Property Type</th>
+                                <th class="header2">Barangay</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="body2">{{data.service_addressDetails}}</td>
+                                <td class="body2">{{data.service_city}}</td>
+                                <td class="body2">{{data.service_property_type}}</td>
+                                <td class="body2">{{data.service_barangay}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="header1">Appliance</th>
+                                <th class="header1">Service</th>
+                                <th class="header1">Brand</th>
+                                <th class="header1">Unit Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="body1">{{data.service_appliance}}</td>
+                                <td class="body1">{{data.service_type}}</td>
+                                <td class="body1">{{data.service_brand}}</td>
+                                <td class="body1">{{data.service_unitType}}</td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th class="header2">Unit Problem</th>
+                                <th class="header2">Scheduled Date</th>
+                                <th class="header2">Time Slot</th>
+                                <th class="header2">Instruction</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="body2">{{data.service_unitProb}}</td>
+                                <td class="body2">{{data.service_date | date}}</td>
+                                <td class="body2">{{data.service_timeslot}}</td>
+                                <td class="body2">{{data.service_instruction}}</td>
+                                <td class="body2">{{data.technician_id}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card>
+            </div>
+        </div>
+
+        <ng-template #cancelReason let-c="close" let-d="dismiss">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Cancel request?</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
-    </div>
-    <form [formGroup]="cancelreasonForm">
-        <div class="modal-body">
-            <div>
-                <h6>Please share the reason to serve you better next time </h6>
-                <button mat-stroked-button class="radioBtn" value="Schedule conflict">
-                    <input type="radio" value="Schedule conflict" formControlName="reason" required>&nbsp;Schedule conflict.
+            </div>
+            <form [formGroup]="cancelreasonForm">
+                <div class="modal-body">
+                    <div>
+                        <h6>Please share the reason to serve you better next time </h6>
+                        <button mat-stroked-button class="radioBtn" value="Schedule conflict">
+                    <input type="radio" value="Schedule conflict" formControlName="reason" required>&nbsp;Conflict of Schedule.
                 </button>
-                <button mat-stroked-button class="radioBtn" value="Problem went away">
+                        <button mat-stroked-button class="radioBtn" value="Problem went away">
                     <input type="radio" value="Problem went away" formControlName="reason" required>&nbsp;Problem went away.
                 </button>
-                <button mat-stroked-button class="radioBtn" value="Found another provider">
+                        <button mat-stroked-button class="radioBtn" value="Found another provider">
                     <input type="radio" value="Found another provider" formControlName="reason" required>&nbsp;Found another provider.
                 </button>
-                <button mat-stroked-button class="radioBtn" value="Personal emergency">
+                        <button mat-stroked-button class="radioBtn" value="Personal emergency">
                     <input type="radio" value="Personal emergency" formControlName="reason" required>&nbsp;Personal emergency.
                 </button>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" id="close" class="btn btn-outline-primary" (click)="c('Close')">Keep my booking</button>
-            <button type="button" class="btn btn-outline-danger" (click)="getConfirmation()">Cancel Request</button>
-        </div>
-    </form>
-</ng-template>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="close" class="btn btn-outline-primary" (click)="c('Close')">Keep my booking</button>
+                    <button type="button" class="btn btn-outline-danger" (click)="getConfirmation()">Cancel Request</button>
+                </div>
+            </form>
+        </ng-template>

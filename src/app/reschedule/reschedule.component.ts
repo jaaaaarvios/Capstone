@@ -1,10 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ConfirmcancelComponent } from '../confirmcancel/confirmcancel.component';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-reschedule',
@@ -13,15 +15,24 @@ import { ConfirmcancelComponent } from '../confirmcancel/confirmcancel.component
 })
 export class RescheduleComponent implements OnInit {
 
+  @ViewChild('drawer') drawer: any;
+  public selectedItem: string = '';
+  public isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map((result: BreakpointState) => result.matches));
+    
   scheduleForm: FormGroup;
   id: any;
   token = JSON.parse(localStorage.getItem('token'));
   today = new Date();
   tomorrow = new Date();
   activeTechnicians: any;
+  fname: any;
+
+
 
   constructor(public dialog: MatDialog, private http: HttpClient,
-    private router: Router, private _formBuilder: FormBuilder,  private route: ActivatedRoute) { }
+    private router: Router, private _formBuilder: FormBuilder,  private route: ActivatedRoute, private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
     this.tomorrow.setDate(this.today.getDate() + 1);
@@ -47,6 +58,7 @@ export class RescheduleComponent implements OnInit {
         return activeStatus.active == true;
       });
       this.activeTechnicians = acttechnicians
+      this.fname = result.first_name;
     });
 
   }
@@ -82,6 +94,16 @@ export class RescheduleComponent implements OnInit {
     } else {
       return false;
     }
+  }
+  closeSideNav() {
+    if (this.drawer._mode == 'over') {
+      this.drawer.close();
+    }
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/home'])
   }
 }
 

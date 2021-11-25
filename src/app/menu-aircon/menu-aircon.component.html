@@ -19,7 +19,7 @@
         <ng-template #notLogin></ng-template>
         <span class="spacer"></span>
         <div *ngIf="token != null; else notLogin1"></div>
-        <ng-template #notLogin1><button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button>
+        <ng-template #notLogin1><button mat-raised-button class="loginBtn" routerLink="/loginform">Login / Sign Up</button>
         </ng-template>
     </mat-toolbar>
     <div>
@@ -64,8 +64,11 @@
                     <mat-icon class="text_icon">done</mat-icon> Concealed Type
                 </h1>
             </div>
-            <button mat-raised-button class="bookBtn" routerLink="/login">Book a Service</button>
-            <button mat-raised-button class="pricingBtn" routerLink="/login">Check pricing</button>
+
+            <div class="buttons">
+                <button mat-raised-button class="bookBtn" routerLink="/login">Book a Service</button>
+                <button mat-raised-button class="pricingBtn" routerLink="/login">Check pricing</button>
+            </div>
         </mat-card>
     </div>
 </body>

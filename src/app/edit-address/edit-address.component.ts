@@ -25,11 +25,20 @@ export class EditAddressComponent implements OnInit {
   property: any[] = ["Condo", "Apartment", "House", "Store", "Office Building", "Warehouse or Storage"];
   fname: any;
 
+
+
+  city: any[] = ["Manila City", "Quezon City", "Caloocan City", "Las Piñas City", "Valenzuela City", "Makati City",
+    "Malabon City", "Mandaluyong City", "Marikina City", "Muntinlupa City", "Navotas City", "Parañaque City", "Pasay City",
+    "Pasig City", "San Juan City", "Taguig City", "Valenzuela City"];
+
+  
+
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result: BreakpointState) => result.matches));
+  locationForm: FormGroup;
   
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver,
@@ -42,7 +51,13 @@ export class EditAddressComponent implements OnInit {
         "x-access-token": this.token
       })
     }
+    this.locationForm = this._formBuilder.group({
+      service_city: ['', Validators.required],
+      service_property_type: ['', Validators.required],
+      service_barangay: [null, Validators.required]
+    });
 
+    
     this.serviceInfoForm = this._formBuilder.group({
       address: ['', Validators.required],
       addressDetails: ['', Validators.required],
@@ -75,7 +90,9 @@ export class EditAddressComponent implements OnInit {
     const pi = this.serviceInfoForm.value;
 
     let body = {
+      "service_city": pi.city,
       "service_address": pi.address,
+      "service_barangay":pi.service_barangay,
       "service_addressDetails": pi.addressDetails,
       "property_type": pi.property_type,
     }

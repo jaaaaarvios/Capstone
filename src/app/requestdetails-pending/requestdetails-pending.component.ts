@@ -31,6 +31,7 @@ export class RequestdetailsPendingComponent implements OnInit {
   technician: any;
   token = JSON.parse(localStorage.getItem('token'));
   cancelreasonForm: FormGroup;
+  fname: any;
 
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver, private router: Router, private _formBuilder: FormBuilder,
     private http: HttpClient, private route: ActivatedRoute, config: NgbModalConfig, private modalService: NgbModal,) { }
@@ -59,6 +60,7 @@ export class RequestdetailsPendingComponent implements OnInit {
       data = this.http.get('http://localhost:3000/technician/' +  this.techID , httpOptions);
       data.subscribe(result => {
         this.technician = result
+        this.fname = result.first_name;
       });
     });
   }

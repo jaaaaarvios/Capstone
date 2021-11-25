@@ -1,4 +1,16 @@
 @media (min-width: 820px) {
+    .sidenav-container {
+        height: 100%;
+    }
+    .sidenav {
+        width: fit-content;
+        width: 250px;
+        background-color: #FFFFFF;
+    }
+    .mat-sidenav-content {
+        height: 910px;
+        background-color: white;
+    }
     .mat-toolbar {
         width: 100%;
         height: 80px;
@@ -6,78 +18,117 @@
     .logo {
         max-width: 200px;
         height: 100px !important;
-        margin-left: 30px !important;
-        margin-top: 20px !important;
-    }
-    .homeBtn {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #003049;
-        font-size: 17px;
         float: left;
-        margin: 30px;
-        margin-left: 80px;
-        margin-top: 40px;
+        margin-top: -20px !important;
+        margin-left: 25px;
     }
-    .homeBtn:hover,
-    .homeBtn:active {
-        color: #dd0346;
+    .adminvector {
+        width: 95%;
+        margin-top: -60px !important;
+        margin-left: 10px;
     }
-    .menuBtn {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    .sidetitle {
         color: #003049;
-        font-size: 17px;
-        float: left;
-        margin: 30px;
-        margin-top: 40px;
-    }
-    .menuBtn:hover,
-    .menuBtn:active {
-        color: #dd0346;
-    }
-    .pricingBtn {
+        font-size: 20px;
+        margin-top: -10px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+    .nav-icon {
         color: #003049;
-        float: left;
-        margin: 30px;
-        margin-top: 40px;
-        font-size: 17px;
+        font-size: 28px;
+        margin-left: 20px;
+        margin-top: 15px;
     }
-    .pricingBtn:hover,
-    .pricingBtn:active {
-        color: #dd0346;
+    mat-list-item {
+        background-color: transparent !important;
     }
-    .contactUsBtn {
+    .dashboardside {
+        margin-left: 0px;
+        margin-top: 50px;
+        text-align: justify;
+        border-radius: 20px;
+        width: 100%;
+        height: 70px;
+        background-color: #D6B2BD;
+    }
+    .dashboard-btn {
+        color: #003049;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-top: 25px;
+        text-decoration: none;
+    }
+    .dashboardside:hover {
+        background-color: #D6B2BD;
+        border-radius: 20px;
+        width: 100%;
+        height: 70px;
+        text-align: center !important;
+    }
+    .bookingside {
+        margin-left: 0px;
+        margin-top: 30px;
+        text-align: justify;
+    }
+    .bookingside:hover {
+        background-color: #D6B2BD;
+        color: #FFFFFF;
+        border-radius: 20px;
+        width: 100%;
+        height: 70px;
+        text-align: center !important;
+    }
+    .booking-btn {
         color: #003049;
-        font-size: 17px;
-        float: left;
-        margin: 30px;
-        margin-top: 40px;
-    }
-    .contactUsBtn:hover,
-    .contactUsBtn:active {
-        color: #dd0346;
-    }
-    .aboutusBtn {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #003049;
-        font-size: 17px;
-        float: left;
-        margin: 30px;
-        margin-top: 40px;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-top: 25px;
     }
-    .aboutusBtn:hover,
-    .aboutusBtn:active {
-        color: #dd0346;
+    .profileside {
+        margin-left: 0px;
+        margin-top: 30px;
+        text-align: justify;
+    }
+    .profileside:hover {
+        background-color: #D6B2BD;
+        border-radius: 20px;
+        width: 100%;
+        height: 70px;
+        text-align: center !important;
+    }
+    .profile-btn {
+        color: #003049;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-top: 25px;
+    }
+    .logoutside {
+        margin-left: 0px;
+        margin-top: 30px;
+        text-align: justify;
+    }
+    .logout-btn {
+        color: #003049;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: -5px;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-top: 25px;
+    }
+    .logoutside:hover {
+        background-color: #D6B2BD;
+        color: #FFFFFF;
+        border-radius: 20px;
+        width: 100%;
+        height: 70px;
+        text-align: center !important;
     }
     .spacer {
         flex: 1 1 auto;
-    }
-    .ayosgamit {
-        font-family: 'Candara';
-        font-size: 30px;
-        float: left;
-        color: #FFFFFF;
     }
     p {
         margin-top: -5px;
@@ -90,22 +141,27 @@
     .reschedulevec {
         width: 30%;
         float: left;
-        margin-top: -50px !important;
+        margin-top: -100px !important;
     }
     .resched {
         font-size: 28px;
         float: left;
-        margin-top: 30px !important;
+        margin-top: -10px !important;
         margin-left: 20px;
         color: #b65e79;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+    .date {
+        float: left;
+        margin-left: -80px;
+        margin-top: 50px;
+    }
     .datepicker {
         margin-top: 80px;
-        margin-left: -80px;
     }
     .dateBtn {
         margin-left: 20px;
+        margin-top: -15px;
         background-color: #a4133c;
         color: #FFFFFF;
         height: 52px;
@@ -117,26 +173,27 @@
         margin-left: 120px;
     }
     .timeslot {
-        margin-top: -30px;
+        margin-top: 50px;
         float: left;
-        margin-left: 10px;
+        margin-left: 70px;
         font-size: 18px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .tech1Btn {
-        margin-top: -100px;
-        margin-right: 10px;
+        margin-top: 20px;
+        margin-left: 60px;
     }
     .tech2Btn {
         margin-top: 10px;
-        margin-right: 10px;
+        margin-left: 60px;
     }
     .tech3Btn {
-        margin-top: 10px;
-        margin-right: 10px;
+        margin-top: 10px !important;
+        margin-left: 395px;
     }
     .tech4Btn {
-        margin-top: 10px;
+        margin-top: 10px !important;
+        margin-left: 395px;
     }
     .h1technicians {
         font-size: 12px;
@@ -160,7 +217,7 @@
     }
     .summary {
         width: 800px;
-        height: 500px;
+        height: 600px;
         margin-top: 50px !important;
         position: center !important;
         margin: auto;

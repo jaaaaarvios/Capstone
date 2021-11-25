@@ -1,26 +1,26 @@
 <body>
     <mat-toolbar>
         <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
-              <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label> 
-                  <mat-menu #menu="matMenu">
-                    <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
-                    <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
-                    <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
-                    <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
-                    <button mat-menu-item routerLink="/menu_tv">Television</button>
-                  </mat-menu>
-  
-                  <label class="toolbarBtn" routerLink="/pricing">Pricing</label>
-                  <label class="toolbarBtn" routerLink="/contact_us">Contact Us</label>
-                  <label class="toolbarBtn" routerLink="/about_us">About Us</label>
-                  <div *ngIf="token != null; else notLogin">
-                    <label class="toolbarBtn" routerLink="/dashboard">Home</label>
-                  </div>
-                  <ng-template #notLogin></ng-template>
-                  <span class="spacer"></span>
-                  <div *ngIf="token != null; else notLogin1"></div>
-                  <ng-template #notLogin1><button mat-raised-button class="loginBtn" routerLink="/login">Login / Sign Up</button></ng-template>        
-        </mat-toolbar>      
+        <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
+            <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
+            <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
+            <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
+            <button mat-menu-item routerLink="/menu_tv">Television</button>
+        </mat-menu>
+
+        <label class="toolbarBtn" routerLink="/pricing">Pricing</label>
+        <label class="toolbarBtn" routerLink="/contact_us">Contact Us</label>
+        <label class="toolbarBtn" routerLink="/about_us">About Us</label>
+        <div *ngIf="token != null; else notLogin">
+            <label class="toolbarBtn" routerLink="/dashboard">Home</label>
+        </div>
+        <ng-template #notLogin></ng-template>
+        <span class="spacer"></span>
+        <div *ngIf="token != null; else notLogin1"></div>
+        <ng-template #notLogin1><button mat-raised-button class="loginBtn" routerLink="/loginform">Login / Sign Up</button></ng-template>
+    </mat-toolbar>
     <h1 class="title">Pricing </h1>
     <mat-tab-group>
         <!--AIRCON------------------------------------------------------------------>
@@ -30,11 +30,8 @@
                 <div>
                     <h1 class="airconrepair">Aircon Repair</h1>
                     <h2 class="airconfee">Checkup Fee: Php 200</h2>
-                    <p class="aircondescrip">Technician diagnoses the problem
-                        and quotes you a final repair price. No hidden or extra fees.</p>
-                    <p class="aircondescrip2">If you decide to proceed with the repair,
-                        your total costs will include the checkup fee and labor. If you
-                        decline the repair, please pay our technician this checkup fee.</p>
+                    <p class="aircondescrip">Technician diagnoses the problem and quotes you a final repair price. No hidden or extra fees.</p>
+                    <p class="aircondescrip2">If you decide to proceed with the repair, your total costs will include the checkup fee and labor. If you decline the repair, please pay our technician this checkup fee.</p>
                     <h1 class="repairservice1">
                         <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
                     </h1>
@@ -76,13 +73,10 @@
                         <mat-icon class="text_icon"><b>done</b></mat-icon> New bracket/platform (up to 6ft height)
                     </h1>
                     <h1 class="cleaningservice2">
-                        <mat-icon class="text_icon"><b>done</b></mat-icon> New circuit breaker & electrical wire
-                        from
-                        Indoor to Outdoor unit
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> New circuit breaker & electrical wire from Indoor to Outdoor unit
                     </h1>
                     <h1 class="cleaningservice2">
-                        <mat-icon class="text_icon"><b>done</b></mat-icon> Free 10ft copper piping (+Php 450 per
-                        additional foot, 5ft min)
+                        <mat-icon class="text_icon"><b>done</b></mat-icon> Free 10ft copper piping (+Php 450 per additional foot, 5ft min)
                     </h1>
                 </div>
             </mat-card>
@@ -94,11 +88,8 @@
                 <div>
                     <h1 class="airconrepair">Refrigerator Repair</h1>
                     <h2 class="airconfee">Checkup Fee: Php 200</h2>
-                    <p class="aircondescrip">Technician diagnoses the problem
-                        and quotes you a final repair price. No hidden or extra fees.</p>
-                    <p class="aircondescrip2">If you decide to proceed with the repair,
-                        your total costs will include the checkup fee and labor. If you
-                        decline the repair, please pay our technician this checkup fee.</p>
+                    <p class="aircondescrip">Technician diagnoses the problem and quotes you a final repair price. No hidden or extra fees.</p>
+                    <p class="aircondescrip2">If you decide to proceed with the repair, your total costs will include the checkup fee and labor. If you decline the repair, please pay our technician this checkup fee.</p>
                     <h1 class="repairservice1">
                         <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
                     </h1>
@@ -116,11 +107,8 @@
                 <div>
                     <h1 class="airconrepair">Washing Machine Repair</h1>
                     <h2 class="airconfee">Checkup Fee: Php 200</h2>
-                    <p class="aircondescrip">Technician diagnoses the problem
-                        and quotes you a final repair price. No hidden or extra fees.</p>
-                    <p class="aircondescrip2">If you decide to proceed with the repair,
-                        your total costs will include the checkup fee and labor. If you
-                        decline the repair, please pay our technician this checkup fee.</p>
+                    <p class="aircondescrip">Technician diagnoses the problem and quotes you a final repair price. No hidden or extra fees.</p>
+                    <p class="aircondescrip2">If you decide to proceed with the repair, your total costs will include the checkup fee and labor. If you decline the repair, please pay our technician this checkup fee.</p>
                     <h1 class="repairservice1">
                         <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
                     </h1>
@@ -160,11 +148,8 @@
                 <div>
                     <h1 class="airconrepair">Electric Fan Repair</h1>
                     <h2 class="airconfee">Checkup Fee: Php 200</h2>
-                    <p class="aircondescrip">Technician diagnoses the problem
-                        and quotes you a final repair price. No hidden or extra fees.</p>
-                    <p class="aircondescrip2">If you decide to proceed with the repair,
-                        your total costs will include the checkup fee and labor. If you
-                        decline the repair, please pay our technician this checkup fee.</p>
+                    <p class="aircondescrip">Technician diagnoses the problem and quotes you a final repair price. No hidden or extra fees.</p>
+                    <p class="aircondescrip2">If you decide to proceed with the repair, your total costs will include the checkup fee and labor. If you decline the repair, please pay our technician this checkup fee.</p>
                     <h1 class="repairservice1">
                         <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem
                     </h1>
@@ -181,12 +166,9 @@
                     <h1 class="airconrepair">Television Repair</h1>
                     <h2 class="airconfee">Checkup Fee: Php 200</h2>
 
-                    <p class="aircondescrip">Technician diagnoses the problem
-                        and quotes you a final repair price. No hidden or extra fees.</p>
+                    <p class="aircondescrip">Technician diagnoses the problem and quotes you a final repair price. No hidden or extra fees.</p>
 
-                    <p class="aircondescrip2">If you decide to proceed with the repair,
-                        your total costs will include the checkup fee and labor. If you
-                        decline the repair, please pay our technician this checkup fee.</p>
+                    <p class="aircondescrip2">If you decide to proceed with the repair, your total costs will include the checkup fee and labor. If you decline the repair, please pay our technician this checkup fee.</p>
 
                     <h1 class="repairservice1">
                         <mat-icon class="text_icon"><b>done</b></mat-icon>Full diagnosis of the unit problem

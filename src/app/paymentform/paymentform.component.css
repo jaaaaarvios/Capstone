@@ -132,6 +132,11 @@ th {
     margin-top: 60px;
 }
 
+.payBtn:hover,
+.payBtnn:active {
+    color: #f9dcc4;
+}
+
 .payment {
     width: 700px;
     height: 450px;
