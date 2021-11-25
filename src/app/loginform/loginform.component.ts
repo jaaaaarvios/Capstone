@@ -90,10 +90,10 @@ export class LoginformComponent implements OnInit {
             alert(result.message);
             this.router.navigate(['/admin'])
           }
-        }), error => {
+        }, error => {
           console.log(error);
           alert("Error: " + error);
-        }
+        });
       }
       else if (val.email != this.admin) {
         this.auth.login(val).subscribe(result => {

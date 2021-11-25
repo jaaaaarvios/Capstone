@@ -208,7 +208,7 @@
                                 <div class="timeslots">
                                     <h1 class="timeslot">Select a time slot</h1>
                                     <div *ngIf="activeTechnicians.length == 0; else showAvailalbe">
-                                        <button mat-stroked-button class="tech1Btn" disabled>Fully Booked</button>
+                                        <button mat-stroked-button class="tech1Btn" formControlName="service_timeslot" disabled>Fully Booked</button>
                                     </div>
                                     <ng-template #showAvailalbe>
                                         <button mat-stroked-button class="tech1Btn">
@@ -218,7 +218,7 @@
                                     </ng-template>
 
                                     <div *ngIf="activeTechnicians.length == 0; else showAvailalbe1">
-                                        <button mat-stroked-button class="tech2Btn" disabled>Fully Booked</button>
+                                        <button mat-stroked-button class="tech2Btn" formControlName="service_timeslot" disabled>Fully Booked</button>
                                     </div>
                                     <ng-template #showAvailalbe1>
                                         <button mat-stroked-button class="tech2Btn" value="10:00am-1:00pm">
@@ -228,7 +228,7 @@
                                     </ng-template>
 
                                     <div *ngIf="activeTechnicians.length == 0; else showAvailalbe2">
-                                        <button mat-stroked-button class="tech2Btn" disabled>Fully Booked</button>
+                                        <button mat-stroked-button class="tech2Btn" formControlName="service_timeslot" disabled>Fully Booked</button>
                                     </div>
                                     <ng-template #showAvailalbe2>
                                         <button mat-stroked-button class="tech2Btn" value="1:00pm-3:00pm">
@@ -238,7 +238,7 @@
                                     </ng-template>
 
                                     <div *ngIf="activeTechnicians.length == 0; else showAvailalbe3">
-                                        <button mat-stroked-button class="tech2Btn" disabled>Fully Booked</button>
+                                        <button mat-stroked-button class="tech2Btn" formControlName="service_timeslot" disabled>Fully Booked</button>
                                     </div>
                                     <ng-template #showAvailalbe3>
                                         <button mat-stroked-button class="tech2Btn" value="3:00pm-6:00pm">

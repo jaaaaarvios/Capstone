@@ -109,7 +109,7 @@ export class AirconInstallComponent implements OnInit {
 
     this.scheduleForm = this._formBuilder.group({
       service_date: [null, Validators.required],
-      service_timeslot: [""]
+      service_timeslot: ["",  Validators.required]
     });
 
     this.contactDetialsForm = this._formBuilder.group({
