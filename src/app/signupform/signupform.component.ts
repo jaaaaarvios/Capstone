@@ -77,6 +77,8 @@ export class SignupformComponent implements OnInit {
       "service_address": "None",
       "service_addressDetails": "None",
       "property_type": "None",
+      "city": "None",
+      "barangay": "None",
       "active": "1"
     }
     if (this.signupForm.valid) {

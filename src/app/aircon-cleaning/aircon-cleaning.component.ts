@@ -141,6 +141,11 @@ export class AirconCleaningComponent implements OnInit {
         service_addressDetails: result.service_addressDetails,
         service_instruction: ""
       });
+      this.locationForm.setValue({
+        service_city: result.city,
+        service_barangay: result.barangay,
+        service_property_type: result.property_type
+      });
     });
 
     let dataa: Observable<any>;

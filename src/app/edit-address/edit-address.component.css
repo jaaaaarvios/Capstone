@@ -231,7 +231,7 @@ mat-list-item {
 
 .card {
     width: 500px;
-    height: 500px;
+    height: 530px;
     margin: auto;
     margin-top: 100px;
 }
@@ -268,14 +268,12 @@ mat-icon {
 .addtextfields {
     min-height: 40px;
     width: 300px;
-    margin-top: 60px;
     margin-left: 10px;
 }
 
 .cancelBtn {
     width: 90px;
     height: 50px;
-    margin-top: 30px;
     font-size: 16px;
     float: right;
     margin-right: 10px;
@@ -287,11 +285,22 @@ mat-icon {
 .saveBtn {
     width: 130px;
     height: 50px;
-    margin-top: 30px;
     font-size: 16px;
     float: right;
     margin-right: 10px;
     color: #FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #fcb42a;
+}
+
+.barangay {
+    margin-left: 30px;
+    margin-top: 10px;
+    font-family: 'Trebuchet MS';
+}
+
+.cityselect {
+    margin-left: 10px;
+    margin-top: 30px;
+    font-family: 'Trebuchet MS';
 }

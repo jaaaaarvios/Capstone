@@ -51,17 +51,6 @@
 
         <form [formGroup]="serviceInfoForm" (ngSubmit)="serviceInfoSubmit()">
             <mat-card class="card">
-
-                <!--<p>
-                    <mat-form-field class="addtextfields" appearance="outline">
-                        <mat-label>Service Address</mat-label>
-                        <input matInput formControlName="address" [errorStateMatcher]="matcher" autocomplete="off">
-                        <mat-error *ngIf="serviceInfoForm.get('address').hasError('required')">
-                            Service Adresss is required.
-                        </mat-error>
-                    </mat-form-field>
-                </p>-->
-
                 <p>
                     <mat-form-field class="cityselect" appearance="outline">
                         <mat-label>Select a City</mat-label>
@@ -70,29 +59,29 @@
                                 {{cit}}
                             </mat-option>
                         </mat-select>
-                        <mat-error *ngIf="locationForm.get('service_city').hasError('required')">
+                        <mat-error *ngIf="serviceInfoForm.get('service_city').hasError('required')">
                             You must make a selection
                         </mat-error>
                     </mat-form-field>
 
                     <!--Barangay-->
-                    <mat-form-field class="zipcode" appearance="outline">
+                    <mat-form-field class="barangay" appearance="outline">
                         <mat-label>Barangay</mat-label>
                         <input matInput type="text" formControlName="service_barangay" [errorStateMatcher]="matcher" autocomplete="off">
-                        <mat-error *ngIf="locationForm.get('service_barangay').hasError('required')">
+                        <mat-error *ngIf="serviceInfoForm.get('service_barangay').hasError('required')">
                             Input valid barangay
                         </mat-error>
-                        <mat-error *ngIf="locationForm.get('service_barangay').hasError('pattern')">
+                        <mat-error *ngIf="serviceInfoForm.get('service_barangay').hasError('pattern')">
                             Input valid barangay
                         </mat-error>
                     </mat-form-field>
                 </p>
                 <p>
-                    <mat-form-field class="textfields" appearance="outline">
+                    <mat-form-field class="addtextfields" appearance="outline">
                         <mat-label>Service Address</mat-label>
-                        <input matInput formControlName="addressDetails" [errorStateMatcher]="matcher" autocomplete="off">
-                        <mat-error *ngIf="serviceInfoForm.get('addressDetails').hasError('required')">
-                            Service Adresss Details is required.
+                        <input matInput formControlName="address" [errorStateMatcher]="matcher" autocomplete="off">
+                        <mat-error *ngIf="serviceInfoForm.get('address').hasError('required')">
+                            Service Adresss is required.
                         </mat-error>
                     </mat-form-field>
                 </p>

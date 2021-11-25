@@ -21,6 +21,8 @@ export class ProfileformComponent implements OnInit {
   address="";
   addressDetails="";
   property_type="";
+  city="";
+  barangay="";
 
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -50,6 +52,8 @@ export class ProfileformComponent implements OnInit {
         this.address = result.service_address;
         this.addressDetails = result.service_addressDetails;
         this.property_type = result.property_type;
+        this.city = result.city;
+        this.barangay = result.barangay;
       });
   }
 
