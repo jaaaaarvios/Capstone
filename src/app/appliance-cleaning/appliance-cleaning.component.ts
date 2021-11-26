@@ -17,7 +17,7 @@ export class ApplianceCleaningComponent implements OnInit {
 
   subscription: any;
   fname: any;
-id=JSON.parse(localStorage.getItem('id'));
+  id=JSON.parse(localStorage.getItem('id'));
   token = JSON.parse(localStorage.getItem('token'));
   
   @ViewChild('drawer') drawer: any;
@@ -48,6 +48,10 @@ id=JSON.parse(localStorage.getItem('id'));
   logout(){
     localStorage.clear();
     this.router.navigate(['/home'])
+  }
+  goDashboard(){
+    this.router.navigate(['dashboard']);
+    localStorage.setItem('firstLogin', "true");
   }
   AirconOpen(){
     this.router.navigate(['/aircon-cleaning']);

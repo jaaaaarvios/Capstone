@@ -22,5 +22,9 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void { 
 
   }
+  goDashboard(){
+    this.router.navigate(['dashboard'])
+    localStorage.setItem('firstLogin', "true")
+  }
 
 }

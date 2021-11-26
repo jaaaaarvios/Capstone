@@ -59,8 +59,8 @@ export class BookingsummaryComponent implements OnInit {
     var retVal = confirm("By cancelling your booking, all data will be lost. ");
     if (retVal == true) {
       this.deleteOne()
-      localStorage.removeItem("service");
-      this.router.navigate(['/dashboard'])
+      this.router.navigate(['dashboard'])
+      localStorage.setItem('firstLogin', "true")
       return true;
     } else {
       return false;

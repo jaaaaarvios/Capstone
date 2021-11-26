@@ -104,25 +104,28 @@
         </mat-card>
     </div>
     <!--Technicians Details------------------------------------------------>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Fullname</th>
-                <th>Gender</th>
-                <th>Number</th>
-                <th>Address</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let tech of technician">
-                <td>{{tech.fullname}}</td>
-                <td>{{tech.gender}}</td>
-                <td>{{tech.number}}</td>
-                <td>{{tech.address}}</td>
-                <td><button (click)="deploy(tech._id)">Deploy</button></td>
-            </tr>
-        </tbody>
-    </table>
+    <div *ngIf="request.technician_id != null; else showActive"></div>
+    <ng-template #showActive>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Fullname</th>
+                    <th>Gender</th>
+                    <th>Number</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tech of technician">
+                    <td>{{tech.fullname}}</td>
+                    <td>{{tech.gender}}</td>
+                    <td>{{tech.number}}</td>
+                    <td>{{tech.address}}</td>
+                    <td><button (click)="deploy(tech._id)">Deploy</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
 </div>
 
 <ng-template #cancelReason let-c="close" let-d="dismiss">

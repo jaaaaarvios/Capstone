@@ -31,12 +31,16 @@ export class RequestdetailsAdminComponent implements OnInit {
   techID: "";
   token = JSON.parse(localStorage.getItem('token'));
   cancelreasonForm: FormGroup;
+  isReload = false;
 
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver, private router: Router,  private _formBuilder: FormBuilder
     , private http: HttpClient, private route: ActivatedRoute, config: NgbModalConfig, private modalService: NgbModal,) { }
 
   ngOnInit(): void {
-
+    if (localStorage.getItem('firstLogin') == 'true') {
+      localStorage.setItem('firstLogin', "false")
+      window.location.reload()
+    }
     if (localStorage.getItem("firstname") == null) {
       this.router.navigate(['/home'])
     }
@@ -99,6 +103,7 @@ export class RequestdetailsAdminComponent implements OnInit {
       this.http.patch("http://localhost:3000/NewServiceRequest/status/" + this.id, body, httpOptions)
         .subscribe(data => {
           this.router.navigate(['/admin']);
+          localStorage.setItem('firstLogin', "true");
         }, error => {
           console.log(error);
           alert(error);
@@ -107,6 +112,7 @@ export class RequestdetailsAdminComponent implements OnInit {
         this.http.patch("http://localhost:3000/technician/active/" + this.techID, body1, httpOptions)
         .subscribe(data => {
           this.router.navigate(['/admin']);
+          localStorage.setItem('firstLogin', "true");
         }, error => {
           console.log(error);
           alert(error);
@@ -129,6 +135,7 @@ export class RequestdetailsAdminComponent implements OnInit {
       this.http.patch("http://localhost:3000/NewServiceRequest/cancel-status/" + this.id, body, httpOptions)
         .subscribe(data => {
           this.router.navigate(['/admin']);
+          localStorage.setItem('firstLogin', "true");
           let ref = document.getElementById('close');
           ref?.click();
           this.cancelreasonForm.reset();
@@ -140,7 +147,6 @@ export class RequestdetailsAdminComponent implements OnInit {
   }
 
   deploy(techID){
-    
     let body = {
       "technician_id": techID,
     }
@@ -162,6 +168,7 @@ export class RequestdetailsAdminComponent implements OnInit {
       this.http.patch("http://localhost:3000/technician/active/" + tech_id, body1, httpOptions)
       .subscribe(data => {
         alert("Deployed")
+        localStorage.setItem('firstLogin', "true");
       }, error => {
         console.log(error);
         alert(error);

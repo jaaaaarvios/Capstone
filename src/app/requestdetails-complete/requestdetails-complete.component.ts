@@ -78,7 +78,10 @@ export class RequestdetailsCompleteComponent implements OnInit {
       this.email = result.email;
     });
   }
-
+  goDashboard(){
+    this.router.navigate(['dashboard']);
+    localStorage.setItem('firstLogin', "true");
+  }
   logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
@@ -116,6 +119,7 @@ export class RequestdetailsCompleteComponent implements OnInit {
           this.http.patch("http://localhost:3000/technician/rate/" + this.techID, body, httpOptions)
           .subscribe(data => {
             this.router.navigate(['/dashboard']);
+            localStorage.setItem('firstLogin', "true");
             let ref = document.getElementById('close');
             ref?.click();
             this.rateForm.reset();
@@ -127,6 +131,7 @@ export class RequestdetailsCompleteComponent implements OnInit {
           .subscribe(data => {
             alert("Thank you for the feedback!")
             this.router.navigate(['/dashboard']);
+            localStorage.setItem('firstLogin', "true");
             let ref = document.getElementById('close');
             ref?.click();
             this.rateForm.reset();

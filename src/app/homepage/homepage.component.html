@@ -14,7 +14,7 @@
         <label class="contactUsBtn" routerLink="/contact_us">Contact Us</label>
         <label class="aboutusBtn" routerLink="/about_us">About Us</label>
         <div *ngIf="token != null; else notLogin">
-            <label class="aboutusBtn" routerLink="/dashboard">My Account</label>
+            <label class="aboutusBtn" (click)="goDashboard()">My Account</label>
         </div>
         <ng-template #notLogin></ng-template>
         <span class="spacer"></span>

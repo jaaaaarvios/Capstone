@@ -20,11 +20,13 @@ export class PaymentsuccessComponent implements OnInit {
   }
   onSubmit(){
     localStorage.removeItem("service");
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['dashboard']);
+    localStorage.setItem('firstLogin', "true");
   }
   getConfirmation1() {
       localStorage.removeItem("service");
-      this.router.navigate(['/menu_aircon'])
+      this.router.navigate(['/menu_aircon']);
+      
   }
   getConfirmation2() {
       localStorage.removeItem("service");

@@ -20,6 +20,7 @@ export class AdminpageComponent implements OnInit {
   rejected_request = []
   token = JSON.parse(localStorage.getItem('token'));
   id: string;
+  isReload = false;
   
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -44,6 +45,10 @@ export class AdminpageComponent implements OnInit {
   constructor( private breakpointObserver: BreakpointObserver, private http: HttpClient, private router: Router) { 
     setInterval(() => {
       this.date = new Date()
+      if (localStorage.getItem('firstLogin') == 'true') {
+        localStorage.setItem('firstLogin', "false")
+      window.location.reload()
+    }
     }, 1000)
   }
 

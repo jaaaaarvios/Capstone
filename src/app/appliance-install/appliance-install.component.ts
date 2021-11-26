@@ -44,6 +44,10 @@ export class ApplianceInstallComponent implements OnInit {
       this.fname = result.first_name;
     });
   }
+  goDashboard(){
+    this.router.navigate(['dashboard']);
+    localStorage.setItem('firstLogin', "true");
+  }
   logout() {
     localStorage.clear();
     this.router.navigate(['/home'])

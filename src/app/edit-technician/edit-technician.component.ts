@@ -75,6 +75,10 @@ export class EditTechnicianComponent implements OnInit {
       tech_specialization.removeAt(index);
     }
   }
+  goAdmin(){
+    this.router.navigate(['admin']);
+    localStorage.setItem('firstLogin', "true");
+  }
 
   submit() {
     const val = this.addTech.value;
@@ -96,6 +100,7 @@ export class EditTechnicianComponent implements OnInit {
         .subscribe(data => {
           console.log(data, 'success');
           this.router.navigate(['/technicians']);
+          localStorage.setItem('firstLogin', "true");
           alert("Updated");
         }, error => {
           console.log(error)

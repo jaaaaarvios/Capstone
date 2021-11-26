@@ -51,7 +51,10 @@ export class TechprofileComponent implements OnInit {
       this.data = result;
     });
   }
-  
+  goAdmin(){
+    this.router.navigate(['admin']);
+    localStorage.setItem('firstLogin', "true");
+  }
   logout() {
     localStorage.clear();
     this.router.navigate(['/home'])

@@ -90,6 +90,10 @@ export class AircondetailsComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
+  goDashboard(){
+    this.router.navigate(['dashboard']);
+    localStorage.setItem('firstLogin', "true");
+  }
 
   ngOnInit(): void {
     this.tomorrow.setDate(this.today.getDate() + 1);
@@ -228,9 +232,6 @@ export class AircondetailsComponent implements OnInit {
       }
     );
   }
-
-
-
   checked = false;
   indeterminate = false;
   labelPosition: 'before' | 'after' = 'after';

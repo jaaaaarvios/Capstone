@@ -49,7 +49,10 @@ export class RequestCompleteComponent implements OnInit {
         this.techID = result.technician_id
       });
   }
-
+  goAdmin(){
+    this.router.navigate(['admin']);
+    localStorage.setItem('firstLogin', "true");
+  }
   logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
@@ -77,6 +80,7 @@ export class RequestCompleteComponent implements OnInit {
       this.http.patch("http://localhost:3000/NewServiceRequest/status/" + this.id, body, httpOptions)
         .subscribe(data => {
           this.router.navigate(['/admin']);
+          localStorage.setItem('firstLogin', "true");
         }, error => {
           console.log(error);
           alert(error);
@@ -84,6 +88,7 @@ export class RequestCompleteComponent implements OnInit {
         this.http.patch("http://localhost:3000/technician/active/" + this.techID, body1, httpOptions)
         .subscribe(data => {
           this.router.navigate(['/admin']);
+          localStorage.setItem('firstLogin', "true");
         }, error => {
           console.log(error);
           alert(error);

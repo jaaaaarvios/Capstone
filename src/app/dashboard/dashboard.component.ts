@@ -57,12 +57,6 @@ export class DashboardComponent implements OnInit {
     }
     config.backdrop = 'static';
     config.keyboard = false;
-
-  
-
-   
-    
-    
   }
 
   getItems() {

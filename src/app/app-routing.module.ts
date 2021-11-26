@@ -6,7 +6,6 @@ import { LoginformComponent } from '../app/loginform/loginform.component';
 import { DashboardComponent } from '../app/dashboard/dashboard.component';
 import {BookingformComponent} from '../app/bookingform/bookingform.component';
 import {ProfileformComponent} from '../app/profileform/profileform.component';
-import{ConfirmcancelComponent} from '../app/confirmcancel/confirmcancel.component';
 import {RequestdetailsComponent} from '../app/requestdetails/requestdetails.component';
 import {AdminpageComponent} from '../app/adminpage/adminpage.component';
 import {TechniciansComponent} from '../app/technicians/technicians.component';
@@ -59,7 +58,6 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'bookingform', component: BookingformComponent },
   { path: 'profile', component: ProfileformComponent },
-  { path: 'confirmcancel', component: ConfirmcancelComponent },
   { path: 'requestdetails/:id', component: RequestdetailsComponent },
   { path: 'requestdetails-pending/:id', component: RequestdetailsPendingComponent },
   { path: 'payment', component: PaymentformComponent },

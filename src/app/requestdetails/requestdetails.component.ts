@@ -84,6 +84,10 @@ export class RequestdetailsComponent implements OnInit {
       this.drawer.close();
     }
   }
+  goDashboard(){
+    this.router.navigate(['dashboard']);
+    localStorage.setItem('firstLogin', "true");
+  }
   getConfirmation() {
     var retVal = confirm("Do you really want to cancel ?");
     if (retVal == true) {
@@ -101,7 +105,8 @@ export class RequestdetailsComponent implements OnInit {
       }
       this.http.patch("http://localhost:3000/NewServiceRequest/cancel-status/" + this.id, body, httpOptions)
         .subscribe(data => {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['dashboard']);
+          localStorage.setItem('firstLogin', "true");
           let ref = document.getElementById('close');
           ref?.click();
           this.cancelreasonForm.reset();
@@ -111,7 +116,8 @@ export class RequestdetailsComponent implements OnInit {
         });
         this.http.patch("http://localhost:3000/technician/active/" + this.techID, body1, httpOptions)
         .subscribe(data => {
-          // this.router.navigate(['/dashboard']);
+          this.router.navigate(['dashboard']);
+          localStorage.setItem('firstLogin', "true");
           let ref = document.getElementById('close');
           ref?.click();
           this.cancelreasonForm.reset();

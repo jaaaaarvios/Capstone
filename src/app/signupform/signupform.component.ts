@@ -32,7 +32,7 @@ export class SignupformComponent implements OnInit {
 
   signupForm: FormGroup;
   subscription: Subscription;
-
+  property: any[] = ["Condo", "Apartment", "House", "Store", "Office Building", "Warehouse or Storage"];
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
   public isHandset$: Observable<boolean> = this.breakpointObserver
@@ -62,6 +62,8 @@ export class SignupformComponent implements OnInit {
       user_lname: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z_ ]{2,40}"), Validators.maxLength(15)]),
       user_semail: new FormControl('', [Validators.required]),
       user_spassword: new FormControl('', [Validators.required, Validators.minLength(this.minPw), Validators.maxLength(this.maxPw)]),
+      user_saddress: new FormControl('', [Validators.required]),
+      user_sptype: new FormControl('', [Validators.required]),
     });
 
   }
@@ -74,9 +76,9 @@ export class SignupformComponent implements OnInit {
       "email": val.user_semail,
       "password": val.user_spassword,
       "number": "None",
-      "service_address": "None",
+      "service_address": val.user_saddress,
       "service_addressDetails": "None",
-      "property_type": "None",
+      "property_type": val.user_sptype,
       "city": "None",
       "barangay": "None",
       "active": "1"

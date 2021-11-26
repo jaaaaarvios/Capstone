@@ -66,7 +66,8 @@ export class PaymentformComponent implements OnInit {
     if (retVal == true) {
       this.deleteOne()
       localStorage.removeItem("service");
-      this.router.navigate(['/dashboard'])
+      this.router.navigate(['dashboard']);
+      localStorage.setItem('firstLogin', "true");
       return true;
     } else {
       return false;
@@ -156,6 +157,15 @@ export class PaymentformComponent implements OnInit {
       this.deleteOne()
       localStorage.removeItem("service");
       this.router.navigate(['/about_us'])
+      return true;
+    } else {
+      return false;
+    }
+  }
+  paycashSubmit(){
+    var retVal = confirm("Are you sure ?");
+    if (retVal == true) {
+      this.router.navigate(['/paymentthankyou'])
       return true;
     } else {
       return false;
