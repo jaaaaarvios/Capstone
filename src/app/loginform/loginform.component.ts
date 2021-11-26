@@ -87,6 +87,7 @@ export class LoginformComponent implements OnInit {
             localStorage.setItem("id", JSON.stringify(result._id));
             localStorage.setItem("firstname", JSON.stringify(result.first_name));
             localStorage.setItem("token", JSON.stringify(result.token));
+            localStorage.setItem('firstLogin', "true")
             alert(result.message);
             this.router.navigate(['/admin'])
           }
@@ -100,6 +101,7 @@ export class LoginformComponent implements OnInit {
           if (result) {
             localStorage.setItem("id", JSON.stringify(result._id));
             localStorage.setItem("token", JSON.stringify(result.token));
+            localStorage.setItem('firstLogin', "true")
             console.log(result);
             alert(result.message);
             this.router.navigate(['/profile'])

@@ -38,6 +38,7 @@ export class PaymentformComponent implements OnInit {
       onApprove: (details) => {
         alert("Transaction success")
         this.router.navigate(['/paymentsuccess'])
+        console.log(details)
       }
     })
   }

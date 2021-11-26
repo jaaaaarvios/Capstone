@@ -165,7 +165,7 @@ export class AircondetailsComponent implements OnInit {
       const coords = position.coords;
       const latLong = [coords.latitude, coords.longitude];
       console.log(
-        `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
+        `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`, coords
       );
       let mymap = L.map('mapid').setView(latLong, 13);
 
@@ -178,7 +178,7 @@ export class AircondetailsComponent implements OnInit {
           id: 'mapbox/streets-v11',
           tileSize: 512,
           zoomOffset: -1,
-          accessToken: 'your.mapbox.access.token',
+          accessToken: 'pk.eyJ1IjoiamFhYWFhcnZpcyIsImEiOiJja294cnFhZHgwZzZyMnVtd2Q3YjRlZzdzIn0.vTrhUxiEiHeYenW8gPq_8w',
         }
       ).addTo(mymap);
 
@@ -188,7 +188,7 @@ export class AircondetailsComponent implements OnInit {
 
       let popup = L.popup()
         .setLatLng(latLong)
-        .setContent('Hello')
+        .setContent(coords)
         .openOn(mymap);
     });
 

@@ -142,7 +142,7 @@
     .backBtn {
         font-size: 20px;
         float: left;
-        margin-top: -10px !important;
+        margin-top: 10px !important;
         margin-left: -200px !important;
         background-color: grey;
     }
@@ -255,4 +255,6 @@
     .radioBtn {
         margin: 5px;
     }
+
+    
 }
