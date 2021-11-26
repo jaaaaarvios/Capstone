@@ -1,5 +1,4 @@
 <mat-toolbar>
-
     <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
     <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label>
     <mat-menu #menu="matMenu">
@@ -15,14 +14,7 @@
     <label class="aboutusBtn" (click)="getConfirmation8()">About Us</label>
     <label class="aboutusBtn" (click)="getConfirmationn()">Home</label>
     <span class="spacer"></span>
-
-
 </mat-toolbar>
-
-
-
-
-
 
 <mat-card class="summary">
     <div>
@@ -141,10 +133,9 @@
 
 <div class="termschkbox">
     <mat-checkbox #confirmed>I agree to Ayosgamit <b>Terms and Conditions.</b></mat-checkbox>
-
-
+    <div>
+        <div *ngIf="!confirmed.checked; then disable else enable"></div>
+        <ng-template #disable><button mat-stroked-button class="submitBtn-disabled" routerLink="/payment" [disabled]="!confirmed.checked">Proceed to payment</button></ng-template>
+        <ng-template #enable><button mat-raised-button class="submitBtn" routerLink="/payment">Proceed to payment</button></ng-template>
+    </div>
 </div>
-<div *ngIf="!confirmed.checked; then disable else enable"></div>
-
-<ng-template #disable><button mat-stroked-button class="submitBtn-disabled" routerLink="/payment" [disabled]="!confirmed.checked">Proceed to payment</button></ng-template>
-<ng-template #enable><button mat-raised-button class="submitBtn" routerLink="/payment">Proceed to payment</button></ng-template>

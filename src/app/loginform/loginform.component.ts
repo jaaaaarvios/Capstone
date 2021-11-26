@@ -92,7 +92,8 @@ export class LoginformComponent implements OnInit {
           }
         }, error => {
           console.log(error);
-          alert("Error: " + error);
+          alert("Invalid Email or Password");
+          this.userForm.reset();
         });
       }
       else if (val.email != this.admin) {
@@ -104,10 +105,11 @@ export class LoginformComponent implements OnInit {
             alert(result.message);
             this.router.navigate(['/profile'])
           }
-        }), err => {
-          // console.log(err);
-          // alert(err);
-        }
+        }, error => {
+          console.log(error);
+          alert("Invalid Email or Password");
+          this.userForm.reset();
+        });
       }
       else {
         alert("Invalid Information. Please try again.");

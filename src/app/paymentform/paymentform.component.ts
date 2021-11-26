@@ -160,4 +160,13 @@ export class PaymentformComponent implements OnInit {
       return false;
     }
   }
+  paycashSubmit(){
+    var retVal = confirm("Are you sure ?");
+    if (retVal == true) {
+      this.router.navigate(['/paymentthankyou'])
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

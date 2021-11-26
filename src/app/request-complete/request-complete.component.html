@@ -1,96 +1,97 @@
 <!--HEADER------------------------------------------------>
 <mat-toolbar>
     <h1 class="ayosgamit">Ayosgamit</h1>
-  </mat-toolbar>
-  <div class="container">
+</mat-toolbar>
+<div class="container">
     <!--REQUEST SUMMARY------------------------------------------------>
     <div>
-      <div>
-        <h1 class="backBtn" routerLink="/admin">
-          <mat-icon class="back"><b>keyboard_return</b></mat-icon>Back to Dashboard
-        </h1>
-      </div>
-      <div>
-        <button mat-raised-button class="acceptBtn" (click)="completeRequest()">Complete</button>
-      </div>
-  
-      <mat-card class="summary">
         <div>
-          <mat-icon class="icon">description<h1 class="title">Request Details</h1>
-          </mat-icon>
+            <h1 class="backBtn" routerLink="/admin">
+                <mat-icon class="back"><b>keyboard_return</b></mat-icon>Back to Dashboard
+            </h1>
         </div>
-        <h1 class="personalinfotxt">Personal Information</h1>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Contact Number</th>
-              <th>Address</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{data.service_firstname}}</td>
-              <td>{{data.service_lastname}}</td>
-              <td>{{data.service_phoneNumber}}</td>
-              <td>{{data.service_address}}</td>
-            </tr>
-          </tbody>
-          <thead>
-            <tr>
-              <th>Address Details</th>
-              <th>City</th>
-              <th>Property Type</th>
-              <th>Zip Code</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{data.service_addressDetails}}</td>
-              <td>{{data.service_city}}</td>
-              <td>{{data.service_property_type}}</td>
-              <td>{{data.service_zipcode}}</td>
-            </tr>
-          </tbody>
-        </table>
-  
-        <h1 class="serviceinfotxt">Service Information</h1>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Appliance</th>
-              <th>Service</th>
-              <th>Brand</th>
-              <th>Unit Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{data.service_appliance}}</td>
-              <td>{{data.service_type}}</td>
-              <td>{{data.service_brand}}</td>
-              <td>{{data.service_unitType}}</td>
-            </tr>
-          </tbody>
-          <thead>
-            <tr>
-              <th>Unit Problem</th>
-              <th>Scheduled Date</th>
-              <th>Time Slot</th>
-              <th>Instruction</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{data.service_unitProb}}</td>
-              <td>{{data.service_date | date}}</td>
-              <td>{{data.service_timeslot}}</td>
-              <td>{{data.service_instruction}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </mat-card>
+        <div>
+            <button mat-raised-button class="acceptBtn" (click)="completeRequest()">Complete</button>
+        </div>
+
+        <mat-card class="summary">
+            <div>
+                <mat-icon class="icon">description
+                    <h1 class="title">Request Details</h1>
+                </mat-icon>
+            </div>
+            <h1 class="personalinfotxt">Personal Information</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Contact Number</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{data.service_firstname}}</td>
+                        <td>{{data.service_lastname}}</td>
+                        <td>{{data.service_phoneNumber}}</td>
+                        <td>{{data.service_address}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Address Details</th>
+                        <th>City</th>
+                        <th>Property Type</th>
+                        <th>Barangay</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{data.service_addressDetails}}</td>
+                        <td>{{data.service_city}}</td>
+                        <td>{{data.service_property_type}}</td>
+                        <td>{{data.service_barangay}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h1 class="serviceinfotxt">Service Information</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Appliance</th>
+                        <th>Service</th>
+                        <th>Brand</th>
+                        <th>Unit Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{data.service_appliance}}</td>
+                        <td>{{data.service_type}}</td>
+                        <td>{{data.service_brand}}</td>
+                        <td>{{data.service_unitType}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Unit Problem</th>
+                        <th>Scheduled Date</th>
+                        <th>Time Slot</th>
+                        <th>Instruction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{data.service_unitProb}}</td>
+                        <td>{{data.service_date | date}}</td>
+                        <td>{{data.service_timeslot}}</td>
+                        <td>{{data.service_instruction}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </mat-card>
     </div>
     <!--Technicians Details------------------------------------------------>
-  </div>
+</div>

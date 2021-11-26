@@ -67,7 +67,7 @@ export class AddtechComponent implements OnInit {
       "number": val.tech_number,
       "address": val.tech_address,
       "active": 1,
-      "rate": 0
+      "rate": 5
     }
     const httpOptions = {
       headers: new HttpHeaders({
