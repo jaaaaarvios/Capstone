@@ -34,6 +34,7 @@ export class DashboardComponent implements OnInit {
   approved_request = [];
   rejected_request = [];
   service_request: [];
+  isReload = false;
 
   matcher = new MyErrorStateMatcher();
   @ViewChild('drawer') drawer: any;
@@ -48,13 +49,66 @@ export class DashboardComponent implements OnInit {
     {
       setInterval(() => {
         this.date = new Date()
+        if (localStorage.getItem('firstLogin') == 'true') {
+          localStorage.setItem('firstLogin', "false")
+        window.location.reload()
+      }
       }, 1000)
     }
     config.backdrop = 'static';
     config.keyboard = false;
   }
 
+  getItems() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/NewServiceRequest', httpOptions);
+    data.subscribe(result => {
+      var email = this.email
+      let service_request = result.filter(function (createdBy) {
+        return createdBy.createdBy == email;
+      });
+      this.service_request = service_request
+      localStorage.setItem("service_request", JSON.stringify(this.service_request));
+    });
+
+    let pending_request = this.service.filter(function (status) {
+      return status.status == "Pending";
+    });
+    this.pending_request = pending_request
+
+    let completed_request = this.service.filter(function (status) {
+      return status.status == "Completed";
+    });
+    this.completed_request = completed_request
+
+    let approved_request = this.service.filter(function (status) {
+      return status.status == "Pending (Approved)";
+    });
+    this.approved_request = approved_request
+
+    let cancel_request = this.service.filter(function (status) {
+      return status.status == "Cancelled";
+    });
+    this.cancelled_request = cancel_request
+
+    let rejected_request = this.service.filter(function (status) {
+      return status.status == "Rejected";
+    });
+    this.rejected_request = rejected_request
+
+    if (localStorage.getItem("id") == null) {
+      this.router.navigate(['/home'])
+    }
+  }
+
   ngOnInit(): void {
+    
     const httpOptions = {
       headers: new HttpHeaders({
         "x-access-token": this.token

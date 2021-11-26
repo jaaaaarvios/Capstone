@@ -61,7 +61,10 @@ export class EditProfileComponent implements OnInit {
       });
     });
   }
-
+  goDashboard(){
+    this.router.navigate(['dashboard'])
+    localStorage.setItem('firstLogin', "true")
+  }
   logout(){
     localStorage.clear();
     this.router.navigate(['/home'])

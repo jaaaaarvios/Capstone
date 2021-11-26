@@ -80,6 +80,7 @@ export class AddtechComponent implements OnInit {
         .subscribe(data => {
           console.log(data, 'success');
           this.router.navigate(['/technicians']);
+          localStorage.setItem('firstLogin', "true");
           alert("Added Successfully!");
         }, error => {
           console.log(error)
@@ -90,7 +91,10 @@ export class AddtechComponent implements OnInit {
     }
 
   }
-
+  goAdmin(){
+    this.router.navigate(['admin']);
+    localStorage.setItem('firstLogin', "true");
+  }
   logout() {
     localStorage.clear();
     this.router.navigate(['/home'])

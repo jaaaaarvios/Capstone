@@ -82,6 +82,10 @@ export class TelevisiondetailsComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
+  goDashboard(){
+    this.router.navigate(['dashboard']);
+    localStorage.setItem('firstLogin', "true");
+  }
   ngOnInit(): void {
     this.tomorrow.setDate(this.today.getDate() + 1);
     

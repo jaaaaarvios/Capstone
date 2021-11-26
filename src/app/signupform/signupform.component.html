@@ -30,14 +30,11 @@
 
 
     <mat-card class="logincard">
-
-
         <h1 class="title">Sign Up</h1>
-
         <form [formGroup]="signupForm" (ngSubmit)="SignUpSubmit()">
             <mat-form-field class="signup-fnamefield" appearance="outline">
                 <mat-label>First Name</mat-label>
-                <input matInput formControlName="user_fname" type="text" placeholder="Enter first name" required>
+                <input matInput formControlName="user_fname" type="text" placeholder="Enter first name">
                 <mat-error *ngIf="signupForm.get('user_fname').hasError('required')"> First name is required
                 </mat-error>
                 <mat-error *ngIf="signupForm.get('user_fname').hasError('pattern')"> Invalid Name</mat-error>
@@ -47,11 +44,29 @@
 
             <mat-form-field class="signup-lnamefield" appearance="outline">
                 <mat-label>Last Name</mat-label>
-                <input matInput formControlName="user_lname" type="text" placeholder="Enter last name" required>
+                <input matInput formControlName="user_lname" type="text" placeholder="Enter last name">
                 <mat-error *ngIf="signupForm.get('user_lname').hasError('required')"> Last name is required </mat-error>
                 <mat-error *ngIf="signupForm.get('user_lname').hasError('pattern')"> Invalid Name </mat-error>
                 <mat-error *ngIf="signupForm.get('user_lname').hasError('maxlength')">Name contains maximum of 15 characters
                 </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="signup-lnamefield" appearance="outline">
+                <mat-label>Property Type</mat-label>
+                <mat-select formControlName="user_sptype">
+                    <mat-option *ngFor="let ptype of property" [value]="ptype">
+                        {{ptype}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="signupForm.get('user_sptype').hasError('required')">
+                    You must make a selection
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="signup-emailfield" appearance="outline">
+                <mat-label>Home Address</mat-label>
+                <input matInput formControlName="user_saddress" type="text" placeholder="Enter home address">
+                <mat-error *ngIf="signupForm.get('user_saddress').hasError('required')"> Home address is required </mat-error>
             </mat-form-field>
 
             <mat-form-field class="signup-emailfield" appearance="outline">
@@ -79,6 +94,5 @@
                 <label class="signuptxt" routerLink="/loginform">Login.</label>
             </div>
         </form>
-
     </mat-card>
 </body>

@@ -57,6 +57,11 @@ export class ChangePasswordComponent implements OnInit {
       this.fname = result.first_name;
     });
   }
+  
+  goDashboard(){
+    this.router.navigate(['dashboard'])
+    localStorage.setItem('firstLogin', "true")
+  }
 
   // getting the form control elements
   get password(): AbstractControl {

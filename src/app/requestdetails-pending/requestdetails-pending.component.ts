@@ -68,7 +68,10 @@ export class RequestdetailsPendingComponent implements OnInit {
   open(cancelReason) {
     this.modalService.open(cancelReason);
   }
-
+  goDashboard(){
+    this.router.navigate(['dashboard']);
+    localStorage.setItem('firstLogin', "true");
+  }
   logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
@@ -99,7 +102,8 @@ export class RequestdetailsPendingComponent implements OnInit {
       }
       this.http.patch("http://localhost:3000/NewServiceRequest/cancel-status/" + this.id, body, httpOptions)
         .subscribe(data => {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['dashboard']);
+          localStorage.setItem('firstLogin', "true");
           let ref = document.getElementById('close');
           ref?.click();
           this.cancelreasonForm.reset();

@@ -18,6 +18,7 @@ export class TechniciansComponent implements OnInit {
   activeTechnicians: any;
   data: any;
   token = JSON.parse(localStorage.getItem('token'));
+  isReload = false;
 
   @ViewChild('drawer') drawer: any;
   public selectedItem: string = '';
@@ -49,13 +50,19 @@ export class TechniciansComponent implements OnInit {
       });
       this.activeTechnicians = acttechnicians
     });
-
+    if (localStorage.getItem('firstLogin') == 'true') {
+      localStorage.setItem('firstLogin', "false")
+      window.location.reload()
+    }
   }
   logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
-
+  goAdmin(){
+    this.router.navigate(['admin']);
+    localStorage.setItem('firstLogin', "true");
+  }
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();
@@ -75,7 +82,9 @@ export class TechniciansComponent implements OnInit {
       }
       this.http.patch("http://localhost:3000/technician/active/" + techID, body, httpOptions)
         .subscribe(data => {
-          this.router.navigate(['/technicians']);
+          alert("Updated")
+          localStorage.setItem('firstLogin', "true");
+          window.location.reload()
         }, error => {
           console.log(error);
           alert(error);
@@ -98,7 +107,9 @@ export class TechniciansComponent implements OnInit {
       }
       this.http.patch("http://localhost:3000/technician/active/" + techID, body, httpOptions)
         .subscribe(data => {
-          this.router.navigate(['/technicians']);
+          alert("Updated")
+          localStorage.setItem('firstLogin', "true");
+          window.location.reload()
         }, error => {
           console.log(error);
           alert(error);
@@ -109,7 +120,7 @@ export class TechniciansComponent implements OnInit {
   }
 
   deleteOne(techID) {
-    var retVal = confirm("Change active status ?");
+    var retVal = confirm("Do you really want to delete this technician ?");
     if (retVal == true) {
       this.auth.deleteTechnician(techID).subscribe(data => {
         this.data = data

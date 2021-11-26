@@ -37,7 +37,6 @@ import { ProfileformComponent } from './profileform/profileform.component';
 import { AircondetailsComponent } from './aircondetails/aircondetails.component';
 import { RequestdetailsComponent } from './requestdetails/requestdetails.component';
 import { RescheduleComponent } from './reschedule/reschedule.component';
-import { ConfirmcancelComponent } from './confirmcancel/confirmcancel.component';
 import { CancelreasonsComponent } from './cancelreasons/cancelreasons.component';
 import { PaymentformComponent } from './paymentform/paymentform.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
@@ -103,7 +102,6 @@ import { EditTechnicianComponent } from './edit-technician/edit-technician.compo
     AircondetailsComponent,
     RequestdetailsComponent,
     RescheduleComponent,
-    ConfirmcancelComponent,
     CancelreasonsComponent,
     PaymentformComponent,
     AdminpageComponent,

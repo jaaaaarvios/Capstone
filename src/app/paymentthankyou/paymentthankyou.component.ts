@@ -20,7 +20,8 @@ export class PaymentthankyouComponent implements OnInit {
 
   onSubmit() {
     localStorage.removeItem("service");
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['dashboard'])
+    localStorage.setItem('firstLogin', "true")
   }
   getConfirmation1() {
     localStorage.removeItem("service");

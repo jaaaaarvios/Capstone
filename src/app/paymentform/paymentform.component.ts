@@ -38,6 +38,7 @@ export class PaymentformComponent implements OnInit {
       onApprove: (details) => {
         alert("Transaction success")
         this.router.navigate(['/paymentsuccess'])
+        console.log(details)
       }
     })
   }
@@ -65,7 +66,8 @@ export class PaymentformComponent implements OnInit {
     if (retVal == true) {
       this.deleteOne()
       localStorage.removeItem("service");
-      this.router.navigate(['/dashboard'])
+      this.router.navigate(['dashboard']);
+      localStorage.setItem('firstLogin', "true");
       return true;
     } else {
       return false;

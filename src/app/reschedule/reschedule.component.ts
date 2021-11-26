@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ConfirmcancelComponent } from '../confirmcancel/confirmcancel.component';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 
@@ -76,7 +75,8 @@ export class RescheduleComponent implements OnInit {
           this.http.patch("http://localhost:3000/NewServiceRequest/schedule/" + this.id, body, httpOptions)
             .subscribe(data => {
               alert("Updated");
-              this.router.navigate(['/dashboard'])
+              this.router.navigate(['dashboard']);
+              localStorage.setItem('firstLogin', "true");
             }, error => {
               console.log(error);
               alert(error);
@@ -89,5 +89,9 @@ export class RescheduleComponent implements OnInit {
       } else {
         return false;
       }
+    }
+    goDashboard(){
+      this.router.navigate(['dashboard']);
+      localStorage.setItem('firstLogin', "true");
     }
   }

@@ -54,6 +54,8 @@ export class AdminUserComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
-
-
+  goAdmin(){
+    this.router.navigate(['admin']);
+    localStorage.setItem('firstLogin', "true");
+  }
 }
