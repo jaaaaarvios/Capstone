@@ -68,12 +68,20 @@
 
                         <mat-form-field class="textfield" appearance="outline">
                             <mat-label>Name</mat-label>
-                            <input matInput formControlName="tech_name" pattern="[a-zA-Z_ ]{1,30}" placeholder="Juan Dela Cruz" [errorStateMatcher]="matcher" autocomplete="off">
+                            <input matInput formControlName="tech_name" pattern="[a-zA-Z_. ]{1,30}" placeholder="Juan Dela Cruz" [errorStateMatcher]="matcher" autocomplete="off">
                             <mat-error *ngIf="addTech.get('tech_name').hasError('required')">
                                 Input Technicians full name
                             </mat-error>
                             <mat-error *ngIf="addTech.get('tech_name').hasError('pattern')">
                                 Invalid Technicians name
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="textfield" appearance="outline">
+                            <mat-label>Technician Id</mat-label>
+                            <input matInput formControlName="tech_id" [errorStateMatcher]="matcher" autocomplete="off">
+                            <mat-error *ngIf="addTech.get('tech_id').hasError('required')">
+                                Input Technicians ID
                             </mat-error>
                         </mat-form-field>
 
@@ -83,16 +91,6 @@
                                 <mat-option value="Male">Male</mat-option>
                                 <mat-option value="Female">Female</mat-option>
                             </mat-select>
-
-                        </mat-form-field>
-
-                        <mat-form-field class="birthdate" appearance="outline">
-                            <mat-label>Date of Birth</mat-label>
-                            <input matInput [matDatepicker]="picker" formControlName="tech_birthdate">
-                            <mat-datepicker-toggle matSuffix [for]="picker">
-                                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-                            </mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
 
                         <mat-form-field class="textfield" appearance="outline">
@@ -119,9 +117,6 @@
                             <button mat-raised-button type="submit" class="addBtn">Add</button>
                         </div>
                     </div>
-
-
-
                 </form>
             </div>
         </div>

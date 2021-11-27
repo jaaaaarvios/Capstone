@@ -22,6 +22,12 @@
                     <a class="booking-btn" routerLink="/technicians">Technicians</a>
                 </mat-list-item>
             </div>
+            <div class="feedbackside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">feedback</mat-icon>
+                    <a class="feedback-btn" routerLink="/feedback">Feedbacks</a>
+                </mat-list-item>
+            </div>
             <div class="profileside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
@@ -34,15 +40,13 @@
                     <a class="logout-btn" (click)="logout()">Logout</a>
                 </mat-list-item>
             </div>
-
-
         </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
         <mat-toolbar>
 
-            <button class="backBtn" routerLink="/adminpage" mat-icon-button>
+            <button class="backBtn" (click)="goAdmin()" mat-icon-button>
                 <mat-icon class="backicon">chevron_left</mat-icon>
               </button>
 
@@ -155,8 +159,6 @@
                 <div *ngIf="request.technician_id != null; else showActive"></div>
                 <ng-template #showActive>
 
-
-
                     <div *ngFor="let tech of technician">
                         <div class="listofactive">
                             <mat-icon class="usericon" aria-hidden="false" aria-label="">account_circle</mat-icon>
@@ -164,8 +166,6 @@
                             <button mat-button (click)="deploy(tech._id)" class="assignBtn">Assign</button>
                         </div>
                     </div>
-
-
                 </ng-template>
 
 

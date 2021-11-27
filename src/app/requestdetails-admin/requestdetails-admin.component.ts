@@ -85,6 +85,10 @@ export class RequestdetailsAdminComponent implements OnInit {
       this.drawer.close();
     }
   }
+  goAdmin(){
+    this.router.navigate(['/admin']);
+    localStorage.setItem('firstLogin', "true");
+  }
 
   approvedRequest() {
     var retVal = confirm("Do you really want to approve the request ?");

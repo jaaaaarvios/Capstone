@@ -27,6 +27,8 @@ export class RequestCompleteComponent implements OnInit {
   id: any;
   data: any;
   techID: "";
+  currentRate:any;
+  technician: any;
   token = JSON.parse(localStorage.getItem('token'));
 
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver, private router: Router
@@ -42,12 +44,17 @@ export class RequestCompleteComponent implements OnInit {
         "x-access-token": this.token
       })
     }
-    let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/NewServiceRequest/'+this.id, httpOptions);
+    let data: Observable<any>;
+    data = this.http.get('http://localhost:3000/NewServiceRequest/' + this.id, httpOptions);
+    data.subscribe(result => {
+      this.data = result;
+      this.techID = result.technician_id;
+      data = this.http.get('http://localhost:3000/technician/' +  this.techID , httpOptions);
       data.subscribe(result => {
-        this.data = result;
-        this.techID = result.technician_id
+        this.technician = result
+        this.currentRate = result.rate
       });
+    });
   }
   goAdmin(){
     this.router.navigate(['admin']);

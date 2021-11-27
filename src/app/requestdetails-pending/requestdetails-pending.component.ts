@@ -30,6 +30,7 @@ export class RequestdetailsPendingComponent implements OnInit {
   techID: "";
   technician: any;
   token = JSON.parse(localStorage.getItem('token'));
+  userID = JSON.parse(localStorage.getItem('id'));
   cancelreasonForm: FormGroup;
   fname: any;
 
@@ -56,12 +57,11 @@ export class RequestdetailsPendingComponent implements OnInit {
     data = this.http.get('http://localhost:3000/NewServiceRequest/' + this.id, httpOptions);
     data.subscribe(result => {
       this.data = result;
-      this.techID = result.technician_id;
-      data = this.http.get('http://localhost:3000/technician/' +  this.techID , httpOptions);
-      data.subscribe(result => {
-        this.technician = result
-        this.fname = result.first_name;
-      });
+    });
+    let dataa: Observable<any>;
+    dataa = this.http.get('http://localhost:3000/CredentialDB/' + this.userID, httpOptions);
+    dataa.subscribe(result => {
+      this.fname = result.first_name;
     });
   }
 

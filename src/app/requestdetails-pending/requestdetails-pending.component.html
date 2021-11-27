@@ -130,42 +130,43 @@
                                 <td class="body2">{{data.service_date | date}}</td>
                                 <td class="body2">{{data.service_timeslot}}</td>
                                 <td class="body2">{{data.service_instruction}}</td>
-                                <td class="body2">{{data.technician_id}}</td>
                             </tr>
                         </tbody>
                     </table>
                 </mat-card>
             </div>
         </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
 
-        <ng-template #cancelReason let-c="close" let-d="dismiss">
-            <div class="modal-header">
-                <h4 class="modal-title" id="modal-basic-title">Cancel request?</h4>
-                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+<ng-template #cancelReason let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Cancel request?</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
-            </div>
-            <form [formGroup]="cancelreasonForm">
-                <div class="modal-body">
-                    <div>
-                        <h6>Please share the reason to serve you better next time </h6>
-                        <button mat-stroked-button class="radioBtn" value="Schedule conflict">
+    </div>
+    <form [formGroup]="cancelreasonForm">
+        <div class="modal-body">
+            <div>
+                <h6>Please share the reason to serve you better next time </h6>
+                <button mat-stroked-button class="radioBtn" value="Schedule conflict">
                     <input type="radio" value="Schedule conflict" formControlName="reason" required>&nbsp;Conflict of Schedule.
                 </button>
-                        <button mat-stroked-button class="radioBtn" value="Problem went away">
+                <button mat-stroked-button class="radioBtn" value="Problem went away">
                     <input type="radio" value="Problem went away" formControlName="reason" required>&nbsp;Problem went away.
                 </button>
-                        <button mat-stroked-button class="radioBtn" value="Found another provider">
+                <button mat-stroked-button class="radioBtn" value="Found another provider">
                     <input type="radio" value="Found another provider" formControlName="reason" required>&nbsp;Found another provider.
                 </button>
-                        <button mat-stroked-button class="radioBtn" value="Personal emergency">
+                <button mat-stroked-button class="radioBtn" value="Personal emergency">
                     <input type="radio" value="Personal emergency" formControlName="reason" required>&nbsp;Personal emergency.
                 </button>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="close" class="btn btn-outline-primary" (click)="c('Close')">Keep my booking</button>
-                    <button type="button" class="btn btn-outline-danger" (click)="getConfirmation()">Cancel Request</button>
-                </div>
-            </form>
-        </ng-template>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="close" class="btn btn-outline-primary" (click)="c('Close')">Keep my booking</button>
+            <button type="button" class="btn btn-outline-danger" (click)="getConfirmation()">Cancel Request</button>
+        </div>
+    </form>
+</ng-template>

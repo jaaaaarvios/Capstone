@@ -26,7 +26,7 @@
             <div class="feedbackside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label="">feedback</mat-icon>
-                    <a class="feedback-btn" routerLink="/technicians">Feedbacks</a>
+                    <a class="feedback-btn" routerLink="/feedback">Feedbacks</a>
                 </mat-list-item>
             </div>
 
@@ -60,9 +60,6 @@
 
             <!-- <img class="techicon" mat-card-image src="../../assets/techicon.png"> -->
 
-
-
-
             <div class="content1">
 
                 <!-- <mat-form-field class="searchfield" appearance="outline">
@@ -71,7 +68,6 @@
           </mat-label>
           <input matInput>
         </mat-form-field> -->
-
                 <mat-card class="technician1">
                     <div>
                         <img class="employeesvector" mat-card-image src="../../assets/employees.png">
@@ -86,6 +82,12 @@
 
                     <div *ngFor="let tech of technicians">
                         <div class="listofnames">
+                            <div *ngIf="tech.active != false; else showInactive">
+                                <mat-icon class="circle">circle</mat-icon>
+                            </div>
+                            <ng-template #showInactive>
+                                <mat-icon class="circle1">circle</mat-icon>
+                            </ng-template>
                             <mat-icon class="usericon" aria-hidden="false" aria-label="">account_circle</mat-icon>
                             <h1 class="name1">{{tech.fullname}}</h1>
 
@@ -114,19 +116,16 @@
                     </div>
                 </mat-card>
 
-                <mat-card class="activecard">
-
+                <!-- <mat-card class="activecard">
                     <h1 class="activetitle"> Active Technicians </h1>
                     <label class="label2">View list of technicians.</label>
-
                     <div *ngFor="let actTech of activeTechnicians">
                         <div class="listofactive">
                             <mat-icon class="usericon" aria-hidden="false" aria-label="">account_circle</mat-icon>
                             <h1 class="name1">{{actTech.fullname}}</h1>
                         </div>
                     </div>
-
-                </mat-card>
+                </mat-card> -->
             </div>
         </div>
     </mat-sidenav-content>

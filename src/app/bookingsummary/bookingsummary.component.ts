@@ -54,7 +54,10 @@ export class BookingsummaryComponent implements OnInit {
       this.drawer.close();
     }
   }
-
+  goPayment(){
+    this.router.navigate(['payment'])
+    localStorage.setItem('firstLogin', "true")
+  }
   getConfirmation() {
     var retVal = confirm("By cancelling your booking, all data will be lost. ");
     if (retVal == true) {

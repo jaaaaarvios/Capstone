@@ -122,8 +122,15 @@ export class TechniciansComponent implements OnInit {
   deleteOne(techID) {
     var retVal = confirm("Do you really want to delete this technician ?");
     if (retVal == true) {
-      this.auth.deleteTechnician(techID).subscribe(data => {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          "x-access-token": this.token
+        })
+      }
+      this.auth.deleteTechnician(techID, httpOptions).subscribe(data => {
         this.data = data
+        localStorage.setItem('firstLogin', "true");
+        window.location.reload()
       });
     } else {
       return

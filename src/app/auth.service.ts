@@ -1,4 +1,4 @@
-import { HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -20,9 +20,9 @@ export class AuthService {
   admin(data): Observable<any> {
     return this.http.post("http://localhost:3000/CredentialDB/admin", data)
   }
-
-  deleteTechnician(_id) {
-    return this.http.delete("http://localhost:3000/technician/"+ _id).pipe(map((res: any) => res));
+  
+  deleteTechnician(_id, httpOptions) {
+    return this.http.delete("http://localhost:3000/technician/"+ _id, httpOptions).pipe(map((res: any) => res));
   }
 
   deleteRequest(_id) {

@@ -64,13 +64,18 @@
                                 <th scope="col" class="header">Contact Number</th>
                                 <th scope="col" class="header">Email</th>
                                 <th scope="col" class="header">Address</th>
-
                             </tr>
                         </thead>
                         <tbody class="body">
                             <tr>
                                 <td class="content1">{{fname}} {{lname}}</td>
-                                <td class="content1">{{number}}</td>
+                                <div *ngIf="number == 'None'; then showEdit else showNumber"></div>
+                                <ng-template #showEdit>
+                                    <td class="content1"><a href="/edit_profile">Edit</a></td>
+                                </ng-template>
+                                <ng-template #showNumber>
+                                    <td class="content1">{{number}}</td>
+                                </ng-template>
                                 <td class="content1">{{email}}</td>
                                 <td class="content1">{{address}}</td>
                             </tr>
@@ -109,8 +114,8 @@
                                     <td>{{pr.service_appliance}}</td>
                                     <td>{{pr.service_type}}</td>
                                     <td>{{pr.status}}</td>
-                                    <td><button mat-raised-button [routerLink]="['/reschedule/' + pr._id]">Reschedule</button></td>
-                                    <td><button mat-raised-button [routerLink]="['/requestdetails-pending/' + pr._id]">Details</button></td>
+                                    <button mat-stroked-button class="reschedBtn" [routerLink]="['/reschedule/' + pr._id]">Reschedule</button>
+                                    <button mat-stroked-button class="detailsBtn" [routerLink]="['/requestdetails-pending/' + pr._id]">Details</button>
                                 </tr>
                             </tbody>
                         </table>

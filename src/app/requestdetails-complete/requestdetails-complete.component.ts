@@ -37,6 +37,7 @@ export class RequestdetailsCompleteComponent implements OnInit {
   fname: any;
   lname: any;
   email: any;
+  currentRate: any;
 
   constructor(private router: Router, public dialog: MatDialog, private http: HttpClient, config: NgbModalConfig, private modalService: NgbModal,
     private breakpointObserver: BreakpointObserver, private _formBuilder: FormBuilder, private route: ActivatedRoute) { 
@@ -68,6 +69,7 @@ export class RequestdetailsCompleteComponent implements OnInit {
       data = this.http.get('http://localhost:3000/technician/' +  this.techID , httpOptions);
       data.subscribe(result => {
         this.technician = result
+        this.currentRate = result.rate
       });
     });
     let dataa:Observable<any>;

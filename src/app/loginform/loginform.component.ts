@@ -105,7 +105,7 @@ export class LoginformComponent implements OnInit {
             localStorage.setItem('firstLogin', "true")
             console.log(result);
             alert(result.message);
-            this.router.navigate(['/profile'])
+            this.router.navigate(['/dashboard'])
           }
         }, error => {
           console.log(error);

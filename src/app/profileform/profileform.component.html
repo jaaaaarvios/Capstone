@@ -8,7 +8,7 @@
             <img class="logo" mat-card-image src="../../assets/mainlogo.png">
             <img class="adminvector" mat-card-image src="../../assets/customervector.png">
 
-            <h1 class="sidetitle">{{fname}}</h1>
+            <h2 class="sidetitle">{{fname}}</h2>
 
             <div class="dashboardside">
                 <mat-list-item (click)="goDashboard()">
@@ -50,82 +50,124 @@
         </mat-toolbar>
 
         <!-- put the content below -->
-
-
-        <mat-card class="infocard">
-            <div>
-                <button mat-icon-button class="editBtn" routerLink="/edit_profile">
+        <div class="container">
+            <mat-card class="infocard">
+                <div>
+                    <button mat-icon-button class="editBtn" routerLink="/edit_profile">
                     <mat-icon class="editicon">edit</mat-icon>
                   </button>
-            </div>
-            <div>
-                <h3 class="name">{{fname}} {{lname}}</h3>
-            </div>
-            <div>
-                <div class="row">
-                    <div class="col-12">
-                        <p class="mt-2">
-                            <mat-icon class="mail_icon">mail</mat-icon>
-                            <label class="mail">{{email}}</label>
-                        </p>
-                    </div>
-                    <div class="col-12">
-                        <p class="mt-2">
-                            <mat-icon class="mail_icon">call</mat-icon>
-                            <label class="mail">{{number}}</label>
-                        </p>
-                    </div>
-                    <div class="col-12">
-                        <p class="mt-2">
-                            <mat-icon class="mail_icon">lock</mat-icon>
-                            <label class="mail"><a href="/change_password">Change password?</a></label>
-                        </p>
+                </div>
+                <div>
+                    <h3 class="name">{{fname}} {{lname}}</h3>
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="mt-2">
+                                <mat-icon class="mail_icon">mail</mat-icon>
+                                <label class="mail">{{email}}</label>
+                            </p>
+                        </div>
+                        <div *ngIf="number == 'None'; then showEdit else showNumber"></div>
+                        <ng-template #showEdit>
+                            <div class="col-12">
+                                <p class="mt-2">
+                                    <mat-icon class="mail_icon">call</mat-icon>
+                                    <label class="mail"><a href="/edit_profile">Edit</a></label>
+                                </p>
+                            </div>
+                        </ng-template>
+                        <ng-template #showNumber>
+                            <div class="col-12">
+                                <p class="mt-2">
+                                    <mat-icon class="mail_icon">call</mat-icon>
+                                    <label class="mail">{{number}}</label>
+                                </p>
+                            </div>
+                        </ng-template>
+
+                        <div class="col-12">
+                            <p class="mt-2">
+                                <mat-icon class="mail_icon">lock</mat-icon>
+                                <label class="mail"><a href="/change_password">Change password?</a></label>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </mat-card>
+            </mat-card>
 
-        <mat-card class="addresscard">
-            <div>
+            <mat-card class="addresscard">
+                <div>
 
-                <button mat-icon-button class="editBtn" routerLink="/edit_address">
+                    <button mat-icon-button class="editBtn" routerLink="/edit_address">
                     <mat-icon class="editicon">edit</mat-icon>
                   </button>
-            </div>
-            <div>
-                <h3>Address Details</h3>
-            </div>
-            <div>
-                <div class="row">
-                    <div class="col-12">
-                        <p class="paper-label">Service City</p>
-                        <p class="mt-2">{{city}}</p>
-                    </div>
-                    <div class="col-12">
-                        <p class="paper-label">Barangay</p>
-                        <p class="mt-2">{{barangay}}</p>
-                    </div>
-                    <div class="col-12">
-                        <p class="paper-label">Service Address</p>
-                        <p class="mt-2">{{address}}</p>
-                    </div>
-                    <div class="col-12">
-                        <p class="paper-label">Service Address Details (Unit No., Block/Lot No., Bldg./Tower)</p>
-                        <p class="mt-2">{{addressDetails}}</p>
-                    </div>
-                    <div class="col-12">
-                        <p class="paper-label">Property type</p>
-                        <p class="mt-2">{{property_type}}</p>
-                    </div>
+                </div>
+                <div>
+                    <h3>Address Details</h3>
+                </div>
+                <div>
+                    <div class="row">
+                        <div *ngIf="city == 'None'; then showEdit1 else showCity"></div>
+                        <ng-template #showEdit1>
+                            <div class="col-12">
+                                <p class="paper-label">Service City</p>
+                                <p class="mt-2"><a href="/edit_address">Edit</a></p>
+                            </div>
+                        </ng-template>
+                        <ng-template #showCity>
+                            <div class="col-12">
+                                <p class="paper-label">Service City</p>
+                                <p class="mt-2">{{city}}</p>
+                            </div>
+                        </ng-template>
 
-                    <div class="col-12">
-                        <img class="map-image mt-4" lat="14.6141994" long="120.9991554">
-                    </div>
-                    <div class="col-12">
-                        <img class="map-image mt-4" lat="14.6141994" long="120.9991554">
+                        <div *ngIf="city == 'None'; then showEdit2 else showBarangay"></div>
+                        <ng-template #showEdit2>
+                            <div class="col-12">
+                                <p class="paper-label">Barangay</p>
+                                <p class="mt-2"><a href="/edit_address">Edit</a></p>
+                            </div>
+                        </ng-template>
+                        <ng-template #showBarangay>
+                            <div class="col-12">
+                                <p class="paper-label">Barangay</p>
+                                <p class="mt-2">{{barangay}}</p>
+                            </div>
+                        </ng-template>
+
+                        <div class="col-12">
+                            <p class="paper-label">Service Address</p>
+                            <p class="mt-2">{{address}}</p>
+                        </div>
+                        <div *ngIf="city == 'None'; then showEdit3 else showAddDetails"></div>
+                        <ng-template #showEdit3>
+                            <div class="col-12">
+                                <p class="paper-label">Service Address Details (Unit No., Block/Lot No., Bldg./Tower)</p>
+                                <p class="mt-2"><a href="/edit_address">Edit</a></p>
+                            </div>
+                        </ng-template>
+                        <ng-template #showAddDetails>
+                            <div class="col-12">
+                                <p class="paper-label">Service Address Details (Unit No., Block/Lot No., Bldg./Tower)</p>
+                                <p class="mt-2">{{addressDetails}}</p>
+                            </div>
+                        </ng-template>
+
+                        <div class="col-12">
+                            <p class="paper-label">Property type</p>
+                            <p class="mt-2">{{property_type}}</p>
+                        </div>
+
+                        <div class="col-12">
+                            <img class="map-image mt-4" lat="14.6141994" long="120.9991554">
+                        </div>
+                        <div class="col-12">
+                            <img class="map-image mt-4" lat="14.6141994" long="120.9991554">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </mat-card>
+            </mat-card>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
