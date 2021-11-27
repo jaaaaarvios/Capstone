@@ -156,6 +156,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin-top: 60px;
         }
+        .container {
+            width: auto;
+            height: auto;
+        }
         .adminvector {
             width: 95%;
             margin-top: -110px !important;
@@ -169,15 +173,17 @@
             text-align: center;
         }
         .mat-tab-group {
-            margin-top: 200px;
             width: fit-content;
-            margin-left: 10px;
+            padding-top: 50px;
+        }
+        .container {
+            margin: auto;
+            width: auto;
         }
         .scheduledcard {
             width: fit-content;
-            height: 250px;
+            height: fit-content;
             float: left;
-            margin-left: 50px;
             margin-top: 20px;
         }
         .title {
@@ -283,9 +289,5 @@
             background-color: #fcb42a;
             color: #FFFFFF;
             margin: 5px;
-        }
-        .container {
-            width: auto;
-            height: auto;
         }
     }
