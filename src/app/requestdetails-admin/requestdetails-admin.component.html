@@ -1,161 +1,204 @@
-<!--HEADER------------------------------------------------>
-<mat-toolbar>
-    <h1 class="ayosgamit">Ayosgamit</h1>
-</mat-toolbar>
-<div class="container">
-    <!--REQUEST SUMMARY------------------------------------------------>
-    <div>
-        <div>
-            <h1 class="backBtn" routerLink="/admin">
-                <mat-icon class="back"><b>keyboard_return</b></mat-icon>Back to Dashboard
-            </h1>
-        </div>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+        <br>
+        <mat-nav-list class="nav-list">
+            <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+            <img class="adminvector" mat-card-image src="../../assets/admin.png">
 
+            <h1 class="sidetitle">Admin</h1>
 
-        <div>
-            <div *ngIf="request.technician_id == null; else showButton"></div>
-            <ng-template #showButton>
-                <button mat-raised-button class="acceptBtn" (click)="approvedRequest()">Accept</button>
-            </ng-template>
-            <div *ngIf="request.technician_id == null; else notShowButton">
-                <button mat-stroked-button class="rejectBtn" (click)="open(cancelReason)">Reject</button>
+            <div class="dashboardside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label>dashboard</mat-icon>
+                    <a class="dashboard-btn" routerLink="/admin">Dashboard</a>
+                </mat-list-item>
             </div>
-            <ng-template #notShowButton> </ng-template>
-
-        </div>
-
-        <mat-card class="summary">
-            <div>
-                <mat-icon class="icon">description
-                    <h1 class="title">Request Details</h1>
-                </mat-icon>
+            <div class="bookingside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">worker</mat-icon>
+                    <a class="booking-btn" routerLink="/technicians">Technicians</a>
+                </mat-list-item>
             </div>
-            <h1 class="personalinfotxt">Personal Information</h1>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Contact Number</th>
-                        <th>Address</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{request.service_firstname}}</td>
-                        <td>{{request.service_lastname}}</td>
-                        <td>{{request.service_phoneNumber}}</td>
-                        <td>{{request.service_address}}</td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <th>Address Details</th>
-                        <th>City</th>
-                        <th>Property Type</th>
-                        <th>Barangay</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{request.service_addressDetails}}</td>
-                        <td>{{request.service_city}}</td>
-                        <td>{{request.service_property_type}}</td>
-                        <td>{{request.service_barangay}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="profileside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+                    <a class="profile-btn" routerLink="/user">Users</a>
+                </mat-list-item>
+            </div>
+            <div class="logoutside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon">exit_to_app</mat-icon>
+                    <a class="logout-btn" (click)="logout()">Logout</a>
+                </mat-list-item>
+            </div>
 
-            <h1 class="serviceinfotxt">Service Information</h1>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Appliance</th>
-                        <th>Service</th>
-                        <th>Brand</th>
-                        <th>Unit Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{request.service_appliance}}</td>
-                        <td>{{request.service_type}}</td>
-                        <td>{{request.service_brand}}</td>
-                        <td>{{request.service_unitType}}</td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <th>Unit Problem</th>
-                        <th>Scheduled Date</th>
-                        <th>Time Slot</th>
-                        <th>Instruction</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{request.service_unitProb}}</td>
-                        <td>{{request.service_date | date}}</td>
-                        <td>{{request.service_timeslot}}</td>
-                        <td>{{request.service_instruction}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </mat-card>
-    </div>
-    <!--Technicians Details------------------------------------------------>
-    <div *ngIf="request.technician_id != null; else showActive"></div>
-    <ng-template #showActive>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Fullname</th>
-                    <th>Gender</th>
-                    <th>Number</th>
-                    <th>Address</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let tech of technician">
-                    <td>{{tech.fullname}}</td>
-                    <td>{{tech.gender}}</td>
-                    <td>{{tech.number}}</td>
-                    <td>{{tech.address}}</td>
-                    <td><button (click)="deploy(tech._id)">Deploy</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </ng-template>
-</div>
 
-<ng-template #cancelReason let-c="close" let-d="dismiss">
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Are you sure ?</h4>
-        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar>
+
+            <button class="backBtn" routerLink="/adminpage" mat-icon-button>
+                <mat-icon class="backicon">chevron_left</mat-icon>
+              </button>
+
+            <div class="headertitle">
+                <h1 class="titletxt">Customer's Booking Details</h1>
+            </div>
+        </mat-toolbar>
+
+
+        <div>
+            <mat-card class="summary">
+                <div>
+                    <img class="remindervector" mat-card-image src="../../assets/reminder.png">
+                    <h1 class="title">Booking Details</h1>
+
+                    <label class="label">View customer's booking details.</label>
+
+
+                    <div *ngIf="request.technician_id == null; else showButton"></div>
+                    <ng-template #showButton>
+                        <button mat-button class="acceptBtn" (click)="approvedRequest()">Accept</button>
+                    </ng-template>
+                    <div *ngIf="request.technician_id == null; else notShowButton">
+                        <button mat-button class="rejectBtn" (click)="open(cancelReason)">Reject</button>
+                    </div>
+                    <ng-template #notShowButton> </ng-template>
+
+
+
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="header1">First Name</th>
+                            <th class="header1">Last Name</th>
+                            <th class="header1">Contact Number</th>
+                            <th class="header1">Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="body1">{{request.service_firstname}}</td>
+                            <td class="body1">{{request.service_lastname}}</td>
+                            <td class="body1">{{request.service_phoneNumber}}</td>
+                            <td class="body1">{{request.service_address}}</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th class="header2">Address Details</th>
+                            <th class="header2">City</th>
+                            <th class="header2">Property Type</th>
+                            <th class="header2">Barangay</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="body2">{{request.service_addressDetails}}</td>
+                            <td class="body2">{{request.service_city}}</td>
+                            <td class="body2">{{request.service_property_type}}</td>
+                            <td class="body2">{{request.service_barangay}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="header1">Appliance</th>
+                            <th class="header1">Service</th>
+                            <th class="header1">Brand</th>
+                            <th class="header1">Unit Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="body1">{{request.service_appliance}}</td>
+                            <td class="body1">{{request.service_type}}</td>
+                            <td class="body1">{{request.service_brand}}</td>
+                            <td class="body1">{{request.service_unitType}}</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th class="header2">Unit Problem</th>
+                            <th class="header2">Scheduled Date</th>
+                            <th class="header2">Time Slot</th>
+                            <th class="header2">Instruction</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="body2">{{request.service_unitProb}}</td>
+                            <td class="body2">{{request.service_date | date}}</td>
+                            <td class="body2">{{request.service_timeslot}}</td>
+                            <td class="body2">{{request.service_instruction}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-card>
+
+            <mat-card class="assigncard">
+                <!--Technicians Details------------------------------------------------>
+
+                <h1 class="activetitle"> Active Technicians </h1>
+                <label class="label2">Assign active technicians.</label>
+
+                <div *ngIf="request.technician_id != null; else showActive"></div>
+                <ng-template #showActive>
+
+
+
+                    <div *ngFor="let tech of technician">
+                        <div class="listofactive">
+                            <mat-icon class="usericon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+                            <h1 class="techname">{{tech.fullname}}</h1>
+                            <button mat-button (click)="deploy(tech._id)" class="assignBtn">Assign</button>
+                        </div>
+                    </div>
+
+
+                </ng-template>
+
+
+                <ng-template #cancelReason let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">Are you sure ?</h4>
+                        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
-    </div>
-    <form [formGroup]="cancelreasonForm">
-        <div class="modal-body">
-            <div>
-                <h6>Reason why you reject the request </h6>
-                <button mat-stroked-button class="radioBtn" value="Some informations are not valid">
+                    </div>
+                    <form [formGroup]="cancelreasonForm">
+                        <div class="modal-body">
+                            <div>
+                                <h6>Reason why you reject the request </h6>
+                                <button mat-stroked-button class="radioBtn" value="Some informations are not valid">
                     <input type="radio" value="Some informations are not valid" formControlName="reason" required>&nbsp;Some informations are not valid.
                 </button>
-                <button mat-stroked-button class="radioBtn" value="Not proper address">
+                                <button mat-stroked-button class="radioBtn" value="Not proper address">
                     <input type="radio" value="Not proper address" formControlName="reason" required>&nbsp;Not proper address.
                 </button>
-                <button mat-stroked-button class="radioBtn" value="No available technician">
+                                <button mat-stroked-button class="radioBtn" value="No available technician">
                     <input type="radio" value="No available technician" formControlName="reason" required>&nbsp;No available technician.
                 </button>
-                <button mat-stroked-button class="radioBtn" value="Technicians can't go to the place">
+                                <button mat-stroked-button class="radioBtn" value="Technicians can't go to the place">
                     <input type="radio" value="Technicians can't go to the place" formControlName="reason" required>&nbsp;Technicians can't go to the place.
                 </button>
-            </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="close" class="btn btn-outline-primary" (click)="c('Close')">Back</button>
+                            <button type="button" class="btn btn-outline-danger" (click)="rejectRequest()">Reject Request</button>
+                        </div>
+                    </form>
+                </ng-template>
+            </mat-card>
         </div>
-        <div class="modal-footer">
-            <button type="button" id="close" class="btn btn-outline-primary" (click)="c('Close')">Back</button>
-            <button type="button" class="btn btn-outline-danger" (click)="rejectRequest()">Reject Request</button>
-        </div>
-    </form>
-</ng-template>

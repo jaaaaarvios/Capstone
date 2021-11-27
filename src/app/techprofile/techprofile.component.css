@@ -189,6 +189,11 @@
         margin-top: 90px;
         margin-left: 50px;
     }
+    h1 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 25px;
+        color: #b65e79;
+    }
     .techname {
         color: #003049;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

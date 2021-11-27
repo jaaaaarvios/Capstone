@@ -50,16 +50,18 @@
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
               <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
           </button>
-            <h1 class="titletxt">Technicians</h1>
+
+            <div class="headertitle">
+                <h1 class="titletxt">Technicians</h1>
+            </div>
+
         </mat-toolbar>
         <div class="content">
 
             <!-- <img class="techicon" mat-card-image src="../../assets/techicon.png"> -->
 
 
-            <button mat-icon-button class="addtech" (click)="AddtechOpenDialog()" aria-label="Example icon button with a home icon">
-                    <mat-icon class="addicon">add</mat-icon>
-                </button>
+
 
             <div class="content1">
 
@@ -71,39 +73,59 @@
         </mat-form-field> -->
 
                 <mat-card class="technician1">
+                    <div>
+                        <img class="employeesvector" mat-card-image src="../../assets/employees.png">
+                        <h1 class="title">Ayosgamit Technicians</h1>
+                        <label class="label">View list of technicians.</label>
+
+                        <button mat-icon-button class="addtech" (click)="AddtechOpenDialog()" aria-label="Example icon button with a home icon">
+                            <mat-icon class="addicon">add</mat-icon>
+                        </button>
+
+                    </div>
+
                     <div *ngFor="let tech of technicians">
-                        <h1 class="name1">{{tech.fullname}}</h1>
-                        <h2 class="position1">{{tech.specialization}}</h2>
-                        <button mat-stroked-button class="statusBtn1" [matMenuTriggerFor]="statusmenu">Status</button>
-                        <mat-menu #statusmenu="matMenu">
-                            <button mat-menu-item (click)="active(tech._id)">Active</button>
-                            <button mat-menu-item (click)="inactive(tech._id)">Inactive</button>
-                        </mat-menu>
-                        <button mat-flat-button class="profileBtn1" [routerLink]="['/technician/' + tech._id]">Profile</button>
-                        <button mat-icon-button class="editBtn1" [matMenuTriggerFor]="editmenu">
+                        <div class="listofnames">
+                            <mat-icon class="usericon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+                            <h1 class="name1">{{tech.fullname}}</h1>
+
+                            <button mat-stroked-button class="statusBtn1" [matMenuTriggerFor]="statusmenu">Status</button>
+                            <mat-menu #statusmenu="matMenu">
+                                <button mat-menu-item (click)="active(tech._id)">Active</button>
+                                <button mat-menu-item (click)="inactive(tech._id)">Inactive</button>
+                            </mat-menu>
+                            <button mat-flat-button class="profileBtn1" [routerLink]="['/technician/' + tech._id]">Profile</button>
+                            <button mat-icon-button class="editBtn1" [matMenuTriggerFor]="editmenu">
                             <mat-icon>more_vert</mat-icon>
                         </button>
 
-                        <mat-menu #editmenu="matMenu">
-                            <button mat-menu-item [routerLink]="['/edit-technician/' + tech._id]">
+                            <mat-menu #editmenu="matMenu">
+                                <button mat-menu-item [routerLink]="['/edit-technician/' + tech._id]">
                                 <mat-icon>edit</mat-icon>
                                     <span>Edit</span>
                             </button>
-                            <button mat-menu-item (click)="deleteOne(tech._id)">
+                                <button mat-menu-item (click)="deleteOne(tech._id)">
                                 <mat-icon>delete</mat-icon>
                                 <span>Delete</span>
                             </button>
-                        </mat-menu>
-                        <hr>
+                            </mat-menu>
+                            <hr>
+                        </div>
                     </div>
                 </mat-card>
 
-                <mat-card class="activetech">
+                <mat-card class="activecard">
+
                     <h1 class="activetitle"> Active Technicians </h1>
+                    <label class="label2">View list of technicians.</label>
+
                     <div *ngFor="let actTech of activeTechnicians">
-                        <h1 class="name1">{{actTech.fullname}}</h1>
-                        <h2 class="position1">{{actTech.specialization}}</h2>
+                        <div class="listofactive">
+                            <mat-icon class="usericon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+                            <h1 class="name1">{{actTech.fullname}}</h1>
+                        </div>
                     </div>
+
                 </mat-card>
             </div>
         </div>
