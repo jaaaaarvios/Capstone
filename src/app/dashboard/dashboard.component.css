@@ -201,9 +201,10 @@
     }
     .pendingcard {
         width: 1000px;
-        height: fit-content;
+        height: 400px;
         margin-top: 15px;
         border: solid 1px grey;
+        overflow: scroll;
     }
     .searchfield {
         height: 10%;

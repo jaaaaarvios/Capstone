@@ -156,6 +156,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin-top: 60px;
         }
+        .container {
+            width: auto;
+            height: auto;
+        }
         .adminvector {
             width: 95%;
             margin-top: -110px !important;
@@ -169,16 +173,19 @@
             text-align: center;
         }
         .mat-tab-group {
-            margin-top: 200px;
             width: fit-content;
-            margin-left: 10px;
+            padding-top: 50px;
+        }
+        .container {
+            margin: auto;
+            width: auto;
         }
         .scheduledcard {
             width: fit-content;
             height: 250px;
             float: left;
-            margin-left: 50px;
             margin-top: 20px;
+            overflow: scroll;
         }
         .title {
             font-size: 20px;
@@ -213,8 +220,9 @@
         .newreq {
             margin-top: 15px;
             width: fit-content;
-            height: fit-content;
+            height: 400px;
             border: 2px solid #E5E5E5;
+            overflow: scroll;
         }
         .h1new {
             font-size: 18px;
@@ -224,8 +232,9 @@
         .pendingreq {
             margin-top: 15px;
             width: fit-content;
-            height: fit-content;
+            height: 400px;
             border: 2px solid #E5E5E5;
+            overflow: scroll;
         }
         .h1pending {
             font-size: 18px;
@@ -235,8 +244,9 @@
         .completedreq {
             margin-top: 15px;
             width: fit-content;
-            height: fit-content;
+            height: 400px;
             border: 2px solid #E5E5E5;
+            overflow: scroll;
         }
         .h1completed {
             font-size: 18px;
@@ -246,8 +256,9 @@
         .cancelledreq {
             margin-top: 15px;
             width: fit-content;
-            height: fit-content;
+            height: 400px;
             border: 2px solid #E5E5E5;
+            overflow: scroll;
         }
         .h1cancelled {
             font-size: 18px;
@@ -283,9 +294,5 @@
             background-color: #fcb42a;
             color: #FFFFFF;
             margin: 5px;
-        }
-        .container {
-            width: auto;
-            height: auto;
         }
     }
