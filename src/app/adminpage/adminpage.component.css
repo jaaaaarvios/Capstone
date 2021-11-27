@@ -182,9 +182,10 @@
         }
         .scheduledcard {
             width: fit-content;
-            height: fit-content;
+            height: 250px;
             float: left;
             margin-top: 20px;
+            overflow: scroll;
         }
         .title {
             font-size: 20px;
@@ -219,8 +220,9 @@
         .newreq {
             margin-top: 15px;
             width: fit-content;
-            height: fit-content;
+            height: 400px;
             border: 2px solid #E5E5E5;
+            overflow: scroll;
         }
         .h1new {
             font-size: 18px;
@@ -230,8 +232,9 @@
         .pendingreq {
             margin-top: 15px;
             width: fit-content;
-            height: fit-content;
+            height: 400px;
             border: 2px solid #E5E5E5;
+            overflow: scroll;
         }
         .h1pending {
             font-size: 18px;
@@ -241,8 +244,9 @@
         .completedreq {
             margin-top: 15px;
             width: fit-content;
-            height: fit-content;
+            height: 400px;
             border: 2px solid #E5E5E5;
+            overflow: scroll;
         }
         .h1completed {
             font-size: 18px;
@@ -252,8 +256,9 @@
         .cancelledreq {
             margin-top: 15px;
             width: fit-content;
-            height: fit-content;
+            height: 400px;
             border: 2px solid #E5E5E5;
+            overflow: scroll;
         }
         .h1cancelled {
             font-size: 18px;
