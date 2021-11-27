@@ -19,7 +19,7 @@ export class TechprofileComponent implements OnInit {
   data: any;
   id: any;
   matcher = new MyErrorStateMatcher();
-
+  currentRate: any;
   addTech: FormGroup;
 
   @ViewChild('drawer') drawer: any;
@@ -49,6 +49,7 @@ export class TechprofileComponent implements OnInit {
     data = this.http.get('http://localhost:3000/technician/'+this.id, httpOptions);
     data.subscribe(result => {
       this.data = result;
+      this.currentRate = result.rate;
     });
   }
   goAdmin(){

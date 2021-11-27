@@ -79,7 +79,7 @@ export class RescheduleComponent implements OnInit {
               localStorage.setItem('firstLogin', "true");
             }, error => {
               console.log(error);
-              alert(error);
+              alert("Select a timeslot.");
             });
         }
         else {

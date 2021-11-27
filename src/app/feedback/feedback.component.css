@@ -1,88 +1,327 @@
-@media (min-width: 820px)
-{
-.mat-toolbar
-{
-    background-color: #D62828;
-    width: 100%;
-}
-  
-  .ayosgamit
-{
-  font-family: 'Candara';
-  font-size: 30px;
-  float: left;
-  color: #FFFFFF;
-}
-
-mat-card
-{
-    width: 600px;
-    height: 600px; 
-    float: right;
-    margin-right: 450px;
-    margin-top: 80px;
-}
-
-.vector
-{
-    width: 20%;
-    height: 20%;
-    float: left;
-    margin-left: 300px;
-    margin-top: 250px !important;
-}
-
-h1
-{
-    color: #003049;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 25px;
-    float: left;
-    margin-left: 20px;
-    margin-top: 10px;
-}
-.descrip
-{
-    color: #003049;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 30px;
-    float: left;
-    margin-left: -280px;
-    margin-top: 150px;
-}
-
-.p1
-{
-    color: #003049;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 18px;
-    position: center !important;
-    margin-top: 20px;
-}
-
-.p2
-{
-    margin-top: -25px;
-}
-
-mat-form-field
-{
-    width: 70%;
-    height: fit-content;
-    position: center !important;
-    margin-top: 250px;
-}
-
-.sendBtn
-{
-    width: 50%;
-    height: 30%;
-    background-color: #F77F00;
-    color: #FFFFFF;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 15px;
-    margin-top: 100px;
-    margin-left: 25%;
-    margin-right: 25%;
-}
+@media (min-width: 820px) {
+    .sidenav-container {
+        height: 100%;
+    }
+    .sidenav {
+        width: fit-content;
+        width: 250px;
+        background-color: #FFFFFF;
+    }
+    .mat-sidenav-content {
+        height: 910px;
+        background-color: white;
+    }
+    .mat-toolbar {
+        background-color: #DD0346;
+        width: 100%;
+        height: 100px;
+        box-shadow: 0 3px 2px -2px rgba(0, 0, 0, .2);
+    }
+    .logo {
+        max-width: 200px;
+        height: 100px !important;
+        float: left;
+        margin-top: -20px !important;
+        margin-left: 25px;
+    }
+    .adminvector {
+        width: 95%;
+        margin-top: -110px !important;
+        margin-left: 10px;
+    }
+    .sidetitle {
+        color: #003049;
+        font-size: 20px;
+        margin-top: -10px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+    .nav-icon {
+        color: #003049;
+        font-size: 28px;
+        margin-left: 20px;
+        margin-top: 15px;
+    }
+    mat-list-item {
+        background-color: transparent !important;
+    }
+    .dashboardside {
+        margin-left: 0px;
+        margin-top: 50px;
+        text-align: justify;
+    }
+    .dashboard-btn {
+        color: #003049;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-top: 25px;
+        text-decoration: none;
+    }
+    .dashboardside:hover {
+        background-color: #D6B2BD;
+        border-radius: 20px;
+        width: 100%;
+        height: 70px;
+        text-align: center !important;
+    }
+    .bookingside {
+        margin-left: 0px;
+        margin-top: 30px;
+        text-align: justify;
+        width: 100%;
+        height: 70px;
+    }
+    .bookingside:hover {
+        background-color: #D6B2BD;
+        color: #FFFFFF;
+        border-radius: 20px;
+        width: 100%;
+        height: 70px;
+        text-align: center !important;
+    }
+    .booking-btn {
+        color: #003049;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-top: 25px;
+    }
+    .feedbackside {
+        margin-left: 0px;
+        margin-top: 30px;
+        text-align: justify;
+        background-color: #D6B2BD;
+        border-radius: 20px;
+        width: 100%;
+        height: 70px;
+    }
+    .feedbackside:hover {
+        background-color: #D6B2BD;
+        color: #FFFFFF;
+        border-radius: 20px;
+        width: 100%;
+        height: 70px;
+        text-align: center !important;
+    }
+    .feedback-btn {
+        color: #003049;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-top: 25px;
+    }
+    .profileside {
+        margin-left: 0px;
+        margin-top: 30px;
+        text-align: justify;
+    }
+    .profileside:hover {
+        background-color: #D6B2BD;
+        border-radius: 20px;
+        width: 100%;
+        height: 70px;
+        text-align: center !important;
+    }
+    .profile-btn {
+        color: #003049;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-top: 25px;
+    }
+    .logoutside {
+        margin-left: 0px;
+        margin-top: 30px;
+        text-align: justify;
+    }
+    .logout-btn {
+        color: #003049;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: -5px;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-top: 25px;
+    }
+    .logoutside:hover {
+        background-color: #D6B2BD;
+        color: #FFFFFF;
+        border-radius: 20px;
+        width: 100%;
+        height: 70px;
+        text-align: center !important;
+    }
+    .spacer {
+        flex: 1 1 auto;
+    }
+    .ayosgamit {
+        font-family: 'Candara';
+        font-size: 30px;
+        margin-left: 10px;
+        color: #FFFFFF;
+    }
+    .welcome {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        margin-top: 3px;
+        color: #FFFFFF;
+    }
+    .accounticon {
+        font-size: 38px;
+        margin-top: -10px;
+        margin-right: 15px;
+        color: #FFFFFF;
+    }
+    .content {
+        width: auto;
+        margin: auto;
+    }
+    .content1 {
+        width: auto;
+        margin: auto;
+    }
+    .headertitle {
+        position: center !important;
+        margin: auto;
+    }
+    .titletxt {
+        color: #FFFFFF;
+        font-size: 25px;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: 30px;
+    }
+    .techicon {
+        width: 360px;
+        height: 250px;
+        float: right;
+        margin-right: 100px;
+        margin-top: -20px;
+    }
+    .addtech {
+        background-color: #FCBF49;
+        float: right;
+        margin-right: 50px;
+        margin-top: -40px;
+    }
+    .addicon {
+        color: #FFFFFF;
+    }
+    .employeesvector {
+        width: 22%;
+        float: left;
+        margin-top: -50px !important;
+    }
+    .title {
+        color: #b65e79;
+        font-size: 25px;
+        margin-top: 15px !important;
+        margin-left: 45px !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .label {
+        color: grey;
+        font-size: 16px;
+        margin-top: -5px;
+        margin-left: 2px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .label2 {
+        color: grey;
+        font-size: 16px;
+        margin-top: -5px;
+        margin-left: 45px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .technician1 {
+        width: 750px;
+        height: fit-content;
+        margin-left: 80px;
+        margin-top: 50px;
+        border: 2px;
+    }
+    .vector {
+        width: 35%;
+        margin-top: -110px !important;
+        float: left;
+        margin-left: -60px;
+    }
+    .activecard {
+        width: fit-content;
+        height: 500px;
+        float: left;
+        margin-top: 100px;
+        margin-left: 80px;
+        overflow: scroll;
+    }
+    .activetitle {
+        color: #b65e79;
+        font-size: 25px;
+        margin-top: 15px !important;
+        margin-left: 45px !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .listofnames {
+        margin-top: 60px !important;
+    }
+    .listofactive {
+        margin-top: 50px !important;
+    }
+    .usericon {
+        font-size: 50px;
+        color: grey;
+        margin-left: 25px;
+    }
+    .circle {
+        position: absolute;
+        /* Adjust these values accordingly */
+        padding-top: 13px;
+        color: #00631f;
+    }
+    .circle1 {
+        position: absolute;
+        /* Adjust these values accordingly */
+        padding-top: 13px;
+        color: red;
+    }
+    .name1 {
+        color: #003049;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        margin-left: 90px;
+        margin-top: -43px;
+    }
+    .position1 {
+        color: #003049;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: -8px;
+        font-size: 13px;
+        margin-left: 55px;
+    }
+    .statusBtn1 {
+        width: 70px;
+        height: 35px;
+        float: right;
+        margin: auto;
+        margin-right: 110px;
+        margin-top: -40px;
+        border-color: #fcb42a;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .profileBtn1 {
+        width: 70px;
+        height: 35px;
+        float: right;
+        margin: auto;
+        margin-right: 30px;
+        margin-top: -40px;
+        background-color: #fcb42a;
+        color: #FFFFFF;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .editBtn1 {
+        float: right;
+        margin: auto;
+        margin-top: -45px;
+    }
 }

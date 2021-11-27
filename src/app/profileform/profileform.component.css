@@ -132,6 +132,10 @@
     .spacer {
         flex: 1 1 auto;
     }
+    .container {
+        width: auto;
+        margin: auto;
+    }
     .dashtitle {
         color: #FFFFFF;
         font-size: 25px;
@@ -232,15 +236,13 @@
         width: 800px;
         height: 250px;
         float: left;
-        margin-top: 120px;
-        margin-left: 85px;
+        margin-top: 50px;
     }
     .addresscard {
         width: 800px;
         height: 460px;
         float: left;
         margin-top: 30px;
-        margin-left: 85px;
     }
     .name {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

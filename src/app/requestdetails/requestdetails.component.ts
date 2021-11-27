@@ -30,8 +30,10 @@ export class RequestdetailsComponent implements OnInit {
   data: any;
   techID: "";
   technician: any;
+  fname:any;
   token = JSON.parse(localStorage.getItem('token'));
   cancelreasonForm: FormGroup;
+  currentRate: any;
 
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver, private router: Router, private _formBuilder: FormBuilder,
     private http: HttpClient, private route: ActivatedRoute, config: NgbModalConfig, private modalService: NgbModal,) { }
@@ -60,7 +62,14 @@ export class RequestdetailsComponent implements OnInit {
       data = this.http.get('http://localhost:3000/technician/' +  this.techID , httpOptions);
       data.subscribe(result => {
         this.technician = result
+        this.currentRate = result.rate
       });
+    });
+
+    let dataa: Observable<any>;
+    dataa = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    dataa.subscribe(result => {
+      this.fname = result.first_name;
     });
   }
 

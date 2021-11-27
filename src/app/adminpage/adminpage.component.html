@@ -22,6 +22,12 @@
                     <a class="booking-btn" routerLink="/technicians">Technicians</a>
                 </mat-list-item>
             </div>
+            <div class="feedbackside">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">feedback</mat-icon>
+                    <a class="feedback-btn" routerLink="/feedback">Feedbacks</a>
+                </mat-list-item>
+            </div>
             <div class="profileside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>

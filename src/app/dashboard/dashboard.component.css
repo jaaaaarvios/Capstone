@@ -297,6 +297,35 @@
         color: #FFFFFF;
         transition: 0.3s;
     }
+    .reschedBtn {
+        width: fit-content;
+        height: 40px;
+        border-color: #8a1c3b;
+        color: #590D22;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        margin-top: 1px;
+        margin-left: 30px;
+    }
+    .reschedBtn:hover {
+        background-color: #590D22;
+        color: #FFFFFF;
+        transition: 0.3s;
+    }
+    .detailsBtn {
+        width: fit-content;
+        height: 40px;
+        border-color: #8a1c3b;
+        color: #590D22;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        margin-left: 5px;
+    }
+    .detailsBtn:hover {
+        background-color: #590D22;
+        color: #FFFFFF;
+        transition: 0.3s;
+    }
 }
 
 @media (max-width: 576px) {

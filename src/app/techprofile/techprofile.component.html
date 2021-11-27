@@ -65,12 +65,17 @@
                 <div class="mat-dialog-content">
                     <h1>Personal Information</h1>
                     <h2 class="techname">{{data.fullname}}</h2>
+                    <ng-template #t let-fill="fill">
+                        <mat-icon class="star" [class.full]="fill === 100">star</mat-icon>
+                    </ng-template>
+
+                    <ngb-rating [(rate)]="currentRate" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+
+                    <p class="contactnumber">Techinician Id</p>
+                    <p class="number">{{data.techID}}</p>
 
                     <p class="contactnumber">Gender</p>
                     <p class="number">{{data.gender}}</p>
-
-                    <p class="contactnumber">Date of Birth</p>
-                    <p class="number">{{data.birthdate | date:'longDate'}}</p>
 
                     <p class="contactnumber">Contact Number</p>
                     <p class="number">{{data.number}}</p>
@@ -79,8 +84,6 @@
                     <p class="add">{{data.address}}</p>
                 </div>
             </mat-card>
-
-
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

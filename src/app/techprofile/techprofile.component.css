@@ -178,9 +178,8 @@
         font-size: 35px;
     }
     .profilecard {
-        width: 1000px;
-        height: 400px;
-        position: center !important;
+        width: 500px;
+        height: fit-content;
         margin: auto;
         margin-top: 50px;
     }
@@ -211,29 +210,45 @@
     .contactnumber {
         color: grey;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 15px;
+        font-size: 20px;
         margin-left: 10px;
-        margin-top: 50px;
+        margin-top: 25px;
     }
     .number {
         color: #003049;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 15px;
+        font-size: 20px;
         margin-left: 10px;
         margin-top: -10px;
     }
     .address {
         color: grey;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 15px;
+        font-size: 20px;
         margin-left: 10px;
-        margin-top: 50px;
+        margin-top: 30px;
     }
     .add {
         color: #003049;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 15px;
+        font-size: 20px;
         margin-left: 10px;
         margin-top: -10px;
+    }
+    .star {
+        position: relative;
+        display: inline-block;
+        color: #d3d3d3;
+        font-size: 40px;
+        margin: 10px;
+    }
+    .full {
+        color: yellow;
+    }
+    .half {
+        position: absolute;
+        display: inline-block;
+        overflow: hidden;
+        color: yellow;
     }
 }

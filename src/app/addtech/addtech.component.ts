@@ -41,9 +41,9 @@ export class AddtechComponent implements OnInit {
     this.addTech = this.formBuilder.group({
       tech_name: ['', Validators.required],
       tech_gender: ['', Validators.required],
-      tech_birthdate: ['', Validators.required],
       tech_number: ['', Validators.required],
       tech_address: ['', Validators.required],
+      tech_id: ['', Validators.required],
     });
   }
 
@@ -63,11 +63,11 @@ export class AddtechComponent implements OnInit {
     let body = {
       "fullname": val.tech_name,
       "gender": val.tech_gender,
-      "birthdate": val.tech_birthdate,
       "number": val.tech_number,
       "address": val.tech_address,
       "active": 1,
-      "rate": 5
+      "rate": 5,
+      "techID": val.tech_id
     }
     const httpOptions = {
       headers: new HttpHeaders({

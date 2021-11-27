@@ -171,9 +171,11 @@
                 color: #FFFFFF;
             }
             .content {
+                width: auto;
                 margin: auto;
             }
             .content1 {
+                width: auto;
                 margin: auto;
             }
             .headertitle {
@@ -242,20 +244,13 @@
                 float: left;
                 margin-left: -60px;
             }
-            .remindercard {
-                width: 650px;
-                height: 105px;
-                background-color: #D6B2BD;
-                float: left;
-                margin-left: 900px;
-                margin-top: -105px;
-            }
             .activecard {
-                width: 650px;
+                width: 450px;
                 height: 500px;
                 float: left;
-                margin-left: 900px;
-                margin-top: -470px;
+                margin-top: 100px;
+                margin-left: 80px;
+                overflow: scroll;
             }
             .activetitle {
                 color: #b65e79;
@@ -273,7 +268,19 @@
             .usericon {
                 font-size: 50px;
                 color: grey;
-                margin-left: 30px;
+                margin-left: 25px;
+            }
+            .circle {
+                position: absolute;
+                /* Adjust these values accordingly */
+                padding-top: 13px;
+                color: #00631f;
+            }
+            .circle1 {
+                position: absolute;
+                /* Adjust these values accordingly */
+                padding-top: 13px;
+                color: red;
             }
             .name1 {
                 color: #003049;

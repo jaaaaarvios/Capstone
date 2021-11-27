@@ -47,6 +47,10 @@ export class PaymentformComponent implements OnInit {
     if (localStorage.getItem("service") == null) {
       this.router.navigate(['/dashboard'])
     }
+    if (localStorage.getItem('firstLogin') == 'true') {
+      localStorage.setItem('firstLogin', "false")
+      window.location.reload()
+    }
   }
 
   closeSideNav() {
