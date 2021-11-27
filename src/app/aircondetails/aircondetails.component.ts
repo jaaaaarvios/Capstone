@@ -165,7 +165,15 @@ export class AircondetailsComponent implements OnInit {
     if (!navigator.geolocation) {
       console.log('location is not supported');
     }
+
+    
     navigator.geolocation.getCurrentPosition((position) => {
+
+     
+
+        let x_coor = position.coords.latitude
+        let y_coor = position.coords.longitude
+      
       const coords = position.coords;
       const latLong = [coords.latitude, coords.longitude];
       console.log(
@@ -185,6 +193,8 @@ export class AircondetailsComponent implements OnInit {
           accessToken: 'pk.eyJ1IjoiamFhYWFhcnZpcyIsImEiOiJja294cnFhZHgwZzZyMnVtd2Q3YjRlZzdzIn0.vTrhUxiEiHeYenW8gPq_8w',
         }
       ).addTo(mymap);
+
+      
 
       let marker = L.marker(latLong).addTo(mymap);
 
