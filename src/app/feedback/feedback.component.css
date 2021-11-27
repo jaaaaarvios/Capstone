@@ -247,11 +247,10 @@
         margin-left: -60px;
     }
     .activecard {
-        width: fit-content;
+        width: 1000px;
         height: 500px;
-        float: left;
+        margin: auto;
         margin-top: 100px;
-        margin-left: 80px;
         overflow: scroll;
     }
     .activetitle {
@@ -323,5 +322,10 @@
         float: right;
         margin: auto;
         margin-top: -45px;
+    }
+    table {
+        width: 700px;
+        margin: auto;
+        margin-top: 10px;
     }
 }
