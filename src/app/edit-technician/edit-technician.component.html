@@ -71,6 +71,14 @@
                             </mat-error>
                         </mat-form-field>
 
+                        <mat-form-field class="textfield" appearance="outline">
+                            <mat-label>Technician Id</mat-label>
+                            <input matInput formControlName="tech_id" [errorStateMatcher]="matcher" autocomplete="off">
+                            <mat-error *ngIf="addTech.get('tech_id').hasError('required')">
+                                Input Technicians ID
+                            </mat-error>
+                        </mat-form-field>
+
                         <mat-form-field class="genderfield" appearance="outline">
                             <mat-label>Gender</mat-label>
                             <mat-select formControlName="tech_gender">
@@ -78,15 +86,6 @@
                                 <mat-option value="Female">Female</mat-option>
                             </mat-select>
 
-                        </mat-form-field>
-
-                        <mat-form-field class="birthdate" appearance="outline">
-                            <mat-label>Date of Birth</mat-label>
-                            <input matInput [matDatepicker]="picker" formControlName="tech_birthdate">
-                            <mat-datepicker-toggle matSuffix [for]="picker">
-                                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-                            </mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
 
                         <mat-form-field class="textfield" appearance="outline">
