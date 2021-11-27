@@ -98,8 +98,24 @@ export class LoginformComponent implements OnInit {
         });
       }
       else if (val.email != this.admin) {
+
+       
+
+        
+        
         this.auth.login(val).subscribe(result => {
+          if (result.active == "0") {
+            alert("Email not verified")
+          }
+
+      
+
+          else {
+            
+          
           if (result) {
+
+           
             localStorage.setItem("id", JSON.stringify(result._id));
             localStorage.setItem("token", JSON.stringify(result.token));
             localStorage.setItem('firstLogin', "true")
@@ -107,7 +123,7 @@ export class LoginformComponent implements OnInit {
             alert(result.message);
             this.router.navigate(['/profile'])
           }
-        }, error => {
+        }}, error => {
           console.log(error);
           alert("Invalid Email or Password");
           this.userForm.reset();
@@ -124,6 +140,7 @@ export class LoginformComponent implements OnInit {
     } catch (err) {
       console.log(err)
     }
+  
 
   }
 

@@ -87,11 +87,14 @@ export class SignupformComponent implements OnInit {
       this.http.post("http://localhost:3000/CredentialDB", body)
         .subscribe(data => {
           console.log(data, 'success');
-          alert("Sign up successfully");
+          //alert("Sign up successfully");
+          alert("An email has been sent for verification")
           this.signupForm.reset();
           Object.keys(this.signupForm.controls).forEach(key => {
             this.signupForm.get(key).setErrors(null);
+            
           });
+         
         }, error => {
           console.log(error);
           alert("The email already exists");
