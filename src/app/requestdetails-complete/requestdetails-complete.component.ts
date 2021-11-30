@@ -47,7 +47,7 @@ export class RequestdetailsCompleteComponent implements OnInit {
 
   ngOnInit(): void {
     this.rateForm = this._formBuilder.group({
-      technician_feedback: ['', Validators.required],
+      technician_feedback: [''],
     });
 
     if (localStorage.getItem("id") == null) {
