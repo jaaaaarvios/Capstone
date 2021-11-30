@@ -132,10 +132,9 @@
 
 
 <div class="termschkbox">
-    <mat-checkbox #confirmed>I agree to Ayosgamit <b>Terms and Conditions.</b></mat-checkbox>
+
     <div>
-        <div *ngIf="!confirmed.checked; then disable else enable"></div>
-        <ng-template #disable><button mat-stroked-button class="submitBtn-disabled" [disabled]="!confirmed.checked">Proceed to payment</button></ng-template>
-        <ng-template #enable><button mat-raised-button class="submitBtn" (click)="goPayment()">Proceed to payment</button></ng-template>
+
+        <button mat-raised-button class="submitBtn" (click)="goPayment()">Proceed to payment</button>
     </div>
 </div>

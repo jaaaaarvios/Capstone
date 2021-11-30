@@ -1,16 +1,20 @@
 @media (min-width: 820px) {
+    body {
+        background-size: cover;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        background-attachment: fixed;
+    }
+    mat-toolbar {
+        width: 100%;
+        height: 80px;
+    }
     .logo {
         max-width: 200px;
         height: 100px !important;
         margin-left: 30px !important;
-        margin-top: 20px !important;
-    }
-    .spacer {
-        flex: 1 1 auto;
-    }
-    .mat-toolbar {
-        width: 100%;
-        height: 80px;
+        margin-top: 15px !important;
     }
     .menuBtn {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -19,24 +23,56 @@
         float: left;
         margin: 30px;
         margin-top: 40px;
+        display: flex;
     }
     .menuBtn:hover,
     .menuBtn:active {
         color: #dd0346;
     }
-    .toolbarBtn {
+    mat-icon {
+        font-size: 30px;
+        margin-top: 2px !important;
+        display: flex;
+    }
+    .pricingBtn {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #003049;
+        float: left;
+        margin: 30px;
+        margin-top: 40px;
+        font-size: 17px;
+    }
+    .pricingBtn:hover,
+    .pricingBtn:active {
+        color: #dd0346;
+    }
+    .contactUsBtn {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #003049;
         font-size: 17px;
-        margin: 25px;
-        margin-top: 30px;
+        float: left;
+        margin: 30px;
+        margin-top: 40px;
     }
-    .toolbarBtn:hover,
-    .toolbarBtn:active {
+    .contactUsBtn:hover,
+    .contactUsBtn:active {
+        color: #dd0346;
+    }
+    .aboutusBtn {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #003049;
+        font-size: 17px;
+        float: left;
+        margin: 30px;
+        margin-top: 40px;
+    }
+    .aboutusBtn:hover,
+    .aboutusBtn:active {
         color: #dd0346;
     }
     .loginBtn {
         float: right !important;
+        margin-right: 50px;
         width: 140px;
         height: 40px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -48,8 +84,8 @@
     .loginBtn:active {
         color: #f9dcc4;
     }
-    .mat-icon {
-        font-size: 20px;
+    .spacer {
+        flex: 1 1 auto;
     }
     .loginvector {
         width: 30%;
@@ -85,22 +121,36 @@
         min-height: 40px;
         width: 200px;
         margin-top: 20px;
+        float: left;
         margin-left: 30px;
     }
     .signup-lnamefield {
         min-height: 40px;
         width: 200px;
+        float: left;
+        margin-top: 20px;
         margin-left: 30px;
     }
     .signup-emailfield {
         min-height: 40px;
         width: 400px;
+        float: left;
         margin-left: 30px;
     }
     .signup-passfield {
         min-height: 40px;
         width: 400px;
+        float: left;
         margin-left: 30px;
+    }
+    .propertyfield {
+        margin-left: 30px;
+        float: left;
+    }
+    .signup-addressfield {
+        margin-left: 30px;
+        width: 400px;
+        float: left;
     }
     .accounttxt {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -112,13 +162,13 @@
     }
     .signupBtn {
         margin-top: 10px;
-        margin-left: 80px;
+        margin-left: 10px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 18px;
         background-color: #dd0346;
         color: #FFFFFF;
         height: 10%;
-        width: 300px;
+        width: 400px;
         height: 40px;
     }
     .signuptxt {
