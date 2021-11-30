@@ -39,7 +39,7 @@ export class AdminUserComponent implements OnInit {
       })
     }
     let data:Observable<any>;
-      data = this.http.get('http://localhost:3000/CredentialDB', httpOptions);
+      data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/CredentialDB', httpOptions);
       data.subscribe(result => {
         this.users = result
       });

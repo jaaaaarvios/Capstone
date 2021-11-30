@@ -76,7 +76,7 @@ export class AddtechComponent implements OnInit {
     }
     if (this.addTech.valid) {
       console.log(this.addTech.value);
-      this.http.post("http://localhost:3000/technician", body, httpOptions)
+      this.http.post("https://dhdev-ayosgamit.herokuapp.com/technician", body, httpOptions)
         .subscribe(data => {
           console.log(data, 'success');
           this.router.navigate(['/technicians']);

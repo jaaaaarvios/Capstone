@@ -62,7 +62,7 @@ export class AdminpageComponent implements OnInit {
       })
     }
     let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/NewServiceRequest', httpOptions);
+    data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/NewServiceRequest', httpOptions);
     data.subscribe(result => {
       let completed_request = result.filter(function (status) {
         return status.status == "Completed";

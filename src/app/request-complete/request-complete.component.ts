@@ -45,11 +45,11 @@ export class RequestCompleteComponent implements OnInit {
       })
     }
     let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/NewServiceRequest/' + this.id, httpOptions);
+    data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/NewServiceRequest/' + this.id, httpOptions);
     data.subscribe(result => {
       this.data = result;
       this.techID = result.technician_id;
-      data = this.http.get('http://localhost:3000/technician/' +  this.techID , httpOptions);
+      data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/technician/' +  this.techID , httpOptions);
       data.subscribe(result => {
         this.technician = result
         this.currentRate = result.rate
@@ -84,7 +84,7 @@ export class RequestCompleteComponent implements OnInit {
           "x-access-token": this.token
         })
       }
-      this.http.patch("http://localhost:3000/NewServiceRequest/status/" + this.id, body, httpOptions)
+      this.http.patch("https://dhdev-ayosgamit.herokuapp.com/NewServiceRequest/status/" + this.id, body, httpOptions)
         .subscribe(data => {
           this.router.navigate(['/admin']);
           localStorage.setItem('firstLogin', "true");
@@ -92,7 +92,7 @@ export class RequestCompleteComponent implements OnInit {
           console.log(error);
           alert(error);
         });
-        this.http.patch("http://localhost:3000/technician/active/" + this.techID, body1, httpOptions)
+        this.http.patch("https://dhdev-ayosgamit.herokuapp.com/technician/active/" + this.techID, body1, httpOptions)
         .subscribe(data => {
           this.router.navigate(['/admin']);
           localStorage.setItem('firstLogin', "true");

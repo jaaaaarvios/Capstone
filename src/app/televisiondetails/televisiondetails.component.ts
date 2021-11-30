@@ -125,7 +125,7 @@ export class TelevisiondetailsComponent implements OnInit {
       })
     }
     let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/CredentialDB/' + this.id, httpOptions);
     data.subscribe(result => {
       this.email = result.email
       this.fname = result.first_name;
@@ -144,7 +144,7 @@ export class TelevisiondetailsComponent implements OnInit {
       });
     });
     let dataa: Observable<any>;
-    dataa = this.http.get('http://localhost:3000/technician', httpOptions);
+    dataa = this.http.get('https://dhdev-ayosgamit.herokuapp.com/technician', httpOptions);
     dataa.subscribe(result => {
       let acttechnicians = result.filter(function (activeStatus) {
         return activeStatus.active == true;
@@ -289,7 +289,7 @@ export class TelevisiondetailsComponent implements OnInit {
         })
       }
       if (this.contactDetialsForm.valid) {
-        this.http.post("http://localhost:3000/NewServiceRequest/repair", body, httpOptions)
+        this.http.post("https://dhdev-ayosgamit.herokuapp.com/NewServiceRequest/repair", body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Booking Success');
             localStorage.setItem("service", JSON.stringify(data));

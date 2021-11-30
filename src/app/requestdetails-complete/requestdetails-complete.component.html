@@ -52,7 +52,10 @@
                 <mat-icon class="backicon">chevron_left</mat-icon>
               </button>
                 <div>
-                    <button mat-raised-button (click)="open(ratingFeedback)" class="rateBtn">Rate</button>
+                    <div *ngIf="data.rate == false; else doneRate">
+                        <button mat-raised-button (click)="open(ratingFeedback)" class="rateBtn">Rate</button>
+                    </div>
+                    <ng-template #doneRate></ng-template>
                 </div>
 
                 <mat-card class="summary">

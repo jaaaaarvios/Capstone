@@ -53,7 +53,7 @@ export class EditTechnicianComponent implements OnInit {
       })
     }
     let data:Observable<any>;
-    data = this.http.get('http://localhost:3000/technician/'+this.id, httpOptions);
+    data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/technician/'+this.id, httpOptions);
     data.subscribe(result => {
       this.addTech.setValue({
         tech_name: result.fullname,
@@ -96,7 +96,7 @@ export class EditTechnicianComponent implements OnInit {
     }
     if (this.addTech.valid) {
       console.log(this.addTech.value);
-      this.http.patch("http://localhost:3000/technician/update/" + this.id, body, httpOptions)
+      this.http.patch("https://dhdev-ayosgamit.herokuapp.com/technician/update/" + this.id, body, httpOptions)
         .subscribe(data => {
           console.log(data, 'success');
           this.router.navigate(['/technicians']);

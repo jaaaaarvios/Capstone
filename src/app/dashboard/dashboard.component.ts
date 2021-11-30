@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit {
     }
 
     let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/NewServiceRequest', httpOptions);
+    data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/NewServiceRequest', httpOptions);
     data.subscribe(result => {
       var email = this.email
       let service_request = result.filter(function (createdBy) {
@@ -116,7 +116,7 @@ export class DashboardComponent implements OnInit {
     }
 
     let dataa: Observable<any>;
-    dataa = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    dataa = this.http.get('https://dhdev-ayosgamit.herokuapp.com/CredentialDB/' + this.id, httpOptions);
     dataa.subscribe(result => {
       this.fname = result.first_name;
       this.lname = result.last_name;
@@ -126,7 +126,7 @@ export class DashboardComponent implements OnInit {
     });
 
     let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/NewServiceRequest', httpOptions);
+    data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/NewServiceRequest', httpOptions);
     data.subscribe(result => {
       var email = this.email
       let service_request = result.filter(function (createdBy) {
