@@ -84,7 +84,7 @@ export class SignupformComponent implements OnInit {
       "active": "1"
     }
     if (this.signupForm.valid) {
-      this.http.post("http://localhost:3000/CredentialDB", body)
+      this.http.post("https://dhdev-ayosgamit.herokuapp.com/CredentialDB", body)
         .subscribe(data => {
           console.log(data, 'success');
           //alert("Sign up successfully");

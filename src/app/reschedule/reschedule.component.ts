@@ -48,7 +48,7 @@ export class RescheduleComponent implements OnInit {
         })
       }
       let dataa: Observable<any>;
-      dataa = this.http.get('http://localhost:3000/technician', httpOptions);
+      dataa = this.http.get('https://dhdev-ayosgamit.herokuapp.com/technician', httpOptions);
       dataa.subscribe(result => {
         let acttechnicians = result.filter(function (activeStatus) {
           return activeStatus.active == true;
@@ -72,7 +72,7 @@ export class RescheduleComponent implements OnInit {
               "x-access-token": this.token
             })
           }
-          this.http.patch("http://localhost:3000/NewServiceRequest/schedule/" + this.id, body, httpOptions)
+          this.http.patch("https://dhdev-ayosgamit.herokuapp.com/NewServiceRequest/schedule/" + this.id, body, httpOptions)
             .subscribe(data => {
               alert("Updated");
               this.router.navigate(['dashboard']);

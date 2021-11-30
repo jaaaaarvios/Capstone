@@ -42,7 +42,7 @@ export class TechniciansComponent implements OnInit {
       })
     }
     let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/technician', httpOptions);
+    data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/technician', httpOptions);
     data.subscribe(result => {
       this.technicians = result
       let acttechnicians = result.filter(function (activeStatus) {
@@ -80,7 +80,7 @@ export class TechniciansComponent implements OnInit {
           "x-access-token": this.token
         })
       }
-      this.http.patch("http://localhost:3000/technician/active/" + techID, body, httpOptions)
+      this.http.patch("https://dhdev-ayosgamit.herokuapp.com/technician/active/" + techID, body, httpOptions)
         .subscribe(data => {
           alert("Updated")
           localStorage.setItem('firstLogin', "true");
@@ -105,7 +105,7 @@ export class TechniciansComponent implements OnInit {
           "x-access-token": this.token
         })
       }
-      this.http.patch("http://localhost:3000/technician/active/" + techID, body, httpOptions)
+      this.http.patch("https://dhdev-ayosgamit.herokuapp.com/technician/active/" + techID, body, httpOptions)
         .subscribe(data => {
           alert("Updated")
           localStorage.setItem('firstLogin', "true");

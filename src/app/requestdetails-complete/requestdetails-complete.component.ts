@@ -62,18 +62,18 @@ export class RequestdetailsCompleteComponent implements OnInit {
       })
     }
     let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/NewServiceRequest/' + this.id, httpOptions);
+    data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/NewServiceRequest/' + this.id, httpOptions);
     data.subscribe(result => {
       this.data = result;
       this.techID = result.technician_id;
-      data = this.http.get('http://localhost:3000/technician/' +  this.techID , httpOptions);
+      data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/technician/' +  this.techID , httpOptions);
       data.subscribe(result => {
         this.technician = result
         this.currentRate = result.rate
       });
     });
     let dataa:Observable<any>;
-    dataa = this.http.get('http://localhost:3000/CredentialDB/' + this.userID, httpOptions);
+    dataa = this.http.get('https://dhdev-ayosgamit.herokuapp.com/CredentialDB/' + this.userID, httpOptions);
     dataa.subscribe(result => {
       this.fname = result.first_name;
       this.lname = result.last_name;
@@ -118,7 +118,7 @@ export class RequestdetailsCompleteComponent implements OnInit {
             "x-access-token": this.token
           })
         }
-          this.http.patch("http://localhost:3000/technician/rate/" + this.techID, body, httpOptions)
+          this.http.patch("https://dhdev-ayosgamit.herokuapp.com/technician/rate/" + this.techID, body, httpOptions)
           .subscribe(data => {
             this.router.navigate(['/dashboard']);
             localStorage.setItem('firstLogin', "true");
@@ -129,7 +129,7 @@ export class RequestdetailsCompleteComponent implements OnInit {
             console.log(error);
             alert(error);
           });
-          this.http.post("http://localhost:3000/feedback", body1, httpOptions)
+          this.http.post("https://dhdev-ayosgamit.herokuapp.com/feedback", body1, httpOptions)
           .subscribe(data => {
             alert("Thank you for the feedback!")
             this.router.navigate(['/dashboard']);

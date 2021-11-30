@@ -40,7 +40,7 @@ export class FeedbackComponent implements OnInit {
       })
     }
     let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/feedback', httpOptions);
+    data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/CredentialDB', httpOptions);
     data.subscribe(result => {
       this.data = result
     });

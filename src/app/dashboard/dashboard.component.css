@@ -173,8 +173,9 @@
     .customerinfo {
         width: 1000px;
         height: fit-content;
-        margin-left: 50px;
-        margin-top: 20px;
+        position: center !important;
+        margin: auto;
+        margin-top: 50px;
     }
     table,
     tr,
@@ -197,8 +198,9 @@
     .tab {
         width: fit-content;
         height: 500px;
-        margin-top: 50px;
-        margin-left: 50px;
+        margin-top: 50px !important;
+        position: center !important;
+        margin: auto;
     }
     .pendingcard {
         width: 1000px;

@@ -14,7 +14,78 @@
         max-width: 200px;
         height: 100px !important;
         margin-left: 30px !important;
-        margin-top: 20px !important;
+        margin-top: 15px !important;
+    }
+    .menuBtn {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #003049;
+        font-size: 17px;
+        float: left;
+        margin: 30px;
+        margin-top: 40px;
+        display: flex;
+    }
+    .menuBtn:hover,
+    .menuBtn:active {
+        color: #dd0346;
+    }
+    mat-icon {
+        font-size: 30px;
+        margin-top: 2px !important;
+        display: flex;
+    }
+    .pricingBtn {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #003049;
+        float: left;
+        margin: 30px;
+        margin-top: 40px;
+        font-size: 17px;
+    }
+    .pricingBtn:hover,
+    .pricingBtn:active {
+        color: #dd0346;
+    }
+    .contactUsBtn {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #003049;
+        font-size: 17px;
+        float: left;
+        margin: 30px;
+        margin-top: 40px;
+    }
+    .contactUsBtn:hover,
+    .contactUsBtn:active {
+        color: #dd0346;
+    }
+    .aboutusBtn {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #003049;
+        font-size: 17px;
+        float: left;
+        margin: 30px;
+        margin-top: 40px;
+    }
+    .aboutusBtn:hover,
+    .aboutusBtn:active {
+        color: #dd0346;
+    }
+    .loginBtn {
+        float: right !important;
+        margin-right: 50px;
+        width: 140px;
+        height: 40px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #dd0346;
+        color: #FFFFFF;
+        font-size: 15px;
+    }
+    .loginBtn:hover,
+    .loginBtn:active {
+        color: #f9dcc4;
+    }
+    .spacer {
+        flex: 1 1 auto;
     }
     .content {
         float: left;
@@ -59,73 +130,6 @@
         height: 30%;
         float: right;
         margin-right: 270px;
-    }
-    .menuBtn {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #003049;
-        font-size: 17px;
-        float: left;
-        margin: 30px;
-        margin-top: 40px;
-    }
-    .menuBtn:hover,
-    .menuBtn:active {
-        color: #dd0346;
-    }
-    .pricingBtn {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #003049;
-        float: left;
-        margin: 30px;
-        margin-top: 40px;
-        font-size: 17px;
-    }
-    .pricingBtn:hover,
-    .pricingBtn:active {
-        color: #dd0346;
-    }
-    .contactUsBtn {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #003049;
-        font-size: 17px;
-        float: left;
-        margin: 30px;
-        margin-top: 40px;
-    }
-    .contactUsBtn:hover,
-    .contactUsBtn:active {
-        color: #dd0346;
-    }
-    .aboutusBtn {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #003049;
-        font-size: 17px;
-        float: left;
-        margin: 30px;
-        margin-top: 40px;
-    }
-    .aboutusBtn:hover,
-    .aboutusBtn:active {
-        color: #dd0346;
-    }
-    .spacer {
-        flex: 1 1 auto;
-    }
-    .loginBtn {
-        float: right !important;
-        width: 140px;
-        height: 40px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #dd0346;
-        color: #FFFFFF;
-        font-size: 15px;
-    }
-    .loginBtn:hover,
-    .loginBtn:active {
-        color: #f9dcc4;
-    }
-    mat-icon {
-        font-size: 20px;
     }
     .headertxt {
         position: center !important;

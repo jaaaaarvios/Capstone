@@ -50,7 +50,7 @@ export class EditProfileComponent implements OnInit {
     }
 
     let data:Observable<any>;
-    data = this.http.get('http://localhost:3000/CredentialDB/'+this.id, httpOptions);
+    data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/CredentialDB/'+this.id, httpOptions);
     data.subscribe(result => {
       this.fname = result.first_name;
       this.personalInfoForm.setValue({
@@ -90,7 +90,7 @@ export class EditProfileComponent implements OnInit {
       })
     }
     if (this.personalInfoForm.valid) {
-      this.http.patch("http://localhost:3000/CredentialDB/personal/"+this.id, body, httpOptions)
+      this.http.patch("https://dhdev-ayosgamit.herokuapp.com/CredentialDB/personal/"+this.id, body, httpOptions)
         .subscribe(data => {
           console.log(data, 'Update Success');
           alert("Updated");

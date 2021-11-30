@@ -40,7 +40,7 @@ export class AppliancesComponent implements OnInit {
       })
     }
     let data: Observable<any>;
-    data = this.http.get('http://localhost:3000/CredentialDB/' + this.id, httpOptions);
+    data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/CredentialDB/' + this.id, httpOptions);
     data.subscribe(result => {
       this.fname = result.first_name;
     });

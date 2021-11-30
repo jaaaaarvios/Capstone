@@ -235,13 +235,15 @@
     .infocard {
         width: 800px;
         height: 250px;
-        float: left;
+        position: center !important;
+        margin: auto;
         margin-top: 50px;
     }
     .addresscard {
         width: 800px;
         height: 460px;
-        float: left;
+        position: center !important;
+        margin: auto;
         margin-top: 30px;
     }
     .name {

@@ -219,7 +219,7 @@ export class BookingsummaryEditComponent implements OnInit {
         })
       }
       if (this.summaryForm.valid) {
-        this.http.patch("http://localhost:3000/NewServiceRequest/summary/"+ this.service._id, body, httpOptions)
+        this.http.patch("https://dhdev-ayosgamit.herokuapp.com/NewServiceRequest/summary/"+ this.service._id, body, httpOptions)
           .subscribe(data => {
             console.log(data, 'Update Success');
             alert("Updated");
