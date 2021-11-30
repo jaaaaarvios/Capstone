@@ -63,6 +63,7 @@ export class BookingsummaryComponent implements OnInit {
     if (retVal == true) {
       this.deleteOne()
       this.router.navigate(['dashboard'])
+      localStorage.removeItem("service");
       localStorage.setItem('firstLogin', "true")
       return true;
     } else {
