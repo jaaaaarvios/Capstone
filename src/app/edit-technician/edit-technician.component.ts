@@ -42,7 +42,7 @@ export class EditTechnicianComponent implements OnInit {
     this.addTech = this.formBuilder.group({
       tech_name: ['', Validators.required],
       tech_gender: ['', Validators.required],
-      tech_birthdate: ['', Validators.required],
+      tech_id: ['', Validators.required],
       tech_number: ['', Validators.required],
       tech_address: ['', Validators.required],
     });
@@ -58,7 +58,7 @@ export class EditTechnicianComponent implements OnInit {
       this.addTech.setValue({
         tech_name: result.fullname,
         tech_gender: result.gender,
-        tech_birthdate: result.birthdate,
+        tech_id: result.techID,
         tech_number: result.number,
         tech_address: result.address
       });
@@ -85,7 +85,7 @@ export class EditTechnicianComponent implements OnInit {
     let body = {
       "fullname": val.tech_name,
       "gender": val.tech_gender,
-      "birthdate": val.tech_birthdate,
+      "techID": val.tech_birthdate,
       "number": val.tech_number,
       "address": val.tech_address,
     }
