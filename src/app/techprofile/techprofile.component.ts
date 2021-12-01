@@ -46,7 +46,7 @@ export class TechprofileComponent implements OnInit {
       })
     }
     let data:Observable<any>;
-    data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/CredentialDB'+this.id, httpOptions);
+    data = this.http.get('https://dhdev-ayosgamit.herokuapp.com/technician/'+this.id, httpOptions);
     data.subscribe(result => {
       this.data = result;
       this.currentRate = result.rate;

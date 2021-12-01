@@ -296,7 +296,8 @@ export class AircondetailsComponent implements OnInit {
         "cleaningfee": this.cleanfee,
         "installfee": this.installfee,
         "unitfee": inverter,
-        "createdBy": this.email
+        "createdBy": this.email,
+        "rate": 0
       }
       const httpOptions = {
         headers: new HttpHeaders({

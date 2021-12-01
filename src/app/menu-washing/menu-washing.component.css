@@ -26,10 +26,16 @@
         float: left;
         margin: 30px;
         margin-top: 40px;
+        display: flex;
     }
     .menuBtn:hover,
     .menuBtn:active {
         color: #dd0346;
+    }
+    .ourservices {
+        font-size: 30px;
+        margin-top: 2px !important;
+        display: flex;
     }
     .toolbarBtn {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -55,9 +61,6 @@
     .loginBtn:hover,
     .loginBtn:active {
         color: #f9dcc4;
-    }
-    .mat-icon {
-        font-size: 20px;
     }
     .mat-card {
         width: 1000px;

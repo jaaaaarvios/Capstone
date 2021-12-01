@@ -47,7 +47,7 @@ export class RequestdetailsCompleteComponent implements OnInit {
 
   ngOnInit(): void {
     this.rateForm = this._formBuilder.group({
-      technician_feedback: ['', Validators.required],
+      technician_feedback: [''],
     });
 
     if (localStorage.getItem("id") == null) {
@@ -113,12 +113,26 @@ export class RequestdetailsCompleteComponent implements OnInit {
           "createdBy": this.email,
           "feedback": this.rateForm.value.technician_feedback
         }
+        let body2 = {
+          "rate": 1,
+        }
         const httpOptions = {
           headers: new HttpHeaders({
             "x-access-token": this.token
           })
         }
           this.http.patch("https://dhdev-ayosgamit.herokuapp.com/technician/rate/" + this.techID, body, httpOptions)
+          .subscribe(data => {
+            this.router.navigate(['/dashboard']);
+            localStorage.setItem('firstLogin', "true");
+            let ref = document.getElementById('close');
+            ref?.click();
+            this.rateForm.reset();
+          }, error => {
+            console.log(error);
+            alert(error);
+          });
+          this.http.patch("https://dhdev-ayosgamit.herokuapp.com/NewServiceRequest/rate/" + this.id, body2, httpOptions)
           .subscribe(data => {
             this.router.navigate(['/dashboard']);
             localStorage.setItem('firstLogin', "true");

@@ -52,7 +52,10 @@
                 <mat-icon class="backicon">chevron_left</mat-icon>
               </button>
                 <div>
-                    <button mat-raised-button (click)="open(ratingFeedback)" class="rateBtn">Rate</button>
+                    <div *ngIf="data.rate == false; else doneRate">
+                        <button mat-raised-button (click)="open(ratingFeedback)" class="rateBtn">Rate</button>
+                    </div>
+                    <ng-template #doneRate></ng-template>
                 </div>
 
                 <mat-card class="summary">
@@ -177,9 +180,6 @@
             <mat-form-field class="feedback" appearance="outline">
                 <mat-label>Feedback</mat-label>
                 <input matInput formControlName="technician_feedback" [errorStateMatcher]="matcher" placeholder="Share us your experience" autocomplete="off">
-                <mat-error *ngIf="rateForm.get('technician_feedback').hasError('required')">
-                    Give us your feedback.
-                </mat-error>
             </mat-form-field>
         </div>
         <div class="modal-footer">
