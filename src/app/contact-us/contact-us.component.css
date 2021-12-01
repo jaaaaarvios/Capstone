@@ -57,7 +57,7 @@
     .menuBtn:active {
         color: #dd0346;
     }
-    mat-icon {
+    .ourservices {
         font-size: 30px;
         margin-top: 2px !important;
         display: flex;
