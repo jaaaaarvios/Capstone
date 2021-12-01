@@ -70,7 +70,6 @@ import { AdminUserComponent } from './admin-user/admin-user.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { PrivacytermsComponent } from './privacyterms/privacyterms.component';
 import { FeedbackComponent } from './feedback/feedback.component';
-import { NgxStarRatingModule } from 'ngx-star-rating';
 import { RepairFeeComponent } from './repair-fee/repair-fee.component';
 import { CleaningFeeComponent } from './cleaning-fee/cleaning-fee.component';
 import { InstallFeeComponent } from './install-fee/install-fee.component';
@@ -179,7 +178,6 @@ import { EditTechnicianComponent } from './edit-technician/edit-technician.compo
     MatListModule,
     MatGridListModule,
     NgbModule,
-    NgxStarRatingModule
   ],
   providers: [],
 
