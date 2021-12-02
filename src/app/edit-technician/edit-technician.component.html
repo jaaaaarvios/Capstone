@@ -62,7 +62,7 @@
 
                         <mat-form-field class="textfield" appearance="outline">
                             <mat-label>Name</mat-label>
-                            <input matInput formControlName="tech_name" pattern="[a-zA-Z_ ]{1,30}" placeholder="Juan Dela Cruz" [errorStateMatcher]="matcher" autocomplete="off">
+                            <input matInput formControlName="tech_name" pattern="[a-zA-Z_. ]{1,30}" placeholder="Juan Dela Cruz" [errorStateMatcher]="matcher" autocomplete="off">
                             <mat-error *ngIf="addTech.get('tech_name').hasError('required')">
                                 Input Technicians full name
                             </mat-error>
