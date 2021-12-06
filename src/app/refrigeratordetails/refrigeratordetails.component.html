@@ -356,6 +356,10 @@
                                         Any instructions?
                                     </mat-error>
                                 </mat-form-field>
+                                <mat-form-field class="instructions" appearance="outline">
+                                    <mat-label>Special Instruction (Optional)</mat-label>
+                                    <input matInput formControlName="special_instruction" [errorStateMatcher]="matcher" placeholder="Any special instruction/request?" autocomplete="off">
+                                </mat-form-field>
                             </div>
                         </mat-card>
 

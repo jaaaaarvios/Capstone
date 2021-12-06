@@ -181,6 +181,21 @@
                             </td>
                         </tr>
                     </tbody>
+                    <thead>
+                        <tr>
+                            <th class="header4">Special Instruction/Request</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="body4">
+                                <mat-form-field class="instructions" appearance="outline">
+                                    <mat-label>Special Instruction (Optional)</mat-label>
+                                    <input matInput formControlName="special_instruction" [errorStateMatcher]="matcher" placeholder="Any special instruction/request?" autocomplete="off">
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </mat-card>
         </div>

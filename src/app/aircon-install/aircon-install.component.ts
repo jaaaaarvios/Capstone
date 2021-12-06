@@ -123,6 +123,7 @@ export class AirconInstallComponent implements OnInit {
       service_phoneNumber: ['', [Validators.required, Validators.pattern]],
       service_addressDetails: ['', Validators.required],
       service_instruction: ['', Validators.required],
+      special_instruction: [''],
     });
 
     const httpOptions = {
@@ -141,7 +142,8 @@ export class AirconInstallComponent implements OnInit {
         service_lastname: result.last_name,
         service_phoneNumber: result.number,
         service_addressDetails: result.service_addressDetails,
-        service_instruction: ""
+        service_instruction: "",
+        special_instruction: ""
       });
       this.locationForm.setValue({
         service_city: result.city,
@@ -332,7 +334,8 @@ export class AirconInstallComponent implements OnInit {
         "cleaningfee": this.cleanfee,
         "installfee": installfee,
         "unitfee": inverter,
-        "createdBy": this.email
+        "createdBy": this.email,
+        "special_instruct": contact.special_instruction
       }
       const httpOptions = {
         headers: new HttpHeaders({

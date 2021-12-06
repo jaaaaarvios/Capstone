@@ -60,6 +60,7 @@ export class BookingsummaryEditComponent implements OnInit {
       service_city: ['', Validators.required],
       service_property_type: ['', Validators.required],
       service_barangay: ['', Validators.required],
+      special_instruction: [''],
     });
     this.summaryForm.patchValue({
       service_firstname: this.service.service_firstname,
@@ -71,6 +72,7 @@ export class BookingsummaryEditComponent implements OnInit {
       service_barangay: this.service.service_barangay,
       service_city: this.service.service_city,
       service_property_type: this.service.service_property_type,
+      special_instruction: this.service.special_instruct,
     });
   }
 
@@ -211,7 +213,8 @@ export class BookingsummaryEditComponent implements OnInit {
         "service_instruction": summary.service_instruction,
         "service_barangay": summary.service_barangay,
         "service_city": summary.service_city,
-        "service_property_type": summary.service_property_type
+        "service_property_type": summary.service_property_type,
+        "special_instruct": summary.special_instruction
       }
       const httpOptions = {
         headers: new HttpHeaders({
