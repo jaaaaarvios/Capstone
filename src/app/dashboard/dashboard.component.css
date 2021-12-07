@@ -286,7 +286,7 @@
         font-family: 'Trebuchet MS';
     }
     .rateBtn {
-        width: 80px;
+        width: fit-content;
         height: 40px;
         border-color: #8a1c3b;
         color: #590D22;
