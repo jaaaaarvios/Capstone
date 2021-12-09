@@ -51,6 +51,7 @@
     }
     .loginBtn {
         float: right !important;
+        margin-right: 50px;
         width: 140px;
         height: 40px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
