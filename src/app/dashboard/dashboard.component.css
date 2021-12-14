@@ -129,6 +129,17 @@
         height: 70px;
         text-align: center !important;
     }
+    .termsside {
+        margin-top: 240px;
+        margin-left: 30px;
+    }
+    .termstxt {
+        color: #003049;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 13px;
+        text-decoration: none;
+        display: inline;
+    }
     .spacer {
         flex: 1 1 auto;
     }

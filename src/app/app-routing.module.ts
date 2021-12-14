@@ -49,6 +49,7 @@ import { LoginformAdminComponent } from './loginform-admin/loginform-admin.compo
 import { RequestdetailsPendingComponent } from './requestdetails-pending/requestdetails-pending.component';
 import { RequestdetailsCompleteComponent } from './requestdetails-complete/requestdetails-complete.component';
 import { EditTechnicianComponent } from './edit-technician/edit-technician.component';
+import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -103,6 +104,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupformComponent },
   { path: 'completed/:id', component: RequestdetailsCompleteComponent },
   { path: 'edit-technician/:id', component: EditTechnicianComponent },
+  { path: 'termsandconditions', component: TermsandconditionsComponent },
 ];
 
 @NgModule({

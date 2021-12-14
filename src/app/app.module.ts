@@ -84,6 +84,7 @@ import { LoginformAdminComponent } from './loginform-admin/loginform-admin.compo
 import { RequestdetailsPendingComponent } from './requestdetails-pending/requestdetails-pending.component';
 import { RequestdetailsCompleteComponent } from './requestdetails-complete/requestdetails-complete.component';
 import { EditTechnicianComponent } from './edit-technician/edit-technician.component';
+import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
 //payment
 // import {AdyenCheckout} from '@adyen/adyen-web';
 // import '@adyen/adyen-web/dist/adyen.css';
@@ -148,6 +149,7 @@ import { EditTechnicianComponent } from './edit-technician/edit-technician.compo
     RequestdetailsPendingComponent,
     RequestdetailsCompleteComponent,
     EditTechnicianComponent,
+    TermsandconditionsComponent,
   ],
   imports: [
     BrowserModule,
