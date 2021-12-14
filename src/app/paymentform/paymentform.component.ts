@@ -60,7 +60,12 @@ export class PaymentformComponent implements OnInit {
   }
 
   deleteOne() {
-    this.auth.deleteRequest(this.service._id).subscribe(data => {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+    this.auth.deleteRequest(this.service._id, httpOptions).subscribe(data => {
       this.data = data
     })
   }
@@ -71,7 +76,6 @@ export class PaymentformComponent implements OnInit {
       this.deleteOne()
       localStorage.removeItem("service");
       this.router.navigate(['dashboard']);
-      localStorage.setItem('firstLogin', "true");
       return true;
     } else {
       return false;

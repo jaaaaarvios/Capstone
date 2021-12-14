@@ -1,99 +1,127 @@
-<mat-toolbar>
-    <img class="logo" mat-card-image src="../../assets/mainlogo.png" routerLink="/home">
-    <label class="menuBtn" [matMenuTriggerFor]="menu">Our Services<mat-icon>expand_more</mat-icon></label>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/menu_aircon">Aircon</button>
-        <button mat-menu-item routerLink="/menu_ref">Refrigerator</button>
-        <button mat-menu-item routerLink="/menu_fan">Electric Fan</button>
-        <button mat-menu-item routerLink="/menu_washing">Washing Machine</button>
-        <button mat-menu-item routerLink="/menu_tv">Television</button>
-    </mat-menu>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+        <br>
 
-    <label class="pricingBtn" routerLink="/pricing">Pricing</label>
-    <label class="contactUsBtn" routerLink="/contact_us">Contact Us</label>
-    <label class="aboutusBtn" routerLink="/about_us">About Us</label>
-    <div *ngIf="token != null; else notLogin">
-        <label class="aboutusBtn" (click)="goDashboard()">My Account</label>
-    </div>
-    <ng-template #notLogin></ng-template>
-    <span class="spacer"></span>
-    <div *ngIf="token != null; else notLogin1"></div>
-    <ng-template #notLogin1><button mat-raised-button class="loginBtn" routerLink="/loginform">Login / Sign Up</button></ng-template>
-</mat-toolbar>
+        <mat-nav-list class="nav-list">
+            <img class="logo" mat-card-image src="../../assets/mainlogo.png">
+            <img class="adminvector" mat-card-image src="../../assets/customervector.png">
 
-<div>
-    <mat-card class="termscard">
-        <img class="termsvector" mat-card-image src="../../assets/terms.png">
+            <h1 class="sidetitle">{{fname}}</h1>
 
-        <h1>Terms and Conditions</h1>
-        <label>Read our Terms and Conditions here.</label>
+            <div class="dashboardside" routerLink="/dashboard">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label>home</mat-icon>
+                    <a class="dashboard-btn">Home</a>
+                </mat-list-item>
+            </div>
+            <div class="bookingside" routerLink="/bookingform">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">insert_invitation</mat-icon>
+                    <a class="booking-btn">Book a Service</a>
+                </mat-list-item>
+            </div>
+            <div class="profileside" routerLink="/profile">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">account_circle</mat-icon>
+                    <a class="profile-btn">Profile</a>
+                </mat-list-item>
+            </div>
+            <div class="termside" routerLink="/termsandconditions">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">announcement</mat-icon>
+                    <a class="term-btn">Privacy | Terms and Conditions</a>
+                </mat-list-item>
+            </div>
+
+            <div class="logoutside" (click)="logout()">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon">exit_to_app</mat-icon>
+                    <a class="logout-btn">Logout</a>
+                </mat-list-item>
+            </div>
+
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        </mat-toolbar>
 
         <div>
-            <p class="p1">By using and accessing AyosGamit, the service and content (i.e. any information, data, or other content or materials appearing or otherwise made accessible on or through the site or application), the Service Users and Service Technicians agree
-                to be bound by these terms.
-            </p>
+            <mat-card class="termscard">
+                <img class="termsvector" mat-card-image src="../../assets/terms.png">
 
-            <p class="p2">The Service Users and Service Technicians hereby voluntarily give their consent to AyosGamit to use for any lawful purposes and/or share their personal information to third parties.
-            </p>
+                <h1>Terms and Conditions</h1>
+                <label>Read our Terms and Conditions here.</label>
 
-            <h1 class="title1"><b>Services</b></h1>
+                <div>
+                    <p class="p1">By using and accessing AyosGamit, the service and content (i.e. any information, data, or other content or materials appearing or otherwise made accessible on or through the site or application), the Service Users and Service Technicians
+                        agree to be bound by these terms.
+                    </p>
 
-            <p class="p2">The Platform AyosGamit, shall connect Service Users and Service Technicians. The following are the services offered by AyosGamit:
-            </p>
-            <p class="p3">a. Appliances Repair
-            </p>
-            <p class="p3">b. Appliances Cleaning
-            </p>
-            <p class="p3">c. Appliances Installation and Dismantling
-            </p>
+                    <p class="p2">The Service Users and Service Technicians hereby voluntarily give their consent to AyosGamit to use for any lawful purposes and/or share their personal information to third parties.
+                    </p>
 
-            <h1 class="title2"><b>User's Representation and Undertakings</b></h1>
+                    <h1 class="title1"><b>Services</b></h1>
 
-            <p class="p2">By submitting your account application, you confirm the following:
-            </p>
-            <p class="p3">a. You are over 18 years of age.
-            </p>
-            <p class="p3">b. All the information you have entered in this website as a Service User are true and correct.
-            </p>
-            <p class="p3">c. You undertake to pay for any Services requested through the use of the website.
-            </p>
-            <p class="p3">d. You have the authority to enter and be bound by these Terms of Use.
-            </p>
-            <p class="p3">e. You undertake to pay any and all fees for booking Service Technicians through AyosGamit website.
-            </p>
+                    <p class="p2">The Platform AyosGamit, shall connect Service Users and Service Technicians. The following are the services offered by AyosGamit:
+                    </p>
+                    <p class="p3">a. Appliances Repair
+                    </p>
+                    <p class="p3">b. Appliances Cleaning
+                    </p>
+                    <p class="p3">c. Appliances Installation and Dismantling
+                    </p>
 
-            <h1 class="title2"><b>Payment Policy</b></h1>
+                    <h1 class="title2"><b>User's Representation and Undertakings</b></h1>
 
-            <p class="p2">You approve and agree that there will be charges and fees for the services rendered by the Service Technicians of AyosGamit. The payment method that AyosGamit platform caters are the following:
-            </p>
-            <p class="p3">a. Paypal
-            </p>
-            <p class="p3">b. Cash
-            </p>
-            <p class="p2">By using Paypal, you understand and agree that you need to provide some information to pay charges and fees for the service you obtained.
-            </p>
-            <p class="p2">By using Cash, AyosGamit will facilitate payment of the charges on behalf of the Service Technicians.
-            </p>
-            <p class="p2">By utilizing the Services, it is understood and agreed that payment of the Charges in such manner shall be considered the same as payment made directly by you to the Service Technician. Charges paid are final and non-refundable.
+                    <p class="p2">By submitting your account application, you confirm the following:
+                    </p>
+                    <p class="p3">a. You are over 18 years of age.
+                    </p>
+                    <p class="p3">b. All the information you have entered in this website as a Service User are true and correct.
+                    </p>
+                    <p class="p3">c. You undertake to pay for any Services requested through the use of the website.
+                    </p>
+                    <p class="p3">d. You have the authority to enter and be bound by these Terms of Use.
+                    </p>
+                    <p class="p3">e. You undertake to pay any and all fees for booking Service Technicians through AyosGamit website.
+                    </p>
 
-            </p>
+                    <h1 class="title2"><b>Payment Policy</b></h1>
+
+                    <p class="p2">You approve and agree that there will be charges and fees for the services rendered by the Service Technicians of AyosGamit. The payment method that AyosGamit platform caters are the following:
+                    </p>
+                    <p class="p3">a. Paypal
+                    </p>
+                    <p class="p3">b. Cash
+                    </p>
+                    <p class="p2">By using Paypal, you understand and agree that you need to provide some information to pay charges and fees for the service you obtained.
+                    </p>
+                    <p class="p2">By using Cash, AyosGamit will facilitate payment of the charges on behalf of the Service Technicians.
+                    </p>
+                    <p class="p2">By utilizing the Services, it is understood and agreed that payment of the Charges in such manner shall be considered the same as payment made directly by you to the Service Technician. Charges paid are final and non-refundable.
+
+                    </p>
 
 
-            <h1 class="title2"><b>Cancellation Policy</b></h1>
+                    <h1 class="title2"><b>Cancellation Policy</b></h1>
 
-            <p class="p2">Service requests may be cancelled at least 3 hours prior to the service request. Cancellation shall be coursed through the site or our website. A P200 cancellation fee shall be charged against the Service User if cancellation of service request
-                was made beyond 2 hours from request of if the Service Technician is already on-site, whichever comes first.
-            </p>
-            <h1 class="title2"><b>Refund</b></h1>
-            <p class="p2">By paying Paypal, if you wish to cancel the service you obtained 3 hours prior to the service request, the management will automatically refund your payment through Paypal as well. Otherwise, there will be no refund if cancellation of service
-                request was made beyond 2 hours from request of if the Service Technician is already on-site, whichever comes first.
-            </p>
+                    <p class="p2">Service requests may be cancelled at least 3 hours prior to the service request. Cancellation shall be coursed through the site or our website. A P200 cancellation fee shall be charged against the Service User if cancellation of service
+                        request was made beyond 2 hours from request of if the Service Technician is already on-site, whichever comes first.
+                    </p>
+                    <h1 class="title2"><b>Refund</b></h1>
+                    <p class="p2">By paying Paypal, if you wish to cancel the service you obtained 3 hours prior to the service request, the management will automatically refund your payment through Paypal as well. Otherwise, there will be no refund if cancellation
+                        of service request was made beyond 2 hours from request of if the Service Technician is already on-site, whichever comes first.
+                    </p>
+                </div>
+            </mat-card>
         </div>
-
-
-
-
-
-
-    </mat-card>
-</div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

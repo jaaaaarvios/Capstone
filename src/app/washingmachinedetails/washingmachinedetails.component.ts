@@ -117,7 +117,6 @@ export class WashingmachinedetailsComponent implements OnInit {
       service_lastname: ['', Validators.required],
       service_phoneNumber: ['', [Validators.required, Validators.pattern]],
       service_addressDetails: ['', Validators.required],
-      service_instruction: ['', Validators.required],
       special_instruction: [''],
     });
 
@@ -137,7 +136,6 @@ export class WashingmachinedetailsComponent implements OnInit {
         service_lastname: result.last_name,
         service_phoneNumber: result.number,
         service_addressDetails: result.service_addressDetails,
-        service_instruction: "",
         special_instruction: ""
       });
       this.locationForm.setValue({
@@ -280,7 +278,6 @@ export class WashingmachinedetailsComponent implements OnInit {
         "service_lastname": contact.service_lastname,
         "service_phoneNumber": contact.service_phoneNumber,
         "service_addressDetails": contact.service_addressDetails,
-        "service_instruction": contact.service_instruction,
         "status": this.status,
         "checkupfee": this.chupfee,
         "cleaningfee": this.cleanfee,

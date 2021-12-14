@@ -172,24 +172,6 @@
                             <td class="body4">{{service.service_timeslot}}</td>
                             <td class="body4">
                                 <mat-form-field class="textfield" appearance="outline">
-                                    <mat-label>Instructions</mat-label>
-                                    <input matInput formControlName="service_instruction" [errorStateMatcher]="matcher" placeholder="Any instruction to the technician?" autocomplete="off">
-                                    <mat-error *ngIf="summaryForm.get('service_instruction').hasError('required')">
-                                        Any instructions?
-                                    </mat-error>
-                                </mat-form-field>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <thead>
-                        <tr>
-                            <th class="header4">Special Instruction/Request</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="body4">
-                                <mat-form-field class="instructions" appearance="outline">
                                     <mat-label>Special Instruction (Optional)</mat-label>
                                     <input matInput formControlName="special_instruction" [errorStateMatcher]="matcher" placeholder="Any special instruction/request?" autocomplete="off">
                                 </mat-form-field>

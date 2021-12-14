@@ -29,6 +29,12 @@
                     <a class="profile-btn">Profile</a>
                 </mat-list-item>
             </div>
+            <div class="termside" routerLink="/termsandconditions">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">announcement</mat-icon>
+                    <a class="term-btn">Privacy | Terms and Conditions</a>
+                </mat-list-item>
+            </div>
 
             <div class="logoutside" (click)="logout()">
                 <mat-list-item (click)="closeSideNav()">
@@ -38,10 +44,6 @@
             </div>
 
         </mat-nav-list>
-
-        <div class="termsside" routerLink="/termsandconditions">
-            <a class="termstxt">Privacy | Terms and Conditions</a>
-        </div>
     </mat-sidenav>
 
     <mat-sidenav-content>

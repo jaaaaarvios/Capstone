@@ -27,7 +27,12 @@
                     <a class="profile-btn" routerLink="/profile">Profile</a>
                 </mat-list-item>
             </div>
-
+            <div class="termside" routerLink="/termsandconditions">
+                <mat-list-item (click)="closeSideNav()">
+                    <mat-icon class="nav-icon" aria-hidden="false" aria-label="">announcement</mat-icon>
+                    <a class="term-btn">Privacy | Terms and Conditions</a>
+                </mat-list-item>
+            </div>
             <div class="logoutside">
                 <mat-list-item (click)="closeSideNav()">
                     <mat-icon class="nav-icon">exit_to_app</mat-icon>
@@ -337,11 +342,8 @@
                                 </mat-form-field>
                                 <!--Instructions-->
                                 <mat-form-field class="instructions" appearance="outline">
-                                    <mat-label>Instructions</mat-label>
-                                    <input matInput formControlName="service_instruction" [errorStateMatcher]="matcher" placeholder="Leave us an instruction" autocomplete="off">
-                                    <mat-error *ngIf="contactDetialsForm.get('service_instruction').hasError('required')">
-
-                                    </mat-error>
+                                    <mat-label>Instructions (Optional)</mat-label>
+                                    <input matInput formControlName="special_instruction" [errorStateMatcher]="matcher" placeholder="Leave us an instruction" autocomplete="off">
                                 </mat-form-field>
                             </div>
                         </mat-card>

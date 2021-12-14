@@ -56,7 +56,6 @@ export class BookingsummaryEditComponent implements OnInit {
       service_phoneNumber: ['', [Validators.required, Validators.pattern]],
       service_address: ['', Validators.required],
       service_addressDetails: ['', Validators.required],
-      service_instruction: ['', Validators.required],
       service_city: ['', Validators.required],
       service_property_type: ['', Validators.required],
       service_barangay: ['', Validators.required],
@@ -68,7 +67,6 @@ export class BookingsummaryEditComponent implements OnInit {
       service_address: this.service.service_address,
       service_phoneNumber: this.service.service_phoneNumber,
       service_addressDetails: this.service.service_addressDetails,
-      service_instruction: this.service.service_instruction,
       service_barangay: this.service.service_barangay,
       service_city: this.service.service_city,
       service_property_type: this.service.service_property_type,
@@ -77,7 +75,12 @@ export class BookingsummaryEditComponent implements OnInit {
   }
 
   deleteOne() {
-    this.auth.deleteRequest(this.service._id).subscribe(data => {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+    this.auth.deleteRequest(this.service._id, httpOptions).subscribe(data => {
       this.data = data
     })
   }
@@ -96,7 +99,6 @@ export class BookingsummaryEditComponent implements OnInit {
       this.deleteOne()
       localStorage.removeItem("service");
       this.router.navigate(['dashboard'])
-      localStorage.setItem('firstLogin', "true")
       return true;
     } else {
       return false;
@@ -210,7 +212,6 @@ export class BookingsummaryEditComponent implements OnInit {
         "service_address": summary.service_address,
         "service_phoneNumber": summary.service_phoneNumber,
         "service_addressDetails": summary.service_addressDetails,
-        "service_instruction": summary.service_instruction,
         "service_barangay": summary.service_barangay,
         "service_city": summary.service_city,
         "service_property_type": summary.service_property_type,

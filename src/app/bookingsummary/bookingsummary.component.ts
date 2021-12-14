@@ -39,16 +39,6 @@ export class BookingsummaryComponent implements OnInit {
       this.router.navigate(['/dashboard'])
     }
   }
-
-  deleteOne() {
-    this.auth.deleteRequest(this.service._id).subscribe(data => {
-      this.data = data
-    })
-  }
-
-  cancelRequest() {
-    this.router.navigate(['/booking']);
-  }
   closeSideNav() {
     if (this.drawer._mode == 'over') {
       this.drawer.close();
@@ -58,13 +48,22 @@ export class BookingsummaryComponent implements OnInit {
     this.router.navigate(['payment'])
     localStorage.setItem('firstLogin', "true")
   }
+  deleteOne() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.token
+      })
+    }
+    this.auth.deleteRequest(this.service._id, httpOptions).subscribe(data => {
+      this.data = data
+    })
+  }
   getConfirmation() {
     var retVal = confirm("By cancelling your booking, all data will be lost. ");
     if (retVal == true) {
       this.deleteOne()
       this.router.navigate(['dashboard'])
       localStorage.removeItem("service");
-      localStorage.setItem('firstLogin', "true")
       return true;
     } else {
       return false;

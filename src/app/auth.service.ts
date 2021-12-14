@@ -24,9 +24,8 @@ export class AuthService {
   deleteTechnician(_id, httpOptions) {
     return this.http.delete("https://dhdev-ayosgamit.herokuapp.com/technician/"+ _id, httpOptions).pipe(map((res: any) => res));
   }
-
-  deleteRequest(_id) {
-    return this.http.delete("https://dhdev-ayosgamit.herokuapp.com/NewServiceRequest/"+ _id).pipe(map((res: any) => res));
+  deleteRequest(_id, httpOptions) {
+    return this.http.delete("https://dhdev-ayosgamit.herokuapp.com/NewServiceRequest/"+ _id, httpOptions).pipe(map((res: any) => res));
   }
 
   getTechnician(_id) {
